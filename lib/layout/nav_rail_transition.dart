@@ -18,8 +18,6 @@ class NavRailTransition extends StatefulWidget {
 }
 
 class _NavRailTransitionState extends State<NavRailTransition> {
-  // The animations are only rebuilt by this method when the text
-  // direction changes because this widget only depends on Directionality.
   late final bool ltr = Directionality.of(context) == TextDirection.ltr;
   late final Animation<Offset> offsetAnimation = Tween<Offset>(
     begin: ltr ? const Offset(-1, 0) : const Offset(1, 0),

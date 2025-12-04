@@ -29,23 +29,24 @@ class DisappearingNavigationRail extends StatelessWidget {
         selectedIndex: selectedIndex,
         backgroundColor: backgroundColor,
         onDestinationSelected: onDestinationSelected,
-        leading: Column(
-          children: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
-            const SizedBox(height: 8),
-            // AnimatedFloatingActionButton(
-            //   animation: railFabAnimation,
-            //   elevation: 0,
-            //   onPressed: () {},
-            //   child: const Icon(Icons.add),
-            // ),
-          ],
-        ),
+        // leading: Column(
+        //   children: [
+        //     IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+        //     const SizedBox(height: 8),
+        //     // AnimatedFloatingActionButton(
+        //     //   animation: railFabAnimation,
+        //     //   elevation: 0,
+        //     //   onPressed: () {},
+        //     //   child: const Icon(Icons.add),
+        //     // ),
+        //   ],
+        // ),
         groupAlignment: -0.85,
         destinations: destinations.map((d) {
           return NavigationRailDestination(
             icon: Icon(d.icon),
             label: Text(d.label),
+            selectedIcon: Icon(d.selectedIcon)
           );
         }).toList(),
       ),

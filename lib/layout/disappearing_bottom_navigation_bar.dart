@@ -25,7 +25,11 @@ class DisappearingBottomNavigationBar extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         destinations: destinations.map<NavigationDestination>((d) {
-          return NavigationDestination(icon: Icon(d.icon), label: d.label);
+          return NavigationDestination(
+            icon: Icon(d.icon),
+            selectedIcon: Icon(d.selectedIcon),
+            label: d.label,
+          );
         }).toList(),
         selectedIndex: selectedIndex,
         onDestinationSelected: onDestinationSelected,
