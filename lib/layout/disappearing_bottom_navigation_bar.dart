@@ -24,10 +24,12 @@ class DisappearingBottomNavigationBar extends StatelessWidget {
       child: NavigationBar(
         elevation: 0,
         backgroundColor: Colors.white,
+        indicatorColor: Colors.white,
+        height: 56,
         destinations: destinations.map<NavigationDestination>((d) {
           return NavigationDestination(
-            icon: Icon(d.icon),
-            selectedIcon: Icon(d.selectedIcon),
+            icon: Icon(d.icon, size: 20),
+            selectedIcon: Icon(d.selectedIcon, size: 20),
             label: d.label,
           );
         }).toList(),

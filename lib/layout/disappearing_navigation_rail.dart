@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import './destinations.dart';
-import './animations.dart'; // Add this import
-import './nav_rail_transition.dart'; // Add this import
+import './animations.dart';
+import './nav_rail_transition.dart';
+import 'package:fetion/widgets/Avatar.dart';
 // import 'animated_floating_action_button.dart';  
 
 class DisappearingNavigationRail extends StatelessWidget {
@@ -29,24 +30,29 @@ class DisappearingNavigationRail extends StatelessWidget {
         selectedIndex: selectedIndex,
         backgroundColor: backgroundColor,
         onDestinationSelected: onDestinationSelected,
-        // leading: Column(
-        //   children: [
-        //     IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
-        //     const SizedBox(height: 8),
-        //     // AnimatedFloatingActionButton(
-        //     //   animation: railFabAnimation,
-        //     //   elevation: 0,
-        //     //   onPressed: () {},
-        //     //   child: const Icon(Icons.add),
-        //     // ),
-        //   ],
-        // ),
+        indicatorColor: Colors.white,
+        selectedIconTheme: IconThemeData(color: Colors.amber),
+        minWidth: 58,
+        // useIndicator: false,
+        leading: Column(
+          children: [
+            // IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+            Avatar(),
+            // const SizedBox(height: 8),
+            // AnimatedFloatingActionButton(
+            //   animation: railFabAnimation,
+            //   elevation: 0,
+            //   onPressed: () {},
+            //   child: const Icon(Icons.add),
+            // ),
+          ],
+        ),
         groupAlignment: -0.85,
         destinations: destinations.map((d) {
           return NavigationRailDestination(
-            icon: Icon(d.icon),
+            icon: Icon(d.icon, size: 22),
             label: Text(d.label),
-            selectedIcon: Icon(d.selectedIcon)
+            selectedIcon: Icon(d.selectedIcon, size: 22),
           );
         }).toList(),
       ),
