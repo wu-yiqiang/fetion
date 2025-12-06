@@ -97,11 +97,6 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
               ),
             ],
           ),
-          // floatingActionButton: AnimatedFloatingActionButton(
-          //   animation: _barAnimation,
-          //   onPressed: () {},
-          //   child: const Icon(Icons.add),
-          // ),
           bottomNavigationBar: DisappearingBottomNavigationBar(
             barAnimation: _barAnimation,
             selectedIndex: selectedIndex,

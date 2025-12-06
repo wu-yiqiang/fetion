@@ -9,7 +9,7 @@ class Destination {
 
 const List<Destination> destinations = <Destination>[
   Destination(Icons.message_outlined, Icons.message, 'Message'),
-  Destination(Icons.group_outlined, Icons.group, 'Contact'),
-  Destination(Icons.assignment_ind_outlined, Icons.assignment_ind, 'Me'),
+  Destination(Icons.person_outline, Icons.person, 'Contact'),
+  Destination(Icons.manage_accounts_outlined, Icons.manage_accounts, 'Me'),
   Destination(Icons.settings_outlined, Icons.settings, 'Setting'),
 ];

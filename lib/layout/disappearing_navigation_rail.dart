@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:flutter/material.dart';
 import './destinations.dart';
 import './animations.dart';
@@ -31,7 +32,7 @@ class DisappearingNavigationRail extends StatelessWidget {
         backgroundColor: backgroundColor,
         onDestinationSelected: onDestinationSelected,
         indicatorColor: Colors.white,
-        selectedIconTheme: IconThemeData(color: Colors.amber),
+        selectedIconTheme: IconThemeData(color: primaryColor),
         minWidth: 58,
         // useIndicator: false,
         leading: Column(
