@@ -34,21 +34,12 @@ class DisappearingNavigationRail extends StatelessWidget {
         indicatorColor: Colors.white,
         selectedIconTheme: IconThemeData(color: primaryColor),
         minWidth: 58,
-        // useIndicator: false,
         leading: Column(
           children: [
-            // IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
             Avatar(),
-            // const SizedBox(height: 8),
-            // AnimatedFloatingActionButton(
-            //   animation: railFabAnimation,
-            //   elevation: 0,
-            //   onPressed: () {},
-            //   child: const Icon(Icons.add),
-            // ),
           ],
         ),
-        groupAlignment: -0.85,
+        // groupAlignment: -0.85,
         destinations: destinations.map((d) {
           return NavigationRailDestination(
             icon: Icon(d.icon, size: 22),

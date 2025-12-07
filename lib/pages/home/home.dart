@@ -1,3 +1,5 @@
+import 'package:fetion/navigate/router_table.dart';
+import 'package:fetion/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import '../../layout/destinations.dart';
 import '../../layout/disappearing_bottom_navigation_bar.dart';
@@ -53,7 +55,6 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
       controllerInitialized = true;
       _controller.value = width > 600 ? 1 : 0;
     }
-
   }
 
   @override
@@ -61,6 +62,7 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -77,6 +79,9 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
                 onDestinationSelected: (index) {
                   setState(() {
                     selectedIndex = index;
+                    if (index == 3) {
+                      eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
+                    }
                   });
                 },
               ),

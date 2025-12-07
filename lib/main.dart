@@ -1,8 +1,12 @@
 import 'package:fetion/navigate/router_table.dart';
+import 'package:fetion/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
+  eventBus.on(Events.NAVIGATE.name, (ROUTERKEY) {
+    Get.toNamed(ROUTERKEY!);
+  });
   runApp(
     GetMaterialApp(
       initialRoute: "/",
@@ -23,4 +27,3 @@ void main() {
     ),
   );
 }
-
