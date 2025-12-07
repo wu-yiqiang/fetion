@@ -1,11 +1,10 @@
 import 'package:fetion/navigate/router_table.dart';
+import 'package:fetion/pages/messages/desktop/message_bar.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:flutter/material.dart';
-import '../../layout/destinations.dart';
 import '../../layout/disappearing_bottom_navigation_bar.dart';
 import '../../layout/disappearing_navigation_rail.dart';
-import '../../layout/animations.dart'; // Add this import
-// import './../layout/animated_floating_action_button.dart'; // Add this import
+import '../../layout/animations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,11 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
-  // late final _colorScheme = Theme.of(context).colorScheme;
-  // late final _backgroundColor = Color.alphaBlend(
-  //   _colorScheme.primary.withAlpha(36),
-  //   _colorScheme.surface,
-  // );
   late final _controller = AnimationController(
     duration: const Duration(milliseconds: 1000),
     reverseDuration: const Duration(milliseconds: 1250),
@@ -29,16 +23,14 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
   late final _railAnimation = RailAnimation(parent: _controller);
   late final _railFabAnimation = RailFabAnimation(parent: _controller);
   late final _barAnimation = BarAnimation(parent: _controller);
-  int selectedIndex = 0; // Add this variable
-  bool controllerInitialized = false; // Add this variable
+  int selectedIndex = 0;
+  bool controllerInitialized = false;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
     final double width = MediaQuery.of(context).size.width;
-    // Remove wideScreen reference
-    // Add from here ...
     final AnimationStatus status = _controller.status;
     if (width > 600) {
       if (status != AnimationStatus.forward &&
@@ -86,19 +78,7 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
                 },
               ),
               Expanded(
-                child: Container(
-                  // color: _backgroundColor,
-                  child: Text("sdsd"),
-                  // child: EmailListView(
-                  //   selectedIndex: selectedIndex,
-                  //   onSelected: (index) {
-                  //     setState(() {
-                  //       selectedIndex = index;
-                  //     });
-                  //   },
-                  //   // currentUser: widget.currentUser,
-                  // ),
-                ),
+                child: MessageBar(),
               ),
             ],
           ),
