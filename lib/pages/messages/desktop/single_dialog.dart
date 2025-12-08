@@ -1,0 +1,28 @@
+import 'package:fetion/pages/messages/desktop/input_dialog.dart';
+import 'package:fetion/pages/messages/desktop/main_dialog.dart';
+import 'package:fetion/pages/messages/desktop/single_topbar.dart';
+import 'package:flutter/material.dart';
+
+class SingleDialog extends StatefulWidget {
+  const SingleDialog({super.key});
+  @override
+  State<SingleDialog> createState() => _SingleDialog();
+}
+
+class _SingleDialog extends State<SingleDialog> {
+  @override
+  Widget build(BuildContext context) {
+    return Flex(
+      direction: Axis.vertical,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SingleTopbar(),
+        Expanded(
+          child: MainDialog(),
+        ),
+        InputDialog(),
+      ],
+    );
+  }
+}

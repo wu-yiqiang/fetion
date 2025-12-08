@@ -1,5 +1,6 @@
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/messages/desktop/message_bar.dart';
+import 'package:fetion/pages/messages/desktop/single_dialog.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import '../../layout/disappearing_bottom_navigation_bar.dart';
@@ -77,9 +78,11 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
                   });
                 },
               ),
-              Expanded(
-                child: MessageBar(),
-              ),
+              MessageBar(),
+              // Expanded(
+              //   child: MessageBar(),
+              // ),
+              Expanded(child: SingleDialog()),
             ],
           ),
           bottomNavigationBar: DisappearingBottomNavigationBar(
