@@ -1,4 +1,6 @@
 import 'package:fetion/navigate/router_table.dart';
+import 'package:fetion/pages/contact/desktop/contact.dart' show ContactBar;
+import 'package:fetion/pages/me/me.dart' show MePage;
 import 'package:fetion/pages/messages/desktop/message_bar.dart';
 import 'package:fetion/pages/messages/desktop/single_dialog.dart';
 import 'package:fetion/utils/EventBus.dart';
@@ -78,11 +80,16 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
                   });
                 },
               ),
-              MessageBar(),
+              ?selectedIndex == 0 ? MessageBar() : null,
+              ?selectedIndex == 1 ? ContactBar() : null,
+              ?selectedIndex == 2 ? MePage() : null,
+              
               // Expanded(
               //   child: MessageBar(),
               // ),
-              Expanded(child: SingleDialog()),
+              ?selectedIndex == 0 || selectedIndex == 1
+                  ? Expanded(child: SingleDialog())
+                  : null,
             ],
           ),
           bottomNavigationBar: DisappearingBottomNavigationBar(

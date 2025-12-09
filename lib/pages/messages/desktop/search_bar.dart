@@ -12,10 +12,9 @@ class _SearchsBar extends State<SearchsBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 10, left: 16, right: 8, bottom: 3),
+      padding: EdgeInsets.only(top: 10, left: 8, right: 8, bottom: 3),
       decoration: BoxDecoration(
         border: Border(bottom: BorderSide(width: 1, color: white10)),
-        // color: Colors.amber
       ),
       child: Flex(
         direction: Axis.horizontal,
@@ -34,7 +33,7 @@ class _SearchsBar extends State<SearchsBar> {
                 contentPadding: EdgeInsets.zero,
                 prefixIconConstraints: BoxConstraints(
                   minWidth: 32,
-                  minHeight: 32,
+                  minHeight: 28,
                 ),
                 floatingLabelStyle: TextStyle(color: Colors.blueAccent),
                 isDense: true,
@@ -50,10 +49,10 @@ class _SearchsBar extends State<SearchsBar> {
               ),
             ),
           ),
-          InkWells(
-            child: Icon(Icons.add_box_outlined, size: 28),
-            onPress: () {},
-          ),
+          // InkWells(
+          //   child: Icon(Icons.add_box_outlined, size: 28),
+          //   onPress: () {},
+          // ),
         ],
       ),
     );

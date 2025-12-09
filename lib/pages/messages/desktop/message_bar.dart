@@ -12,7 +12,7 @@ class _MessageBar extends State<MessageBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 260,
+      width: 240,
         color: const Color.fromARGB(255, 240, 240, 240),
         child: Column(
           children: [
