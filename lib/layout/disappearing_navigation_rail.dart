@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import './destinations.dart';
 import './animations.dart';
 import './nav_rail_transition.dart';
-import 'package:fetion/widgets/Avatar.dart';
+import 'package:fetion/widgets/StatusAvatar.dart';
 // import 'animated_floating_action_button.dart';  
 
 class DisappearingNavigationRail extends StatelessWidget {
@@ -36,7 +36,7 @@ class DisappearingNavigationRail extends StatelessWidget {
         minWidth: 58,
         leading: Column(
           children: [
-            Avatar(),
+            StatusAvatar(image: 'assets/images/user.jpg'),
           ],
         ),
         // groupAlignment: -0.85,

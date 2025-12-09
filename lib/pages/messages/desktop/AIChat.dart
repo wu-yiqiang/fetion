@@ -1,4 +1,8 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/pages/messages/desktop/widges/ChatBox.dart' show ChatBox;
+import 'package:fetion/pages/messages/desktop/widges/TimeStamps.dart'
+    show TimeStamps;
+import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:flutter/material.dart';
 
 class AiChat extends StatefulWidget {
@@ -16,41 +20,14 @@ class _AiChat extends State<AiChat> {
       direction: Axis.horizontal,
       spacing: 10,
       children: [
-        SizedBox(
-          height: 40,
-          width: 40,
-          child: CircleAvatar(
-            radius: 20,
-            backgroundImage: AssetImage(widget.item['avatar']),
-            backgroundColor: white10,
-          ),
-        ),
+        Avatar(image: widget.item['avatar']),
         Expanded(
           flex: 8,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                child: Text(
-                  widget.item['time'],
-                  style: TextStyle(fontSize: 14, color: primaryColor),
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: primaryColor,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                padding: EdgeInsets.all(10),
-                child: Text(
-                  widget.item['text'],
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+              TimeStamps(timeStamp: widget.item['time']),
+              ChatBox(text: widget.item['text']),
             ],
           ),
         ),

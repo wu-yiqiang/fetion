@@ -1,3 +1,4 @@
+import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:flutter/material.dart';
 
 class Message extends StatefulWidget {
@@ -20,10 +21,7 @@ class _Message extends State<Message> {
         child: Row(
           spacing: 10,
           children: [
-            CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage("assets/images/user.jpg"),
-            ),
+            Avatar(size: 30, image: "assets/images/user.jpg"),
             Expanded(
               child: Column(
                 children: [
