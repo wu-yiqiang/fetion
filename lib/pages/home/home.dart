@@ -3,6 +3,7 @@ import 'package:fetion/pages/contact/desktop/contact.dart' show ContactBar;
 import 'package:fetion/pages/me/me.dart' show MePage;
 import 'package:fetion/pages/messages/desktop/message_bar.dart';
 import 'package:fetion/pages/messages/desktop/single_dialog.dart';
+import 'package:fetion/pages/setting/setting.dart' show SettingPage;
 import 'package:fetion/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 import '../../layout/disappearing_bottom_navigation_bar.dart';
@@ -83,6 +84,7 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
               ?selectedIndex == 0 ? MessageBar() : null,
               ?selectedIndex == 1 ? ContactBar() : null,
               ?selectedIndex == 2 ? MePage() : null,
+              ?selectedIndex == 4 ? SettingPage() : null,
               
               // Expanded(
               //   child: MessageBar(),

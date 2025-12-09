@@ -31,31 +31,6 @@ class _LoginPage extends State<LoginPage> {
                 child: Column(
                   spacing: 14,
                   children: [
-                    // TextFormField(
-                    //   keyboardType: TextInputType.text,
-                    //   initialValue: "Fetion",
-                    //   // onChanged: (value) {
-                    //   //   loginController.setLoginForm('email', value);
-                    //   // },
-                    //   decoration: InputDecoration(
-                    //     labelText: "account",
-                    //     hintText: "account",
-                    //     floatingLabelStyle: TextStyle(color: Colors.blueAccent),
-                    //     prefixIcon: Icon(Icons.person),
-                    //     isDense: true,
-                    //     border: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.all(Radius.circular(4)),
-                    //       borderSide: BorderSide(width: 1.0),
-                    //     ),
-                    //     focusedBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.all(Radius.circular(4)),
-                    //       borderSide: BorderSide(
-                    //         color: Colors.blueAccent,
-                    //         width: 1.0,
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       // onChanged: (value) {

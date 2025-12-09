@@ -18,11 +18,11 @@ void main() {
       // ),
       // translations: Language(),
       // initialBinding: AllControllerBinding(),
-      // theme: ThemeData(
-      //   primaryColor: whiteColor,
-      //   scaffoldBackgroundColor: greyColor,
-      //   appBarTheme: AppBarTheme(color: greyColor),
-      // ),
+      theme: ThemeData(
+        primaryColor: Colors.white,
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(color: Colors.white),
+      ),
       //  builder: EasyLoading.init(),
     ),
   );

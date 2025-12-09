@@ -11,5 +11,6 @@ const List<Destination> destinations = <Destination>[
   Destination(Icons.message_outlined, Icons.message, 'Message'),
   Destination(Icons.person_outline, Icons.person, 'Contact'),
   Destination(Icons.manage_accounts_outlined, Icons.manage_accounts, 'Me'),
+  Destination(Icons.lock_outline, Icons.lock, 'Lock'),
   Destination(Icons.settings_outlined, Icons.settings, 'Setting'),
 ];
