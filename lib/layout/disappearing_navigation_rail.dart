@@ -1,4 +1,5 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/widgets/InkWells.dart' show InkWells;
 import 'package:flutter/material.dart';
 import './destinations.dart';
 import './animations.dart';
@@ -47,6 +48,26 @@ class DisappearingNavigationRail extends StatelessWidget {
             selectedIcon: Icon(d.selectedIcon, size: 22),
           );
         }).toList(),
+        extended: false,
+
+        trailing: const Expanded(
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 20.0),
+              child: Flex(
+                spacing: 20,
+                direction: Axis.vertical,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  // InkWells(child: Icon(Icons.lock_outline, size: 20), onPress: () {}),
+                  Icon(Icons.lock_outline, size: 20),
+                  Icon(Icons.settings_outlined, size: 20),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
