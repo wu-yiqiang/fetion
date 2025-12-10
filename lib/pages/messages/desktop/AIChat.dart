@@ -20,7 +20,7 @@ class _AiChat extends State<AiChat> {
       direction: Axis.horizontal,
       spacing: 10,
       children: [
-        Avatar(image: widget.item['avatar']),
+        Avatar(image: widget.item['avatar'], size: 30),
         Expanded(
           flex: 8,
           child: Column(

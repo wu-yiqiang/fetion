@@ -81,17 +81,10 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
                   });
                 },
               ),
-              ?selectedIndex == 0 ? MessageBar() : null,
-              ?selectedIndex == 1 ? ContactBar() : null,
+              ?selectedIndex == 0 ? Expanded(child: MessageBar()) : null,
+              ?selectedIndex == 1 ? Expanded(child: ContactBar()) : null,
               ?selectedIndex == 2 ? MePage() : null,
               ?selectedIndex == 4 ? SettingPage() : null,
-              
-              // Expanded(
-              //   child: MessageBar(),
-              // ),
-              ?selectedIndex == 0 || selectedIndex == 1
-                  ? Expanded(child: SingleDialog())
-                  : null,
             ],
           ),
           bottomNavigationBar: DisappearingBottomNavigationBar(

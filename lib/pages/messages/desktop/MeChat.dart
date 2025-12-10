@@ -30,7 +30,7 @@ class _MeChat extends State<MeChat> {
             ],
           ),
         ),
-        Avatar(image: widget.item['avatar']),
+        Avatar(image: widget.item['avatar'], size: 30),
       ],
     );
   }
