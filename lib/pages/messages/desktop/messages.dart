@@ -10,29 +10,32 @@ class Messages extends StatefulWidget {
 class _Messages extends State<Messages> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.all(10),
-      child: Column(
-        spacing: 10,
-        children: [
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-          Message(),
-        ],
-      ),
+    return ScrollConfiguration(
+      behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+      child: SingleChildScrollView(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          spacing: 10,
+          children: [
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+            Message(),
+          ],
+        ),
+      )
     );
   }
 }

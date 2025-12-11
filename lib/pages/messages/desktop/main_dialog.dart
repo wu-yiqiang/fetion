@@ -2,7 +2,9 @@ import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/messages/desktop/AIChat.dart' show AiChat;
 import 'package:fetion/pages/messages/desktop/MeChat.dart' show MeChat;
 import 'package:flutter/material.dart';
+
 enum ChatType { ME, AI }
+
 class MainDialog extends StatefulWidget {
   const MainDialog({super.key});
   @override
@@ -10,7 +12,6 @@ class MainDialog extends StatefulWidget {
 }
 
 class _MainDialog extends State<MainDialog> {
-
   List answerList = [
     {
       'avatar': 'assets/images/user.jpg',
@@ -83,24 +84,19 @@ class _MainDialog extends State<MainDialog> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      child: SingleChildScrollView(
-        child: Column(
-          spacing: 10,
-          children: answerList.map((item) {
-            return item['type'] == ChatType.AI.index
-                ? AiChat(item: item)
-                : MeChat(item: item);
-          }).toList(),
+      child: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: SingleChildScrollView(
+          child: Column(
+            spacing: 10,
+            children: answerList.map((item) {
+              return item['type'] == ChatType.AI.index
+                  ? AiChat(item: item)
+                  : MeChat(item: item);
+            }).toList(),
+          ),
         ),
       ),
-      // child: Column(
-      //   spacing: 10,
-      //   children: answerList.map((item) {
-      //     return item['type'] == ChatType.AI.index
-      //         ? AiChat(item: item)
-      //         : MeChat(item: item);
-      //   }).toList(),
-      // ),
     );
   }
 }
