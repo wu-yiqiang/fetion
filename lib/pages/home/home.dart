@@ -75,16 +75,13 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
                 onDestinationSelected: (index) {
                   setState(() {
                     selectedIndex = index;
-                    if (index == 3) {
-                      eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
-                    }
                   });
                 },
               ),
               ?selectedIndex == 0 ? Expanded(child: MessageBar()) : null,
               ?selectedIndex == 1 ? Expanded(child: ContactBar()) : null,
               ?selectedIndex == 2 ? MePage() : null,
-              ?selectedIndex == 4 ? SettingPage() : null,
+              // ?selectedIndex == 4 ? SettingPage() : null,
             ],
           ),
           bottomNavigationBar: DisappearingBottomNavigationBar(

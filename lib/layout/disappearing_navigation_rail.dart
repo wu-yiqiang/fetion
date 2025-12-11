@@ -1,11 +1,12 @@
 import 'package:fetion/common/const.dart';
-import 'package:fetion/widgets/InkWells.dart' show InkWells;
+import 'package:fetion/navigate/router_table.dart';
+import 'package:fetion/utils/EventBus.dart' show eventBus, Events;
+import 'package:fetion/widgets/InkWells.dart';
 import 'package:flutter/material.dart';
 import './destinations.dart';
 import './animations.dart';
 import './nav_rail_transition.dart';
 import 'package:fetion/widgets/StatusAvatar.dart';
-// import 'animated_floating_action_button.dart';  
 
 class DisappearingNavigationRail extends StatelessWidget {
   const DisappearingNavigationRail({
@@ -49,8 +50,7 @@ class DisappearingNavigationRail extends StatelessWidget {
           );
         }).toList(),
         extended: false,
-
-        trailing: const Expanded(
+        trailing: Expanded(
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
@@ -60,9 +60,17 @@ class DisappearingNavigationRail extends StatelessWidget {
                 direction: Axis.vertical,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  // InkWells(child: Icon(Icons.lock_outline, size: 20), onPress: () {}),
-                  Icon(Icons.lock_outline, size: 20),
-                  Icon(Icons.settings_outlined, size: 20),
+                  InkWells(
+                    child: Icon(Icons.lock_outline, size: 20), 
+                    onPress: () {
+                      eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
+                    }
+                  ),
+                  InkWells(
+                    child: Icon(Icons.settings_outlined, size: 20),
+                    onPress: () {
+                    },
+                  ),
                 ],
               ),
             ),
