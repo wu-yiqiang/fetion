@@ -1,6 +1,7 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/messages/desktop/AIChat.dart' show AiChat;
 import 'package:fetion/pages/messages/desktop/MeChat.dart' show MeChat;
+import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 
 enum ChatType { ME, AI }
@@ -84,8 +85,7 @@ class _MainDialog extends State<MainDialog> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      child: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+      child: ScrollViews(
         child: SingleChildScrollView(
           child: Column(
             spacing: 10,

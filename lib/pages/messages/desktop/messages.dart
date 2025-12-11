@@ -1,4 +1,5 @@
 import 'package:fetion/pages/messages/desktop/message.dart';
+import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 
 class Messages extends StatefulWidget {
@@ -10,8 +11,7 @@ class Messages extends StatefulWidget {
 class _Messages extends State<Messages> {
   @override
   Widget build(BuildContext context) {
-    return ScrollConfiguration(
-      behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+    return ScrollViews(
       child: SingleChildScrollView(
         padding: EdgeInsets.all(10),
         child: Column(

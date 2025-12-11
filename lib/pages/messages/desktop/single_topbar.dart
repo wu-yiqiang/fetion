@@ -13,7 +13,7 @@ class _SingleTopbar extends State<SingleTopbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 54,
+      height: 42,
       padding: EdgeInsets.symmetric(horizontal: 14, vertical: 4),
       decoration: BoxDecoration(
         border: Border(bottom: BorderSide(width: 1, color: white10)),

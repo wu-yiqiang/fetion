@@ -1,4 +1,5 @@
 import 'package:fetion/pages/contact/desktop/friend.dart' show Friend;
+import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 
 class Friends extends StatefulWidget {
@@ -10,10 +11,8 @@ class Friends extends StatefulWidget {
 class _Friends extends State<Friends> {
   @override
   Widget build(BuildContext context) {
-    return ScrollConfiguration(
-      behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+    return ScrollViews(
       child: SingleChildScrollView(
-        // padding: EdgeInsets.all(10),
         child: Column(
           children: [
             Friend(),
