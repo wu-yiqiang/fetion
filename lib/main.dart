@@ -4,21 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:get/get.dart';
 
-void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await windowManager.ensureInitialized();
+windowInit() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await windowManager.ensureInitialized();
+  WindowOptions windowOptions = const WindowOptions(
+    size: Size(900, 600), // 设置默认窗口大小
+    minimumSize: Size(800, 600), // 设置最小窗口大小
+    center: true, // 设置窗口居中
+    title: "Fetion", // 设置窗口标题
+  );
+  windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.show();
+    await windowManager.focus();
+  });
+}
 
-  // WindowOptions windowOptions = WindowOptions(
-  //   size: Size(800, 600),
-  //   center: true,
-  //   backgroundColor: Colors.transparent,
-  //   skipTaskbar: false,
-  //   titleBarStyle: TitleBarStyle.hidden,
-  // );
-  // windowManager.waitUntilReadyToShow(windowOptions, () async {
-  //   await windowManager.show();
-  //   await windowManager.focus();
-  // });
+void main() async {
+  windowInit();
   eventBus.on(Events.NAVIGATE.name, (ROUTERKEY) {
     Get.toNamed(ROUTERKEY!);
   });
