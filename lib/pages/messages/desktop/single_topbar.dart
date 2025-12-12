@@ -1,6 +1,7 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/messages/desktop/topbar_tools.dart';
 import 'package:fetion/widgets/StatusAvatar.dart';
+import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
 
 class SingleTopbar extends StatefulWidget {
@@ -26,7 +27,7 @@ class _SingleTopbar extends State<SingleTopbar> {
             spacing: 10,
             children: [
               StatusAvatar(size: 30,image: 'assets/images/user.jpg'),
-              Text("啦啦啦先生")
+                Texts(text: "啦啦啦先生", color: Color.fromARGB(179, 156, 156, 156))
             ],
           )),
           TopbarTools(),

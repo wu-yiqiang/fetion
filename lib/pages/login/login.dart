@@ -1,5 +1,6 @@
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/utils/EventBus.dart';
+import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -84,7 +85,7 @@ class _LoginPage extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  child: const Text("Unlock"),
+                  child: Texts(text: "Unlock"),
                   onPressed: () {
                     eventBus.emit(Events.NAVIGATE.name, routerMap['HOME']);
                   },

@@ -1,5 +1,6 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/messages/desktop/input_tools.dart';
+import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
 
 class InputDialog extends StatefulWidget {
@@ -26,6 +27,10 @@ class _InputDialog extends State<InputDialog> {
           Expanded(
             child: Container(
               padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(240, 240, 240, 240),
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+              ),
               child: TextField(
                 maxLines: 4,
                 style: TextStyle(fontSize: 12),
@@ -42,7 +47,6 @@ class _InputDialog extends State<InputDialog> {
                 //   loginController.setLoginForm('password', value);
                 // },
               ),
-              color: const Color.fromARGB(240, 240, 240, 240),
             ),
           ),
           Flex(
@@ -60,7 +64,7 @@ class _InputDialog extends State<InputDialog> {
                       ),
                     ),
                   ),
-                  child: const Text("Send"),
+                  child: Texts(text: "Send"),
                   onPressed: () {},
                 ),
               ),

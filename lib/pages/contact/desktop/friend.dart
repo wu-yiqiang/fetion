@@ -1,5 +1,6 @@
 import 'package:fetion/common/const.dart' show white10;
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
+import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
 
 class Friend extends StatefulWidget {
@@ -23,7 +24,7 @@ class _Friend extends State<Friend> {
           children: [
             Avatar(size: 30, image: "assets/images/user.jpg"),
             Expanded(
-              child: Text("Sutter", style: TextStyle(fontSize: 14)),
+              child: Texts(text: "Sutter"),
             ),
           ],
         ),

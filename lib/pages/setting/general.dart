@@ -1,3 +1,4 @@
+import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
 
 class General extends StatefulWidget {
@@ -9,6 +10,6 @@ class General extends StatefulWidget {
 class _General extends State<General> {
   @override
   Widget build(BuildContext context) {
-    return Container(padding: EdgeInsets.all(10), child: Text("General"));
+    return Container(padding: EdgeInsets.all(10), child: Texts(text: "General"));
   }
 }
