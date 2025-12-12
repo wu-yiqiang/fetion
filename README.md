@@ -16,3 +16,9 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 飞传 项目名
+
+构建windows平台应用
+
+构建mac平台应用
+
+构建linux平台应用
