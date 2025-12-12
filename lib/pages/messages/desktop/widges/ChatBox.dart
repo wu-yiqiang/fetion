@@ -1,5 +1,4 @@
-import 'package:fetion/common/const.dart' show primaryColor;
-import 'package:fetion/widgets/Texts.dart';
+import 'package:fetion/common/const.dart';
 import 'package:flutter/material.dart';
 
 class ChatBox extends StatefulWidget {

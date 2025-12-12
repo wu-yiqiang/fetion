@@ -37,9 +37,7 @@ class DisappearingNavigationRail extends StatelessWidget {
         selectedIconTheme: IconThemeData(color: primaryColor),
         minWidth: 58,
         leading: Column(
-          children: [
-            StatusAvatar(image: 'assets/images/user.jpg'),
-          ],
+          children: [StatusAvatar(image: 'assets/images/user.jpg')],
         ),
         // groupAlignment: -0.85,
         destinations: destinations.map((d) {
@@ -61,14 +59,15 @@ class DisappearingNavigationRail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWells(
-                    child: Icon(Icons.lock_outline, size: 20), 
+                    child: Icon(Icons.lock_outline, size: 20),
                     onPress: () {
                       eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
-                    }
+                    },
                   ),
                   InkWells(
                     child: Icon(Icons.settings_outlined, size: 20),
                     onPress: () {
+                      // eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
                     },
                   ),
                 ],

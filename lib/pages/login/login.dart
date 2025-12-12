@@ -38,9 +38,7 @@ class _LoginPage extends State<LoginPage> {
                       //   loginController.setLoginForm('password', value);
                       // },
                       decoration: InputDecoration(
-                        labelText: "password",
                         hintText: "password",
-                        floatingLabelStyle: TextStyle(color: Colors.blueAccent),
                         prefixIcon: Icon(Icons.lock),
                         isDense: true,
                         border: OutlineInputBorder(
