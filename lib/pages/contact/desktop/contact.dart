@@ -16,7 +16,7 @@ class _ContactBar extends State<ContactBar> {
     return Row(
       children: [
         Container(
-          width: 240,
+          width: 200,
           color: const Color.fromARGB(255, 240, 240, 240),
           child: Column(
             children: [

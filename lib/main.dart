@@ -36,6 +36,7 @@ void main() async {
       // translations: Language(),
       // initialBinding: AllControllerBinding(),
       theme: ThemeData(
+        fontFamily: "Noto Sans",
         primaryColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(color: Colors.white),

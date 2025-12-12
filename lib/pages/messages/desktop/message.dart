@@ -1,4 +1,5 @@
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
+import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
 
 class Message extends StatefulWidget {
@@ -13,10 +14,10 @@ class _Message extends State<Message> {
     return InkWell(
       onTap: () {},
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(4),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 194, 194, 194),
-          borderRadius: const BorderRadius.all(Radius.circular(4)),
+          borderRadius: const BorderRadius.all(Radius.circular(3)),
         ),
         child: Row(
           spacing: 10,
@@ -28,17 +29,28 @@ class _Message extends State<Message> {
                   Flex(
                     direction: Axis.horizontal,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("Sutter", style: TextStyle(fontSize: 14)),
-                      Text('2011/09/10', style: TextStyle(fontSize: 12)),
+                      Expanded(
+                        child: Texts(text: 'Sutter111111111111111111111111111'),
+                      ),
+                      Column(
+                        children: [
+                          Texts(
+                            text: '2011/09/10',
+                            fontSize: 10,
+                            fontWeight: FontWeight.w100,
+                          ),
+                          Texts(
+                            text: '18:09:01',
+                            fontSize: 10,
+                            fontWeight: FontWeight.w100,
+                          ),
+                        ],
+                      )
                     ],
                   ),
-                  Text(
-                    "今晚吃啥11111111111111111111111111",
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 12),
-                  ),
+                  Texts(text: "今晚吃啥11111111111111111111111111", fontSize: 12),
                 ],
               ),
             ),

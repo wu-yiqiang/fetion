@@ -13,9 +13,9 @@ class _Messages extends State<Messages> {
   Widget build(BuildContext context) {
     return ScrollViews(
       child: SingleChildScrollView(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(4),
         child: Column(
-          spacing: 10,
+          spacing: 4,
           children: [
             Message(),
             Message(),
