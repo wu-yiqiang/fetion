@@ -1,6 +1,5 @@
-import 'package:fetion/common/const.dart';
-import 'package:fetion/pages/messages/desktop/AIChat.dart' show AiChat;
-import 'package:fetion/pages/messages/desktop/MeChat.dart' show MeChat;
+import 'package:fetion/pages/messages/desktop/AIChat.dart';
+import 'package:fetion/pages/messages/desktop/MeChat.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +34,7 @@ class _MainDialog extends State<MainDialog> {
     {
       'avatar': 'assets/images/avatar.jpeg',
       'type': 1,
-      'text': "我是您的人工智能客服，可以为您解答软件使用方面相关问题",
+      'text': "我是您的人工智能客服，可以为您解答软件使用方面相关问题11111111111111111111112sdasd飒飒大大啊实打实",
       'time': '2025-08-12 08:02:40',
     },
     {
