@@ -1,19 +1,10 @@
 # fetion
 
-A new Flutter project.
+A new Flutter IM Project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+deigned https://www.figma.com/design/5fmTHYSBy5zeJDijHjPIsg/Windows-11-Chat-UI-Kit--Community-?node-id=8-3365&p=f&t=93zm5FCK1vt2WJoH-0
 
 飞传 项目名
 

@@ -2,6 +2,7 @@ import 'package:fetion/common/const.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/utils/EventBus.dart' show eventBus, Events;
 import 'package:fetion/widgets/InkWells.dart';
+import 'package:fetion/widgets/SvgIcon.dart';
 import 'package:flutter/material.dart';
 import './destinations.dart';
 import './animations.dart';
@@ -37,7 +38,10 @@ class DisappearingNavigationRail extends StatelessWidget {
         selectedIconTheme: IconThemeData(color: primaryColor),
         minWidth: 58,
         leading: Column(
-          children: [StatusAvatar(image: 'assets/images/user.jpg')],
+          children: [
+            SvgIcon(name: 'Menu', onTap: () {}),
+            StatusAvatar(image: 'assets/images/user.jpg'),
+          ],
         ),
         // groupAlignment: -0.85,
         destinations: destinations.map((d) {

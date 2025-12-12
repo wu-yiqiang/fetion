@@ -1,6 +1,8 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/widgets/InkWells.dart';
+import 'package:fetion/widgets/SvgIcon.dart';
 import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 
 class SearchsBar extends StatefulWidget {
   const SearchsBar({super.key});
@@ -22,37 +24,13 @@ class _SearchsBar extends State<SearchsBar> {
         spacing: 10,
         children: [
           Expanded(
-            child: TextField(
-              style: TextStyle(fontSize: 12),
-              keyboardType: TextInputType.text,
-              // onChanged: (value) {
-              //   loginController.setLoginForm('password', value);
-              // },
-              decoration: InputDecoration(
-                hintText: "Search",
-                contentPadding: EdgeInsets.zero,
-                prefixIconConstraints: BoxConstraints(
-                  minWidth: 32,
-                  minHeight: 28,
-                ),
-                floatingLabelStyle: TextStyle(color: Colors.blueAccent),
-                isDense: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(4)),
-                  borderSide: BorderSide(width: 1.0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(4)),
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 1.0),
-                ),
-                prefixIcon: Icon(Icons.search_outlined),
+            child: TextBox(
+              prefix: Container(
+                padding: EdgeInsets.only(left: 10),
+                child: SvgIcon(name: 'Search', onTap: () {}),
               ),
             ),
           ),
-          // InkWells(
-          //   child: Icon(Icons.add_box_outlined, size: 28),
-          //   onPress: () {},
-          // ),
         ],
       ),
     );

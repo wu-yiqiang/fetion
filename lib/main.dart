@@ -1,9 +1,11 @@
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/utils/EventBus.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:get/get.dart';
 import 'package:local_notifier/local_notifier.dart';
+// import 'package:fluent_ui/fluent_ui.dart';
 
 windowInit() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,6 +15,8 @@ windowInit() async {
     minimumSize: Size(800, 600), // 设置最小窗口大小
     center: true, // 设置窗口居中
     title: "Fetion", // 设置窗口标题
+    // backgroundColor: Colors.white,
+    // titleBarStyle: TitleBarStyle.hidden, // 隐藏原生标题栏
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
@@ -48,23 +52,26 @@ void main() async {
   ShowGlobalMessages();
   Navigates();
   runApp(
-    GetMaterialApp(
-      initialRoute: "/",
-      getPages: pages,
-      transitionDuration: Duration(milliseconds: 200),
-      // locale: Locale(
-      //   storeGetValue(settingStoreKeys['LANGUAGE']!),
-      //   storeGetValue(settingStoreKeys['COUNTRY']!),
-      // ),
-      // translations: Language(),
-      // initialBinding: AllControllerBinding(),
-      theme: ThemeData(
-        fontFamily: "Noto Sans",
-        primaryColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(color: Colors.white),
+    AnimatedFluentTheme(
+      data: FluentThemeData.light(),
+      child: GetMaterialApp(
+        initialRoute: "/",
+        getPages: pages,
+        transitionDuration: Duration(milliseconds: 200),
+        // locale: Locale(
+        //   storeGetValue(settingStoreKeys['LANGUAGE']!),
+        //   storeGetValue(settingStoreKeys['COUNTRY']!),
+        // ),
+        // translations: Language(),
+        // initialBinding: AllControllerBinding(),
+        theme: ThemeData(
+          fontFamily: "Noto Sans",
+          // primaryColor: Colors.white,
+          // scaffoldBackgroundColor: Colors.white,
+          // appBarTheme: AppBarTheme(backgroundColor: Colors.white),
+        ),
+        //  builder: EasyLoading.init(),
       ),
-      //  builder: EasyLoading.init(),
-    ),
+    )
   );
 }
