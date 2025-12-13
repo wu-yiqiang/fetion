@@ -1,4 +1,5 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/pages/messages/desktop/topbar_tools.dart';
 import 'package:fetion/widgets/StatusAvatar.dart';
 import 'package:fetion/widgets/Texts.dart';
@@ -16,14 +17,15 @@ class _SingleTopbar extends State<SingleTopbar> {
     return Container(
       height: 42,
       padding: EdgeInsets.symmetric(horizontal: 14, vertical: 4),
-      // decoration: BoxDecoration(
-      //   border: Border(bottom: BorderSide(width: 1, color: white10)),
-      // ),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(width: 1, color: black4)),
+      ),
       child: Flex(
         direction: Axis.horizontal,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(child: Row(
+          Container(
+            child: Row(
             spacing: 10,
               crossAxisAlignment: CrossAxisAlignment.center,
             children: [
