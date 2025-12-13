@@ -20,7 +20,7 @@ class _InputDialog extends State<InputDialog> {
         border: Border(top: BorderSide(width: 1, color: white10)),
       ),
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 10),
         decoration: BoxDecoration(
           color: black4,
           borderRadius: BorderRadius.all(Radius.circular(4)),
