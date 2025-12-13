@@ -4,8 +4,15 @@ import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
 
 class ChatBox extends StatefulWidget {
-  const ChatBox({super.key, required this.text});
+  const ChatBox({
+    super.key,
+    required this.text,
+    required this.fontColor,
+    required this.backgroundColor,
+  });
   final String text;
+  final Color fontColor;
+  final Color backgroundColor;
   @override
   State<ChatBox> createState() => _ChatBox();
 }
@@ -18,7 +25,7 @@ class _ChatBox extends State<ChatBox> {
     return Container(
       // constraints: BoxConstraints(minWidth: 80),
       decoration: BoxDecoration(
-        color: black4,
+        color: widget.backgroundColor,
         borderRadius: BorderRadius.circular(4),
       ),
       padding: EdgeInsets.all(6),
@@ -30,7 +37,7 @@ class _ChatBox extends State<ChatBox> {
             newtext,
             softWrap: true,
             style: TextStyle(
-              color: black90,
+              color: widget.fontColor,
               fontSize: 13,
               fontWeight: FontWeight.w400,
               height: 1.5,

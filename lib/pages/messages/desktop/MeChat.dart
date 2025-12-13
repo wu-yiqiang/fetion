@@ -1,7 +1,7 @@
-import 'package:fetion/pages/messages/desktop/widges/ChatBox.dart' show ChatBox;
-import 'package:fetion/pages/messages/desktop/widges/TimeStamps.dart'
-    show TimeStamps;
-import 'package:fetion/widgets/Avatar.dart' show Avatar;
+import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/pages/messages/desktop/widges/ChatBox.dart';
+import 'package:fetion/pages/messages/desktop/widges/TimeStamps.dart';
+import 'package:fetion/widgets/Avatar.dart';
 import 'package:flutter/material.dart';
 
 class MeChat extends StatefulWidget {
@@ -26,7 +26,11 @@ class _MeChat extends State<MeChat> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TimeStamps(timeStamp: widget.item['time']),
-              ChatBox(text: widget.item['text']),
+              ChatBox(
+                text: widget.item['text'],
+                fontColor: white,
+                backgroundColor: blue1,
+              ),
             ],
           ),
         ),

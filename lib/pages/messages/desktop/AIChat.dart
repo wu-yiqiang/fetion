@@ -1,4 +1,5 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/pages/messages/desktop/widges/ChatBox.dart' show ChatBox;
 import 'package:fetion/pages/messages/desktop/widges/TimeStamps.dart'
     show TimeStamps;
@@ -27,7 +28,7 @@ class _AiChat extends State<AiChat> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TimeStamps(timeStamp: widget.item['time']),
-              ChatBox(text: widget.item['text']),
+              ChatBox(text: widget.item['text'], fontColor: black90,backgroundColor: black4,),
             ],
           ),
         ),
