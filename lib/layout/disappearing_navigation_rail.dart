@@ -1,8 +1,10 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
-import 'package:fetion/utils/EventBus.dart' show eventBus, Events;
+import 'package:fetion/utils/EventBus.dart';
+import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fetion/widgets/InkWells.dart';
-import 'package:fetion/widgets/SvgIcon.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import './destinations.dart';
 import './animations.dart';
@@ -34,12 +36,12 @@ class DisappearingNavigationRail extends StatelessWidget {
         selectedIndex: selectedIndex,
         backgroundColor: backgroundColor,
         onDestinationSelected: onDestinationSelected,
-        indicatorColor: Colors.white,
+        indicatorColor: white20,
         selectedIconTheme: IconThemeData(color: primaryColor),
         minWidth: 58,
         leading: Column(
           children: [
-            SvgIcon(name: 'Menu', onTap: () {}),
+            FluentIcon(icon: FluentIcons.collapse_menu, onTap: () {}),
             StatusAvatar(image: 'assets/images/user.jpg'),
           ],
         ),
@@ -62,18 +64,19 @@ class DisappearingNavigationRail extends StatelessWidget {
                 direction: Axis.vertical,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  InkWells(
-                    child: Icon(Icons.lock_outline, size: 20),
-                    onPress: () {
+                  FluentIcon(
+                    icon: FluentIcons.lock,
+                    size: 18,
+                    onTap: () {
                       eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
+
                     },
                   ),
-                  InkWells(
-                    child: Icon(Icons.settings_outlined, size: 20),
-                    onPress: () {
-                      // eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
-                    },
-                  ),
+                  FluentIcon(
+                    icon: FluentIcons.settings,
+                    size: 18,
+                    onTap: () {},
+                  )
                 ],
               ),
             ),

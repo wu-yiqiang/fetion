@@ -1,7 +1,10 @@
+import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/utils/EventBus.dart';
+import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fetion/widgets/Texts.dart';
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter/material.dart' hide FilledButton;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -32,62 +35,20 @@ class _LoginPage extends State<LoginPage> {
                 child: Column(
                   spacing: 14,
                   children: [
-                    TextFormField(
-                      keyboardType: TextInputType.emailAddress,
-                      // onChanged: (value) {
-                      //   loginController.setLoginForm('password', value);
-                      // },
-                      decoration: InputDecoration(
-                        hintText: "password",
-                        prefixIcon: Icon(Icons.lock),
-                        isDense: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(4)),
-                          borderSide: BorderSide(width: 1.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(4)),
-                          borderSide: BorderSide(
-                            color: Colors.blueAccent,
-                            width: 1.0,
-                          ),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            showPassword
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            size: 16,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              this.showPassword = !this.showPassword;
-                            });
-                          },
-                        ),
-                      ),
-                      obscureText: !showPassword,
-                    ),
+                    PasswordBox(),
                   ],
                 ),
               ),
-              Container(
-                width: 320,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.blue),
-                    foregroundColor: WidgetStateProperty.all(Colors.white),
-                    shape: WidgetStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                    ),
+              FilledButton(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: WindowsIcon(
+                    FluentIcons.unlock,
+                    size: 20,
+                    color: white,
                   ),
-                  child: Texts(text: "Unlock"),
-                  onPressed: () {
-                    eventBus.emit(Events.NAVIGATE.name, routerMap['HOME']);
-                  },
                 ),
+                onPressed: () => debugPrint('pressed button'),
               ),
             ],
           ),

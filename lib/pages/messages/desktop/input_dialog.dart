@@ -1,8 +1,10 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/pages/messages/desktop/input_tools.dart';
+import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fetion/widgets/SvgIcon.dart';
 import 'package:fetion/widgets/Texts.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 
 class InputDialog extends StatefulWidget {
@@ -27,7 +29,7 @@ class _InputDialog extends State<InputDialog> {
         ),
         child: Row(
           children: [
-            SvgIcon(name: 'Attachment', onTap: () {}),
+            FluentIcon(icon: FluentIcons.attach, onTap: () {}),
             Expanded(
               child: TextField(
                 style: TextStyle(fontSize: 12),
@@ -36,7 +38,7 @@ class _InputDialog extends State<InputDialog> {
                   hintText: "Please Input",
                   contentPadding: EdgeInsets.zero,
                   prefixIconConstraints: BoxConstraints(minHeight: 32),
-                  floatingLabelStyle: TextStyle(color: Colors.blueAccent),
+                  floatingLabelStyle: TextStyle(color: blue1),
                   isDense: true,
                   border: InputBorder.none,
                 ),
@@ -48,8 +50,8 @@ class _InputDialog extends State<InputDialog> {
             Row(
               spacing: 4,
               children: [
-                SvgIcon(name: 'Emoji', onTap: () {}),
-                SvgIcon(name: 'Mic', onTap: () {}),
+                FluentIcon(icon: FluentIcons.emoji2, onTap: () {}),
+                FluentIcon(icon: FluentIcons.microphone, onTap: () {}),
               ],
             ),
           ],

@@ -27,7 +27,7 @@ class _SearchsBar extends State<SearchsBar> {
             child: TextBox(
               prefix: Container(
                 padding: EdgeInsets.only(left: 10),
-                child: SvgIcon(name: 'Search', onTap: () {}),
+                child: SvgIcon(name: 'search', onTap: () {}),
               ),
             ),
           ),
