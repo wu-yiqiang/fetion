@@ -1,4 +1,6 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
 
 class ChatBox extends StatefulWidget {
@@ -14,19 +16,45 @@ class _ChatBox extends State<ChatBox> {
     String text = widget.text ?? "";
     String newtext = Characters(text).join('\u{200B}');
     return Container(
+      // constraints: BoxConstraints(minWidth: 80),
       decoration: BoxDecoration(
-        color: primaryColor,
+        color: black4,
         borderRadius: BorderRadius.circular(4),
       ),
-      padding: EdgeInsets.all(10),
-      child: Text(
-        newtext,
-        softWrap: true,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-        ),
+      padding: EdgeInsets.all(6),
+      child: Flex(
+        direction: Axis.vertical,
+        spacing: 2,
+        children: [
+          Text(
+            newtext,
+            softWrap: true,
+            style: TextStyle(
+              color: black90,
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+              height: 1.5,
+            ),
+          ),
+          // Flex(
+          //   direction: Axis.horizontal,
+          //   mainAxisAlignment: MainAxisAlignment.end,
+          //   children: [
+          //     Texts(text: widget.timeStamp, fontSize: 10, color: black6),
+          //   ],
+          // ),
+          // Container(
+          //   width: 100,
+          //   // constraints: BoxConstraints(minWidth: 80),
+          //   child: Flex(
+          //     direction: Axis.horizontal,
+          //     mainAxisAlignment: MainAxisAlignment.end,
+          //     children: [
+          //       Texts(text: widget.timeStamp, fontSize: 10, color: black6),
+          //     ],
+          //   ),
+          // ),
+        ],
       ),
     );
   }

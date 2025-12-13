@@ -1,4 +1,5 @@
 import 'package:fetion/common/const.dart' show white20;
+import 'package:fetion/common/light-theme.dart';
 import 'package:flutter/material.dart';
 
 class TimeStamps extends StatefulWidget {
@@ -14,7 +15,7 @@ class _TimeStamps extends State<TimeStamps> {
     return Container(
       child: Text(
         widget.timeStamp,
-        style: TextStyle(fontSize: 12, color: white20),
+        style: TextStyle(fontSize: 11, color: black90),
       ),
     );
   }

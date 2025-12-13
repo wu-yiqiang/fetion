@@ -16,18 +16,19 @@ class _SingleTopbar extends State<SingleTopbar> {
     return Container(
       height: 42,
       padding: EdgeInsets.symmetric(horizontal: 14, vertical: 4),
-      decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: 1, color: white10)),
-      ),
+      // decoration: BoxDecoration(
+      //   border: Border(bottom: BorderSide(width: 1, color: white10)),
+      // ),
       child: Flex(
         direction: Axis.horizontal,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(child: Row(
             spacing: 10,
+              crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              StatusAvatar(size: 30,image: 'assets/images/user.jpg'),
-                Texts(text: "啦啦啦先生", color: Color.fromARGB(179, 156, 156, 156))
+                StatusAvatar(size: 36, image: 'assets/images/user.jpg'),
+                Texts(text: "啦啦啦先生", color: Colors.black, fontSize: 14)
             ],
           )),
           TopbarTools(),

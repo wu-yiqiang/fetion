@@ -58,6 +58,7 @@ void main() async {
         initialRoute: "/",
         getPages: pages,
         transitionDuration: Duration(milliseconds: 200),
+        debugShowCheckedModeBanner: false, //隐藏debug的角标
         // locale: Locale(
         //   storeGetValue(settingStoreKeys['LANGUAGE']!),
         //   storeGetValue(settingStoreKeys['COUNTRY']!),

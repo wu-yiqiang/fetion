@@ -1,4 +1,5 @@
 import 'package:fetion/widgets/InkWells.dart' show InkWells;
+import 'package:fetion/widgets/SvgIcon.dart';
 import 'package:flutter/material.dart';
 
 class TopbarTools extends StatefulWidget {
@@ -13,15 +14,8 @@ class _TopbarTools extends State<TopbarTools> {
     return Row(
       spacing: 10,
       children: [
-        InkWells(child: Icon(Icons.call_outlined, size: 24), onPress: () {}),
-        InkWells(
-          child: Icon(Icons.video_chat_outlined, size: 24),
-          onPress: () {},
-        ),
-        InkWells(
-          child: Icon(Icons.desktop_windows_outlined, size: 24),
-          onPress: () {},
-        ),
+        SvgIcon(name: 'search', onTap: () {}),
+        SvgIcon(name: 'more', onTap: () {})
       ],
     );
   }
