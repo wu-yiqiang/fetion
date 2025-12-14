@@ -33,10 +33,10 @@ class _AboutPage extends State<AboutPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       spacing: 0,
                       children: [
-                        Texts(text: 'Fetion', fontSize: 13, color: black90),
+                        Texts(text: 'Fetion', fontSize: 14, color: black90),
                         Texts(
                           text: 'Version 1.0.0',
-                          fontSize: 12,
+                          fontSize: 10,
                           color: black90,
                         ),
                       ],

@@ -25,45 +25,6 @@ class _NetworkPage extends State<NetworkPage> {
               Expander(
                 header: Row(
                   spacing: 6,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(child: WindowsIcon(FluentIcons.info, size: 16)),
-                    Flex(
-                      direction: Axis.vertical,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      spacing: 0,
-                      children: [
-                        Texts(text: 'Fetion', fontSize: 13, color: black90),
-                        Texts(
-                          text: 'Version 1.0.0',
-                          fontSize: 12,
-                          color: black90,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                content: Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    spacing: 10,
-                    children: [
-                      Texts(text: '特别鸣谢', fontSize: 16, color: black90),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Texts(
-                          text: '感谢Ada(花花)同学提供的UI帮助',
-                          fontSize: 13,
-                          color: black90,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Expander(
-                header: Row(
-                  spacing: 6,
                   children: [
                     WindowsIcon(FluentIcons.o_d_link, size: 16),
                     Texts(text: 'Link Address', fontSize: 13, color: black90),

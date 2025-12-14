@@ -43,7 +43,13 @@ class _AppearancePage extends State<AppearancePage> {
                       ComboBox<String>(
                         value: selectLanguage,
                         items: languages.map<ComboBoxItem<String>>((e) {
-                          return ComboBoxItem<String>(child: Text(e), value: e);
+                          return ComboBoxItem<String>(
+                            child: Text(
+                              e,
+                              style: TextStyle(decoration: TextDecoration.none),
+                            ),
+                            value: e,
+                          );
                         }).toList(),
                         onChanged: (value) {
                           setState(() {
@@ -71,7 +77,13 @@ class _AppearancePage extends State<AppearancePage> {
                       ComboBox<String>(
                         value: selectTheme,
                         items: themes.map<ComboBoxItem<String>>((e) {
-                          return ComboBoxItem<String>(child: Text(e), value: e);
+                          return ComboBoxItem<String>(
+                            child: Text(
+                              e,
+                              style: TextStyle(decoration: TextDecoration.none),
+                            ),
+                            value: e,
+                          );
                         }).toList(),
                         onChanged: (value) {
                           setState(() {
