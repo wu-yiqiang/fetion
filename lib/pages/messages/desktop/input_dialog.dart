@@ -48,7 +48,7 @@ class _InputDialog extends State<InputDialog> {
               ),
             ),
             Row(
-              spacing: 4,
+              spacing: 8,
               children: [
                 FluentIcon(icon: FluentIcons.emoji2, onTap: () {}),
                 FluentIcon(icon: FluentIcons.microphone, onTap: () {}),

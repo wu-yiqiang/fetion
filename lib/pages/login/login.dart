@@ -41,14 +41,16 @@ class _LoginPage extends State<LoginPage> {
               ),
               FilledButton(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 14, vertical: 2),
                   child: WindowsIcon(
                     FluentIcons.unlock,
                     size: 20,
                     color: white,
                   ),
                 ),
-                onPressed: () => debugPrint('pressed button'),
+                onPressed: () {
+                  eventBus.emit(Events.NAVIGATE.name, routerMap['HOME']);
+                },
               ),
             ],
           ),
