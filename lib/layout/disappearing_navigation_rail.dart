@@ -69,7 +69,6 @@ class DisappearingNavigationRail extends StatelessWidget {
                     size: 18,
                     onTap: () {
                       eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
-
                     },
                   ),
                   FluentIcon(

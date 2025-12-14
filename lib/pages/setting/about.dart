@@ -2,13 +2,13 @@ import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
-class NetworkPage extends StatefulWidget {
-  const NetworkPage({super.key});
+class AboutPage extends StatefulWidget {
+  const AboutPage({super.key});
   @override
-  State<NetworkPage> createState() => _NetworkPage();
+  State<AboutPage> createState() => _AboutPage();
 }
 
-class _NetworkPage extends State<NetworkPage> {
+class _AboutPage extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +17,7 @@ class _NetworkPage extends State<NetworkPage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'Network', color: black90),
+            child: Texts(text: 'About', color: black90),
           ),
           Column(
             spacing: 6,
@@ -77,10 +77,7 @@ class _NetworkPage extends State<NetworkPage> {
                       HyperlinkButton(
                         child: Text(
                           'Open Source',
-                          style: TextStyle(
-                            fontSize: 12,
-                            decoration: TextDecoration.none,
-                          ),
+                          style: TextStyle(fontSize: 12,decoration: TextDecoration.none),
                         ),
                         onPressed: () {},
                       ),
@@ -89,8 +86,7 @@ class _NetworkPage extends State<NetworkPage> {
                           'Feedback',
                           style: TextStyle(
                             fontSize: 12,
-                            decoration: TextDecoration.none,
-                          ),
+                            decoration: TextDecoration.none),
                         ),
                         onPressed: () {},
                       ),
@@ -99,7 +95,7 @@ class _NetworkPage extends State<NetworkPage> {
                 ),
               ),
             ],
-          ),
+          )
         ],
       ),
     );

@@ -12,6 +12,11 @@ color = Colors.white
     text,
     maxLines: maxLines,
     overflow: overflow,
-    style: TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color),
+    style: TextStyle(
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      color: color,
+      decoration: TextDecoration.none,
+    ),
   );
 }

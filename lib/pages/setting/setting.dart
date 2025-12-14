@@ -1,6 +1,9 @@
+import 'package:fetion/pages/setting/about.dart';
+import 'package:fetion/pages/setting/appearance.dart';
+import 'package:fetion/pages/setting/network.dart';
+import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
-import './general.dart';
-import './network.dart';
+
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
   @override
@@ -8,12 +11,15 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPage extends State<SettingPage> {
-  List tabs = [
-    {'label': '通用','key': 'general', 'widget': General()},
-    {'label': '网络', 'key': 'network', 'widget': Network()}
-  ];
   @override
   Widget build(BuildContext context) {
-    return Container(padding: EdgeInsets.all(10), child: Text("设置"));
+    return Container(
+      child: ScrollViews(
+        child: Column(
+          spacing: 10,
+          children: [AppearancePage(), NetworkPage(), AboutPage()],
+        ),
+      ),
+    );
   }
 }

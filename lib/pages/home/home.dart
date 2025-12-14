@@ -1,96 +1,91 @@
-import 'package:fetion/pages/contact/desktop/contact.dart' show ContactBar;
-import 'package:fetion/pages/me/me.dart' show MePage;
-import 'package:fetion/pages/messages/desktop/message_bar.dart';
-import 'package:flutter/material.dart';
-import '../../layout/disappearing_bottom_navigation_bar.dart';
-import '../../layout/disappearing_navigation_rail.dart';
-import '../../layout/animations.dart';
+import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/navigate/router_table.dart';
+import 'package:fetion/pages/me/me.dart';
+import 'package:fetion/pages/messages/desktop/messages.dart';
+import 'package:fetion/pages/setting/setting.dart';
+import 'package:fetion/utils/EventBus.dart';
+import 'package:fetion/widgets/Texts.dart';
+import 'package:fluent_ui/fluent_ui.dart';
+
+class NavigationBodyItem extends StatelessWidget {
+  const NavigationBodyItem({super.key, this.header, this.content});
+  final String? header;
+  final Widget? content;
+  @override
+  Widget build(context) {
+    return ScaffoldPage.withPadding(
+      header: PageHeader(
+        title: Texts(text: header ?? 'Header', fontSize: 24, color: black90),
+      ),
+      content: content ?? const SizedBox.shrink(),
+    );
+  }
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePage();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
-  late final _controller = AnimationController(
-    duration: const Duration(milliseconds: 1000),
-    reverseDuration: const Duration(milliseconds: 1250),
-    value: 0,
-    vsync: this,
-  );
-  late final _railAnimation = RailAnimation(parent: _controller);
-  late final _railFabAnimation = RailFabAnimation(parent: _controller);
-  late final _barAnimation = BarAnimation(parent: _controller);
-  int selectedIndex = 0;
-  bool controllerInitialized = false;
+class _HomePageState extends State<HomePage> {
+  int topIndex = 0;
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  List<NavigationPaneItem> items = [
+    PaneItem(
+      icon: WindowsIcon(WindowsIcons.message, size: 16),
+      title: const Text('Chats'),
+      infoBadge: const InfoBadge(source: Text('8')),
+      body: const NavigationBodyItem(),
+    ),
+    PaneItemSeparator(),
+    PaneItem(
+      icon: Icon(FluentIcons.contact_info, size: 16),
+      title: const Text('Contacts'),
+      body: const NavigationBodyItem(),
+    ),
+    PaneItem(
+      icon: const Icon(FluentIcons.contact_list, size: 16),
+      title: const Text('Groups'),
+      body: const NavigationBodyItem(),
+    ),
+    PaneItem(
+      icon: const Icon(WindowsIcons.contact, size: 16),
+      title: const Text('User'),
+      body: NavigationBodyItem(content: MePage(), header: 'User'),
 
-    final double width = MediaQuery.of(context).size.width;
-    final AnimationStatus status = _controller.status;
-    if (width > 600) {
-      if (status != AnimationStatus.forward &&
-          status != AnimationStatus.completed) {
-        _controller.forward();
-      }
-    } else {
-      if (status != AnimationStatus.reverse &&
-          status != AnimationStatus.dismissed) {
-        _controller.reverse();
-      }
-    }
-    if (!controllerInitialized) {
-      controllerInitialized = true;
-      _controller.value = width > 600 ? 1 : 0;
-    }
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _controller,
-      builder: (context, _) {
-        return Scaffold(
-          body: Row(
-            children: [
-              DisappearingNavigationRail(
-                railAnimation: _railAnimation,
-                railFabAnimation: _railFabAnimation,
-                selectedIndex: selectedIndex,
-                backgroundColor: Colors.white60,
-                onDestinationSelected: (index) {
-                  setState(() {
-                    selectedIndex = index;
-                  });
-                },
-              ),
-              ?selectedIndex == 0 ? Expanded(child: MessageBar()) : null,
-              ?selectedIndex == 1 ? Expanded(child: ContactBar()) : null,
-              ?selectedIndex == 2 ? MePage() : null,
-              // ?selectedIndex == 4 ? SettingPage() : null,
-            ],
-          ),
-          bottomNavigationBar: DisappearingBottomNavigationBar(
-            barAnimation: _barAnimation,
-            selectedIndex: selectedIndex,
-            onDestinationSelected: (index) {
-              setState(() {
-                selectedIndex = index;
-              });
+    return NavigationView(
+      // appBar: const NavigationAppBar(
+      //   leading: Icon(FluentIcons.a_t_p_logo),
+      //   title: Text('NavigationView'),
+      // ),
+      pane: NavigationPane(
+        selected: topIndex,
+        onChanged: (index) => setState(() => topIndex = index),
+        displayMode: PaneDisplayMode.compact,
+        items: items,
+        footerItems: [
+          PaneItem(
+            icon: const Icon(FluentIcons.lock),
+            title: const Text('Lock'),
+            body: const NavigationBodyItem(),
+            onTap: () {
+              eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
             },
           ),
-        );
-      },
+          PaneItem(
+            icon: const Icon(FluentIcons.settings),
+            title: const Text('Settings'),
+            body: NavigationBodyItem(content: SettingPage(), header: 'Setting'),
+          ),
+        ],
+      ),
     );
   }
 }
