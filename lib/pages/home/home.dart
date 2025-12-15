@@ -5,6 +5,7 @@ import 'package:fetion/pages/messages/desktop/messages.dart';
 import 'package:fetion/pages/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
+import 'package:fetion/widgets/StatusAvatar.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
@@ -76,7 +77,22 @@ class _HomePageState extends State<HomePage> {
         onChanged: (index) => setState(() => topIndex = index),
         displayMode: PaneDisplayMode.compact,
         items: items,
-        size: NavigationPaneSize(openWidth: 180),
+        size: NavigationPaneSize(openWidth: 240),
+        header: Row(
+          spacing: 10,
+          children: [
+            StatusAvatar(image: 'assets/images/user.jpg'),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Texts(text: "Sutter Jhon", color: black6),
+                  Texts(text: "这个人很懒，什么也没有留下", fontSize: 10, color: black6),
+                ],
+              ),
+            ),
+          ],
+        ),
         // customPane: const NavigationPaneWidget()),
         footerItems: [
           PaneItem(
