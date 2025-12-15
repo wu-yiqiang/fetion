@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fetion/pages/messages/desktop/search_bar.dart';
+import 'package:fetion/pages/desktop/messages/search_bar.dart';
 
 class FriendsBox extends StatefulWidget {
   const FriendsBox({super.key});

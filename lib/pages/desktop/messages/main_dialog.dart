@@ -1,5 +1,5 @@
-import 'package:fetion/pages/messages/desktop/AIChat.dart';
-import 'package:fetion/pages/messages/desktop/MeChat.dart';
+import 'package:fetion/pages/desktop/messages/AIChat.dart';
+import 'package:fetion/pages/desktop/messages/MeChat.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 

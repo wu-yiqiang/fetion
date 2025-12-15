@@ -1,4 +1,4 @@
-import 'package:fetion/pages/contact/desktop/friend.dart' show Friend;
+import 'package:fetion/pages/desktop/contact/friend.dart' show Friend;
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 

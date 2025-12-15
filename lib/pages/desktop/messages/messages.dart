@@ -1,4 +1,4 @@
-import 'package:fetion/pages/messages/desktop/message.dart';
+import 'package:fetion/pages/desktop/messages/message.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 

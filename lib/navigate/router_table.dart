@@ -1,4 +1,4 @@
-import 'package:fetion/pages/home/home.dart';
+import 'package:fetion/pages/desktop/home/home.dart';
 import 'package:fetion/pages/login/Login.dart';
 import 'package:get/get.dart';
 

@@ -1,5 +1,5 @@
-import 'package:fetion/pages/contact/desktop/friends.dart';
-import 'package:fetion/pages/contact/desktop/friends_box.dart' show FriendsBox;
+import 'package:fetion/pages/desktop/contact/friends.dart';
+import 'package:fetion/pages/desktop/contact/friends_box.dart' show FriendsBox;
 import 'package:fetion/utils/EventBus.dart';
 import 'package:flutter/material.dart';
 

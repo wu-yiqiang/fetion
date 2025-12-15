@@ -1,10 +1,9 @@
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
-import 'package:fetion/pages/me/me.dart';
-import 'package:fetion/pages/messages/desktop/messages.dart';
-import 'package:fetion/pages/setting/setting.dart';
+import 'package:fetion/pages/desktop/me/me.dart';
+import 'package:fetion/pages/desktop/messages/messages.dart';
+import 'package:fetion/pages/desktop/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
-import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:fetion/widgets/StatusAvatar.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -44,7 +43,7 @@ class _HomePageState extends State<HomePage> {
           child: Texts(text: '99+', fontSize: 12),
         ),
       ),
-      body: const NavigationBodyItem(content: Text("ssss"),),
+      body: NavigationBodyItem(content: Text("ssss")),
     ),
     PaneItemSeparator(),
     PaneItem(
@@ -79,16 +78,18 @@ class _HomePageState extends State<HomePage> {
         items: items,
         size: NavigationPaneSize(openWidth: 240),
         header: Row(
-          spacing: 10,
           children: [
             StatusAvatar(image: 'assets/images/user.jpg'),
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Texts(text: "Sutter Jhon", color: black6),
-                  Texts(text: "这个人很懒，什么也没有留下", fontSize: 10, color: black6),
-                ],
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Texts(text: "Sutter Jhon", fontSize: 14, color: black90),
+                    Texts(text: "这个人很懒，什么也没有留下", fontSize: 12, color: black6),
+                  ],
+                ),
               ),
             ),
           ],

@@ -1,6 +1,6 @@
 import 'package:fetion/common/light-theme.dart';
-import 'package:fetion/pages/messages/desktop/widges/ChatBox.dart';
-import 'package:fetion/pages/messages/desktop/widges/TimeStamps.dart';
+import 'package:fetion/pages/desktop/messages/widges/ChatBox.dart';
+import 'package:fetion/pages/desktop/messages/widges/TimeStamps.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:flutter/material.dart';
 

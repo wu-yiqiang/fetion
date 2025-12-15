@@ -1,7 +1,7 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
-import 'package:fetion/pages/messages/desktop/widges/ChatBox.dart' show ChatBox;
-import 'package:fetion/pages/messages/desktop/widges/TimeStamps.dart'
+import 'package:fetion/pages/desktop/messages/widges/ChatBox.dart' show ChatBox;
+import 'package:fetion/pages/desktop/messages/widges/TimeStamps.dart'
     show TimeStamps;
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:flutter/material.dart';

@@ -1,10 +1,10 @@
-import 'package:fetion/pages/contact/desktop/contact.dart' show ContactBar;
-import 'package:fetion/pages/me/me.dart' show MePage;
-import 'package:fetion/pages/messages/desktop/message_bar.dart';
+import 'package:fetion/pages/desktop/contact/contact.dart' show ContactBar;
+import 'package:fetion/pages/desktop/me/me.dart' show MePage;
+import 'package:fetion/pages/desktop/messages/message_bar.dart';
 import 'package:flutter/material.dart';
-import '../../layout/disappearing_bottom_navigation_bar.dart';
-import '../../layout/disappearing_navigation_rail.dart';
-import '../../layout/animations.dart';
+import '../../../layout/disappearing_bottom_navigation_bar.dart';
+import '../../../layout/disappearing_navigation_rail.dart';
+import '../../../layout/animations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

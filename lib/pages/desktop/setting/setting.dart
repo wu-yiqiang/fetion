@@ -1,6 +1,6 @@
-import 'package:fetion/pages/setting/about.dart';
-import 'package:fetion/pages/setting/appearance.dart';
-import 'package:fetion/pages/setting/network.dart';
+import 'package:fetion/pages/desktop/setting/about.dart';
+import 'package:fetion/pages/desktop/setting/appearance.dart';
+import 'package:fetion/pages/desktop/setting/network.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 

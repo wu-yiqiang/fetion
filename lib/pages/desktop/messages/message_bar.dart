@@ -1,7 +1,7 @@
-import 'package:fetion/pages/messages/desktop/messages.dart';
-import 'package:fetion/pages/messages/desktop/single_dialog.dart';
+import 'package:fetion/pages/desktop/messages/messages.dart';
+import 'package:fetion/pages/desktop/messages/single_dialog.dart';
 import 'package:flutter/material.dart';
-import './search_bar.dart';
+import 'search_bar.dart';
 
 class MessageBar extends StatefulWidget {
   const MessageBar({super.key});
