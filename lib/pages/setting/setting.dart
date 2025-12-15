@@ -14,9 +14,11 @@ class _SettingPage extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return ScrollViews(
+      child: SingleChildScrollView(
         child: Column(
           spacing: 10,
           children: [AppearancePage(), NetworkPage(), AboutPage()],
+        ),
       ),
     );
   }

@@ -18,7 +18,7 @@ class NavigationBodyItem extends StatelessWidget {
       header: PageHeader(
         title: Texts(text: header ?? 'Header', fontSize: 24, color: black90),
       ),
-      content: ScrollViews(child: content),
+      content: content,
     );
   }
 }
