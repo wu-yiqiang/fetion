@@ -114,6 +114,8 @@ class _AppearancePage extends State<AppearancePage> {
                         ],
                       ),
                       Slider(
+                        min: 10,
+                        max: 18,
                         label: '${fontSize.toInt()}',
                         value: fontSize,
                         onChanged: (v) => setState(() => fontSize = v),
