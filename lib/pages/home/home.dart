@@ -71,6 +71,7 @@ class _HomePageState extends State<HomePage> {
         onChanged: (index) => setState(() => topIndex = index),
         displayMode: PaneDisplayMode.compact,
         items: items,
+        size: NavigationPaneSize(openWidth: 180),
         footerItems: [
           PaneItem(
             icon: const Icon(FluentIcons.lock),
