@@ -27,7 +27,7 @@ class _NetworkPage extends State<NetworkPage> {
                   spacing: 6,
                   children: [
                     WindowsIcon(WindowsIcons.my_network, size: 16),
-                    Texts(text: 'Link Address', fontSize: 13, color: black90),
+                    Texts(text: 'Connection', fontSize: 13, color: black90),
                   ],
                 ),
                 content: Container(
