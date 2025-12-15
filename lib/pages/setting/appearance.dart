@@ -11,9 +11,9 @@ class AppearancePage extends StatefulWidget {
 
 class _AppearancePage extends State<AppearancePage> {
   final List<String> languages = ['English', '简体中文'];
-  final List<String> themes = ['浅色模式', '深色模式', '跟随系统'];
+  final List<String> themes = ['Light', 'Dark', 'System'];
   String? selectLanguage = 'English';
-  String? selectTheme = '浅色模式';
+  String? selectTheme = 'Light';
   double fontSize = 12;
   @override
   Widget build(BuildContext context) {
