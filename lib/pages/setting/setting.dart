@@ -13,12 +13,10 @@ class SettingPage extends StatefulWidget {
 class _SettingPage extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ScrollViews(
+    return ScrollViews(
         child: Column(
           spacing: 10,
           children: [AppearancePage(), NetworkPage(), AboutPage()],
-        ),
       ),
     );
   }

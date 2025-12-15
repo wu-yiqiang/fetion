@@ -4,20 +4,21 @@ import 'package:fetion/pages/me/me.dart';
 import 'package:fetion/pages/messages/desktop/messages.dart';
 import 'package:fetion/pages/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
+import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
 class NavigationBodyItem extends StatelessWidget {
-  const NavigationBodyItem({super.key, this.header, this.content});
+  const NavigationBodyItem({super.key, this.header, required this.content});
   final String? header;
-  final Widget? content;
+  final Widget content;
   @override
   Widget build(context) {
     return ScaffoldPage.withPadding(
       header: PageHeader(
         title: Texts(text: header ?? 'Header', fontSize: 24, color: black90),
       ),
-      content: content ?? const SizedBox.shrink(),
+      content: ScrollViews(child: content),
     );
   }
 }
@@ -37,18 +38,18 @@ class _HomePageState extends State<HomePage> {
       icon: WindowsIcon(WindowsIcons.message, size: 16),
       title: const Text('Chats'),
       infoBadge: const InfoBadge(source: Text('8')),
-      body: const NavigationBodyItem(),
+      body: const NavigationBodyItem(content: Text("ssss"),),
     ),
     PaneItemSeparator(),
     PaneItem(
       icon: Icon(FluentIcons.contact_info, size: 16),
       title: const Text('Contacts'),
-      body: const NavigationBodyItem(),
+      body: const NavigationBodyItem(content: Text("ssss")),
     ),
     PaneItem(
       icon: const Icon(FluentIcons.contact_list, size: 16),
       title: const Text('Groups'),
-      body: const NavigationBodyItem(),
+      body: const NavigationBodyItem(content: Text("ssss")),
     ),
     PaneItem(
       icon: const Icon(WindowsIcons.contact, size: 16),
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
           PaneItem(
             icon: const Icon(FluentIcons.lock),
             title: const Text('Lock'),
-            body: const NavigationBodyItem(),
+            body: const NavigationBodyItem(content: Text("ssss")),
             onTap: () {
               eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
             },
@@ -82,7 +83,10 @@ class _HomePageState extends State<HomePage> {
           PaneItem(
             icon: const Icon(FluentIcons.settings),
             title: const Text('Settings'),
-            body: NavigationBodyItem(content: SettingPage(), header: 'Setting'),
+            body: NavigationBodyItem(
+              content: SettingPage(),
+              header: 'Settings',
+            ),
           ),
         ],
       ),

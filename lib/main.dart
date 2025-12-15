@@ -1,3 +1,5 @@
+import 'package:fetion/common/const.dart';
+import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -68,8 +70,8 @@ void main() async {
         // initialBinding: AllControllerBinding(),
         theme: ThemeData(
           fontFamily: "Noto Sans",
-          // primaryColor: Colors.white,
-          // scaffoldBackgroundColor: Colors.white,
+          primaryColor: white110,
+          scaffoldBackgroundColor: white110,
           // appBarTheme: AppBarTheme(backgroundColor: Colors.white),
         ),
         //  builder: EasyLoading.init(),
