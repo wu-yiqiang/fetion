@@ -11,7 +11,7 @@ class _RowItem extends State<RowItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 18, right: 8, top: 4, bottom: 4),
+      padding: EdgeInsets.only(left: 18, right: 8, top: 10, bottom: 10),
       decoration: BoxDecoration(
         color: white,
         borderRadius: BorderRadius.all(Radius.circular(4)),

@@ -26,7 +26,7 @@ class _NetworkPage extends State<NetworkPage> {
                 header: Row(
                   spacing: 6,
                   children: [
-                    WindowsIcon(FluentIcons.o_d_link, size: 16),
+                    WindowsIcon(WindowsIcons.my_network, size: 16),
                     Texts(text: 'Link Address', fontSize: 13, color: black90),
                   ],
                 ),

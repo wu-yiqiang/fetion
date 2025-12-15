@@ -14,6 +14,7 @@ class _AppearancePage extends State<AppearancePage> {
   final List<String> themes = ['浅色模式', '深色模式', '跟随系统'];
   String? selectLanguage = 'English';
   String? selectTheme = '浅色模式';
+  double fontSize = 12;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -90,6 +91,32 @@ class _AppearancePage extends State<AppearancePage> {
                             this.selectTheme = value;
                           });
                         },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              RowItem(
+                child: Container(
+                  child: Flex(
+                    direction: Axis.horizontal,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        spacing: 6,
+                        children: [
+                          WindowsIcon(WindowsIcons.font, size: 16),
+                          Texts(
+                            text: 'Font Size',
+                            fontSize: 13,
+                            color: black90,
+                          ),
+                        ],
+                      ),
+                      Slider(
+                        label: '${fontSize.toInt()}',
+                        value: fontSize,
+                        onChanged: (v) => setState(() => fontSize = v),
                       ),
                     ],
                   ),
