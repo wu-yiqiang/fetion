@@ -37,7 +37,12 @@ class _HomePageState extends State<HomePage> {
     PaneItem(
       icon: WindowsIcon(WindowsIcons.message, size: 16),
       title: const Text('Chats'),
-      infoBadge: const InfoBadge(source: Text('8')),
+      infoBadge: InfoBadge(
+        source: Padding(
+          padding: EdgeInsets.all(2),
+          child: Texts(text: '99+', fontSize: 12),
+        ),
+      ),
       body: const NavigationBodyItem(content: Text("ssss"),),
     ),
     PaneItemSeparator(),
@@ -72,6 +77,7 @@ class _HomePageState extends State<HomePage> {
         displayMode: PaneDisplayMode.compact,
         items: items,
         size: NavigationPaneSize(openWidth: 180),
+        // customPane: const NavigationPaneWidget()),
         footerItems: [
           PaneItem(
             icon: const Icon(FluentIcons.lock),
