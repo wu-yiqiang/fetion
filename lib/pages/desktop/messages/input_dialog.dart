@@ -38,23 +38,6 @@ class _InputDialog extends State<InputDialog> {
                   ),
                 ),
             )),
-            // Expanded(
-            //   child: TextField(
-            //     // style: TextStyle(fontSize: 12),
-            //     // keyboardType: TextInputType.text,
-            //     // decoration: InputDecoration(
-            //     //   hintText: "Please Input",
-            //     //   // contentPadding: EdgeInsets.zero,
-            //     //   // prefixIconConstraints: BoxConstraints(minHeight: 32),
-            //     //   floatingLabelStyle: TextStyle(color: blue1),
-            //     //   isDense: true,
-            //     //   border: InputBorder.none,
-            //     // ),
-            //     // onChanged: (value) {
-            //     //   loginController.setLoginForm('password', value);
-            //     // },
-            //   ),
-            // ),
             Row(
               spacing: 8,
               children: [
