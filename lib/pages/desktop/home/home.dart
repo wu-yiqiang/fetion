@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
         // customPane: const NavigationPaneWidget()),
         footerItems: [
           PaneItem(
-            icon: const Icon(FluentIcons.lock),
+            icon: const Icon(FluentIcons.lock, size: 16),
             title:Texts(text:'Lock',color: black90),
             body: const NavigationBodyItem(content: Text("ssss")),
             onTap: () {
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           PaneItem(
-            icon: const Icon(FluentIcons.settings),
+            icon: const Icon(FluentIcons.settings, size: 16),
             title: Texts(text:'Settings',color: black90),
             body: NavigationBodyItem(
               content: SettingPage(),
