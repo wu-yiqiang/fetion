@@ -36,8 +36,8 @@ class _HomePageState extends State<HomePage> {
 
   List<NavigationPaneItem> items = [
     PaneItem(
-      icon: WindowsIcon(WindowsIcons.message, size: 16),
-      title: const Text('Chats'),
+      icon: WindowsIcon(WindowsIcons.chat_bubbles, size: 16),
+      title:Texts(text:'Chats',color: black90),
       infoBadge: InfoBadge(
         source: Padding(
           padding: EdgeInsets.all(2),
@@ -49,17 +49,17 @@ class _HomePageState extends State<HomePage> {
     PaneItemSeparator(),
     PaneItem(
       icon: Icon(FluentIcons.contact_info, size: 16),
-      title: const Text('Contacts'),
+      title: Texts(text:'Contacts',color: black90),
       body: const NavigationBodyItem(content: Text("ssss")),
     ),
     PaneItem(
       icon: const Icon(FluentIcons.contact_list, size: 16),
-      title: const Text('Groups'),
+      title: Texts(text:'Groups',color: black90),
       body: const NavigationBodyItem(content: Text("ssss")),
     ),
     PaneItem(
       icon: const Icon(WindowsIcons.contact, size: 16),
-      title: const Text('User'),
+      title: Texts(text:'User',color: black90),
       body: NavigationBodyItem(content: MePage(), header: 'User'),
     ),
   ];
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
         footerItems: [
           PaneItem(
             icon: const Icon(FluentIcons.lock),
-            title: const Text('Lock'),
+            title:Texts(text:'Lock',color: black90),
             body: const NavigationBodyItem(content: Text("ssss")),
             onTap: () {
               eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
           ),
           PaneItem(
             icon: const Icon(FluentIcons.settings),
-            title: const Text('Settings'),
+            title: Texts(text:'Settings',color: black90),
             body: NavigationBodyItem(
               content: SettingPage(),
               header: 'Settings',
