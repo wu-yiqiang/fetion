@@ -2,7 +2,7 @@ import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Colors;
 
 class InputDialog extends StatefulWidget {
   const InputDialog({super.key});
@@ -19,7 +19,7 @@ class _InputDialog extends State<InputDialog> {
         border: Border(top: BorderSide(width: 1, color: white10)),
       ),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
         decoration: BoxDecoration(
           color: black4,
           borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -28,20 +28,28 @@ class _InputDialog extends State<InputDialog> {
           children: [
             FluentIcon(icon: WindowsIcons.attach, onTap: () {}),
             Expanded(child: TextBox(
-              
+                unfocusedColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                decoration: WidgetStatePropertyAll<BoxDecoration>(
+                  BoxDecoration(
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.circular(0),
+                    border: Border.all(color: Colors.transparent, width: 0),
+                  ),
+                ),
             )),
             // Expanded(
             //   child: TextField(
-            //     style: TextStyle(fontSize: 12),
-            //     keyboardType: TextInputType.text,
-            //     decoration: InputDecoration(
-            //       hintText: "Please Input",
-            //       contentPadding: EdgeInsets.zero,
-            //       prefixIconConstraints: BoxConstraints(minHeight: 32),
-            //       floatingLabelStyle: TextStyle(color: blue1),
-            //       isDense: true,
-            //       border: InputBorder.none,
-            //     ),
+            //     // style: TextStyle(fontSize: 12),
+            //     // keyboardType: TextInputType.text,
+            //     // decoration: InputDecoration(
+            //     //   hintText: "Please Input",
+            //     //   // contentPadding: EdgeInsets.zero,
+            //     //   // prefixIconConstraints: BoxConstraints(minHeight: 32),
+            //     //   floatingLabelStyle: TextStyle(color: blue1),
+            //     //   isDense: true,
+            //     //   border: InputBorder.none,
+            //     // ),
             //     // onChanged: (value) {
             //     //   loginController.setLoginForm('password', value);
             //     // },

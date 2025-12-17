@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
   int topIndex = 0;
 
   List<NavigationPaneItem> items = [
+    PaneItemSeparator(),
     PaneItem(
       icon: WindowsIcon(WindowsIcons.chat_bubbles, size: 16),
       title:Texts(text:'Chats',color: black90),
@@ -46,7 +47,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: MessageBar(),
     ),
-    PaneItemSeparator(),
     PaneItem(
       icon: Icon(FluentIcons.contact_info, size: 16),
       title: Texts(text:'Contacts',color: black90),
