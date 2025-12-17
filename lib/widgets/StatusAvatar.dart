@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 StatusAvatar({double size = 40, required String image}) {
   return Container(
-    color: Colors.amber,
+    // color: Colors.amber,
     child: Stack(
       children: [
         Avatar(size: size, image: image),

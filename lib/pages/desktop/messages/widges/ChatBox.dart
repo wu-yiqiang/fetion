@@ -41,6 +41,7 @@ class _ChatBox extends State<ChatBox> {
               fontSize: 13,
               fontWeight: FontWeight.w400,
               height: 1.5,
+              decoration: TextDecoration.none,
             ),
           ),
           // Flex(

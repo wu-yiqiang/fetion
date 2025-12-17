@@ -1,9 +1,6 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
-// import 'package:fetion/pages/messages/desktop/input_tools.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
-import 'package:fetion/widgets/SvgIcon.dart';
-import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -29,48 +26,36 @@ class _InputDialog extends State<InputDialog> {
         ),
         child: Row(
           children: [
-            FluentIcon(icon: FluentIcons.attach, onTap: () {}),
-            Expanded(
-              child: TextField(
-                style: TextStyle(fontSize: 12),
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  hintText: "Please Input",
-                  contentPadding: EdgeInsets.zero,
-                  prefixIconConstraints: BoxConstraints(minHeight: 32),
-                  floatingLabelStyle: TextStyle(color: blue1),
-                  isDense: true,
-                  border: InputBorder.none,
-                ),
-                // onChanged: (value) {
-                //   loginController.setLoginForm('password', value);
-                // },
-              ),
-            ),
+            FluentIcon(icon: WindowsIcons.attach, onTap: () {}),
+            Expanded(child: TextBox(
+              
+            )),
+            // Expanded(
+            //   child: TextField(
+            //     style: TextStyle(fontSize: 12),
+            //     keyboardType: TextInputType.text,
+            //     decoration: InputDecoration(
+            //       hintText: "Please Input",
+            //       contentPadding: EdgeInsets.zero,
+            //       prefixIconConstraints: BoxConstraints(minHeight: 32),
+            //       floatingLabelStyle: TextStyle(color: blue1),
+            //       isDense: true,
+            //       border: InputBorder.none,
+            //     ),
+            //     // onChanged: (value) {
+            //     //   loginController.setLoginForm('password', value);
+            //     // },
+            //   ),
+            // ),
             Row(
               spacing: 8,
               children: [
-                FluentIcon(icon: FluentIcons.emoji2, onTap: () {}),
-                FluentIcon(icon: FluentIcons.microphone, onTap: () {}),
+                FluentIcon(icon: WindowsIcons.emoji2, onTap: () {}),
+                FluentIcon(icon: WindowsIcons.microphone, onTap: () {}),
               ],
             ),
           ],
         ),
-        // child: TextField(
-        //   style: TextStyle(fontSize: 12),
-        //   keyboardType: TextInputType.text,
-        //   decoration: InputDecoration(
-        //     hintText: "Input",
-        //     contentPadding: EdgeInsets.zero,
-        //     prefixIconConstraints: BoxConstraints(minHeight: 32),
-        //     floatingLabelStyle: TextStyle(color: Colors.blueAccent),
-        //     isDense: true,
-        //     border: InputBorder.none,
-        //   ),
-        //   // onChanged: (value) {
-        //   //   loginController.setLoginForm('password', value);
-        //   // },
-        // ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
+import 'package:fetion/pages/desktop/messages/message_bar.dart';
 import 'package:fetion/pages/desktop/messages/messages.dart';
 import 'package:fetion/pages/desktop/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           child: Texts(text: '99+', fontSize: 12),
         ),
       ),
-      body: NavigationBodyItem(content: Text("ssss")),
+      body: MessageBar(),
     ),
     PaneItemSeparator(),
     PaneItem(
@@ -60,7 +61,6 @@ class _HomePageState extends State<HomePage> {
       icon: const Icon(WindowsIcons.contact, size: 16),
       title: const Text('User'),
       body: NavigationBodyItem(content: MePage(), header: 'User'),
-
     ),
   ];
 

@@ -32,7 +32,6 @@ class _Messages extends State<Messages> {
             Message(),
             Message(),
             Message(),
-            Message(),
           ],
         ),
       )

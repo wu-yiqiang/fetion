@@ -11,8 +11,12 @@ class Message extends StatefulWidget {
 class _Message extends State<Message> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
+    return MouseRegion(
+      cursor: SystemMouseCursors.click, // 设置为点击光标
+      child: GestureDetector(
+        onTap: () {
+          print("ss萨达萨达");
+        },
       child: Container(
         padding: EdgeInsets.all(4),
         decoration: BoxDecoration(
@@ -31,9 +35,9 @@ class _Message extends State<Message> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: Texts(text: 'Sutter111111111111111111111111111'),
-                      ),
+                        Expanded(
+                          child: Texts(text: 'Sutter111111111111111111'),
+                        ),
                       Column(
                         children: [
                           Texts(
@@ -47,7 +51,7 @@ class _Message extends State<Message> {
                             fontWeight: FontWeight.w100,
                           ),
                         ],
-                      )
+                        ),
                     ],
                   ),
                   Texts(text: "今晚吃啥11111111111111111111111111", fontSize: 12),
@@ -56,6 +60,7 @@ class _Message extends State<Message> {
             ),
           ],
         ),
+      ),
       ),
     );
   }

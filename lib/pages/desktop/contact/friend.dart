@@ -12,8 +12,8 @@ class Friend extends StatefulWidget {
 class _Friend extends State<Friend> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
+    return MouseRegion(
+      cursor: SystemMouseCursors.click, // 设置为点击光标
       child: Container(
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(

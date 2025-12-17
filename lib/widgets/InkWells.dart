@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
-InkWells({
-  required Widget child,
-  required Function onPress,
-}) {
-  return InkWell(
-    splashColor: Colors.transparent,
-    highlightColor: Colors.transparent,
-    hoverColor: Colors.transparent,
-    child: child,
-    onTap: () {
-      onPress();
-    },
+InkWells({required Widget child, required Function onPress}) {
+  return MouseRegion(
+    cursor: SystemMouseCursors.click,
+    child: GestureDetector(
+      onTap: () {
+        onPress();
+      },
+      child: child,
+    ),
   );
 }
