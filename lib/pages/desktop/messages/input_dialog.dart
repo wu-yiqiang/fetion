@@ -2,7 +2,6 @@ import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart' hide Colors;
 
 class InputDialog extends StatefulWidget {
   const InputDialog({super.key});
@@ -19,7 +18,7 @@ class _InputDialog extends State<InputDialog> {
         border: Border(top: BorderSide(width: 1, color: white10)),
       ),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 0),
         decoration: BoxDecoration(
           color: black4,
           borderRadius: BorderRadius.all(Radius.circular(4)),

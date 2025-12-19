@@ -59,8 +59,8 @@ class _HomePageState extends State<HomePage> {
     ),
     PaneItem(
       icon: const Icon(WindowsIcons.contact, size: 16),
-      title: Texts(text:'User',color: black90),
-      body: NavigationBodyItem(content: MePage(), header: 'User'),
+      title: Texts(text: 'Profile', color: black90),
+      body: NavigationBodyItem(content: MePage(), header: 'Profile'),
     ),
   ];
 

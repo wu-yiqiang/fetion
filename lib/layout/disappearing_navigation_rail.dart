@@ -3,7 +3,7 @@ import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
-import 'package:fetion/widgets/InkWells.dart';
+import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import './destinations.dart';
