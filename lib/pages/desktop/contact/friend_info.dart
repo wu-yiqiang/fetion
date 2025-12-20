@@ -5,6 +5,7 @@ import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Separator.dart';
 import 'package:fetion/widgets/Texts.dart';
+import 'package:fetion/widgets/Toast.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
 class FriendInfo extends StatefulWidget {
@@ -133,11 +134,18 @@ class _FriendInfo extends State<FriendInfo> {
               Column(
                 spacing: 8,
                 children: [
-                  FluentIcon(icon: WindowsIcons.video, size: 24, onTap: () {}),
+                  FluentIcon(
+                    icon: WindowsIcons.video,
+                    size: 24,
+                    onTap: () {
+                      return Toast(InfoBarSeverity.error, 'sdsds');
+                    },
+                  ),
                   Texts(text: "Video", color: black90),
                 ],
               ),
-            ],)
+            ],
+          ),
         ],
       ),
     );
