@@ -1,13 +1,11 @@
 import 'package:fetion/common/light-theme.dart';
-import 'package:fetion/widgets/Avatar.dart' show Avatar;
+import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Separator.dart';
-import 'package:fetion/widgets/SvgIcon.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart';
 
 class FriendInfo extends StatefulWidget {
   const FriendInfo({super.key});
@@ -114,7 +112,31 @@ class _FriendInfo extends State<FriendInfo> {
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 30,
             children: [
-              FluentIcon(icon: WindowsIcons.message,size: 24, onTap: () {}), FluentIcon(icon: WindowsIcons.phone, size: 24, onTap: () {}), FluentIcon(icon: WindowsIcons.video, size: 24, onTap: () {}),
+              Column(
+                spacing: 8,
+                children: [
+                  FluentIcon(
+                    icon: WindowsIcons.message,
+                    size: 24,
+                    onTap: () {},
+                  ),
+                  Texts(text: "Message", color: black90),
+                ],
+              ),
+              Column(
+                spacing: 8,
+                children: [
+                  FluentIcon(icon: WindowsIcons.phone, size: 24, onTap: () {}),
+                  Texts(text: "Call", color: black90),
+                ],
+              ),
+              Column(
+                spacing: 8,
+                children: [
+                  FluentIcon(icon: WindowsIcons.video, size: 24, onTap: () {}),
+                  Texts(text: "Video", color: black90),
+                ],
+              ),
             ],)
         ],
       ),
