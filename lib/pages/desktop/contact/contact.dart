@@ -1,3 +1,4 @@
+import 'package:fetion/pages/desktop/contact/friend_info.dart';
 import 'package:fetion/pages/desktop/contact/friends.dart';
 import 'package:fetion/pages/desktop/contact/friends_box.dart' show FriendsBox;
 import 'package:fetion/pages/desktop/messages/single_dialog.dart'
@@ -25,7 +26,7 @@ class _ContactBar extends State<ContactBar> {
             ],
           ),
         ),
-        Expanded(child: SingleDialog()),
+        Expanded(child: FriendInfo()),
       ],
     );
   }

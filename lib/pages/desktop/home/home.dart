@@ -1,5 +1,6 @@
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
+import 'package:fetion/pages/desktop/contact/contact.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
 import 'package:fetion/pages/desktop/messages/messages.dart';
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
     PaneItem(
       icon: Icon(FluentIcons.contact_info, size: 16),
       title: Texts(text:'Contacts',color: black90),
-      body: const NavigationBodyItem(content: Text("ssss")),
+      body: ContactBar(),
     ),
     PaneItem(
       icon: const Icon(FluentIcons.contact_list, size: 16),
@@ -59,8 +60,8 @@ class _HomePageState extends State<HomePage> {
     ),
     PaneItem(
       icon: const Icon(WindowsIcons.contact, size: 16),
-      title: Texts(text: 'Profile', color: black90),
-      body: NavigationBodyItem(content: MePage(), header: 'Profile'),
+      title: Texts(text: 'Profiles', color: black90),
+      body: NavigationBodyItem(content: MePage(), header: 'Profiles'),
     ),
   ];
 

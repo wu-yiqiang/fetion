@@ -73,7 +73,6 @@ class _MePage extends State<MePage> {
                 ),
                 onPress: () {},
               ),
-
               Separator(),
               MouseRegions(
                 child: Row(
