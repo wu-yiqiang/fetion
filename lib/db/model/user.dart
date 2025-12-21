@@ -1,5 +1,5 @@
-import 'package:sqflite/sqflite.dart'; // 导入 sqflite 包，用于操作 SQLite 数据库
-import 'package:path/path.dart'; // 导入 path 包，用于处理文件路径
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
 
 class DatabaseHelper {
   // 数据库文件名
@@ -26,7 +26,6 @@ class DatabaseHelper {
     return _database!;
   }
 
-  // 初始化数据库的方法
   // 获取数据库存储路径，并打开或创建数据库文件
   Future<Database> _initDatabase() async {
     // 使用 getDatabasesPath 获取设备的数据库存储路径
@@ -35,7 +34,6 @@ class DatabaseHelper {
     return await openDatabase(path, version: dbVersion, onCreate: _onCreate);
   }
 
-  // 数据库创建时调用的回调方法
   // 用于创建数据表结构
   Future<void> _onCreate(Database db, int version) async {
     // 执行 SQL 语句，创建 users 表

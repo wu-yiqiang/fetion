@@ -3,7 +3,7 @@ import 'package:path/path.dart';
 
 class DatabaseHelper {
   // 数据库文件名
-  static const String dbName = "localization.db";
+  static const String dbName = "fetion.db";
   // 数据库版本号，用于版本控制和升级
   static const int dbVersion = 1;
   // 数据表名，用于存储本地化数据
@@ -44,55 +44,5 @@ class DatabaseHelper {
     ''');
   }
 
-  // 保存本地化数据的方法
-  Future<void> saveLocalization(String key, String value) async {
-    // 获取数据库实例
-    Database db = await database;
-    // 插入数据到 localization 表
-    // 如果 key 已存在，则使用 ConflictAlgorithm.replace 策略替换原有数据
-    await db.insert(tableLocalization, {
-      columnKey: key,
-      columnValue: value,
-    }, conflictAlgorithm: ConflictAlgorithm.replace);
-  }
-
-  // 获取本地化数据的方法
-  Future<String?> getLocalization(String key) async {
-    // 获取数据库实例
-    Database db = await database;
-    // 查询 localization 表，查找指定 key 的数据
-    List<Map<String, dynamic>> result = await db.query(
-      tableLocalization,
-      where: '$columnKey = ?',
-      whereArgs: [key],
-    );
-    // 如果查询结果不为空，返回 value 字段的值；否则返回 null
-    return result.isNotEmpty ? result.first[columnValue] as String? : null;
-  }
-
-  // 移除本地化数据的方法
-  Future<void> removeLocalization(String key) async {
-    // 获取数据库实例
-    Database db = await database;
-    // 从 localization 表中删除指定 key 的数据
-    await db.delete(
-      tableLocalization,
-      where: '$columnKey = ?',
-      whereArgs: [key],
-    );
-  }
-
-  // 判断是否存在指定 key 的本地化数据的方法
-  Future<bool> hasLocalization(String key) async {
-    // 获取数据库实例
-    Database db = await database;
-    // 查询localization表，查找指定key的数据
-    List<Map<String, dynamic>> result = await db.query(
-      tableLocalization,
-      where: '$columnKey = ?',
-      whereArgs: [key],
-    );
-    // 如果查询结果不为空，返回 true；否则返回 false
-    return result.isNotEmpty;
-  }
+  
 }

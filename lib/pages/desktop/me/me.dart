@@ -20,7 +20,7 @@ class _MePage extends State<MePage> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 4,
+      spacing: 30,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
