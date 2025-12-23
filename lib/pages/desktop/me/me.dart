@@ -9,7 +9,8 @@ import 'package:fetion/widgets/Separator.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
-
+import 'package:fetion/db/realm.dart';
+import 'package:fetion/db/datamanager/user.dart';
 class MePage extends StatefulWidget {
   const MePage({super.key});
   @override
@@ -17,6 +18,12 @@ class MePage extends StatefulWidget {
 }
 
 class _MePage extends State<MePage> {
+  @override
+  void initState() async {
+    final databaseManager = await DatabaseManager.getInstance();
+    _personRepository = UserRepository(widget.databaseManager);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
