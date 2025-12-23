@@ -13,3 +13,6 @@ design https://www.figma.com/design/5fmTHYSBy5zeJDijHjPIsg/Windows-11-Chat-UI-Ki
 构建mac平台应用
 
 构建linux平台应用
+
+Realm
+https://juejin.cn/post/7527240045448347702
