@@ -34,13 +34,25 @@ class _MePage extends State<MePage> {
   }
 
   void insertUser() {
-    final user = _userRepository.createUser({'nickName': '撒大苏打','isMe': true,'isDeleted': false,'macAddr': "maAddr",'deviceName': "deviceName", 'hardwareAddr': "hardwareAddr", 'ipv4Addr': '192.168.1.222', 'ipv6Addr': "ipv6Addr", 'maskCode': "maskCode" } as User);
+    final usr = {
+      'nickName': '看哥梭哈',
+      'fullName': "Sutter",
+      'isMe': true,
+      'isDeleted': false,
+      'macAddr': "maAddr",
+      'deviceName': "deviceName",
+      'hardwareAddr': "hardwareAddr",
+      'ipv4Addr': '192.168.1.222',
+      'ipv6Addr': "ipv6Addr",
+      'maskCode': "maskCode",
+    };
+    final user = _userRepository.createUser(usr);
     queryMyInfos();
   }
 
   void queryMyInfos() {
     final myInfo = _userRepository.getOwner();
-    print('${myInfo}');
+    print('${myInfo?.nickName}');
   }
 
   @override

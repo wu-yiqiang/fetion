@@ -11,30 +11,30 @@ class UserRepository {
     _realm = _realmInstance.realm;
   }
 
-  User createUser(User usr) {
+  User createUser(usr) {
     final user = User(
       ObjectId().toString(),
-      usr!.nickName,
-      usr!.isMe,
-      usr!.isDeleted,
-      usr!.macAddr,
-      usr!.deviceName,
-      usr!.hardwareAddr,
-      usr!.ipv4Addr,
-      usr!.ipv6Addr,
-      usr!.maskCode,
-      fullName: usr?.fullName,
-      avatar: usr?.avatar,
-      age: usr?.age,
-      gender: usr?.gender,
-      phone: usr?.phone,
-      email: usr?.email,
-      address: usr?.address,
-      department: usr?.department,
-      position: usr?.position,
-      status: usr?.status,
-      slogan: usr?.slogan,
-      employeeId: usr?.employeeId,
+      usr['nickName'],
+      usr['isMe'],
+      usr['isDeleted'],
+      usr['macAddr'],
+      usr['deviceName'],
+      usr['hardwareAddr'],
+      usr['ipv4Addr'],
+      usr['ipv6Addr'],
+      usr['maskCode'],
+      fullName: usr['fullName'],
+      avatar: usr['avatar'],
+      age: usr['age'],
+      gender: usr['gender'],
+      phone: usr['phone'],
+      email: usr['email'],
+      address: usr['address'],
+      department: usr['department'],
+      position: usr['position'],
+      status: usr['status'],
+      slogan: usr['slogan'],
+      employeeId: usr['employeeId'],
     );
 
     // 在数据库事务中保存人员对象
@@ -75,7 +75,7 @@ class UserRepository {
   }
 
   User? getOwner() {
-    return _realm.query<User>(r'isMe == True').first;
+    return _realm.query<User>(r'isMe == true').first;
   }
 
   List<User> findUserByName(String name) {
