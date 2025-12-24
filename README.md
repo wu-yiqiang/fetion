@@ -16,3 +16,6 @@ design https://www.figma.com/design/5fmTHYSBy5zeJDijHjPIsg/Windows-11-Chat-UI-Ki
 
 Realm
 https://juejin.cn/post/7527240045448347702
+
+更新模型
+flutter pub run realm generate

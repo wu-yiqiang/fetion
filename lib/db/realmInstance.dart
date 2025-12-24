@@ -3,22 +3,21 @@ import './models/user.model.dart';
 
 /// 数据库管理器类
 /// 负责管理 Realm 数据库的初始化、配置和生命周期
-class DatabaseManager {
+class RealmInstance {
   /// 单例实例
-  static DatabaseManager? _instance;
+  static RealmInstance? _instance;
   
   /// Realm 数据库实例
   late final Realm _realm;
 
   /// 私有构造函数，用于实现单例模式
-  DatabaseManager._() {
-    // 配置 Realm 数据库
+  RealmInstance._() {
     final config = Configuration.local(
       /// 定义数据库中的模型架构
       [User.schema],
       
       /// 设置数据库版本号，用于数据库升级
-      schemaVersion: 1,
+      schemaVersion: 3,
       
       /// 数据库版本迁移回调函数
       migrationCallback: (migration, oldSchemaVersion) {
@@ -33,9 +32,9 @@ class DatabaseManager {
   }
 
   /// 获取数据库管理器单例实例
-  static Future<DatabaseManager> getInstance() async {
+  static Future<RealmInstance> getInstance() async {
     /// 如果实例不存在，则创建新实例
-    _instance ??= DatabaseManager._();
+    _instance ??= RealmInstance._();
     return _instance!;
   }
 

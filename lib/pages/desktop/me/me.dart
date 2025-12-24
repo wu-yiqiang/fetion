@@ -1,6 +1,7 @@
 // import 'package:fetion/pages/desktop/contact/friends.dart';
 // import 'package:fetion/pages/desktop/contact/friends_box.dart';
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/db/models/user.model.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
@@ -9,8 +10,9 @@ import 'package:fetion/widgets/Separator.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:fetion/db/realm.dart';
-import 'package:fetion/db/datamanager/user.dart';
+import 'package:fetion/db/realmInstance.dart';
+import 'package:fetion/db/datas/user.dart';
+
 class MePage extends StatefulWidget {
   const MePage({super.key});
   @override
@@ -18,10 +20,27 @@ class MePage extends StatefulWidget {
 }
 
 class _MePage extends State<MePage> {
+  late UserRepository _userRepository;
+
   @override
-  void initState() async {
-    final databaseManager = await DatabaseManager.getInstance();
-    _personRepository = UserRepository(widget.databaseManager);
+  void initState() {
+    super.initState();
+    ReamInit();
+  }
+
+  void ReamInit() async {
+    final realmInstance = await RealmInstance.getInstance();
+    _userRepository = UserRepository(realmInstance);
+  }
+
+  void insertUser() {
+    final user = _userRepository.createUser({'nickName': '撒大苏打','isMe': true,'isDeleted': false,'macAddr': "maAddr",'deviceName': "deviceName", 'hardwareAddr': "hardwareAddr", 'ipv4Addr': '192.168.1.222', 'ipv6Addr': "ipv6Addr", 'maskCode': "maskCode" } as User);
+    queryMyInfos();
+  }
+
+  void queryMyInfos() {
+    final myInfo = _userRepository.getOwner();
+    print('${myInfo}');
   }
 
   @override
@@ -45,7 +64,9 @@ class _MePage extends State<MePage> {
                     Texts(text: "Sutter", color: black90),
                   ],
                 ),
-                onPress: () {},
+                onPress: () {
+                  insertUser();
+                },
               ),
               Separator(),
               MouseRegions(
