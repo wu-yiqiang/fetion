@@ -1,6 +1,7 @@
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/contact/contact.dart';
+import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
 import 'package:fetion/pages/desktop/messages/messages.dart';
@@ -9,6 +10,7 @@ import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/StatusAvatar.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:get/get.dart';
 
 class NavigationBodyItem extends StatelessWidget {
   const NavigationBodyItem({super.key, this.header, required this.content});
@@ -33,6 +35,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final MeController meController = Get.put(MeController());
   int topIndex = 0;
 
   List<NavigationPaneItem> items = [
@@ -87,8 +90,20 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Texts(text: "Sutter Jhon", fontSize: 14, color: black90),
-                    Texts(text: "这个人很懒，什么也没有留下", fontSize: 12, color: black6),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.nickName,
+                        fontSize: 14,
+                        color: black90,
+                      );
+                    }),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.slogan ?? '',
+                        fontSize: 12,
+                        color: black6,
+                      );
+                    }),
                   ],
                 ),
               ),

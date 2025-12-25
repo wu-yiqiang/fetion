@@ -1,8 +1,6 @@
 // import 'package:fetion/pages/desktop/contact/friends.dart';
 // import 'package:fetion/pages/desktop/contact/friends_box.dart';
 import 'package:fetion/common/light-theme.dart';
-import 'package:fetion/db/models/user.model.dart';
-import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fetion/widgets/RowItem.dart';
@@ -10,9 +8,8 @@ import 'package:fetion/widgets/Separator.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:fetion/db/realmInstance.dart';
-import 'package:fetion/db/datas/user.dart';
-
+import 'package:get/get.dart';
+import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 class MePage extends StatefulWidget {
   const MePage({super.key});
   @override
@@ -20,39 +17,11 @@ class MePage extends StatefulWidget {
 }
 
 class _MePage extends State<MePage> {
-  late UserRepository _userRepository;
+  final MeController meController = Get.put(MeController());
 
   @override
   void initState() {
     super.initState();
-    ReamInit();
-  }
-
-  void ReamInit() async {
-    final realmInstance = await RealmInstance.getInstance();
-    _userRepository = UserRepository(realmInstance);
-  }
-
-  void insertUser() {
-    final usr = {
-      'nickName': '看哥梭哈',
-      'fullName': "Sutter",
-      'isMe': true,
-      'isDeleted': false,
-      'macAddr': "maAddr",
-      'deviceName': "deviceName",
-      'hardwareAddr': "hardwareAddr",
-      'ipv4Addr': '192.168.1.222',
-      'ipv6Addr': "ipv6Addr",
-      'maskCode': "maskCode",
-    };
-    final user = _userRepository.createUser(usr);
-    queryMyInfos();
-  }
-
-  void queryMyInfos() {
-    final myInfo = _userRepository.getOwner();
-    print('${myInfo?.nickName}');
   }
 
   @override
@@ -73,11 +42,15 @@ class _MePage extends State<MePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "FullName", color: black90),
-                    Texts(text: "Sutter", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.fullName ?? '',
+                        color: black90,
+                      );
+                    })
                   ],
                 ),
                 onPress: () {
-                  insertUser();
                 },
               ),
               Separator(),
@@ -86,7 +59,12 @@ class _MePage extends State<MePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "NickName", color: black90),
-                    Texts(text: "kitty", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.nickName,
+                        color: black90,
+                      );
+                    })
                   ],
                 ),
                 onPress: () {},
@@ -97,7 +75,12 @@ class _MePage extends State<MePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "Phone", color: black90),
-                    Texts(text: "15678900783", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.phone ?? '',
+                        color: black90,
+                      );
+                    })
                   ],
                 ),
                 onPress: () {},
@@ -107,8 +90,13 @@ class _MePage extends State<MePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Texts(text: "Sign", color: black90),
-                    Texts(text: "Hello, word", color: black90),
+                    Texts(text: "Slogan", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.slogan ?? '',
+                        color: black90,
+                      );
+                    })
                   ],
                 ),
                 onPress: () {},
@@ -119,7 +107,12 @@ class _MePage extends State<MePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "Department", color: black90),
-                    Texts(text: "Develop", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.department ?? '',
+                        color: black90,
+                      );
+                    })
                   ],
                 ),
                 onPress: () {},
@@ -130,7 +123,12 @@ class _MePage extends State<MePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "Position", color: black90),
-                    Texts(text: "IT", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.position ?? '',
+                        color: black90,
+                      );
+                    })
                   ],
                 ),
                 onPress: () {},

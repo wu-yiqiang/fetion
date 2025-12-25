@@ -6,11 +6,9 @@ class _User {
   @PrimaryKey()
   late String id;
   late String nickName;
-  late bool isMe;
   late bool isDeleted;
   late String macAddr;
   late String deviceName;
-  late String hardwareAddr;
   late String ipv4Addr;
   late String ipv6Addr;
   late String maskCode;

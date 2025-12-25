@@ -60,6 +60,7 @@ void main() async {
         initialRoute: "/",
         getPages: pages,
         transitionDuration: Duration(milliseconds: 200),
+        // initialBinding: ControllerBindings(),
         debugShowCheckedModeBanner: false, //隐藏debug的角标
         localizationsDelegates: [FluentLocalizations.delegate],
         // locale: Locale(

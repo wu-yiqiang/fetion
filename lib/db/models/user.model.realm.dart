@@ -13,11 +13,9 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   User(
     String id,
     String nickName,
-    bool isMe,
     bool isDeleted,
     String macAddr,
     String deviceName,
-    String hardwareAddr,
     String ipv4Addr,
     String ipv6Addr,
     String maskCode, {
@@ -36,11 +34,9 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   }) {
     RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'nickName', nickName);
-    RealmObjectBase.set(this, 'isMe', isMe);
     RealmObjectBase.set(this, 'isDeleted', isDeleted);
     RealmObjectBase.set(this, 'macAddr', macAddr);
     RealmObjectBase.set(this, 'deviceName', deviceName);
-    RealmObjectBase.set(this, 'hardwareAddr', hardwareAddr);
     RealmObjectBase.set(this, 'ipv4Addr', ipv4Addr);
     RealmObjectBase.set(this, 'ipv6Addr', ipv6Addr);
     RealmObjectBase.set(this, 'maskCode', maskCode);
@@ -72,11 +68,6 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   set nickName(String value) => RealmObjectBase.set(this, 'nickName', value);
 
   @override
-  bool get isMe => RealmObjectBase.get<bool>(this, 'isMe') as bool;
-  @override
-  set isMe(bool value) => RealmObjectBase.set(this, 'isMe', value);
-
-  @override
   bool get isDeleted => RealmObjectBase.get<bool>(this, 'isDeleted') as bool;
   @override
   set isDeleted(bool value) => RealmObjectBase.set(this, 'isDeleted', value);
@@ -92,13 +83,6 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   @override
   set deviceName(String value) =>
       RealmObjectBase.set(this, 'deviceName', value);
-
-  @override
-  String get hardwareAddr =>
-      RealmObjectBase.get<String>(this, 'hardwareAddr') as String;
-  @override
-  set hardwareAddr(String value) =>
-      RealmObjectBase.set(this, 'hardwareAddr', value);
 
   @override
   String get ipv4Addr =>
@@ -200,11 +184,9 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     return <String, dynamic>{
       'id': id.toEJson(),
       'nickName': nickName.toEJson(),
-      'isMe': isMe.toEJson(),
       'isDeleted': isDeleted.toEJson(),
       'macAddr': macAddr.toEJson(),
       'deviceName': deviceName.toEJson(),
-      'hardwareAddr': hardwareAddr.toEJson(),
       'ipv4Addr': ipv4Addr.toEJson(),
       'ipv6Addr': ipv6Addr.toEJson(),
       'maskCode': maskCode.toEJson(),
@@ -230,11 +212,9 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       {
         'id': EJsonValue id,
         'nickName': EJsonValue nickName,
-        'isMe': EJsonValue isMe,
         'isDeleted': EJsonValue isDeleted,
         'macAddr': EJsonValue macAddr,
         'deviceName': EJsonValue deviceName,
-        'hardwareAddr': EJsonValue hardwareAddr,
         'ipv4Addr': EJsonValue ipv4Addr,
         'ipv6Addr': EJsonValue ipv6Addr,
         'maskCode': EJsonValue maskCode,
@@ -242,11 +222,9 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
         User(
           fromEJson(id),
           fromEJson(nickName),
-          fromEJson(isMe),
           fromEJson(isDeleted),
           fromEJson(macAddr),
           fromEJson(deviceName),
-          fromEJson(hardwareAddr),
           fromEJson(ipv4Addr),
           fromEJson(ipv6Addr),
           fromEJson(maskCode),
@@ -273,11 +251,9 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     return const SchemaObject(ObjectType.realmObject, User, 'User', [
       SchemaProperty('id', RealmPropertyType.string, primaryKey: true),
       SchemaProperty('nickName', RealmPropertyType.string),
-      SchemaProperty('isMe', RealmPropertyType.bool),
       SchemaProperty('isDeleted', RealmPropertyType.bool),
       SchemaProperty('macAddr', RealmPropertyType.string),
       SchemaProperty('deviceName', RealmPropertyType.string),
-      SchemaProperty('hardwareAddr', RealmPropertyType.string),
       SchemaProperty('ipv4Addr', RealmPropertyType.string),
       SchemaProperty('ipv6Addr', RealmPropertyType.string),
       SchemaProperty('maskCode', RealmPropertyType.string),
@@ -298,4 +274,5 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
 
   @override
   SchemaObject get objectSchema => RealmObjectBase.getSchema(this) ?? schema;
+
 }

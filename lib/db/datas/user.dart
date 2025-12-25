@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/db/models/user.model.dart';
 import 'package:realm/realm.dart';
 import '../realmInstance.dart';
@@ -11,32 +12,36 @@ class UserRepository {
     _realm = _realmInstance.realm;
   }
 
-  User createUser(usr) {
+  User? createUser(User usr) {
+    final usrId = usr.id;
     final user = User(
-      ObjectId().toString(),
-      usr['nickName'],
-      usr['isMe'],
-      usr['isDeleted'],
-      usr['macAddr'],
-      usr['deviceName'],
-      usr['hardwareAddr'],
-      usr['ipv4Addr'],
-      usr['ipv6Addr'],
-      usr['maskCode'],
-      fullName: usr['fullName'],
-      avatar: usr['avatar'],
-      age: usr['age'],
-      gender: usr['gender'],
-      phone: usr['phone'],
-      email: usr['email'],
-      address: usr['address'],
-      department: usr['department'],
-      position: usr['position'],
-      status: usr['status'],
-      slogan: usr['slogan'],
-      employeeId: usr['employeeId'],
+      usrId ?? ObjectId().toString(),
+      usr.nickName,
+      usr.isDeleted,
+      usr.macAddr,
+      usr.deviceName,
+      usr.ipv4Addr,
+      usr.ipv6Addr,
+      usr.maskCode,
+      fullName: usr?.fullName ?? '',
+      avatar: usr?.avatar ?? '',
+      age: usr?.age ?? 0,
+      gender: usr?.gender ?? '',
+      phone: usr?.phone ?? '',
+      email: usr?.email ?? '',
+      address: usr?.address ?? '',
+      department: usr?.department ?? '',
+      position: usr?.position ?? '',
+      status: usr?.status ?? true,
+      slogan: usr?.slogan ?? '',
+      employeeId: usr?.employeeId ?? '',
     );
-
+    if (usrId.isNotEmpty) {
+      final usrInfo = getUserById(usrId);
+      if (usrInfo != null) {
+        return usrInfo;
+      }
+    }
     // 在数据库事务中保存人员对象
     _realm.write(() => _realm.add(user));
     return user;
@@ -75,11 +80,11 @@ class UserRepository {
   }
 
   User? getOwner() {
-    return _realm.query<User>(r'isMe == true').first;
+    return _realm.find<User>(UserId);
   }
 
   List<User> findUserByName(String name) {
-    return _realm.query<User>(r'name == "$0"', [name]).toList();
+    return _realm.query<User>(r'fullName == "$0"', [name]).toList();
   }
 
   void updateUser(User user, {String? name, int? age, String? email}) {
