@@ -275,4 +275,6 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   @override
   SchemaObject get objectSchema => RealmObjectBase.getSchema(this) ?? schema;
 
+  void operator []=(String other, value) {}
+
 }

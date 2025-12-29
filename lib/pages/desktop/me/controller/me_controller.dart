@@ -14,7 +14,7 @@ class MeController extends GetxController {
     'Itforce05',
     '192.168.1.222',
     'fe80::ff7:db62:8113:635d%18',
-    '255.255.255.250'
+    '255.255.255.250',
   ).obs;
 
   initDb() async {
@@ -34,7 +34,15 @@ class MeController extends GetxController {
     user.value = insertUser!;
   }
 
-  void updateMeUser() {}
+  void updateMeUser(String key, dynamic value) {
+    _userRepository.updateUserItem(UserId, key, value);
+    getOwnerInfo();
+  }
+
+  void getOwnerInfo() {
+    final ownerInfos = _userRepository.getOwner();
+    user.value = ownerInfos!;
+  }
 
   @override
   void onClose() {

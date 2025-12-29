@@ -70,7 +70,6 @@ class UserRepository {
     // });
   }
 
-  /// 获取所有人员对象
   List<User> getAllUsers() {
     return _realm.all<User>().toList();
   }
@@ -87,17 +86,22 @@ class UserRepository {
     return _realm.query<User>(r'fullName == "$0"', [name]).toList();
   }
 
-  void updateUser(User user, {String? name, int? age, String? email}) {
-    // _realm.write(() {
-    //   if (name != null) user.name = name;
-    //   if (age != null) user.age = age;
-    //   if (email != null) user.email = email;
-    // });
+  void updateUser(User user) {
+    _realm.write(() {
+      user = user;
+    });
   }
 
-  /// 删除人员
+  void updateUserItem(String id, String key, dynamic value) {
+    _realm.write(() {
+      final user = _realm.find<User>(id);
+      if (user != null) {
+        user.fullName = value;
+      }
+    });
+  }
+
   void deleteUser(User user) {
-    // 在数据库事务中删除人员
     _realm.write(() {
       _realm.delete(user);
     });
