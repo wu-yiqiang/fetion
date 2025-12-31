@@ -1,30 +1,14 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/init/init.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:window_manager/window_manager.dart';
 import 'package:get/get.dart';
 import 'package:local_notifier/local_notifier.dart';
-// import 'package:fluent_ui/fluent_ui.dart';
 
-windowInit() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await windowManager.ensureInitialized();
-  WindowOptions windowOptions = const WindowOptions(
-    size: Size(900, 600), // 设置默认窗口大小
-    minimumSize: Size(800, 600), // 设置最小窗口大小
-    center: true, // 设置窗口居中
-    title: "Fetion", // 设置窗口标题
-    // backgroundColor: Colors.white,
-    // titleBarStyle: TitleBarStyle.hidden, // 隐藏原生标题栏
-  );
-  windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.show();
-    await windowManager.focus();
-  });
-}
+
 
 localNotification() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +33,7 @@ Navigates() {
 }
 
 void main() async {
-  await windowInit();
+  await initStart();
   await localNotification();
   ShowGlobalMessages();
   Navigates();
@@ -77,6 +61,6 @@ void main() async {
         ),
         //  builder: EasyLoading.init(),
       ),
-    )
+    ),
   );
 }

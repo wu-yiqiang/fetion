@@ -11,9 +11,8 @@ class UserRepository {
   UserRepository(this._realmInstance) {
     _realm = _realmInstance.realm;
   }
-
-  User? createUser(User usr) {
-    final usrId = usr.id;
+  User getUser(User usr) {
+    final usrId = usr?.id;
     final user = User(
       usrId ?? ObjectId().toString(),
       usr.nickName,
@@ -36,46 +35,29 @@ class UserRepository {
       slogan: usr?.slogan ?? '',
       employeeId: usr?.employeeId ?? '',
     );
+    return user;
+  }
+
+  User? createUser(User usr) {
+    final usrId = usr.id;
+    final user = getUser(usr);
     if (usrId.isNotEmpty) {
-      final usrInfo = getUserById(usrId);
+      final usrInfo = findUser(usrId);
       if (usrInfo != null) {
         return usrInfo;
       }
     }
-    // 在数据库事务中保存人员对象
     _realm.write(() => _realm.add(user));
     return user;
   }
 
-  /// 为人员添加地址信息
-  void addAddress(
-    User user,
-    String street,
-    String city,
-    String country, {
-    String? postalCode,
-  }) {
-    // // 创建新的地址对象
-    // final address = Address(
-    //   ObjectId().toString(),
-    //   street,
-    //   city,
-    //   country,
-    //   postalCode: postalCode,
-    // );
-
-    // // 在数据库事务中更新人员的地址信息
-    // _realm.write(() {
-    //   user.addresses = address;
-    // });
+  User? createOwner(User user) {
+    deleteUser(user.id);
+    return createUser(user);
   }
 
   List<User> getAllUsers() {
     return _realm.all<User>().toList();
-  }
-
-  User? getUserById(String id) {
-    return _realm.find<User>(id);
   }
 
   User? getOwner() {
@@ -94,16 +76,22 @@ class UserRepository {
 
   void updateUserItem(String id, String key, dynamic value) {
     _realm.write(() {
-      final user = _realm.find<User>(id);
+      final user = findUser(id);
       if (user != null) {
         user.fullName = value;
       }
     });
   }
 
-  void deleteUser(User user) {
+  User? findUser(String id) {
+    return _realm.find<User>(id);
+  }
+
+  void deleteUser(String id) {
+    User? user = findUser(id);
+    if (user == null) return;
     _realm.write(() {
-      _realm.delete(user);
+      _realm.delete(user!);
     });
   }
 }

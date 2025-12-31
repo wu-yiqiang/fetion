@@ -18,7 +18,6 @@ class MePage extends StatefulWidget {
 
 class _MePage extends State<MePage> {
   late MeController meController = Get.put(MeController());
-
   @override
   void initState() {
     super.initState();
@@ -137,6 +136,70 @@ class _MePage extends State<MePage> {
                     Obx(() {
                       return Texts(
                         text: meController.user.value.position ?? '',
+                        color: black90,
+                      );
+                    }),
+                  ],
+                ),
+                onPress: () {},
+              ),
+              Separator(),
+              MouseRegions(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Texts(text: "Gateway", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.ipv6Addr ?? '',
+                        color: black90,
+                      );
+                    }),
+                  ],
+                ),
+                onPress: () {},
+              ),
+              Separator(),
+              MouseRegions(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Texts(text: "IPV4", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.ipv4Addr ?? '',
+                        color: black90,
+                      );
+                    }),
+                  ],
+                ),
+                onPress: () {},
+              ),
+              Separator(),
+              MouseRegions(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Texts(text: "IPV6", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.ipv6Addr ?? '',
+                        color: black90,
+                      );
+                    }),
+                  ],
+                ),
+                onPress: () {},
+              ),
+              Separator(),
+              MouseRegions(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Texts(text: "MAC", color: black90),
+                    Obx(() {
+                      return Texts(
+                        text: meController.user.value.macAddr ?? '',
                         color: black90,
                       );
                     }),

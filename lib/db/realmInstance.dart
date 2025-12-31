@@ -29,6 +29,9 @@ class RealmInstance {
     
     /// 创建 Realm 数据库实例
     _realm = Realm(config);
+    // 数据文件路径
+    String dbPath = config.path;
+    print('数据库路径: $dbPath');
   }
 
   /// 获取数据库管理器单例实例
