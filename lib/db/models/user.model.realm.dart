@@ -13,12 +13,13 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   User(
     String id,
     String nickName,
-    bool isDeleted,
-    String macAddr,
     String deviceName,
+    String gateway,
     String ipv4Addr,
     String ipv6Addr,
-    String maskCode, {
+    String macAddr,
+    String maskCode,
+    bool isDeleted, {
     String? fullName,
     String? avatar,
     int? age,
@@ -34,12 +35,13 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   }) {
     RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'nickName', nickName);
-    RealmObjectBase.set(this, 'isDeleted', isDeleted);
-    RealmObjectBase.set(this, 'macAddr', macAddr);
     RealmObjectBase.set(this, 'deviceName', deviceName);
+    RealmObjectBase.set(this, 'gateway', gateway);
     RealmObjectBase.set(this, 'ipv4Addr', ipv4Addr);
     RealmObjectBase.set(this, 'ipv6Addr', ipv6Addr);
+    RealmObjectBase.set(this, 'macAddr', macAddr);
     RealmObjectBase.set(this, 'maskCode', maskCode);
+    RealmObjectBase.set(this, 'isDeleted', isDeleted);
     RealmObjectBase.set(this, 'fullName', fullName);
     RealmObjectBase.set(this, 'avatar', avatar);
     RealmObjectBase.set(this, 'age', age);
@@ -68,21 +70,16 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   set nickName(String value) => RealmObjectBase.set(this, 'nickName', value);
 
   @override
-  bool get isDeleted => RealmObjectBase.get<bool>(this, 'isDeleted') as bool;
-  @override
-  set isDeleted(bool value) => RealmObjectBase.set(this, 'isDeleted', value);
-
-  @override
-  String get macAddr => RealmObjectBase.get<String>(this, 'macAddr') as String;
-  @override
-  set macAddr(String value) => RealmObjectBase.set(this, 'macAddr', value);
-
-  @override
   String get deviceName =>
       RealmObjectBase.get<String>(this, 'deviceName') as String;
   @override
   set deviceName(String value) =>
       RealmObjectBase.set(this, 'deviceName', value);
+
+  @override
+  String get gateway => RealmObjectBase.get<String>(this, 'gateway') as String;
+  @override
+  set gateway(String value) => RealmObjectBase.set(this, 'gateway', value);
 
   @override
   String get ipv4Addr =>
@@ -97,10 +94,20 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   set ipv6Addr(String value) => RealmObjectBase.set(this, 'ipv6Addr', value);
 
   @override
+  String get macAddr => RealmObjectBase.get<String>(this, 'macAddr') as String;
+  @override
+  set macAddr(String value) => RealmObjectBase.set(this, 'macAddr', value);
+
+  @override
   String get maskCode =>
       RealmObjectBase.get<String>(this, 'maskCode') as String;
   @override
   set maskCode(String value) => RealmObjectBase.set(this, 'maskCode', value);
+
+  @override
+  bool get isDeleted => RealmObjectBase.get<bool>(this, 'isDeleted') as bool;
+  @override
+  set isDeleted(bool value) => RealmObjectBase.set(this, 'isDeleted', value);
 
   @override
   String? get fullName =>
@@ -184,12 +191,13 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     return <String, dynamic>{
       'id': id.toEJson(),
       'nickName': nickName.toEJson(),
-      'isDeleted': isDeleted.toEJson(),
-      'macAddr': macAddr.toEJson(),
       'deviceName': deviceName.toEJson(),
+      'gateway': gateway.toEJson(),
       'ipv4Addr': ipv4Addr.toEJson(),
       'ipv6Addr': ipv6Addr.toEJson(),
+      'macAddr': macAddr.toEJson(),
       'maskCode': maskCode.toEJson(),
+      'isDeleted': isDeleted.toEJson(),
       'fullName': fullName.toEJson(),
       'avatar': avatar.toEJson(),
       'age': age.toEJson(),
@@ -212,22 +220,24 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       {
         'id': EJsonValue id,
         'nickName': EJsonValue nickName,
-        'isDeleted': EJsonValue isDeleted,
-        'macAddr': EJsonValue macAddr,
         'deviceName': EJsonValue deviceName,
+        'gateway': EJsonValue gateway,
         'ipv4Addr': EJsonValue ipv4Addr,
         'ipv6Addr': EJsonValue ipv6Addr,
+        'macAddr': EJsonValue macAddr,
         'maskCode': EJsonValue maskCode,
+        'isDeleted': EJsonValue isDeleted,
       } =>
         User(
           fromEJson(id),
           fromEJson(nickName),
-          fromEJson(isDeleted),
-          fromEJson(macAddr),
           fromEJson(deviceName),
+          fromEJson(gateway),
           fromEJson(ipv4Addr),
           fromEJson(ipv6Addr),
+          fromEJson(macAddr),
           fromEJson(maskCode),
+          fromEJson(isDeleted),
           fullName: fromEJson(ejson['fullName']),
           avatar: fromEJson(ejson['avatar']),
           age: fromEJson(ejson['age']),
@@ -251,12 +261,13 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     return const SchemaObject(ObjectType.realmObject, User, 'User', [
       SchemaProperty('id', RealmPropertyType.string, primaryKey: true),
       SchemaProperty('nickName', RealmPropertyType.string),
-      SchemaProperty('isDeleted', RealmPropertyType.bool),
-      SchemaProperty('macAddr', RealmPropertyType.string),
       SchemaProperty('deviceName', RealmPropertyType.string),
+      SchemaProperty('gateway', RealmPropertyType.string),
       SchemaProperty('ipv4Addr', RealmPropertyType.string),
       SchemaProperty('ipv6Addr', RealmPropertyType.string),
+      SchemaProperty('macAddr', RealmPropertyType.string),
       SchemaProperty('maskCode', RealmPropertyType.string),
+      SchemaProperty('isDeleted', RealmPropertyType.bool),
       SchemaProperty('fullName', RealmPropertyType.string, optional: true),
       SchemaProperty('avatar', RealmPropertyType.string, optional: true),
       SchemaProperty('age', RealmPropertyType.int, optional: true),
@@ -274,9 +285,4 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
 
   @override
   SchemaObject get objectSchema => RealmObjectBase.getSchema(this) ?? schema;
-
-  void operator []=(String other, value) {}
-
-  void operator [](String other) {}
-
 }

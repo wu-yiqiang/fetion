@@ -11,4 +11,4 @@ const UserId = "95t37897vjco6jnn9379345tptevyd";
 const NickNamePrefix = ApplicationName + " " + "User";
 const DefaultHostName = "Unknown";
 const DataBaseName = 'Fetion';
-const DataBaseVersion = 5;
+const DataBaseVersion = 6;

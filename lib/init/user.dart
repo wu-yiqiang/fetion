@@ -14,12 +14,13 @@ initUser() async {
   late final user = User(
     UserId,
     NickNamePrefix + NumberStr,
-    false,
-    'A8:41:F4:1C:C2:EA',
-    "?sdsd",
-    '192.168.1.122',
-    'fe80::ff7:db62:8113:635d%18',
+    hoatName,
+    getway,
+    ipv4,
+    ipv6,
+    macAddr,
     '255.255.255.250',
+    false
   );
   // UpdateOwner();
 }

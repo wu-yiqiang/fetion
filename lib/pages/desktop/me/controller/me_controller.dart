@@ -12,12 +12,13 @@ class MeController extends GetxController {
   late Rx<User> user = User(
     UserId,
     NickNamePrefix + NumberStr,
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
     false,
-    '',
-    "",
-    '',
-    '',
-    '',
   ).obs;
 
   initDb() async {
@@ -47,6 +48,7 @@ class MeController extends GetxController {
   void getOwnerInfo() {
     final ownerInfos = _userRepository.getOwner();
     user.value = ownerInfos!;
+    user.refresh();
   }
 
 

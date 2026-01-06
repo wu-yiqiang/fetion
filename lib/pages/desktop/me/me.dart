@@ -210,7 +210,7 @@ class _MePage extends State<MePage> {
                     Texts(text: "Gateway", color: black90),
                     Obx(() {
                       return Texts(
-                        text: meController.user.value.ipv6Addr ?? '',
+                          text: meController.user.value.gateway ?? '',
                         color: black90,
                       );
                     }),
