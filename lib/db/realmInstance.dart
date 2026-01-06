@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:realm/realm.dart';
 import './models/user.model.dart';
 
@@ -17,7 +18,7 @@ class RealmInstance {
       [User.schema],
       
       /// 设置数据库版本号，用于数据库升级
-      schemaVersion: 5,
+      schemaVersion: DataBaseVersion,
       
       /// 数据库版本迁移回调函数
       migrationCallback: (migration, oldSchemaVersion) {

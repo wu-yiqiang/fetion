@@ -7,9 +7,9 @@ import 'package:fetion/db/realmInstance.dart';
 
 class MeController extends GetxController {
   late UserRepository _userRepository;
-  final random = Random();
+  Random random = Random();
   late String NumberStr = random.nextInt(100000000).toString();
-  late final user = User(
+  late Rx<User> user = User(
     UserId,
     NickNamePrefix + NumberStr,
     false,

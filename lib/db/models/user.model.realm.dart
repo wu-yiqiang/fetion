@@ -277,4 +277,6 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
 
   void operator []=(String other, value) {}
 
+  void operator [](String other) {}
+
 }

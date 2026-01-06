@@ -78,7 +78,27 @@ class UserRepository {
     _realm.write(() {
       final user = findUser(id);
       if (user != null) {
-        user.fullName = value;
+        if (key == 'nickName') {
+          user.nickName = value;
+        }
+        if (key == 'fullName') {
+          user.fullName = value;
+        }
+        if (key == 'age') {
+          user.age = value;
+        }
+        if (key == 'phone') {
+          user.phone = value;
+        }
+        if (key == 'slogan') {
+          user.slogan = value;
+        }
+        if (key == 'department') {
+          user.department = value;
+        }
+        if (key == 'position') {
+          user.position = value;
+        }
       }
     });
   }

@@ -3,7 +3,6 @@ import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoModal.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fetion/widgets/RowItem.dart';
-import 'package:fetion/widgets/Separator.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +36,12 @@ class _MePage extends State<MePage> {
             direction: Axis.vertical,
             children: [
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "FullName", color: black90),
@@ -49,6 +53,7 @@ class _MePage extends State<MePage> {
                     }),
                   ],
                 ),
+                ),
                 onPress: () {
                   userInfoModal(
                     context,
@@ -57,9 +62,13 @@ class _MePage extends State<MePage> {
                   );
                 },
               ),
-              Separator(),
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "NickName", color: black90),
@@ -70,6 +79,7 @@ class _MePage extends State<MePage> {
                       );
                     }),
                   ],
+                  ),
                 ),
                 onPress: () {
                   userInfoModal(
@@ -79,9 +89,13 @@ class _MePage extends State<MePage> {
                   );
                 },
               ),
-              Separator(),
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "Phone", color: black90),
@@ -92,12 +106,23 @@ class _MePage extends State<MePage> {
                       );
                     }),
                   ],
+                  ),
                 ),
-                onPress: () {},
+                onPress: () {
+                  userInfoModal(
+                    context,
+                    'phone',
+                    meController.user.value.phone ?? '',
+                  );
+                },
               ),
-              Separator(),
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "Slogan", color: black90),
@@ -107,13 +132,24 @@ class _MePage extends State<MePage> {
                         color: black90,
                       );
                     }),
-                  ],
+                    ],
+                  ),
                 ),
-                onPress: () {},
+                onPress: () {
+                  userInfoModal(
+                    context,
+                    'slogan',
+                    meController.user.value.slogan ?? '',
+                  );
+                },
               ),
-              Separator(),
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "Department", color: black90),
@@ -124,12 +160,24 @@ class _MePage extends State<MePage> {
                       );
                     }),
                   ],
+                  
+                  ),
                 ),
-                onPress: () {},
+                onPress: () {
+                  userInfoModal(
+                    context,
+                    'department',
+                    meController.user.value.department ?? '',
+                  );
+                },
               ),
-              Separator(),
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "Position", color: black90),
@@ -139,13 +187,24 @@ class _MePage extends State<MePage> {
                         color: black90,
                       );
                     }),
-                  ],
+                    ],
+                  ),
                 ),
-                onPress: () {},
+                onPress: () {
+                  userInfoModal(
+                    context,
+                    'position',
+                    meController.user.value.position ?? '',
+                  );
+                },
               ),
-              Separator(),
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "Gateway", color: black90),
@@ -156,12 +215,17 @@ class _MePage extends State<MePage> {
                       );
                     }),
                   ],
+                  ),
                 ),
                 onPress: () {},
               ),
-              Separator(),
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "IPV4", color: black90),
@@ -172,12 +236,17 @@ class _MePage extends State<MePage> {
                       );
                     }),
                   ],
+                  ),
                 ),
                 onPress: () {},
               ),
-              Separator(),
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "IPV6", color: black90),
@@ -188,12 +257,14 @@ class _MePage extends State<MePage> {
                       );
                     }),
                   ],
+                  ),
                 ),
                 onPress: () {},
               ),
-              Separator(),
               MouseRegions(
-                child: Row(
+                child: Container(
+                  padding: EdgeInsets.only(top: 6),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Texts(text: "MAC", color: black90),
@@ -204,6 +275,7 @@ class _MePage extends State<MePage> {
                       );
                     }),
                   ],
+                  ),
                 ),
                 onPress: () {},
               ),
