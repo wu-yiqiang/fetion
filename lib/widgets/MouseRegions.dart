@@ -5,7 +5,6 @@ MouseRegions({required Widget child, required Function onPress}) {
     cursor: SystemMouseCursors.click,
     child: GestureDetector(
       onTap: () {
-        print('dianjiale1');
         onPress();
       },
       child: child,

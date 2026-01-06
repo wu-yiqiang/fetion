@@ -40,7 +40,6 @@ class _FriendInfo extends State<FriendInfo> {
                   ),
                   onPress: () {},
                 ),
-                Separator(),
                 MouseRegions(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,7 +50,6 @@ class _FriendInfo extends State<FriendInfo> {
                   ),
                   onPress: () {},
                 ),
-                Separator(),
                 MouseRegions(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,7 +60,6 @@ class _FriendInfo extends State<FriendInfo> {
                   ),
                   onPress: () {},
                 ),
-                Separator(),
                 MouseRegions(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,7 +70,6 @@ class _FriendInfo extends State<FriendInfo> {
                   ),
                   onPress: () {},
                 ),
-                Separator(),
                 MouseRegions(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +80,6 @@ class _FriendInfo extends State<FriendInfo> {
                   ),
                   onPress: () {},
                 ),
-                Separator(),
                 MouseRegions(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -95,7 +90,6 @@ class _FriendInfo extends State<FriendInfo> {
                   ),
                   onPress: () {},
                 ),
-                Separator(),
                 MouseRegions(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

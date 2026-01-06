@@ -49,7 +49,7 @@ class _LoginPage extends State<LoginPage> {
                   ),
                 ),
                 onPressed: () {
-                  eventBus.emit(Events.NAVIGATE.name, routerMap['HOME']);
+                  eventBus.emit(Events.NAVIGATE.name, RouterMap.HOME);
                 },
               ),
             ],

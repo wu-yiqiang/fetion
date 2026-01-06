@@ -1,4 +1,6 @@
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/navigate/router_table.dart';
+import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoModal.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
@@ -29,7 +31,15 @@ class _MePage extends State<MePage> {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Avatar(size: 80, image: "assets/images/user.jpg")],
+          children: [
+            Avatar(size: 80, image: "assets/images/user.jpg"),
+            Button(
+              child: Text('login'),
+              onPressed: () {
+                eventBus.emit(Events.NAVIGATE.name, RouterMap.LOGIN);
+              },
+            ),
+          ],
         ),
         RowItem(
           child: Flex(

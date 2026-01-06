@@ -4,13 +4,13 @@ import 'package:fetion/pages/desktop/contact/contact.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
-import 'package:fetion/pages/desktop/messages/messages.dart';
 import 'package:fetion/pages/desktop/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/StatusAvatar.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
+import 'package:fetion/widgets/MouseRegions.dart';
 
 class NavigationBodyItem extends StatelessWidget {
   const NavigationBodyItem({super.key, this.header, required this.content});
@@ -113,15 +113,15 @@ class _HomePageState extends State<HomePage> {
         // customPane: const NavigationPaneWidget()),
         footerItems: [
           PaneItem(
-            icon: const Icon(FluentIcons.lock, size: 16),
+            icon: Icon(FluentIcons.lock, size: 16),
             title:Texts(text:'Lock',color: black90),
-            body: const NavigationBodyItem(content: Text("ssss")),
+            body: SizedBox(),
             onTap: () {
-              eventBus.emit(Events.NAVIGATE.name, routerMap['LOGIN']);
+              eventBus.emit(Events.NAVIGATE.name, RouterMap.LOGIN);
             },
           ),
           PaneItem(
-            icon: const Icon(FluentIcons.settings, size: 16),
+            icon: Icon(FluentIcons.settings, size: 16),
             title: Texts(text:'Settings',color: black90),
             body: NavigationBodyItem(
               content: SettingPage(),

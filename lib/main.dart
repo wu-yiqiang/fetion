@@ -1,14 +1,9 @@
-import 'package:fetion/common/const.dart';
-import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/init/init.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:local_notifier/local_notifier.dart';
-
-
 
 localNotification() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +24,7 @@ ShowGlobalMessages() {
 Navigates() {
   eventBus.on(Events.NAVIGATE.name, (ROUTERKEY) {
     Get.toNamed(ROUTERKEY!);
+    print("工作$ROUTERKEY");
   });
 }
 
@@ -40,12 +36,13 @@ void main() async {
   runApp(
     AnimatedFluentTheme(
       data: FluentThemeData.light(),
-      child: GetMaterialApp(
+      child: FluentApp(
+        key: Get.key,
         initialRoute: "/",
-        getPages: pages,
-        transitionDuration: Duration(milliseconds: 200),
+        routes: getFluentRoutes(),
+        // transitionDuration: Duration(milliseconds: 200),
         // initialBinding: ControllerBindings(),
-        debugShowCheckedModeBanner: false, //隐藏debug的角标
+        debugShowCheckedModeBanner: false,
         localizationsDelegates: [FluentLocalizations.delegate],
         // locale: Locale(
         //   storeGetValue(settingStoreKeys['LANGUAGE']!),
@@ -53,10 +50,10 @@ void main() async {
         // ),
         // translations: Language(),
         // initialBinding: AllControllerBinding(),
-        theme: ThemeData(
+        theme: FluentThemeData(
           fontFamily: "Noto Sans",
-          primaryColor: white110,
-          scaffoldBackgroundColor: white110,
+          // primaryColor: white110,
+          // scaffoldBackgroundColor: white110,
           // appBarTheme: AppBarTheme(backgroundColor: Colors.white),
         ),
         //  builder: EasyLoading.init(),
