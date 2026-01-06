@@ -5,6 +5,7 @@ StatusAvatar({double size = 40, required String image}) {
   return Container(
     // color: Colors.amber,
     child: Stack(
+      alignment: Alignment.bottomRight,
       children: [
         Avatar(size: size, image: image),
         Positioned(

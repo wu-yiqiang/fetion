@@ -59,7 +59,9 @@ void main() async {
         getPages: pages,
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [FluentLocalizations.delegate],
-        theme: ThemeData(fontFamily: "Noto Sans"),
+        theme: ThemeData(
+          fontFamily: "Noto Sans"
+        ),
         //  builder: EasyLoading.init(),
       ),
     ),

@@ -10,7 +10,6 @@ import 'package:fetion/widgets/StatusAvatar.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
-import 'package:fetion/widgets/MouseRegions.dart';
 
 class NavigationBodyItem extends StatelessWidget {
   const NavigationBodyItem({super.key, this.header, required this.content});
@@ -81,10 +80,14 @@ class _HomePageState extends State<HomePage> {
         displayMode: PaneDisplayMode.compact,
         items: items,
         size: NavigationPaneSize(openWidth: 240),
-        header: Row(
+        header: Flex(
+          direction: Axis.horizontal,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Expanded(child: StatusAvatar(image: 'assets/images/user.jpg')),
             StatusAvatar(image: 'assets/images/user.jpg'),
             Expanded(
+              flex: 1,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Column(

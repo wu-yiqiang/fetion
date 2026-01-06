@@ -1,6 +1,6 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SearchsBar extends StatefulWidget {
   const SearchsBar({super.key});
@@ -25,7 +25,7 @@ class _SearchsBar extends State<SearchsBar> {
             child: TextBox(
               prefix: Container(
                 padding: EdgeInsets.only(left: 4),
-                child: SvgPicture.asset('assets/svg/search.svg', width: 20),
+                child: FluentIcon(icon: WindowsIcons.search, onTap: () {}),
               ),
             ),
           ),
