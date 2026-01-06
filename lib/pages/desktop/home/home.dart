@@ -80,14 +80,11 @@ class _HomePageState extends State<HomePage> {
         displayMode: PaneDisplayMode.compact,
         items: items,
         size: NavigationPaneSize(openWidth: 240),
-        header: Flex(
-          direction: Axis.horizontal,
+        header: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Expanded(child: StatusAvatar(image: 'assets/images/user.jpg')),
-            StatusAvatar(image: 'assets/images/user.jpg'),
+            Flexible(child: StatusAvatar(image: 'assets/images/user.jpg')),
             Expanded(
-              flex: 1,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
