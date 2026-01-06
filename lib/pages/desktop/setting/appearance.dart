@@ -41,7 +41,9 @@ class _AppearancePage extends State<AppearancePage> {
                           Texts(text: 'Language', fontSize: 13, color: black90),
                         ],
                       ),
-                      ComboBox<String>(
+                      Container(
+                        width: 100,
+                        child: ComboBox<String>(
                         value: selectLanguage,
                         items: languages.map<ComboBoxItem<String>>((e) {
                           return ComboBoxItem<String>(
@@ -58,6 +60,7 @@ class _AppearancePage extends State<AppearancePage> {
                           });
                         },
                       ),
+                      )
                     ],
                   ),
                 ),
@@ -75,7 +78,9 @@ class _AppearancePage extends State<AppearancePage> {
                           Texts(text: 'Theme', fontSize: 13, color: black90),
                         ],
                       ),
-                      ComboBox<String>(
+                      Container(
+                        width: 100,
+                        child: ComboBox<String>(
                         value: selectTheme,
                         items: themes.map<ComboBoxItem<String>>((e) {
                           return ComboBoxItem<String>(
@@ -91,6 +96,7 @@ class _AppearancePage extends State<AppearancePage> {
                             this.selectTheme = value;
                           });
                         },
+                        ),
                       ),
                     ],
                   ),

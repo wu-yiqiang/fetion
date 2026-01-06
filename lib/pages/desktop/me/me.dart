@@ -33,12 +33,6 @@ class _MePage extends State<MePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Avatar(size: 80, image: "assets/images/user.jpg"),
-            Button(
-              child: Text('login'),
-              onPressed: () {
-                eventBus.emit(Events.NAVIGATE.name, RouterMap.LOGIN);
-              },
-            ),
           ],
         ),
         RowItem(

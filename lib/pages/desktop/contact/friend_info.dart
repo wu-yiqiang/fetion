@@ -3,7 +3,6 @@ import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fetion/widgets/RowItem.dart';
-import 'package:fetion/widgets/Separator.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fetion/widgets/Toast.dart';
 import 'package:fluent_ui/fluent_ui.dart';
