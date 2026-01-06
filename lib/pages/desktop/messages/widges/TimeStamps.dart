@@ -14,6 +14,7 @@ class _TimeStamps extends State<TimeStamps> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 4),
       child: Texts(
         text: widget.timeStamp,
         fontSize: 11,
