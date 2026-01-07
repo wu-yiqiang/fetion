@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
@@ -23,7 +24,7 @@ class _FriendInfo extends State<FriendInfo> {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Avatar(size: 80, image: "assets/images/user.jpg")],
+            children: [Avatar(size: 80, image: DefaultAvatar)],
           ),
           RowItem(
             child: Flex(

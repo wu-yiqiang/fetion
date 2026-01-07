@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/contact/contact.dart';
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
         header: Row(
           spacing: 6,
           children: [
-            Flexible(child: StatusAvatar(image: 'assets/images/user.jpg')),
+            Flexible(child: StatusAvatar(image: DefaultAvatar)),
             Expanded(
               flex: 3,
               child: Container(

@@ -42,7 +42,7 @@ class DisappearingNavigationRail extends StatelessWidget {
         leading: Column(
           children: [
             FluentIcon(icon: FluentIcons.collapse_menu, onTap: () {}),
-            StatusAvatar(image: 'assets/images/user.jpg'),
+            StatusAvatar(image: DefaultAvatar),
           ],
         ),
         // groupAlignment: -0.85,

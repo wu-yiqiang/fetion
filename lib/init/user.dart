@@ -20,7 +20,8 @@ initUser() async {
     ipv6,
     macAddr,
     '255.255.255.250',
-    false
+    false,
+    avatar: DefaultAvatar
   );
   // UpdateOwner();
 }

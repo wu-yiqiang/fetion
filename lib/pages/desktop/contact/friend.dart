@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:fetion/widgets/Texts.dart';
@@ -22,7 +23,7 @@ class _Friend extends State<Friend> {
         child: Row(
           spacing: 10,
           children: [
-            Avatar(size: 30, image: "assets/images/user.jpg"),
+            Avatar(size: 30, image: DefaultAvatar),
             Expanded(
               child: Texts(text: "Sutter"),
             ),

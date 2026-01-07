@@ -1,6 +1,7 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
-import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoModal.dart';
+import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
@@ -27,12 +28,7 @@ class _MePage extends State<MePage> {
     return Column(
       spacing: 30,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Avatar(size: 80, image: "assets/images/user.jpg"),
-          ],
-        ),
+        Avatar(size: 80, image: DefaultAvatar),
         RowItem(
           child: Flex(
             direction: Axis.vertical,

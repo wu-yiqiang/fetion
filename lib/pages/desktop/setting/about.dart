@@ -52,7 +52,7 @@ class _AboutPage extends State<AboutPage> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Texts(
-                          text: '感谢Ada(花花)同学提供的UI帮助',
+                          text: '感谢Ada同学提供的UI帮助',
                           fontSize: 13,
                           color: black90,
                         ),

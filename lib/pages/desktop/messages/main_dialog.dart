@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/desktop/messages/AIChat.dart';
 import 'package:fetion/pages/desktop/messages/MeChat.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
@@ -14,67 +15,67 @@ class MainDialog extends StatefulWidget {
 class _MainDialog extends State<MainDialog> {
   List answerList = [
     {
-      'avatar': 'assets/images/user.jpg',
+      'avatar': DefaultAvatar,
       'type': 0,
       'text': "Hello",
       'time': '2025/08/12 08:01:01',
     },
     {
-      'avatar': 'assets/images/avatar.jpeg',
+      'avatar': DefaultAvatar,
       'type': 1,
       'text': "你好",
       'time': '2025/08/12 08:01:14',
     },
     {
-      'avatar': 'assets/images/user.jpg',
+      'avatar': DefaultAvatar,
       'type': 0,
       'text': "你是谁",
       'time': '2025/08/12 08:02:34',
     },
     {
-      'avatar': 'assets/images/avatar.jpeg',
+      'avatar': DefaultAvatar,
       'type': 1,
       'text': "我是您的人工智能客服，可以为您解答软件使用方面相关问题11111111111111111111112sdasd飒飒大大啊实打实",
       'time': '2025/08/12 08:02:40',
     },
     {
-      'avatar': 'assets/images/user.jpg',
+      'avatar': DefaultAvatar,
       'type': 0,
       'text': "今天天气",
       'time': '2025/08/12 10:01:22',
     },
     {
-      'avatar': 'assets/images/user.jpg',
+      'avatar': DefaultAvatar,
       'type': 0,
       'text': "今天天气",
       'time': '2025/08/12 10:01:22',
     },
     {
-      'avatar': 'assets/images/user.jpg',
+      'avatar': DefaultAvatar,
       'type': 0,
       'text': "今天天气",
       'time': '2025/08/12 10:01:22',
     },
     {
-      'avatar': 'assets/images/user.jpg',
+      'avatar': DefaultAvatar,
       'type': 0,
       'text': "今天天气",
       'time': '2025/08/12 10:01:22',
     },
     {
-      'avatar': 'assets/images/user.jpg',
+      'avatar': DefaultAvatar,
       'type': 0,
       'text': "今天天气",
       'time': '2025/08/12 10:01:22',
     },
     {
-      'avatar': 'assets/images/user.jpg',
+      'avatar': DefaultAvatar,
       'type': 0,
       'text': "今天天气",
       'time': '2025/08/12 10:01:22',
     },
     {
-      'avatar': 'assets/images/user.jpg',
+      'avatar': DefaultAvatar,
       'type': 0,
       'text': "今天天气",
       'time': '2025/08/12 10:01:22',
