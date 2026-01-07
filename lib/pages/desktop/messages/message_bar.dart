@@ -15,7 +15,7 @@ class _MessageBar extends State<MessageBar> {
     return Row(
       children: [
         Container(
-          width: 200,
+          width: 240,
           color: const Color.fromARGB(255, 240, 240, 240),
           child: Column(
             children: [

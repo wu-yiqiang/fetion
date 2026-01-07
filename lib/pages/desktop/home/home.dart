@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     PaneItemSeparator(),
     PaneItem(
       icon: WindowsIcon(WindowsIcons.message, size: 16),
-      title:Texts(text:'Chats',color: black90),
+      title: Texts(text: 'Messages', color: black90),
       infoBadge: InfoBadge(
         source: Padding(
           padding: EdgeInsets.symmetric(horizontal: 4),

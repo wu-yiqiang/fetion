@@ -11,30 +11,31 @@ class Messages extends StatefulWidget {
 class _Messages extends State<Messages> {
   @override
   Widget build(BuildContext context) {
+    const currentUserId = '9864';
     return ScrollViews(
       child: SingleChildScrollView(
         padding: EdgeInsets.all(4),
-        child: Column(
-          spacing: 4,
-          children: [
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-            Message(),
-          ],
+        child: GestureDetector(
+          onTap: () {
+            print('Parent tapped');
+          },
+          child: Column(
+            children: [
+              Message(),
+              Message(),
+              Message(),
+              Message(),
+              Message(),
+              Message(),
+              Message(),
+              Message(),
+              Message(),
+              Message(),
+              Message(),
+            ],
+          ),
         ),
-      )
+      ),
     );
   }
 }
