@@ -1,4 +1,4 @@
-import 'package:fetion/common/const.dart' show white10;
+import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +13,11 @@ class _Friend extends State<Friend> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      cursor: SystemMouseCursors.click, // 设置为点击光标
+      cursor: SystemMouseCursors.click,
       child: Container(
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(width: 1, color: white10)),
+          border: Border(bottom: BorderSide(width: 1, color: white110)),
         ),
         child: Row(
           spacing: 10,

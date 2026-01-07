@@ -1,4 +1,3 @@
-import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -15,7 +14,7 @@ class _InputDialog extends State<InputDialog> {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(width: 1, color: white10)),
+        border: Border(top: BorderSide(width: 1, color: white110)),
       ),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 4, vertical: 0),

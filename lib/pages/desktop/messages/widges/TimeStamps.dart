@@ -1,4 +1,3 @@
-import 'package:fetion/common/const.dart' show white20;
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';

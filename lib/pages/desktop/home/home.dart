@@ -40,12 +40,23 @@ class _HomePageState extends State<HomePage> {
   List<NavigationPaneItem> items = [
     PaneItemSeparator(),
     PaneItem(
-      icon: WindowsIcon(WindowsIcons.chat_bubbles, size: 16),
+      icon: WindowsIcon(WindowsIcons.message, size: 16),
       title:Texts(text:'Chats',color: black90),
       infoBadge: InfoBadge(
         source: Padding(
-          padding: EdgeInsets.all(2),
-          child: Texts(text: '99+', fontSize: 12),
+          padding: EdgeInsets.symmetric(horizontal: 4),
+          child: Row(
+            children: 100 < 99
+                ? [Texts(text: '12', fontSize: 12, fontWeight: FontWeight.w500)]
+                : [
+                    Texts(
+                      text: '99',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    Texts(text: '⁺', fontSize: 14, fontWeight: FontWeight.w500),
+                  ],
+          ),
         ),
       ),
       body: MessageBar(),
@@ -79,14 +90,14 @@ class _HomePageState extends State<HomePage> {
         onChanged: (index) => setState(() => topIndex = index),
         displayMode: PaneDisplayMode.compact,
         items: items,
-        size: NavigationPaneSize(openWidth: 240),
+        size: NavigationPaneSize(openWidth: 250),
         header: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: 6,
           children: [
             Flexible(child: StatusAvatar(image: 'assets/images/user.jpg')),
             Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+              flex: 3,
+              child: Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -95,6 +106,7 @@ class _HomePageState extends State<HomePage> {
                         text: meController.user.value.nickName,
                         fontSize: 14,
                         color: black90,
+                        fontWeight: FontWeight.w500
                       );
                     }),
                     Obx(() {
@@ -110,7 +122,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        // customPane: const NavigationPaneWidget()),
         footerItems: [
           PaneItem(
             icon: Icon(FluentIcons.lock, size: 16),

@@ -1,6 +1,4 @@
 import 'package:fetion/common/light-theme.dart';
-import 'package:fetion/navigate/router_table.dart';
-import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoModal.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
@@ -63,6 +61,7 @@ class _MePage extends State<MePage> {
                     context,
                     'fullName',
                     meController.user.value.fullName ?? '',
+                    title: 'FullName',
                   );
                 },
               ),
@@ -90,6 +89,7 @@ class _MePage extends State<MePage> {
                     context,
                     'nickName',
                     meController.user.value.nickName ?? '',
+                    title: 'NickName',
                   );
                 },
               ),
@@ -117,6 +117,7 @@ class _MePage extends State<MePage> {
                     context,
                     'phone',
                     meController.user.value.phone ?? '',
+                    title: 'Phone',
                   );
                 },
               ),
@@ -144,6 +145,7 @@ class _MePage extends State<MePage> {
                     context,
                     'slogan',
                     meController.user.value.slogan ?? '',
+                    title: 'Slogan',
                   );
                 },
               ),
@@ -172,6 +174,7 @@ class _MePage extends State<MePage> {
                     context,
                     'department',
                     meController.user.value.department ?? '',
+                    title: 'Department',
                   );
                 },
               ),
@@ -199,6 +202,7 @@ class _MePage extends State<MePage> {
                     context,
                     'position',
                     meController.user.value.position ?? '',
+                    title: 'Position',
                   );
                 },
               ),

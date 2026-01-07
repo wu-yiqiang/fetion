@@ -1,7 +1,7 @@
+import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/init/init.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/home/home.dart';
-import 'package:fetion/pages/login/login.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
@@ -38,31 +38,19 @@ void main() async {
   runApp(
     AnimatedFluentTheme(
       data: FluentThemeData.light(),
-      // child: FluentApp(
-      //   key: Get.key,
-      //   initialRoute: "/",
-      //   routes: getFluentRoutes(),
-      //   // initialBinding: ControllerBindings(),
-      //   debugShowCheckedModeBanner: false,
-      //   localizationsDelegates: [FluentLocalizations.delegate],
-      //   // locale: Locale(
-      //   //   storeGetValue(settingStoreKeys['LANGUAGE']!),
-      //   //   storeGetValue(settingStoreKeys['COUNTRY']!),
-      //   // ),
-      //   // translations: Language(),
-      //   // initialBinding: AllControllerBinding(),
-      //   theme: FluentThemeData(fontFamily: "Noto Sans"),
-      //   //  builder: EasyLoading.init(),
-      // ),
       child: GetMaterialApp(
         initialRoute: "/",
         getPages: pages,
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [FluentLocalizations.delegate],
         theme: ThemeData(
+          scaffoldBackgroundColor: white110,
           fontFamily: "Noto Sans"
         ),
-        //  builder: EasyLoading.init(),
+        home: FluentTheme(
+          data: FluentThemeData(fontFamily: "Noto Sans"),
+          child: HomePage(),
+        ),
       ),
     ),
   );

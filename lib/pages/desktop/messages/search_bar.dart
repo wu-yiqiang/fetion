@@ -1,4 +1,4 @@
-import 'package:fetion/common/const.dart';
+import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
@@ -14,7 +14,7 @@ class _SearchsBar extends State<SearchsBar> {
     return Container(
       padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 4),
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: 1, color: white10)),
+        border: Border(bottom: BorderSide(width: 1, color: white110)),
       ),
       child: Flex(
         direction: Axis.horizontal,

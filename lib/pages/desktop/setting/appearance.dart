@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
@@ -10,10 +11,8 @@ class AppearancePage extends StatefulWidget {
 }
 
 class _AppearancePage extends State<AppearancePage> {
-  final List<String> languages = ['English', '简体中文'];
-  final List<String> themes = ['Light', 'Dark', 'System'];
-  String? selectLanguage = 'English';
-  String? selectTheme = 'Light';
+  String? selectLanguage = LanguageMap.ENGLISH;
+  String? selectTheme = ThemeModeMap.SYSTEM;
   double fontSize = 12;
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,7 @@ class _AppearancePage extends State<AppearancePage> {
                         width: 100,
                         child: ComboBox<String>(
                         value: selectLanguage,
-                        items: languages.map<ComboBoxItem<String>>((e) {
+                          items: Languages.map<ComboBoxItem<String>>((e) {
                           return ComboBoxItem<String>(
                             child: Text(
                               e,
@@ -82,7 +81,7 @@ class _AppearancePage extends State<AppearancePage> {
                         width: 100,
                         child: ComboBox<String>(
                         value: selectTheme,
-                        items: themes.map<ComboBoxItem<String>>((e) {
+                          items: ThemeModes.map<ComboBoxItem<String>>((e) {
                           return ComboBoxItem<String>(
                             child: Text(
                               e,
