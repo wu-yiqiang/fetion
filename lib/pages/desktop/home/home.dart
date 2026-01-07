@@ -92,12 +92,13 @@ class _HomePageState extends State<HomePage> {
         displayMode: PaneDisplayMode.compact,
         items: items,
         size: NavigationPaneSize(openWidth: 250),
+        // menuButton: WindowsIcon(WindowsIcons.search),
         header: Row(
           spacing: 6,
           children: [
             Flexible(child: StatusAvatar(image: DefaultAvatar)),
             Expanded(
-              flex: 3,
+              flex: 1,
               child: Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

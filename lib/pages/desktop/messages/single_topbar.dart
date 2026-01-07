@@ -29,7 +29,7 @@ class _SingleTopbar extends State<SingleTopbar> {
             spacing: 10,
               crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-                StatusAvatar(size: 32, image: DefaultAvatar),
+                StatusAvatar(size: 34, image: DefaultAvatar),
                 Texts(text: "啦啦啦先生", color: Colors.black, fontSize: 14)
             ],
           )),
