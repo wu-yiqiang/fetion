@@ -3,11 +3,13 @@ import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/init/init.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/home/home.dart';
+import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:local_notifier/local_notifier.dart';
+import 'package:fetion/translation/translation.dart';
 
 localNotification() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,6 +38,7 @@ void main() async {
   await localNotification();
   ShowGlobalMessages();
   Navigates();
+  late MeController meController = Get.put(MeController());
   runApp(
     AnimatedFluentTheme(
       data: FluentThemeData.light(),
@@ -44,6 +47,11 @@ void main() async {
         getPages: pages,
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [FluentLocalizations.delegate],
+        locale: Locale(
+          meController.user.value.langType,
+          meController.user.value.langCountry,
+        ),
+        translations: Language(),
         theme: ThemeData(
           scaffoldBackgroundColor: white110,
           fontFamily: FontFamilyName

@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/desktop/messages/messages.dart';
 import 'package:fetion/pages/desktop/messages/single_dialog.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class _MessageBar extends State<MessageBar> {
     return Row(
       children: [
         Container(
-          width: 240,
+          width: SecondBarWidth,
           color: const Color.fromARGB(255, 240, 240, 240),
           child: Column(
             children: [

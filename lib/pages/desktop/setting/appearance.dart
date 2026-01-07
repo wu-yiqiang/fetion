@@ -1,8 +1,10 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:get/get.dart';
 
 class AppearancePage extends StatefulWidget {
   const AppearancePage({super.key});
@@ -11,9 +13,13 @@ class AppearancePage extends StatefulWidget {
 }
 
 class _AppearancePage extends State<AppearancePage> {
-  String? selectLanguage = LanguageMap.ENGLISH;
-  String? selectTheme = ThemeModeMap.SYSTEM;
-  double fontSize = 12;
+  final MeController meController = Get.put(MeController());
+
+  void onReady() {
+    // String? selectLanguage = meController.user.value.language.toString();
+    // String? selectTheme = meController.user.value.theme.toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,23 +49,42 @@ class _AppearancePage extends State<AppearancePage> {
                       Container(
                         width: 100,
                         child: ComboBox<String>(
-                        value: selectLanguage,
+                          value: meController.user.value.language,
                           items: Languages.map<ComboBoxItem<String>>((e) {
-                          return ComboBoxItem<String>(
-                            child: Text(
-                              e,
-                              style: TextStyle(decoration: TextDecoration.none),
-                            ),
-                            value: e,
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            this.selectLanguage = value;
-                          });
-                        },
+                            return ComboBoxItem<String>(
+                              child: Text(
+                                e['value']!,
+                                style: TextStyle(
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                              value: e['value']!,
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              meController.updateMeUser(
+                                'langType',
+                                Languages.where(
+                                  (u) => u['value'] == value,
+                                )?.map((list) => list['type']).join()!,
+                              );
+                              meController.updateMeUser(
+                                'langCountry',
+                                Languages.where(
+                                  (u) => u['value'] == value,
+                                )?.map((list) => list['country']).join()!,
+                              );
+                              meController.updateMeUser(
+                                'language',
+                                Languages.where(
+                                  (u) => u['value'] == value,
+                                )?.map((list) => list['value']).join()!,
+                              );
+                            });
+                          },
+                        ),
                       ),
-                      )
                     ],
                   ),
                 ),
@@ -77,26 +102,28 @@ class _AppearancePage extends State<AppearancePage> {
                           Texts(text: 'Theme', fontSize: 13, color: black90),
                         ],
                       ),
-                      Container(
-                        width: 100,
-                        child: ComboBox<String>(
-                        value: selectTheme,
-                          items: ThemeModes.map<ComboBoxItem<String>>((e) {
-                          return ComboBoxItem<String>(
-                            child: Text(
-                              e,
-                              style: TextStyle(decoration: TextDecoration.none),
-                            ),
-                            value: e,
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            this.selectTheme = value;
-                          });
-                        },
-                        ),
-                      ),
+                      Obx(() {
+                        return Container(
+                          width: 100,
+                          child: ComboBox<String>(
+                            value: meController.user.value.theme,
+                            items: ThemeModes.map<ComboBoxItem<String>>((e) {
+                              return ComboBoxItem<String>(
+                                child: Text(
+                                  e,
+                                  style: TextStyle(
+                                    decoration: TextDecoration.none,
+                                  ),
+                                ),
+                                value: e,
+                              );
+                            }).toList(),
+                            onChanged: (value) {
+                              meController.updateMeUser('theme', value);
+                            },
+                          ),
+                        );
+                      }),
                     ],
                   ),
                 ),
@@ -118,13 +145,17 @@ class _AppearancePage extends State<AppearancePage> {
                           ),
                         ],
                       ),
-                      Slider(
-                        min: 10,
-                        max: 18,
-                        label: '${fontSize.toInt()}',
-                        value: fontSize,
-                        onChanged: (v) => setState(() => fontSize = v),
-                      ),
+                      Obx(() {
+                        return Slider(
+                          min: 10,
+                          max: 18,
+                          label: '${meController.user.value.fontSize}',
+                          value: meController.user.value.fontSize.toDouble(),
+                          onChanged: (v) {
+                            meController.updateMeUser('fontSize', v.toInt());
+                          },
+                        );
+                      }),
                     ],
                   ),
                 ),

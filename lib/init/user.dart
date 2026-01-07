@@ -20,6 +20,11 @@ initUser() async {
     ipv6,
     macAddr,
     '255.255.255.250',
+    LanguageMap.ENGLISH,
+    LanguageEnTypeMap.TYPE,
+    LanguageEnTypeMap.COUNTRY,
+    ThemeModeMap.SYSTEM,
+    DefaultFontSize,
     false,
     avatar: DefaultAvatar
   );

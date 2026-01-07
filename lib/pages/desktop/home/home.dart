@@ -74,8 +74,8 @@ class _HomePageState extends State<HomePage> {
     ),
     PaneItem(
       icon: const Icon(WindowsIcons.contact, size: 16),
-      title: Texts(text: 'Profiles', color: black90),
-      body: NavigationBodyItem(content: MePage(), header: 'Profiles'),
+      title: Texts(text: 'profiles'.tr, color: black90),
+      body: NavigationBodyItem(content: MePage(), header: 'profiles'.tr),
     ),
   ];
 
@@ -92,7 +92,6 @@ class _HomePageState extends State<HomePage> {
         displayMode: PaneDisplayMode.compact,
         items: items,
         size: NavigationPaneSize(openWidth: 250),
-        // menuButton: WindowsIcon(WindowsIcons.search),
         header: Row(
           spacing: 6,
           children: [

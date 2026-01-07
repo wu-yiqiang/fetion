@@ -18,6 +18,11 @@ class MeController extends GetxController {
     '',
     '',
     '',
+    LanguageMap.ENGLISH,
+    LanguageEnTypeMap.TYPE,
+    LanguageEnTypeMap.COUNTRY,
+    ThemeModeMap.SYSTEM,
+    DefaultFontSize,
     false,
   ).obs;
 

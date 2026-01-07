@@ -26,9 +26,9 @@ class _MePage extends State<MePage> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 30,
+      spacing: 10,
       children: [
-        Avatar(size: 80, image: DefaultAvatar),
+        Avatar(size: 70, image: DefaultAvatar),
         RowItem(
           child: Flex(
             direction: Axis.vertical,
@@ -96,8 +96,36 @@ class _MePage extends State<MePage> {
                     border: Border(bottom: BorderSide(width: 1, color: black4)),
                   ),
                   child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Texts(text: "Email", color: black90),
+                      Obx(() {
+                        return Texts(
+                          text: meController.user.value.email ?? '',
+                          color: black90,
+                        );
+                      }),
+                    ],
+                  ),
+                ),
+                onPress: () {
+                  userInfoModal(
+                    context,
+                    'email',
+                    meController.user.value.email ?? '',
+                    title: 'Email',
+                  );
+                },
+              ),
+              MouseRegions(
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 6, top: 6),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 1, color: black4)),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
                     Texts(text: "Phone", color: black90),
                     Obx(() {
                       return Texts(

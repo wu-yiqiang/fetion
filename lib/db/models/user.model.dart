@@ -12,6 +12,11 @@ class _User {
   late String ipv6Addr;
   late String macAddr;
   late String maskCode;
+  late String language;
+  late String langType;
+  late String langCountry;
+  late String theme;
+  late int fontSize;
   late bool isDeleted;
   String? fullName;
   String? avatar;

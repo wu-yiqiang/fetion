@@ -22,6 +22,11 @@ class UserRepository {
       usr.ipv6Addr,
       usr.macAddr,
       usr.maskCode,
+      usr.language,
+      usr.langType,
+      usr.langCountry,
+      usr.theme,
+      usr.fontSize,
       usr.isDeleted,
       fullName: usr?.fullName ?? '',
       avatar: usr?.avatar ?? '',
@@ -88,6 +93,9 @@ class UserRepository {
         if (key == 'age') {
           user.age = value;
         }
+        if (key == 'email') {
+          user.email = value;
+        }
         if (key == 'phone') {
           user.phone = value;
         }
@@ -99,6 +107,21 @@ class UserRepository {
         }
         if (key == 'position') {
           user.position = value;
+        }
+        if (key == 'language') {
+          user.language = value;
+        }
+        if (key == 'theme') {
+          user.theme = value;
+        }
+        if (key == 'langType') {
+          user.langType = value;
+        }
+        if (key == 'langCountry') {
+          user.langCountry = value;
+        }
+        if (key == 'fontSize') {
+          user.fontSize = value;
         }
       }
     });

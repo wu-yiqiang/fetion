@@ -19,6 +19,11 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     String ipv6Addr,
     String macAddr,
     String maskCode,
+    String language,
+    String langType,
+    String langCountry,
+    String theme,
+    int fontSize,
     bool isDeleted, {
     String? fullName,
     String? avatar,
@@ -41,6 +46,11 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     RealmObjectBase.set(this, 'ipv6Addr', ipv6Addr);
     RealmObjectBase.set(this, 'macAddr', macAddr);
     RealmObjectBase.set(this, 'maskCode', maskCode);
+    RealmObjectBase.set(this, 'language', language);
+    RealmObjectBase.set(this, 'langType', langType);
+    RealmObjectBase.set(this, 'langCountry', langCountry);
+    RealmObjectBase.set(this, 'theme', theme);
+    RealmObjectBase.set(this, 'fontSize', fontSize);
     RealmObjectBase.set(this, 'isDeleted', isDeleted);
     RealmObjectBase.set(this, 'fullName', fullName);
     RealmObjectBase.set(this, 'avatar', avatar);
@@ -103,6 +113,35 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       RealmObjectBase.get<String>(this, 'maskCode') as String;
   @override
   set maskCode(String value) => RealmObjectBase.set(this, 'maskCode', value);
+
+  @override
+  String get language =>
+      RealmObjectBase.get<String>(this, 'language') as String;
+  @override
+  set language(String value) => RealmObjectBase.set(this, 'language', value);
+
+  @override
+  String get langType =>
+      RealmObjectBase.get<String>(this, 'langType') as String;
+  @override
+  set langType(String value) => RealmObjectBase.set(this, 'langType', value);
+
+  @override
+  String get langCountry =>
+      RealmObjectBase.get<String>(this, 'langCountry') as String;
+  @override
+  set langCountry(String value) =>
+      RealmObjectBase.set(this, 'langCountry', value);
+
+  @override
+  String get theme => RealmObjectBase.get<String>(this, 'theme') as String;
+  @override
+  set theme(String value) => RealmObjectBase.set(this, 'theme', value);
+
+  @override
+  int get fontSize => RealmObjectBase.get<int>(this, 'fontSize') as int;
+  @override
+  set fontSize(int value) => RealmObjectBase.set(this, 'fontSize', value);
 
   @override
   bool get isDeleted => RealmObjectBase.get<bool>(this, 'isDeleted') as bool;
@@ -197,6 +236,11 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       'ipv6Addr': ipv6Addr.toEJson(),
       'macAddr': macAddr.toEJson(),
       'maskCode': maskCode.toEJson(),
+      'language': language.toEJson(),
+      'langType': langType.toEJson(),
+      'langCountry': langCountry.toEJson(),
+      'theme': theme.toEJson(),
+      'fontSize': fontSize.toEJson(),
       'isDeleted': isDeleted.toEJson(),
       'fullName': fullName.toEJson(),
       'avatar': avatar.toEJson(),
@@ -226,6 +270,11 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
         'ipv6Addr': EJsonValue ipv6Addr,
         'macAddr': EJsonValue macAddr,
         'maskCode': EJsonValue maskCode,
+        'language': EJsonValue language,
+        'langType': EJsonValue langType,
+        'langCountry': EJsonValue langCountry,
+        'theme': EJsonValue theme,
+        'fontSize': EJsonValue fontSize,
         'isDeleted': EJsonValue isDeleted,
       } =>
         User(
@@ -237,6 +286,11 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
           fromEJson(ipv6Addr),
           fromEJson(macAddr),
           fromEJson(maskCode),
+          fromEJson(language),
+          fromEJson(langType),
+          fromEJson(langCountry),
+          fromEJson(theme),
+          fromEJson(fontSize),
           fromEJson(isDeleted),
           fullName: fromEJson(ejson['fullName']),
           avatar: fromEJson(ejson['avatar']),
@@ -267,6 +321,11 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       SchemaProperty('ipv6Addr', RealmPropertyType.string),
       SchemaProperty('macAddr', RealmPropertyType.string),
       SchemaProperty('maskCode', RealmPropertyType.string),
+      SchemaProperty('language', RealmPropertyType.string),
+      SchemaProperty('langType', RealmPropertyType.string),
+      SchemaProperty('langCountry', RealmPropertyType.string),
+      SchemaProperty('theme', RealmPropertyType.string),
+      SchemaProperty('fontSize', RealmPropertyType.int),
       SchemaProperty('isDeleted', RealmPropertyType.bool),
       SchemaProperty('fullName', RealmPropertyType.string, optional: true),
       SchemaProperty('avatar', RealmPropertyType.string, optional: true),

@@ -22,7 +22,6 @@ class RealmInstance {
       
       /// 数据库版本迁移回调函数
       migrationCallback: (migration, oldSchemaVersion) {
-        // 在这里实现数据库版本迁移逻辑
         // 例如：添加新字段、修改字段类型、删除字段等
         print('从版本 $oldSchemaVersion 升级到版本 1');
       },

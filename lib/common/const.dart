@@ -3,15 +3,38 @@ const UserId = "95t37897vjco6jnn9379345tptevyd";
 const NickNamePrefix = ApplicationName + " " + "User";
 const DefaultHostName = "Unknown";
 const DataBaseName = 'Fetion';
-const DataBaseVersion = 6;
+const DataBaseVersion = 9;
 const FontFamilyName = 'Noto Sans';
+const double SecondBarWidth = 240;
+const int DefaultFontSize = 12;
 
 class LanguageMap {
   static const ENGLISH = 'English';
   static const SIMPLECHINESE = '简体中文';
 }
 
-const Languages = [LanguageMap.ENGLISH, LanguageMap.SIMPLECHINESE];
+class LanguageEnTypeMap {
+  static const TYPE = 'en';
+  static const COUNTRY = 'US';
+}
+
+class LanguageZhTypeMap {
+  static const TYPE = 'zh';
+  static const COUNTRY = 'CN';
+}
+
+const Languages = [
+  {
+    'value': LanguageMap.ENGLISH,
+    'type': LanguageEnTypeMap.TYPE,
+    'country': LanguageEnTypeMap.COUNTRY,
+  },
+  {
+    'value': LanguageMap.SIMPLECHINESE,
+    'type': LanguageZhTypeMap.TYPE,
+    'country': LanguageZhTypeMap.COUNTRY,
+  },
+];
 
 class ThemeModeMap {
   static const SYSTEM = 'System';
