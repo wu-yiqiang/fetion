@@ -7,6 +7,7 @@ import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
 import 'package:fetion/pages/desktop/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
+import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fetion/widgets/StatusAvatar.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
   List<NavigationPaneItem> items = [
     PaneItemSeparator(),
     PaneItem(
-      icon: WindowsIcon(WindowsIcons.message, size: 16),
+      icon: FluentIcon(icon: WindowsIcons.message, size: 16, onTap: () {}),
       title: Texts(text: 'Messages', color: black90),
       infoBadge: InfoBadge(
         source: Padding(

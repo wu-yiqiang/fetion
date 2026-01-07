@@ -1,4 +1,5 @@
 const ApplicationName = 'Fetion';
+const ApplicationVersion = '1.0.0';
 const UserId = "95t37897vjco6jnn9379345tptevyd";
 const NickNamePrefix = ApplicationName + " " + "User";
 const DefaultHostName = "Unknown";

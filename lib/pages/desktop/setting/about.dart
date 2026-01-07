@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -33,9 +34,13 @@ class _AboutPage extends State<AboutPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       spacing: 0,
                       children: [
-                        Texts(text: 'Fetion', fontSize: 14, color: black90),
                         Texts(
-                          text: 'Version 1.0.0',
+                          text: ApplicationName,
+                          fontSize: 14,
+                          color: black90,
+                        ),
+                        Texts(
+                          text: 'Version $ApplicationVersion',
                           fontSize: 10,
                           color: black90,
                         ),
