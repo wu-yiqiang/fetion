@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/init/init.dart';
 import 'package:fetion/navigate/router_table.dart';
@@ -39,16 +40,16 @@ void main() async {
     AnimatedFluentTheme(
       data: FluentThemeData.light(),
       child: GetMaterialApp(
-        initialRoute: "/",
+        // initialRoute: "/",
         getPages: pages,
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [FluentLocalizations.delegate],
         theme: ThemeData(
           scaffoldBackgroundColor: white110,
-          fontFamily: "Noto Sans"
+          fontFamily: FontFamilyName
         ),
         home: FluentTheme(
-          data: FluentThemeData(fontFamily: "Noto Sans"),
+          data: FluentThemeData(fontFamily: FontFamilyName),
           child: HomePage(),
         ),
       ),

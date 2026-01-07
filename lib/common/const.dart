@@ -4,6 +4,7 @@ const NickNamePrefix = ApplicationName + " " + "User";
 const DefaultHostName = "Unknown";
 const DataBaseName = 'Fetion';
 const DataBaseVersion = 6;
+const FontFamilyName = 'Noto Sans';
 
 class LanguageMap {
   static const ENGLISH = 'English';

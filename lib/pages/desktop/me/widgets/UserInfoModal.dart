@@ -25,7 +25,7 @@ void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'
         color: black90,
       ),
       content: Container(
-        child: TextBox(controller: textController),
+        child: TextBox(controller: textController, maxLength: 50),
         height: 34,
       ),
       actions: [
