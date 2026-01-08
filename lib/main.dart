@@ -39,6 +39,7 @@ void main() async {
   ShowGlobalMessages();
   Navigates();
   late MeController meController = Get.put(MeController());
+  print(meController.user.value.langType);
   runApp(
     AnimatedFluentTheme(
       data: FluentThemeData.light(),
@@ -54,7 +55,7 @@ void main() async {
         translations: Language(),
         theme: ThemeData(
           scaffoldBackgroundColor: white110,
-          fontFamily: FontFamilyName
+          fontFamily: FontFamilyName,
         ),
         home: FluentTheme(
           data: FluentThemeData(fontFamily: FontFamilyName),

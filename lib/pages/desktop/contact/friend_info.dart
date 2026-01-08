@@ -1,5 +1,7 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/pages/desktop/me/widgets/InfoItem.dart';
+import 'package:fetion/pages/desktop/me/widgets/ReadonlyInfoItem.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
@@ -7,6 +9,7 @@ import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fetion/widgets/Toast.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:get/get.dart';
 
 class FriendInfo extends StatefulWidget {
   const FriendInfo({super.key});
@@ -30,89 +33,27 @@ class _FriendInfo extends State<FriendInfo> {
             child: Flex(
               direction: Axis.vertical,
               children: [
-                MouseRegions(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Texts(text: "FullName", color: black90),
-                      Texts(text: "Sutter", color: black90),
-                    ],
-                  ),
-                  onPress: () {},
-                ),
-                MouseRegions(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Texts(text: "NickName", color: black90),
-                      Texts(text: "kitty", color: black90),
-                    ],
-                  ),
-                  onPress: () {},
-                ),
-                MouseRegions(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Texts(text: "Phone", color: black90),
-                      Texts(text: "15678900783", color: black90),
-                    ],
-                  ),
-                  onPress: () {},
-                ),
-                MouseRegions(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Texts(text: "Sign", color: black90),
-                      Texts(text: "Hello, word", color: black90),
-                    ],
-                  ),
-                  onPress: () {},
-                ),
-                MouseRegions(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Texts(text: "Department", color: black90),
-                      Texts(text: "Develop", color: black90),
-                    ],
-                  ),
-                  onPress: () {},
-                ),
-                MouseRegions(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Texts(text: "Position", color: black90),
-                      Texts(text: "IT", color: black90),
-                    ],
-                  ),
-                  onPress: () {},
-                ),
-                MouseRegions(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Texts(text: "Group", color: black90),
-                      Texts(text: "sss", color: black90),
-                    ],
-                  ),
-                  onPress: () {},
-                ),
+                ReadonlyInfoItem('FullName', 'Sutter'),
+                ReadonlyInfoItem('NickName', '看哥梭哈'),
+                ReadonlyInfoItem('Age', '20'),
+                ReadonlyInfoItem('Email', 'sutter.wu@itforce-tech.com'),
+                ReadonlyInfoItem('Phone', '13234567894'),
+                ReadonlyInfoItem('Slogan', '今天天气真好'),
+                ReadonlyInfoItem('Department', '开发部'),
+                ReadonlyInfoItem('Position', '开发'),
               ],
             ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            spacing: 30,
+            spacing: 60,
             children: [
               Column(
                 spacing: 8,
                 children: [
                   FluentIcon(
                     icon: WindowsIcons.message,
-                    size: 24,
+                    size: 30,
                     onTap: () {},
                   ),
                   Texts(text: "Message", color: black90),
@@ -121,7 +62,11 @@ class _FriendInfo extends State<FriendInfo> {
               Column(
                 spacing: 8,
                 children: [
-                  FluentIcon(icon: WindowsIcons.phone, size: 24, onTap: () {}),
+                  FluentIcon(
+                    icon: WindowsIcons.phone,
+                    size: 30,
+                    onTap: () {},
+                  ),
                   Texts(text: "Call", color: black90),
                 ],
               ),
@@ -130,7 +75,7 @@ class _FriendInfo extends State<FriendInfo> {
                 children: [
                   FluentIcon(
                     icon: WindowsIcons.video,
-                    size: 24,
+                    size: 30,
                     onTap: () {
                       return Toast(InfoBarSeverity.error, 'sdsds');
                     },

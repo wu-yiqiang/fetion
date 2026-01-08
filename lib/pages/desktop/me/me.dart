@@ -1,9 +1,13 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/pages/desktop/me/widgets/InfoItem.dart';
+import 'package:fetion/pages/desktop/me/widgets/ReadonlyInfoItem.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoModal.dart';
+import 'package:fetion/pages/desktop/me/widgets/UserInfoNumberModal.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fetion/widgets/RowItem.dart';
+import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
@@ -30,290 +34,145 @@ class _MePage extends State<MePage> {
       children: [
         Avatar(size: 70, image: DefaultAvatar),
         RowItem(
-          child: Flex(
-            direction: Axis.vertical,
-            children: [
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Texts(text: "FullName", color: black90),
-                    Obx(() {
-                      return Texts(
-                        text: meController.user.value?.fullName ?? '',
-                        color: black90,
-                      );
-                    }),
-                  ],
-                ),
-                ),
-                onPress: () {
-                  userInfoModal(
-                    context,
-                    'fullName',
-                    meController.user.value.fullName ?? '',
-                    title: 'FullName',
-                  );
-                },
-              ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Texts(text: "NickName", color: black90),
-                    Obx(() {
-                      return Texts(
-                        text: meController.user.value.nickName,
-                        color: black90,
-                      );
-                    }),
-                  ],
-                  ),
-                ),
-                onPress: () {
-                  userInfoModal(
-                    context,
-                    'nickName',
-                    meController.user.value.nickName ?? '',
-                    title: 'NickName',
-                  );
-                },
-              ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Texts(text: "Email", color: black90),
-                      Obx(() {
-                        return Texts(
-                          text: meController.user.value.email ?? '',
-                          color: black90,
+          child: ScrollViews(
+            child: SingleChildScrollView(
+              child: Flex(
+                direction: Axis.vertical,
+                children: [
+                  Obx(() {
+                    return InfoItem(
+                      'FullName',
+                      meController.user.value.fullName,
+                      () {
+                        userInfoModal(
+                          context,
+                          'fullName',
+                          meController.user.value.fullName ?? '',
+                          title: 'FullName',
                         );
-                      }),
-                    ],
-                  ),
-                ),
-                onPress: () {
-                  userInfoModal(
-                    context,
-                    'email',
-                    meController.user.value.email ?? '',
-                    title: 'Email',
-                  );
-                },
-              ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                    Texts(text: "Phone", color: black90),
-                    Obx(() {
-                      return Texts(
-                        text: meController.user.value.phone ?? '',
-                        color: black90,
+                      },
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'NickName',
+                      meController.user.value.nickName,
+                      () {
+                        userInfoModal(
+                          context,
+                          'nickName',
+                          meController.user.value.nickName ?? '',
+                          title: 'NickName',
+                        );
+                      },
+                    );
+                  }),
+                  // Obx(() {
+                  //   return InfoItem(
+                  //     'Age',
+                  //     meController.user.value.age,
+                  //     () {
+                  //       userInfoModal(
+                  //         context,
+                  //         'age',
+                  //         meController.user.value.age ?? 0,
+                  //         title: 'Age',
+                  //       );
+                  //     },
+                  //   );
+                  // }),
+                  Obx(() {
+                    return InfoItem('Email', meController.user.value.email, () {
+                      userInfoModal(
+                        context,
+                        'email',
+                        meController.user.value.email ?? '',
+                        title: 'Email',
                       );
-                    }),
-                  ],
-                  ),
-                ),
-                onPress: () {
-                  userInfoModal(
-                    context,
-                    'phone',
-                    meController.user.value.phone ?? '',
-                    title: 'Phone',
-                  );
-                },
-              ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Texts(text: "Slogan", color: black90),
-                    Obx(() {
-                      return Texts(
-                        text: meController.user.value.slogan ?? '',
-                        color: black90,
+                    },
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem('Phone', meController.user.value.phone, () {
+                      userInfoModal(
+                        context,
+                        'phone',
+                        meController.user.value.phone ?? '',
+                        title: 'Phone',
                       );
-                    }),
-                    ],
-                  ),
-                ),
-                onPress: () {
-                  userInfoModal(
-                    context,
-                    'slogan',
-                    meController.user.value.slogan ?? '',
-                    title: 'Slogan',
-                  );
-                },
+                    });
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'Slogan',
+                      meController.user.value.slogan,
+                      () {
+                        userInfoModal(
+                          context,
+                          'slogan',
+                          meController.user.value.slogan ?? '',
+                          title: 'Slogan',
+                        );
+                      },
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'Department',
+                      meController.user.value.department,
+                      () {
+                        userInfoModal(
+                          context,
+                          'department',
+                          meController.user.value.department ?? '',
+                          title: 'Department',
+                        );
+                      },
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'Position',
+                      meController.user.value.position,
+                      () {
+                        userInfoModal(
+                          context,
+                          'position',
+                          meController.user.value.position ?? '',
+                          title: 'Position',
+                        );
+                      },
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'Gateway',
+                      meController.user.value.gateway,
+                      () {},
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'IPV4',
+                      meController.user.value.ipv4Addr,
+                      () {},
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'IPV6',
+                      meController.user.value.ipv6Addr,
+                      () {},
+                    );
+                  }),
+                  ReadonlyInfoItem('MAC', meController.user.value.macAddr),
+
+                ],
               ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Texts(text: "Department", color: black90),
-                    Obx(() {
-                      return Texts(
-                        text: meController.user.value.department ?? '',
-                        color: black90,
-                      );
-                    }),
-                  ],
-                  
-                  ),
-                ),
-                onPress: () {
-                  userInfoModal(
-                    context,
-                    'department',
-                    meController.user.value.department ?? '',
-                    title: 'Department',
-                  );
-                },
-              ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Texts(text: "Position", color: black90),
-                    Obx(() {
-                      return Texts(
-                        text: meController.user.value.position ?? '',
-                        color: black90,
-                      );
-                    }),
-                    ],
-                  ),
-                ),
-                onPress: () {
-                  userInfoModal(
-                    context,
-                    'position',
-                    meController.user.value.position ?? '',
-                    title: 'Position',
-                  );
-                },
-              ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Texts(text: "Gateway", color: black90),
-                    Obx(() {
-                      return Texts(
-                          text: meController.user.value.gateway ?? '',
-                        color: black90,
-                      );
-                    }),
-                  ],
-                  ),
-                ),
-                onPress: () {},
-              ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Texts(text: "IPV4", color: black90),
-                    Obx(() {
-                      return Texts(
-                        text: meController.user.value.ipv4Addr ?? '',
-                        color: black90,
-                      );
-                    }),
-                  ],
-                  ),
-                ),
-                onPress: () {},
-              ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(bottom: 6, top: 6),
-                  decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(width: 1, color: black4)),
-                  ),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Texts(text: "IPV6", color: black90),
-                    Obx(() {
-                      return Texts(
-                        text: meController.user.value.ipv6Addr ?? '',
-                        color: black90,
-                      );
-                    }),
-                  ],
-                  ),
-                ),
-                onPress: () {},
-              ),
-              MouseRegions(
-                child: Container(
-                  padding: EdgeInsets.only(top: 6),
-                  child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Texts(text: "MAC", color: black90),
-                    Obx(() {
-                      return Texts(
-                        text: meController.user.value.macAddr ?? '',
-                        color: black90,
-                      );
-                    }),
-                  ],
-                  ),
-                ),
-                onPress: () {},
-              ),
-            ],
+            ),
           ),
         ),
+       
       ],
     );
   }

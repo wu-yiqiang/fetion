@@ -84,45 +84,20 @@ class UserRepository {
     _realm.write(() {
       final user = findUser(id);
       if (user != null) {
-        if (key == 'nickName') {
-          user.nickName = value;
-        }
-        if (key == 'fullName') {
-          user.fullName = value;
-        }
-        if (key == 'age') {
-          user.age = value;
-        }
-        if (key == 'email') {
-          user.email = value;
-        }
-        if (key == 'phone') {
-          user.phone = value;
-        }
-        if (key == 'slogan') {
-          user.slogan = value;
-        }
-        if (key == 'department') {
-          user.department = value;
-        }
-        if (key == 'position') {
-          user.position = value;
-        }
-        if (key == 'language') {
-          user.language = value;
-        }
-        if (key == 'theme') {
-          user.theme = value;
-        }
-        if (key == 'langType') {
-          user.langType = value;
-        }
-        if (key == 'langCountry') {
-          user.langCountry = value;
-        }
-        if (key == 'fontSize') {
-          user.fontSize = value;
-        }
+        if (key == 'nickName')  user.nickName = value;
+        if (key == 'fullName') user.fullName = value;
+        if (key == 'age') user.age = value;
+        if (key == 'email') user.email = value;
+        if (key == 'phone') user.phone = value;
+        if (key == 'slogan') user.slogan = value;
+        if (key == 'department') user.department = value;
+        if (key == 'position') user.position = value;
+        if (key == 'language') user.language = value;
+        if (key == 'theme') user.theme = value;
+        if (key == 'langType') user.langType = value;
+        if (key == 'langCountry') user.langCountry = value;
+        if (key == 'fontSize') user.fontSize = value;
+        if (key == 'age') user.age = value;
       }
     });
   }
