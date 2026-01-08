@@ -1,1 +1,1 @@
-final Map<String, String> zh_CN = {'profiles': "简介"};
+final Map<String, String> zh_CN = {'profiles': "简介", 'messages': "消息"};

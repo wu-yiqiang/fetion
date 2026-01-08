@@ -2,16 +2,15 @@ import 'dart:math';
 import 'package:fetion/common/const.dart';
 import 'package:fetion/db/datas/user.dart';
 import 'package:fetion/db/models/user.model.dart';
+import 'package:fetion/utils/network.dart';
 import 'package:get/get.dart';
 import 'package:fetion/db/realmInstance.dart';
 
 class MeController extends GetxController {
   late UserRepository _userRepository;
-  Random random = Random();
-  late String NumberStr = random.nextInt(100000000).toString();
   late Rx<User> user = User(
-    UserId,
-    NickNamePrefix + NumberStr,
+    '',
+    '',
     '',
     '',
     '',
@@ -24,6 +23,7 @@ class MeController extends GetxController {
     ThemeModeMap.SYSTEM,
     DefaultFontSize,
     false,
+    avatar: DefaultAvatar,
   ).obs;
 
   initDb() async {
@@ -32,16 +32,42 @@ class MeController extends GetxController {
   }
 
   @override
-  void onReady() async {
+  void onInit() async {
     super.onReady();
     await initDb();
-    initMeUser();
+    initUser();
   }
 
-  void init() async {}
+  void initUser() async {
+    final random = Random();
+    late String NumberStr = random.nextInt(100000000).toString();
+    late String hoatName = getLocalHostName();
+    String ipv4 = await getLocalIpv4Addr();
+    String ipv6 = await getLocalIpv6Addr();
+    String getway = await getLocalGatewayAddr();
+    String macAddr = getLocalMacAddr();
+    final usr = User(
+      UserId,
+      NickNamePrefix + NumberStr,
+      hoatName,
+      getway,
+      ipv4,
+      ipv6,
+      macAddr,
+      '255.255.255.250',
+      LanguageMap.ENGLISH,
+      LanguageEnTypeMap.TYPE,
+      LanguageEnTypeMap.COUNTRY,
+      ThemeModeMap.SYSTEM,
+      DefaultFontSize,
+      false,
+      avatar: DefaultAvatar,
+    );
+    initMeUser(usr);
+  }
 
-  void initMeUser() {
-    final insertUser = _userRepository.createUser(user.value);
+  void initMeUser(User usr) {
+    final insertUser = _userRepository.createUser(usr);
     user.value = insertUser!;
   }
 
@@ -55,8 +81,6 @@ class MeController extends GetxController {
     user.value = ownerInfos!;
     user.refresh();
   }
-
-
 
   String getLocalMaskCode() {
     return '';

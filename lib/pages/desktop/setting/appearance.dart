@@ -15,10 +15,7 @@ class AppearancePage extends StatefulWidget {
 class _AppearancePage extends State<AppearancePage> {
   final MeController meController = Get.put(MeController());
 
-  void onReady() {
-    // String? selectLanguage = meController.user.value.language.toString();
-    // String? selectTheme = meController.user.value.theme.toString();
-  }
+  void onReady() {}
 
   @override
   Widget build(BuildContext context) {
@@ -63,24 +60,26 @@ class _AppearancePage extends State<AppearancePage> {
                           }).toList(),
                           onChanged: (value) {
                             setState(() {
-                              meController.updateMeUser(
-                                'langType',
-                                Languages.where(
-                                  (u) => u['value'] == value,
-                                )?.map((list) => list['type']).join()!,
-                              );
+                              final langItem = Languages?.where(
+                                (u) => u['value'] == value,
+                              ).toList();
+                              final langType = langItem
+                                  ?.map((list) => list['type'])
+                                  .join();
+                              meController.updateMeUser('langType', langType);
+                              final langCountry = langItem
+                                  ?.map((list) => list['country'])
+                                  .join();
                               meController.updateMeUser(
                                 'langCountry',
-                                Languages.where(
-                                  (u) => u['value'] == value,
-                                )?.map((list) => list['country']).join()!,
+                                langCountry,
                               );
-                              meController.updateMeUser(
-                                'language',
-                                Languages.where(
-                                  (u) => u['value'] == value,
-                                )?.map((list) => list['value']).join()!,
-                              );
+                              final language = langItem
+                                  ?.map((list) => list['value'])
+                                  .join();
+                              meController.updateMeUser('language', language);
+                              var locale = Locale(langType!, langCountry);
+                              Get.updateLocale(locale);
                             });
                           },
                         ),
