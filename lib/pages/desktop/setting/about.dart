@@ -30,9 +30,9 @@ class _AboutPage extends State<AboutPage> {
                   children: [
                     Container(child: WindowsIcon(FluentIcons.info, size: 16)),
                     Flex(
-                      direction: Axis.vertical,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      spacing: 0,
+                      direction: Axis.horizontal,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 6,
                       children: [
                         Texts(
                           text: ApplicationName,
@@ -40,8 +40,8 @@ class _AboutPage extends State<AboutPage> {
                           color: black90,
                         ),
                         Texts(
-                          text: 'Version $ApplicationVersion',
-                          fontSize: 10,
+                          text: '$ApplicationVersion',
+                          fontSize: 12,
                           color: black90,
                         ),
                       ],
