@@ -41,27 +41,30 @@ void main() async {
   late MeController meController = Get.put(MeController());
   print(meController.user.value.langType);
   runApp(
-    AnimatedFluentTheme(
-      data: FluentThemeData.light(),
-      child: GetMaterialApp(
-        // initialRoute: "/",
-        getPages: pages,
-        debugShowCheckedModeBanner: false,
-        localizationsDelegates: [FluentLocalizations.delegate],
-        locale: Locale(
-          meController.user.value.langType,
-          meController.user.value.langCountry,
-        ),
-        translations: Language(),
-        theme: ThemeData(
-          scaffoldBackgroundColor: white110,
-          fontFamily: FontFamilyName,
-        ),
-        home: FluentTheme(
-          data: FluentThemeData(fontFamily: FontFamilyName),
-          child: HomePage(),
+    GetMaterialApp(
+      initialRoute: "/",
+      getPages: pages,
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: [FluentLocalizations.delegate],
+      locale: Locale(
+        meController.user.value.langType,
+        meController.user.value.langCountry,
+      ),
+      fallbackLocale: Locale(LanguageEnTypeMap.TYPE, LanguageEnTypeMap.COUNTRY),
+      translations: Language(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: white110,
+        fontFamily: FontFamilyName,
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(decoration: TextDecoration.none),
         ),
       ),
+      builder: (context, child) {
+        return AnimatedFluentTheme(
+          data: FluentThemeData(fontFamily: FontFamilyName),
+          child: child!,
+        );
+      },
     ),
   );
 }

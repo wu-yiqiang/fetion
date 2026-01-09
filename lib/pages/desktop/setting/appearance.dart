@@ -78,7 +78,7 @@ class _AppearancePage extends State<AppearancePage> {
                                   ?.map((list) => list['value'])
                                   .join();
                               meController.updateMeUser('language', language);
-                              var locale = Locale(langType!, langCountry);
+                              final locale = Locale(langType!, langCountry);
                               Get.updateLocale(locale);
                             });
                           },
