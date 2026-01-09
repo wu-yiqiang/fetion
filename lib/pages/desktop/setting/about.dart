@@ -42,7 +42,7 @@ class _AboutPage extends State<AboutPage> {
                         Texts(
                           text: '$ApplicationVersion',
                           fontSize: 12,
-                          color: black90,
+                          color: black6,
                         ),
                       ],
                     ),
