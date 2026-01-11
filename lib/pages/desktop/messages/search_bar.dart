@@ -24,7 +24,7 @@ class _SearchsBar extends State<SearchsBar> {
           Expanded(
             child: TextBox(
               prefix: Container(
-                padding: EdgeInsets.only(left: 4),
+                padding: EdgeInsets.only(left: 8),
                 child: FluentIcon(icon: WindowsIcons.search, onTap: () {}),
               ),
             ),
