@@ -2,6 +2,7 @@ import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:get/get.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -18,7 +19,7 @@ class _AboutPage extends State<AboutPage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'About', color: black90),
+            child: Texts(text: 'about'.tr, color: black90),
           ),
           Column(
             spacing: 6,
@@ -71,7 +72,7 @@ class _AboutPage extends State<AboutPage> {
                   spacing: 6,
                   children: [
                     WindowsIcon(FluentIcons.o_d_link, size: 16),
-                    Texts(text: 'Link Address', fontSize: 13, color: black90),
+                    Texts(text: 'linkAddress'.tr, fontSize: 13, color: black90),
                   ],
                 ),
                 content: Container(
@@ -81,14 +82,14 @@ class _AboutPage extends State<AboutPage> {
                     children: [
                       HyperlinkButton(
                         child: Text(
-                          'Open Source',
+                          'openSource'.tr,
                           style: TextStyle(fontSize: 12,decoration: TextDecoration.none),
                         ),
                         onPressed: () {},
                       ),
                       HyperlinkButton(
                         child: Text(
-                          'Feedback',
+                          'feedback'.tr,
                           style: TextStyle(
                             fontSize: 12,
                             decoration: TextDecoration.none),

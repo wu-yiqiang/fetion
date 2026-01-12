@@ -40,119 +40,119 @@ class _MePage extends State<MePage> {
                   children: [
                     Obx(() {
                       return InfoItem(
-                        'FullName',
+                        'fullName'.tr,
                         meController.user.value.fullName,
                         () {
                           userInfoModal(
                             context,
                             'fullName',
                             meController.user.value.fullName ?? '',
-                            title: 'FullName',
+                            title: 'fullName'.tr,
                           );
                         },
                       );
                     }),
                     Obx(() {
                       return InfoItem(
-                        'NickName',
+                        'nickName'.tr,
                         meController.user.value.nickName,
                         () {
                           userInfoModal(
                             context,
                             'nickName',
                             meController.user.value.nickName ?? '',
-                            title: 'NickName',
+                            title: 'nickName'.tr,
                           );
                         },
                       );
                     }),
                     Obx(() {
                       return InfoItem(
-                        'Age',
+                        'age'.tr,
                         meController.user.value.age.toString(),
                         () {
                           userInfoNumberModal(
                             context,
                             'age',
                             meController.user.value.age ?? 0,
-                            title: 'Age',
+                            title: 'age'.tr,
                           );
                         },
                       );
                     }),
                     Obx(() {
                       return InfoItem(
-                        'Email',
+                        'email'.tr,
                         meController.user.value.email,
                         () {
                           userInfoModal(
                             context,
                             'email',
                             meController.user.value.email ?? '',
-                            title: 'Email',
+                            title: 'email'.tr,
                           );
                         },
                       );
                     }),
                     Obx(() {
                       return InfoItem(
-                        'Phone',
+                        'phone'.tr,
                         meController.user.value.phone,
                         () {
                           userInfoModal(
                             context,
                             'phone',
                             meController.user.value.phone ?? '',
-                            title: 'Phone',
+                            title: 'phone'.tr,
                           );
                         },
                       );
                     }),
                     Obx(() {
                       return InfoItem(
-                        'Slogan',
+                        'slogan'.tr,
                         meController.user.value.slogan,
                         () {
                           userInfoModal(
                             context,
                             'slogan',
                             meController.user.value.slogan ?? '',
-                            title: 'Slogan',
+                            title: 'slogan'.tr,
                           );
                         },
                       );
                     }),
                     Obx(() {
                       return InfoItem(
-                        'Department',
+                        'department'.tr,
                         meController.user.value.department,
                         () {
                           userInfoModal(
                             context,
                             'department',
                             meController.user.value.department ?? '',
-                            title: 'Department',
+                            title: 'department'.tr,
                           );
                         },
                       );
                     }),
                     Obx(() {
                       return InfoItem(
-                        'Position',
+                        'position'.tr,
                         meController.user.value.position,
                         () {
                           userInfoModal(
                             context,
                             'position',
                             meController.user.value.position ?? '',
-                            title: 'Position',
+                            title: 'position'.tr,
                           );
                         },
                       );
                     }),
                     Obx(() {
                       return InfoItem(
-                        'Gateway',
+                        'gateway'.tr,
                         meController.user.value.gateway,
                         () {},
                       );

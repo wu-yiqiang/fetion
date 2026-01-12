@@ -1,4 +1,27 @@
 final Map<String, String> en_US = {
   'profiles': "Profiles",
-  'messages': "Messages"
+  'messages': "Messages",
+  'contacts': "Contacts",
+  'groups': "Groups",
+  'lock': "Lock",
+  'settings': "Settings",
+  'fullName': "FullName",
+  'nickName': "NickName",
+  'age': "Age",
+  'email': "Email",
+  'phone': "Phone",
+  'slogan': "Slogan",
+  'department': "Department",
+  'position': "Postion",
+  'gateway': "Gateway",
+  'appearance': "Apprearance",
+  'language': "Language",
+  'theme': "Theme",
+  'fontSize': "Font Size",
+  'network': "Network",
+  'connection': "Connection",
+  'about': "About",
+  'linkAddress': "Link Address",
+  'openSource': "Open Source",
+  'feedback': "Feedback"
 };

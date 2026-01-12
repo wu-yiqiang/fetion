@@ -65,12 +65,12 @@ class _HomePageState extends State<HomePage> {
     ),
     PaneItem(
       icon: Icon(FluentIcons.contact_info, size: 16),
-      title: Texts(text: 'Contacts', color: black90),
+      title: Texts(text: 'contacts'.tr, color: black90),
       body: ContactBar(),
     ),
     PaneItem(
       icon: const Icon(FluentIcons.contact_list, size: 16),
-      title: Texts(text: 'Groups', color: black90),
+      title: Texts(text: 'groups'.tr, color: black90),
       body: const NavigationBodyItem(content: Text("ssss")),
     ),
     PaneItem(
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
         footerItems: [
           PaneItem(
             icon: Icon(FluentIcons.lock, size: 16),
-            title: Texts(text: 'Lock', color: black90),
+            title: Texts(text: 'lock'.tr, color: black90),
             body: SizedBox(),
             onTap: () {
               eventBus.emit(Events.NAVIGATE.name, RouterMap.LOGIN);
@@ -135,10 +135,10 @@ class _HomePageState extends State<HomePage> {
           ),
           PaneItem(
             icon: Icon(FluentIcons.settings, size: 16),
-            title: Texts(text: 'Settings', color: black90),
+            title: Texts(text: 'settings'.tr, color: black90),
             body: NavigationBodyItem(
               content: SettingPage(),
-              header: 'Settings',
+              header: 'settings'.tr,
             ),
           ),
         ],

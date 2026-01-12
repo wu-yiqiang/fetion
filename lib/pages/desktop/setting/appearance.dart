@@ -25,7 +25,7 @@ class _AppearancePage extends State<AppearancePage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'Appearance', color: black90),
+            child: Texts(text: 'appearance'.tr, color: black90),
           ),
           Column(
             spacing: 6,
@@ -40,7 +40,11 @@ class _AppearancePage extends State<AppearancePage> {
                         spacing: 6,
                         children: [
                           WindowsIcon(WindowsIcons.locale_language, size: 16),
-                          Texts(text: 'Language', fontSize: 13, color: black90),
+                          Texts(
+                            text: 'language'.tr,
+                            fontSize: 13,
+                            color: black90,
+                          ),
                         ],
                       ),
                       Container(
@@ -98,7 +102,7 @@ class _AppearancePage extends State<AppearancePage> {
                         spacing: 6,
                         children: [
                           WindowsIcon(WindowsIcons.color, size: 16),
-                          Texts(text: 'Theme', fontSize: 13, color: black90),
+                          Texts(text: 'theme'.tr, fontSize: 13, color: black90),
                         ],
                       ),
                       Obx(() {
@@ -138,7 +142,7 @@ class _AppearancePage extends State<AppearancePage> {
                         children: [
                           WindowsIcon(WindowsIcons.font, size: 16),
                           Texts(
-                            text: 'Font Size',
+                            text: 'fontSize'.tr,
                             fontSize: 13,
                             color: black90,
                           ),

@@ -1,1 +1,27 @@
-final Map<String, String> zh_CN = {'profiles': "简介", 'messages': "消息"};
+final Map<String, String> zh_CN = {
+  'profiles': "简介",
+  'messages': "消息",
+  'contacts': "联系人",
+  'groups': "群组",
+  'lock': "锁屏",
+  'settings': "设置",
+  'fullName': "全名",
+  'nickName': "昵称",
+  'age': "年龄",
+  'email': "邮箱",
+  'phone': "电话",
+  'slogan': "签名",
+  'department': "部门",
+  'position': "岗位",
+  'gateway': "网关",
+  'appearance': "外观",
+  'language': "语言",
+  'theme': "主题",
+  'fontSize': "字体",
+  'network': "网络",
+  'connection': "连接",
+  'about': "关于",
+  'linkAddress': "链接地址",
+  'openSource': "开源",
+  'feedback': "反馈"
+};

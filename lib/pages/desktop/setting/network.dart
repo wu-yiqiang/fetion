@@ -1,6 +1,7 @@
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:get/get.dart';
 
 class NetworkPage extends StatefulWidget {
   const NetworkPage({super.key});
@@ -17,7 +18,7 @@ class _NetworkPage extends State<NetworkPage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'Network', color: black90),
+            child: Texts(text: 'network'.tr, color: black90),
           ),
           Column(
             spacing: 6,
@@ -27,7 +28,7 @@ class _NetworkPage extends State<NetworkPage> {
                   spacing: 6,
                   children: [
                     WindowsIcon(WindowsIcons.my_network, size: 16),
-                    Texts(text: 'Connection', fontSize: 13, color: black90),
+                    Texts(text: 'connection'.tr, fontSize: 13, color: black90),
                   ],
                 ),
                 content: Container(
@@ -37,7 +38,7 @@ class _NetworkPage extends State<NetworkPage> {
                     children: [
                       HyperlinkButton(
                         child: Text(
-                          'Open Source',
+                          'openSource'.tr,
                           style: TextStyle(
                             fontSize: 12,
                             decoration: TextDecoration.none,
@@ -47,7 +48,7 @@ class _NetworkPage extends State<NetworkPage> {
                       ),
                       HyperlinkButton(
                         child: Text(
-                          'Feedback',
+                          'feedback'.tr,
                           style: TextStyle(
                             fontSize: 12,
                             decoration: TextDecoration.none,
