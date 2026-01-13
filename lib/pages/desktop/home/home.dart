@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
   List<NavigationPaneItem> items = [
     PaneItemSeparator(),
     PaneItem(
-      icon: FluentIcon(icon: WindowsIcons.message, size: 16, onTap: () {}),
+      icon: Icon(WindowsIcons.message, size: 16),
       title: Text('messages'.tr, style: TextStyle(fontSize: 14)),
       infoBadge: InfoBadge(
         source: Padding(
@@ -80,17 +80,17 @@ class _HomePageState extends State<HomePage> {
       body: MessageBar(),
     ),
     PaneItem(
-      icon: FluentIcon(icon: WindowsIcons.contact_info, size: 16, onTap: () {}),
+      icon: Icon(WindowsIcons.contact_info, size: 16),
       title: Text('contacts'.tr, style: TextStyle(fontSize: 14)),
       body: ContactBar(),
     ),
     PaneItem(
-      icon: FluentIcon(icon: FluentIcons.contact_list, size: 16, onTap: () {}),
+      icon: Icon(FluentIcons.contact_list, size: 16),
       title: Text('groups'.tr, style: TextStyle(fontSize: 14)),
       body: const NavigationBodyItem(content: Text("ssss")),
     ),
     PaneItem(
-      icon: FluentIcon(icon: WindowsIcons.contact, size: 16, onTap: () {}),
+      icon: Icon(WindowsIcons.contact, size: 16),
       title: Text('profiles'.tr, style: TextStyle(fontSize: 14)),
       body: NavigationBodyItem(content: MePage(), header: 'profiles'.tr),
     ),
