@@ -145,6 +145,7 @@ class _MePage extends State<MePage> {
                             title: 'position'.tr,
                           );
                         },
+                      hasBorder: false,
                       );
                     }),
                   // Obx(() {

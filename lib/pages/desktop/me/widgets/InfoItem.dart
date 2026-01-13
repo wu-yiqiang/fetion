@@ -10,11 +10,14 @@ class InfoItem extends StatefulWidget {
     dynamic this.value,
     Function this.onPressed, {
     super.key,
+    this.hasBorder = true
   });
   final String title;
   final dynamic value;
 
   final Function onPressed;
+  
+  final bool hasBorder;
 
   @override
   State<InfoItem> createState() => _InfoItem();
@@ -27,7 +30,12 @@ class _InfoItem extends State<InfoItem> {
       child: Container(
         padding: EdgeInsets.only(bottom: 6, top: 6),
         decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(width: 1, color: black4)),
+          border: Border(
+            bottom: BorderSide(
+              width: 1,
+              color: widget.hasBorder ? black4 : Colors.transparent,
+            ),
+          ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

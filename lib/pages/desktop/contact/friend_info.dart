@@ -40,7 +40,7 @@ class _FriendInfo extends State<FriendInfo> {
                 ReadonlyInfoItem('Phone', '13234567894'),
                 ReadonlyInfoItem('Slogan', '今天天气真好'),
                 ReadonlyInfoItem('Department', '开发部'),
-                ReadonlyInfoItem('Position', '开发'),
+                ReadonlyInfoItem('Position', '开发', hasBorder: false),
               ],
             ),
           ),
