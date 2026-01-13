@@ -39,9 +39,9 @@ class _AboutPage extends State<AboutPage> {
                           text: ApplicationName,
                           fontSize: 14,
                         ),
-                        Texts(
-                          text: '$ApplicationVersion',
-                          fontSize: 12,
+                        Text(
+                          '$ApplicationVersion',
+                          style: TextStyle(fontSize: 12, color: gray)
                         ),
                       ],
                     ),

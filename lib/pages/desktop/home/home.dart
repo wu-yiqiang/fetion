@@ -49,14 +49,30 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.symmetric(horizontal: 4),
           child: Row(
             children: 100 < 99
-                ? [Texts(text: '12', fontSize: 12, fontWeight: FontWeight.w500)]
-                : [
-                    Texts(
-                      text: '99',
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
+                ? [
+                    Text(
+                      '12',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                    Texts(text: '⁺', fontSize: 14, fontWeight: FontWeight.w500),
+                  ]
+                : [
+                    Text(
+                      '99',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Text(
+                      '⁺',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ],
           ),
         ),

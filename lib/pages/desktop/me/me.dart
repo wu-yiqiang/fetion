@@ -1,7 +1,5 @@
 import 'package:fetion/common/const.dart';
-import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/pages/desktop/me/widgets/InfoItem.dart';
-import 'package:fetion/pages/desktop/me/widgets/ReadonlyInfoItem.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoModal.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoNumberModal.dart';
 import 'package:fetion/widgets/Avatar.dart';
@@ -31,8 +29,7 @@ class _MePage extends State<MePage> {
       spacing: 10,
       children: [
         Avatar(size: 70, image: DefaultAvatar),
-        Expanded(
-          child: RowItem(
+        RowItem(
             child: ScrollViews(
               child: SingleChildScrollView(
                 child: Flex(
@@ -150,34 +147,33 @@ class _MePage extends State<MePage> {
                         },
                       );
                     }),
-                    Obx(() {
-                      return InfoItem(
-                        'gateway'.tr,
-                        meController.user.value.gateway,
-                        () {},
-                      );
-                    }),
-                    Obx(() {
-                      return InfoItem(
-                        'IPV4',
-                        meController.user.value.ipv4Addr,
-                        () {},
-                      );
-                    }),
-                    Obx(() {
-                      return InfoItem(
-                        'IPV6',
-                        meController.user.value.ipv6Addr,
-                        () {},
-                      );
-                    }),
-                    ReadonlyInfoItem('MAC', meController.user.value.macAddr),
+                  // Obx(() {
+                  //   return InfoItem(
+                  //     'gateway'.tr,
+                  //     meController.user.value.gateway,
+                  //     () {},
+                  //   );
+                  // }),
+                  // Obx(() {
+                  //   return InfoItem(
+                  //     'IPV4',
+                  //     meController.user.value.ipv4Addr,
+                  //     () {},
+                  //   );
+                  // }),
+                  // Obx(() {
+                  //   return InfoItem(
+                  //     'IPV6',
+                  //     meController.user.value.ipv6Addr,
+                  //     () {},
+                  //   );
+                  // }),
+                  // ReadonlyInfoItem('MAC', meController.user.value.macAddr),
                   ],
                 ),
               ),
             ),
-          ),
-        )
+        ),
       ],
     );
   }
