@@ -18,7 +18,7 @@ class _NetworkPage extends State<NetworkPage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'network'.tr, color: black90),
+            child: Texts(text: 'network'.tr, fontWeight: FontWeight.w500),
           ),
           Column(
             spacing: 6,
@@ -28,7 +28,7 @@ class _NetworkPage extends State<NetworkPage> {
                   spacing: 6,
                   children: [
                     WindowsIcon(WindowsIcons.my_network, size: 16),
-                    Texts(text: 'connection'.tr, fontSize: 13, color: black90),
+                    Texts(text: 'connection'.tr, fontSize: 13),
                   ],
                 ),
                 content: Container(

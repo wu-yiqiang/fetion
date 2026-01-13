@@ -6,7 +6,7 @@ import 'package:fetion/pages/desktop/home/home.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Colors;
 import 'package:get/get.dart';
 import 'package:local_notifier/local_notifier.dart';
 import 'package:fetion/translation/translation.dart';
@@ -53,17 +53,20 @@ void main() async {
       fallbackLocale: Locale(LanguageEnTypeMap.TYPE, LanguageEnTypeMap.COUNTRY),
       translations: Language(),
       theme: ThemeData(
-        scaffoldBackgroundColor: white110,
         fontFamily: FontFamilyName,
-        // textTheme: const TextTheme(
-        //   bodyMedium: TextStyle(decoration: TextDecoration.none),
-        // ),
       ),
       builder: (context, child) {
         return AnimatedFluentTheme(
           data: FluentThemeData(
             fontFamily: FontFamilyName,
-            brightness: Brightness.dark,
+            // dialogTheme: ContentDialogThemeData(
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.all(Radius.circular(4)),
+            //   ),
+            // ),
+            brightness: meController.user.value.theme == ThemeModeMap.DARK
+                ? Brightness.dark
+                : Brightness.light,
           ),
           child: child!,
         );

@@ -8,7 +8,7 @@ FluentIcon({
   required Function onTap,
 }) {
   return MouseRegions(
-    child: Icon(icon, color: black33, size: size),
+    child: Icon(icon, size: size),
     onPress: () {
       onTap();
     },

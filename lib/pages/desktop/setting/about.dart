@@ -19,7 +19,7 @@ class _AboutPage extends State<AboutPage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'about'.tr, color: black90),
+            child: Texts(text: 'about'.tr, fontWeight: FontWeight.w500),
           ),
           Column(
             spacing: 6,
@@ -38,12 +38,10 @@ class _AboutPage extends State<AboutPage> {
                         Texts(
                           text: ApplicationName,
                           fontSize: 14,
-                          color: black90,
                         ),
                         Texts(
                           text: '$ApplicationVersion',
                           fontSize: 12,
-                          color: black6,
                         ),
                       ],
                     ),
@@ -54,13 +52,12 @@ class _AboutPage extends State<AboutPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 10,
                     children: [
-                      Texts(text: '特别鸣谢', fontSize: 16, color: black90),
+                      Texts(text: '特别鸣谢', fontSize: 16),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Texts(
                           text: '感谢Ada同学提供的UI帮助',
                           fontSize: 13,
-                          color: black90,
                         ),
                       ),
                     ],
@@ -72,7 +69,7 @@ class _AboutPage extends State<AboutPage> {
                   spacing: 6,
                   children: [
                     WindowsIcon(FluentIcons.o_d_link, size: 16),
-                    Texts(text: 'linkAddress'.tr, fontSize: 13, color: black90),
+                    Texts(text: 'linkAddress'.tr, fontSize: 13),
                   ],
                 ),
                 content: Container(

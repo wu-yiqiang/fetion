@@ -1,22 +1,37 @@
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 
-Texts({
-  required String text,
-  double fontSize = 14,
-  fontWeight = FontWeight.w400,
-  maxLines = 1,
-  overflow = TextOverflow.ellipsis,
-color = Colors.white
-}) {
-  return Text(
-    text,
-    maxLines: maxLines,
-    overflow: overflow,
-    style: TextStyle(
-      fontSize: fontSize,
-      fontWeight: fontWeight,
-      color: color,
-      decoration: TextDecoration.none,
-    ),
-  );
+class Texts extends StatelessWidget {
+  final String text;
+
+  final int maxLines;
+
+  final dynamic overflow;
+
+  final double fontSize;
+
+  final dynamic fontWeight;
+
+  const Texts({
+    super.key,
+    required this.text,
+    this.maxLines = 1,
+    this.overflow = TextOverflow.ellipsis,
+    double this.fontSize = 14,
+    this.fontWeight = FontWeight.w400,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      maxLines: maxLines,
+      overflow: overflow,
+      style: TextStyle(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        decoration: TextDecoration.none,
+      ),
+    );
+    ;
+  }
 }

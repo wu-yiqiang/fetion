@@ -30,7 +30,7 @@ class _SingleTopbar extends State<SingleTopbar> {
               crossAxisAlignment: CrossAxisAlignment.center,
             children: [
                 StatusAvatar(size: 34, image: DefaultAvatar),
-                Texts(text: "啦啦啦先生", color: Colors.black, fontSize: 14)
+                Texts(text: "啦啦啦先生", fontSize: 14)
             ],
           )),
           TopbarTools(),

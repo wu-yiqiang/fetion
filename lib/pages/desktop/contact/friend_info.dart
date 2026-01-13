@@ -56,7 +56,7 @@ class _FriendInfo extends State<FriendInfo> {
                     size: 30,
                     onTap: () {},
                   ),
-                  Texts(text: "Message", color: black90),
+                  Texts(text: "Message"),
                 ],
               ),
               Column(
@@ -67,7 +67,7 @@ class _FriendInfo extends State<FriendInfo> {
                     size: 30,
                     onTap: () {},
                   ),
-                  Texts(text: "Call", color: black90),
+                  Texts(text: "Call"),
                 ],
               ),
               Column(
@@ -80,7 +80,7 @@ class _FriendInfo extends State<FriendInfo> {
                       return Toast(InfoBarSeverity.error, 'sdsds');
                     },
                   ),
-                  Texts(text: "Video", color: black90),
+                  Texts(text: "Video"),
                 ],
               ),
             ],

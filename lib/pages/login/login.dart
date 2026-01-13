@@ -2,7 +2,6 @@ import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart' hide FilledButton;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,8 +13,8 @@ class _LoginPage extends State<LoginPage> {
   var showPassword = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return NavigationView(
+      content: Center(
         child: Container(
           width: 320,
           child: Column(
@@ -30,12 +29,7 @@ class _LoginPage extends State<LoginPage> {
               ),
               Container(
                 margin: EdgeInsets.only(top: 80, bottom: 20),
-                child: Column(
-                  spacing: 14,
-                  children: [
-                    PasswordBox(),
-                  ],
-                ),
+                child: Column(spacing: 14, children: [PasswordBox()]),
               ),
               FilledButton(
                 child: Padding(

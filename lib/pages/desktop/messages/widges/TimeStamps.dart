@@ -17,7 +17,6 @@ class _TimeStamps extends State<TimeStamps> {
       child: Texts(
         text: widget.timeStamp,
         fontSize: 11,
-        color: black90,
       ),
     );
   }

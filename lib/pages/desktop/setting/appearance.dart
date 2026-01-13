@@ -5,6 +5,7 @@ import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 
 class AppearancePage extends StatefulWidget {
   const AppearancePage({super.key});
@@ -25,7 +26,7 @@ class _AppearancePage extends State<AppearancePage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'appearance'.tr, color: black90),
+            child: Texts(text: 'appearance'.tr, fontWeight: FontWeight.w500),
           ),
           Column(
             spacing: 6,
@@ -43,7 +44,6 @@ class _AppearancePage extends State<AppearancePage> {
                           Texts(
                             text: 'language'.tr,
                             fontSize: 13,
-                            color: black90,
                           ),
                         ],
                       ),
@@ -102,7 +102,7 @@ class _AppearancePage extends State<AppearancePage> {
                         spacing: 6,
                         children: [
                           WindowsIcon(WindowsIcons.color, size: 16),
-                          Texts(text: 'theme'.tr, fontSize: 13, color: black90),
+                          Texts(text: 'theme'.tr, fontSize: 13),
                         ],
                       ),
                       Obx(() {
@@ -144,7 +144,6 @@ class _AppearancePage extends State<AppearancePage> {
                           Texts(
                             text: 'fontSize'.tr,
                             fontSize: 13,
-                            color: black90,
                           ),
                         ],
                       ),

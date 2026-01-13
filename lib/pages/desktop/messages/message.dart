@@ -45,7 +45,6 @@ class _Message extends State<Message> {
                         Expanded(
                           child: Texts(
                             text: 'Sutter111111111111111111',
-                            color: black33,
                           ),
                         ),
                         Column(
@@ -53,12 +52,10 @@ class _Message extends State<Message> {
                             Texts(
                               text: '2011/09/10',
                               fontSize: 10,
-                              color: black6,
                             ),
                             Texts(
                               text: '18:09:01',
                               fontSize: 10,
-                              color: black6,
                             ),
                           ],
                         ),
@@ -67,7 +64,6 @@ class _Message extends State<Message> {
                     Texts(
                       text: "今晚吃啥11111111111111111111111111",
                       fontSize: 12,
-                      color: black6,
                     ),
                   ],
                 ),

@@ -20,7 +20,6 @@ void userInfoNumberModal(
     builder: (context) => ContentDialog(
       style: ContentDialogThemeData(
         decoration: BoxDecoration(
-          color: white,
           borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
       ),
@@ -28,7 +27,6 @@ void userInfoNumberModal(
         text: title,
         fontSize: 24,
         fontWeight: FontWeight.w500,
-        color: black90,
       ),
       content: Container(
         height: 34,
@@ -42,13 +40,13 @@ void userInfoNumberModal(
       ),
       actions: [
         Button(
-          child: Texts(text: 'Cancel', fontSize: 14, color: black90),
+          child: Texts(text: 'Cancel', fontSize: 14),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         FilledButton(
-          child: Texts(text: 'Save', fontSize: 14, color: white),
+          child: Texts(text: 'Save', fontSize: 14),
           onPressed: () {
             meController.updateMeUser(key, _valueChanged ?? 0);
             Navigator.pop(context);

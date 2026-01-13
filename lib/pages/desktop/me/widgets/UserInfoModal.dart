@@ -1,4 +1,3 @@
-import 'package:fetion/common/light-theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
@@ -9,20 +8,20 @@ void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'
   final TextEditingController textController = TextEditingController(
     text: text,
   );
+  final theme = FluentTheme.of(context); 
   final result = await showDialog<String>(
     context: context,
     builder: (context) => ContentDialog(
-      style: ContentDialogThemeData(
-        decoration: BoxDecoration(
-          color: white,
-          borderRadius: BorderRadius.all(Radius.circular(4)),
-        ),
-      ),
+      // style: ContentDialogThemeData(
+      //   decoration: BoxDecoration(
+      //     // color: theme.scaffoldBackgroundColor,
+      //     borderRadius: BorderRadius.all(Radius.circular(4)),
+      //   ),
+      // ),
       title: Texts(
         text: title,
         fontSize: 24,
         fontWeight: FontWeight.w500,
-        color: black90,
       ),
       content: Container(
         child: TextBox(controller: textController, maxLength: 50),
@@ -30,13 +29,13 @@ void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'
       ),
       actions: [
         Button(
-          child: Texts(text: 'Cancel', fontSize: 14, color: black90),
+          child: Texts(text: 'Cancel', fontSize: 14),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         FilledButton(
-          child: Texts(text: 'Save', fontSize: 14, color: white),
+          child: Texts(text: 'Save', fontSize: 14),
           onPressed: () {
             meController.updateMeUser(key, textController.text);
             Navigator.pop(context);

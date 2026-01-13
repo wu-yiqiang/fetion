@@ -21,7 +21,7 @@ class NavigationBodyItem extends StatelessWidget {
   Widget build(context) {
     return ScaffoldPage.withPadding(
       header: PageHeader(
-        title: Texts(text: header ?? 'Header', fontSize: 24, color: black90),
+        title: Texts(text: header ?? 'Header', fontSize: 24),
       ),
       content: content,
     );
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     PaneItemSeparator(),
     PaneItem(
       icon: FluentIcon(icon: WindowsIcons.message, size: 16, onTap: () {}),
-      title: Texts(text: 'messages'.tr, color: black90),
+      title: Text('messages'.tr, style: TextStyle(fontSize: 14)),
       infoBadge: InfoBadge(
         source: Padding(
           padding: EdgeInsets.symmetric(horizontal: 4),
@@ -64,18 +64,18 @@ class _HomePageState extends State<HomePage> {
       body: MessageBar(),
     ),
     PaneItem(
-      icon: Icon(FluentIcons.contact_info, size: 16),
-      title: Texts(text: 'contacts'.tr, color: black90),
+      icon: FluentIcon(icon: WindowsIcons.contact_info, size: 16, onTap: () {}),
+      title: Text('contacts'.tr, style: TextStyle(fontSize: 14)),
       body: ContactBar(),
     ),
     PaneItem(
-      icon: const Icon(FluentIcons.contact_list, size: 16),
-      title: Texts(text: 'groups'.tr, color: black90),
+      icon: FluentIcon(icon: FluentIcons.contact_list, size: 16, onTap: () {}),
+      title: Text('groups'.tr, style: TextStyle(fontSize: 14)),
       body: const NavigationBodyItem(content: Text("ssss")),
     ),
     PaneItem(
-      icon: const Icon(WindowsIcons.contact, size: 16),
-      title: Texts(text: 'profiles'.tr, color: black90),
+      icon: FluentIcon(icon: WindowsIcons.contact, size: 16, onTap: () {}),
+      title: Text('profiles'.tr, style: TextStyle(fontSize: 14)),
       body: NavigationBodyItem(content: MePage(), header: 'profiles'.tr),
     ),
   ];
@@ -83,10 +83,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return NavigationView(
-      // appBar: const NavigationAppBar(
-      //   leading: Icon(FluentIcons.a_t_p_logo),
-      //   title: Text('NavigationView'),
-      // ),
       pane: NavigationPane(
         selected: topIndex,
         onChanged: (index) => setState(() => topIndex = index),
@@ -107,15 +103,13 @@ class _HomePageState extends State<HomePage> {
                       return Texts(
                         text: meController.user.value.nickName,
                         fontSize: 14,
-                        color: black90,
                         fontWeight: FontWeight.w500,
                       );
                     }),
                     Obx(() {
-                      return Texts(
-                        text: meController.user.value.slogan ?? '',
-                        fontSize: 12,
-                        color: black6,
+                      return Text(
+                        meController.user.value.slogan ?? '',
+                        style: TextStyle(fontSize: 12, color: gray),
                       );
                     }),
                   ],
@@ -127,7 +121,7 @@ class _HomePageState extends State<HomePage> {
         footerItems: [
           PaneItem(
             icon: Icon(FluentIcons.lock, size: 16),
-            title: Texts(text: 'lock'.tr, color: black90),
+            title: Text('lock'.tr, style: TextStyle(fontSize: 14)),
             body: SizedBox(),
             onTap: () {
               eventBus.emit(Events.NAVIGATE.name, RouterMap.LOGIN);
@@ -135,7 +129,7 @@ class _HomePageState extends State<HomePage> {
           ),
           PaneItem(
             icon: Icon(FluentIcons.settings, size: 16),
-            title: Texts(text: 'settings'.tr, color: black90),
+            title: Text('settings'.tr, style: TextStyle(fontSize: 14)),
             body: NavigationBodyItem(
               content: SettingPage(),
               header: 'settings'.tr,

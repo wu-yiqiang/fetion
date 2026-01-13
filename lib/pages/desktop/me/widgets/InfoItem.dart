@@ -32,8 +32,8 @@ class _InfoItem extends State<InfoItem> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Texts(text: widget.title, color: black90),
-            Texts(text: widget.value ?? '', color: black90),
+            Texts(text: widget.title),
+            Texts(text: widget.value ?? ''),
           ],
         ),
       ),
