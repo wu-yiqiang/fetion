@@ -55,13 +55,16 @@ void main() async {
       theme: ThemeData(
         scaffoldBackgroundColor: white110,
         fontFamily: FontFamilyName,
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(decoration: TextDecoration.none),
-        ),
+        // textTheme: const TextTheme(
+        //   bodyMedium: TextStyle(decoration: TextDecoration.none),
+        // ),
       ),
       builder: (context, child) {
         return AnimatedFluentTheme(
-          data: FluentThemeData(fontFamily: FontFamilyName),
+          data: FluentThemeData(
+            fontFamily: FontFamilyName,
+            brightness: Brightness.dark,
+          ),
           child: child!,
         );
       },
