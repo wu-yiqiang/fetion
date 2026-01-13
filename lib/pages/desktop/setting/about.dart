@@ -19,7 +19,7 @@ class _AboutPage extends State<AboutPage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'about'.tr, fontWeight: FontWeight.w500),
+            child: Text('about'.tr),
           ),
           Column(
             spacing: 6,

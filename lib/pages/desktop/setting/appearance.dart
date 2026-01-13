@@ -26,7 +26,7 @@ class _AppearancePage extends State<AppearancePage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'appearance'.tr, fontWeight: FontWeight.w500),
+            child: Text('appearance'.tr),
           ),
           Column(
             spacing: 6,

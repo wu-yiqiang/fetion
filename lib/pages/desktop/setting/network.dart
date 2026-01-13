@@ -18,7 +18,7 @@ class _NetworkPage extends State<NetworkPage> {
         spacing: 2,
         children: [
           Container(
-            child: Texts(text: 'network'.tr, fontWeight: FontWeight.w500),
+            child: Text('network'.tr),
           ),
           Column(
             spacing: 6,
