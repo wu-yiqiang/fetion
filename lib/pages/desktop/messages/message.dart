@@ -49,21 +49,26 @@ class _Message extends State<Message> {
                         ),
                         Column(
                           children: [
-                            Texts(
-                              text: '2011/09/10',
-                              fontSize: 10,
+                            Text(
+                              '2011/09/10',
+                              style: TextStyle(fontSize: 10, color: gray),
                             ),
-                            Texts(
-                              text: '18:09:01',
-                              fontSize: 10,
+                            Text(
+                              '18:09:01',
+                              style: TextStyle(fontSize: 10, color: white20),
                             ),
                           ],
                         ),
                       ],
                     ),
-                    Texts(
-                      text: "今晚吃啥11111111111111111111111111",
-                      fontSize: 12,
+                    // Texts(
+                    //   text: "今晚吃啥11111111111111111111111111",
+                    //   fontSize: 12,
+                    // ),
+                    Text(
+                      '今晚吃啥11111111111111111111111111',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 12, color: gray),
                     ),
                   ],
                 ),

@@ -14,7 +14,7 @@ class _InputDialog extends State<InputDialog> {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(width: 1, color: white110)),
+        border: Border(top: BorderSide(width: 1, color: black4)),
       ),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 4, vertical: 0),

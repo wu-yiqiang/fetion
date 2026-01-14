@@ -14,8 +14,7 @@ void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'
     builder: (context) => ContentDialog(
       // style: ContentDialogThemeData(
       //   decoration: BoxDecoration(
-      //     color: theme.scaffoldBackgroundColor,
-      //     borderRadius: BorderRadius.all(Radius.circular(4)),
+      //     borderRadius: BorderRadius.all(Radius.circular(2)),
       //   ),
       // ),
       title: Texts(

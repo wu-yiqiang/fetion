@@ -11,36 +11,28 @@ class Friends extends StatefulWidget {
 class _Friends extends State<Friends> {
   @override
   Widget build(BuildContext context) {
+    final contacts = [
+      {'name': 'Sutter'},
+      {'name': 'Jack'},
+      {'name': 'Joy'},
+      {'name': 'Victor'},
+      {'name': 'Mick'},
+      {'name': 'Jhon'},
+      {'name': 'Joe'},
+      {'name': 'Pick'},
+      {'name': 'Ada'},
+      {'name': 'Atlas'},
+      {'name': 'Alice'},
+      {'name': 'Lodash'},
+      {'name': 'Rolldown'},
+      {'name': 'Rollup'},
+    ];
     return ScrollViews(
       child: SingleChildScrollView(
         child: Column(
-          children: [
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-            Friend(),
-          ],
+          children: contacts.map((item) {
+            return Friend(item['name']!);
+          }).toList(),
         ),
       ),
     );

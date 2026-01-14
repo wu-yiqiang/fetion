@@ -14,7 +14,7 @@ class _SearchsBar extends State<SearchsBar> {
     return Container(
       padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 4),
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: 1, color: white110)),
+        border: Border(bottom: BorderSide(width: 1, color: black4)),
       ),
       child: Flex(
         direction: Axis.horizontal,

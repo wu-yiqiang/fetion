@@ -7,7 +7,7 @@ const DataBaseName = 'Fetion';
 const DataBaseVersion = 9;
 const FontFamilyName = 'Noto Sans';
 const double SecondBarWidth = 240;
-const int DefaultFontSize = 12;
+const int DefaultFontSize = 13;
 
 class LanguageMap {
   static const ENGLISH = 'English';

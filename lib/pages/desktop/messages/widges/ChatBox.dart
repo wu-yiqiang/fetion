@@ -1,4 +1,6 @@
+import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ChatBox extends StatefulWidget {
   const ChatBox({
@@ -15,6 +17,7 @@ class ChatBox extends StatefulWidget {
 }
 
 class _ChatBox extends State<ChatBox> {
+  late MeController meController = Get.put(MeController());
   @override
   Widget build(BuildContext context) {
     String text = widget.text ?? "";
@@ -30,17 +33,19 @@ class _ChatBox extends State<ChatBox> {
         direction: Axis.vertical,
         spacing: 2,
         children: [
-          Text(
-            newtext,
-            softWrap: true,
-            style: TextStyle(
-              color: widget.fontColor,
-              fontSize: 13,
-              fontWeight: FontWeight.w400,
-              height: 1.5,
-              decoration: TextDecoration.none,
-            ),
-          ),
+          Obx(() {
+            return Text(
+              newtext,
+              softWrap: true,
+              style: TextStyle(
+                color: widget.fontColor,
+                fontSize: meController.user.value.fontSize.toDouble(),
+                fontWeight: FontWeight.w400,
+                height: 1.5,
+                decoration: TextDecoration.none,
+              ),
+            );
+          }),
           // Flex(
           //   direction: Axis.horizontal,
           //   mainAxisAlignment: MainAxisAlignment.end,

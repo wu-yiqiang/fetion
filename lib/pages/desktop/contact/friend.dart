@@ -5,7 +5,10 @@ import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
 class Friend extends StatefulWidget {
-  const Friend({super.key});
+  final String name;
+
+  const Friend(this.name, {super.key});
+
   @override
   State<Friend> createState() => _Friend();
 }
@@ -23,13 +26,13 @@ class _Friend extends State<Friend> {
           child: Container(
             padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
-              border: Border(bottom: BorderSide(width: 1, color: white110)),
+              border: Border(bottom: BorderSide(width: 1, color: black4)),
             ),
             child: Row(
               spacing: 10,
               children: [
                 Avatar(size: 30, image: DefaultAvatar),
-                Expanded(child: Texts(text: "Sutter")),
+                Expanded(child: Texts(text: widget.name)),
               ],
             ),
           ),

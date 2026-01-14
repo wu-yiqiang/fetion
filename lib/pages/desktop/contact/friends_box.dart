@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:fetion/pages/desktop/messages/search_bar.dart';
 
 class FriendsBox extends StatefulWidget {
@@ -8,11 +8,13 @@ class FriendsBox extends StatefulWidget {
 }
 
 class _FriendsBox extends State<FriendsBox> {
+
   @override
   Widget build(BuildContext context) {
+    final theme = FluentTheme.of(context); 
     return Container(
       width: 260,
-      color: const Color.fromARGB(255, 240, 240, 240),
+      color: theme.scaffoldBackgroundColor,
       child: Column(
         children: [
           SearchsBar()
