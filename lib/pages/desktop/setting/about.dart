@@ -16,7 +16,7 @@ class _AboutPage extends State<AboutPage> {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 2,
+        spacing: 6,
         children: [
           Container(
             child: Text('about'.tr),

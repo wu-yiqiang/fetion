@@ -40,20 +40,35 @@ void main() async {
   Navigates();
   late MeController meController = Get.put(MeController());
   runApp(
-    GetMaterialApp(
-      initialRoute: "/",
-      getPages: pages,
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: [FluentLocalizations.delegate],
-      locale: Locale(
-        meController.user.value.langType,
-        meController.user.value.langCountry,
-      ),
-      fallbackLocale: Locale(LanguageEnTypeMap.TYPE, LanguageEnTypeMap.COUNTRY),
-      translations: Language(),
-      theme: ThemeData(fontFamily: FontFamilyName),
-      builder: (context, child) {
-        return Obx(() {
+    Obx(() {
+      return GetMaterialApp(
+        initialRoute: "/",
+        getPages: pages,
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: [FluentLocalizations.delegate],
+        locale: Locale(
+          meController.user.value.langType,
+          meController.user.value.langCountry,
+        ),
+        fallbackLocale: Locale(
+          LanguageEnTypeMap.TYPE,
+          LanguageEnTypeMap.COUNTRY,
+        ),
+        translations: Language(),
+        theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            backgroundColor: meController.user.value.theme == ThemeModeMap.DARK
+                ? Colors.white
+                : Colors.black,
+          ),
+          fontFamily: FontFamilyName,
+          textSelectionTheme: TextSelectionThemeData(
+            cursorColor: meController.user.value.theme == ThemeModeMap.DARK
+                ? Colors.white
+                : Colors.black,
+          ),
+        ),
+        builder: (context, child) {
           return AnimatedFluentTheme(
             data: FluentThemeData(
               fontFamily: FontFamilyName,
@@ -63,8 +78,8 @@ void main() async {
             ),
             child: child!,
           );
-        });
-      },
-    ),
+        },
+      );
+    }),
   );
 }

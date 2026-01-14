@@ -21,7 +21,7 @@ class _AppearancePage extends State<AppearancePage> {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 2,
+        spacing: 6,
         children: [
           Container(
             child: Text('appearance'.tr),

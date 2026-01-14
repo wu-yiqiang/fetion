@@ -27,7 +27,11 @@ class _AiChat extends State<AiChat> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TimeStamps(timeStamp: widget.item['time']),
-              ChatBox(text: widget.item['text'], fontColor: black90,backgroundColor: black4,),
+              ChatBox(
+                text: widget.item['text'],
+                fontColor: white,
+                backgroundColor: blue1,
+              ),
             ],
           ),
         ),

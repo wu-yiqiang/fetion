@@ -19,9 +19,7 @@ class NavigationBodyItem extends StatelessWidget {
   @override
   Widget build(context) {
     return ScaffoldPage.withPadding(
-      header: PageHeader(
-        title: Texts(text: header ?? 'Header', fontSize: 24),
-      ),
+      header: PageHeader(title: Texts(text: header ?? 'Header', fontSize: 24)),
       content: content,
     );
   }
@@ -38,65 +36,65 @@ class _HomePageState extends State<HomePage> {
   final MeController meController = Get.put(MeController());
   int topIndex = 0;
 
-  List<NavigationPaneItem> items = [
-    PaneItemSeparator(),
-    PaneItem(
-      icon: Icon(WindowsIcons.message, size: 16),
-      title: Text('messages'.tr, style: TextStyle(fontSize: 14)),
-      infoBadge: InfoBadge(
-        source: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 4),
-          child: Row(
-            children: 100 < 99
-                ? [
-                    Text(
-                      '12',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ]
-                : [
-                    Text(
-                      '99',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    Text(
-                      '⁺',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-          ),
-        ),
-      ),
-      body: MessageBar(),
-    ),
-    PaneItem(
-      icon: Icon(WindowsIcons.contact_info, size: 16),
-      title: Text('contacts'.tr, style: TextStyle(fontSize: 14)),
-      body: ContactBar(),
-    ),
-    PaneItem(
-      icon: Icon(FluentIcons.contact_list, size: 16),
-      title: Text('groups'.tr, style: TextStyle(fontSize: 14)),
-      body: const NavigationBodyItem(content: Text("ssss")),
-    ),
-    PaneItem(
-      icon: Icon(WindowsIcons.contact, size: 16),
-      title: Text('profiles'.tr, style: TextStyle(fontSize: 14)),
-      body: NavigationBodyItem(content: MePage(), header: 'profiles'.tr),
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
+      List<NavigationPaneItem> items = [
+      PaneItemSeparator(),
+      PaneItem(
+        icon: Icon(WindowsIcons.message, size: 16),
+        title: Text('messages'.tr, style: TextStyle(fontSize: 14)),
+        infoBadge: InfoBadge(
+          source: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 4),
+            child: Row(
+              children: 100 < 99
+                  ? [
+                      Text(
+                        '12',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ]
+                  : [
+                      Text(
+                        '99',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Text(
+                        '⁺',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+            ),
+          ),
+        ),
+        body: MessageBar(),
+      ),
+      PaneItem(
+        icon: Icon(WindowsIcons.contact_info, size: 16),
+        title: Text('contacts'.tr, style: TextStyle(fontSize: 14)),
+        body: ContactBar(),
+      ),
+      PaneItem(
+        icon: Icon(FluentIcons.contact_list, size: 16),
+        title: Text('groups'.tr, style: TextStyle(fontSize: 14)),
+        body: const NavigationBodyItem(content: Text("ssss")),
+      ),
+      PaneItem(
+        icon: Icon(WindowsIcons.contact, size: 16),
+        title: Text('profiles'.tr, style: TextStyle(fontSize: 14)),
+        body: NavigationBodyItem(content: MePage(), header: 'profiles'.tr),
+      ),
+    ];
     return NavigationView(
       pane: NavigationPane(
         selected: topIndex,
@@ -121,7 +119,6 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
-
                       );
                     }),
                     Obx(() {
