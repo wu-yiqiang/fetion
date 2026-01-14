@@ -147,8 +147,8 @@ class _AppearancePage extends State<AppearancePage> {
                       ),
                       Obx(() {
                         return Slider(
-                          min: 10,
-                          max: 18,
+                          min: FontSizeMin,
+                          max: FontSizeMax,
                           label: '${meController.user.value.fontSize}',
                           value: meController.user.value.fontSize.toDouble(),
                           onChanged: (v) {

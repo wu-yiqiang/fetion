@@ -1,8 +1,6 @@
 import 'package:fetion/common/const.dart';
-import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/init/init.dart';
 import 'package:fetion/navigate/router_table.dart';
-import 'package:fetion/pages/desktop/home/home.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';

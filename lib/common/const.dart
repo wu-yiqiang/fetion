@@ -8,6 +8,12 @@ const DataBaseVersion = 9;
 const FontFamilyName = 'Noto Sans';
 const double SecondBarWidth = 240;
 const int DefaultFontSize = 13;
+const int DisplayMaxMessages = 99;
+const int DisplayMinMessages = 0;
+const double FontSizeMax = 18;
+const double FontSizeMin = 10;
+const String OpenSourceAddr = 'https://github.com/wu-yiqiang/fetion';
+const String IssuesAddr = 'https://github.com/wu-yiqiang/fetion/issues';
 
 class LanguageMap {
   static const ENGLISH = 'English';

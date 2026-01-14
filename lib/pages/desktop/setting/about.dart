@@ -1,3 +1,5 @@
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Texts.dart';
@@ -77,21 +79,35 @@ class _AboutPage extends State<AboutPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 10,
                     children: [
-                      HyperlinkButton(
-                        child: Text(
-                          'openSource'.tr,
-                          style: TextStyle(fontSize: 12,decoration: TextDecoration.none),
-                        ),
-                        onPressed: () {},
+                      Link(
+                        uri: Uri.parse(OpenSourceAddr),
+                        builder: (Context, open) {
+                          return HyperlinkButton(
+                            child: Text(
+                              'openSource'.tr,
+                              style: TextStyle(
+                                fontSize: 12,
+                                decoration: TextDecoration.none,
+                              ),
+                            ),
+                            onPressed: open,
+                          );
+                        },
                       ),
-                      HyperlinkButton(
-                        child: Text(
-                          'feedback'.tr,
-                          style: TextStyle(
-                            fontSize: 12,
-                            decoration: TextDecoration.none),
-                        ),
-                        onPressed: () {},
+                      Link(
+                        uri: Uri.parse(IssuesAddr),
+                        builder: (Context, open) {
+                          return HyperlinkButton(
+                            child: Text(
+                              'feedback'.tr,
+                              style: TextStyle(
+                                fontSize: 12,
+                                decoration: TextDecoration.none,
+                              ),
+                            ),
+                            onPressed: open,
+                          );
+                        },
                       ),
                     ],
                   ),

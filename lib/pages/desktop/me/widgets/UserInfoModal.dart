@@ -8,18 +8,21 @@ void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'
   final TextEditingController textController = TextEditingController(
     text: text,
   );
-  final theme = FluentTheme.of(context); 
   final result = await showDialog<String>(
     context: context,
     builder: (context) => ContentDialog(
-      // style: ContentDialogThemeData(
-      //   decoration: BoxDecoration(
-      //     borderRadius: BorderRadius.all(Radius.circular(2)),
-      //   ),
-      // ),
+      style: ContentDialogThemeData(
+        // decoration: Decoration(),
+        // decoration: BoxDecoration(
+        //   borderRadius: BorderRadius.all(Radius.circular(2)),
+        // ),
+        // bodyStyle: TextStyle(
+        //   decoration: TextDecoration(),
+        // )
+      ),
       title: Texts(
         text: title,
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
       content: Container(

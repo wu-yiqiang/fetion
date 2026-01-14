@@ -39,19 +39,22 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final messagesNumber = 899;
       List<NavigationPaneItem> items = [
       PaneItemSeparator(),
       PaneItem(
         icon: Icon(WindowsIcons.message, size: 16),
         title: Text('messages'.tr, style: TextStyle(fontSize: 14)),
-        infoBadge: InfoBadge(
+        infoBadge: messagesNumber == DisplayMinMessages
+            ? null
+            : InfoBadge(
           source: Padding(
             padding: EdgeInsets.symmetric(horizontal: 4),
             child: Row(
-              children: 100 < 99
+                    children: messagesNumber < DisplayMaxMessages
                   ? [
                       Text(
-                        '12',
+                              messagesNumber.toString(),
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
@@ -60,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                     ]
                   : [
                       Text(
-                        '99',
+                              DisplayMaxMessages.toString(),
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
