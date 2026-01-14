@@ -21,6 +21,8 @@ class SettingController extends GetxController {
     LanguageEnTypeMap.COUNTRY,
     ThemeModeMap.LIGHT,
     DefaultFontSize,
+    false,
+    DefaultPassword
   ).obs;
 
   initDb() async {
@@ -56,6 +58,8 @@ class SettingController extends GetxController {
       LanguageEnTypeMap.COUNTRY,
       ThemeModeMap.LIGHT,
       DefaultFontSize,
+      false,
+      DefaultPassword
     );
     initSettings(setting);
   }

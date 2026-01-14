@@ -5,7 +5,7 @@ const SettingId = '22sad1df2rsdf1asda23';
 const NickNamePrefix = ApplicationName + " " + "User";
 const DefaultHostName = "Unknown";
 const DataBaseName = 'Fetion';
-const DataBaseVersion = 11;
+const DataBaseVersion = 12;
 const FontFamilyName = 'Noto Sans';
 const double SecondBarWidth = 240;
 const int DefaultFontSize = 13;
@@ -15,6 +15,7 @@ const double FontSizeMax = 18;
 const double FontSizeMin = 10;
 const String OpenSourceAddr = 'https://github.com/wu-yiqiang/fetion';
 const String IssuesAddr = 'https://github.com/wu-yiqiang/fetion/issues';
+const String DefaultPassword = '1234@Abcd';
 
 class LanguageMap {
   static const ENGLISH = 'English';

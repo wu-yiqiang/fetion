@@ -16,4 +16,6 @@ class _Setting {
   late String langCountry;
   late String theme;
   late int fontSize;
+  late bool locked;
+  late String password;
 }

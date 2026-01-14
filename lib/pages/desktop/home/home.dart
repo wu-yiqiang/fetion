@@ -2,6 +2,7 @@ import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/contact/contact.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
@@ -34,13 +35,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final MeController meController = Get.put(MeController());
+  final SettingController settingController = Get.put(SettingController());
   int topIndex = 0;
-
 
   @override
   Widget build(BuildContext context) {
     final messagesNumber = 899;
-      List<NavigationPaneItem> items = [
+    List<NavigationPaneItem> items = [
       PaneItemSeparator(),
       PaneItem(
         icon: Icon(WindowsIcons.message, size: 16),
@@ -48,38 +49,38 @@ class _HomePageState extends State<HomePage> {
         infoBadge: messagesNumber == DisplayMinMessages
             ? null
             : InfoBadge(
-          source: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4),
-            child: Row(
+                source: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 4),
+                  child: Row(
                     children: messagesNumber < DisplayMaxMessages
-                  ? [
-                      Text(
+                        ? [
+                            Text(
                               messagesNumber.toString(),
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ]
-                  : [
-                      Text(
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ]
+                        : [
+                            Text(
                               DisplayMaxMessages.toString(),
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(
-                        '⁺',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-            ),
-          ),
-        ),
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              '⁺',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                  ),
+                ),
+              ),
         body: MessageBar(),
       ),
       PaneItem(
@@ -142,6 +143,7 @@ class _HomePageState extends State<HomePage> {
             title: Text('lock'.tr, style: TextStyle(fontSize: 14)),
             body: SizedBox(),
             onTap: () {
+              settingController.updateSetting('locked', true);
               eventBus.emit(Events.NAVIGATE.name, RouterMap.LOGIN);
             },
           ),

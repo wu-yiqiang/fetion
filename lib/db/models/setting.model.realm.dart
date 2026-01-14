@@ -23,6 +23,8 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
     String langCountry,
     String theme,
     int fontSize,
+    bool locked,
+    String password,
   ) {
     RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'deviceName', deviceName);
@@ -36,6 +38,8 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
     RealmObjectBase.set(this, 'langCountry', langCountry);
     RealmObjectBase.set(this, 'theme', theme);
     RealmObjectBase.set(this, 'fontSize', fontSize);
+    RealmObjectBase.set(this, 'locked', locked);
+    RealmObjectBase.set(this, 'password', password);
   }
 
   Setting._();
@@ -108,6 +112,17 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
   set fontSize(int value) => RealmObjectBase.set(this, 'fontSize', value);
 
   @override
+  bool get locked => RealmObjectBase.get<bool>(this, 'locked') as bool;
+  @override
+  set locked(bool value) => RealmObjectBase.set(this, 'locked', value);
+
+  @override
+  String get password =>
+      RealmObjectBase.get<String>(this, 'password') as String;
+  @override
+  set password(String value) => RealmObjectBase.set(this, 'password', value);
+
+  @override
   Stream<RealmObjectChanges<Setting>> get changes =>
       RealmObjectBase.getChanges<Setting>(this);
 
@@ -132,6 +147,8 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
       'langCountry': langCountry.toEJson(),
       'theme': theme.toEJson(),
       'fontSize': fontSize.toEJson(),
+      'locked': locked.toEJson(),
+      'password': password.toEJson(),
     };
   }
 
@@ -152,6 +169,8 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
         'langCountry': EJsonValue langCountry,
         'theme': EJsonValue theme,
         'fontSize': EJsonValue fontSize,
+        'locked': EJsonValue locked,
+        'password': EJsonValue password,
       } =>
         Setting(
           fromEJson(id),
@@ -166,6 +185,8 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
           fromEJson(langCountry),
           fromEJson(theme),
           fromEJson(fontSize),
+          fromEJson(locked),
+          fromEJson(password),
         ),
       _ => raiseInvalidEJson(ejson),
     };
@@ -187,6 +208,8 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
       SchemaProperty('langCountry', RealmPropertyType.string),
       SchemaProperty('theme', RealmPropertyType.string),
       SchemaProperty('fontSize', RealmPropertyType.int),
+      SchemaProperty('locked', RealmPropertyType.bool),
+      SchemaProperty('password', RealmPropertyType.string),
     ]);
   }();
 

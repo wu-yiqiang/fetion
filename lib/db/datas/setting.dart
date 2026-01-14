@@ -24,6 +24,8 @@ class SettingRepository {
       setting.langCountry,
       setting.theme,
       setting.fontSize,
+      setting.locked,
+      setting.password
     );
     return settings;
   }
