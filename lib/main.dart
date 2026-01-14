@@ -39,7 +39,6 @@ void main() async {
   ShowGlobalMessages();
   Navigates();
   late MeController meController = Get.put(MeController());
-  print(meController.user.value.langType);
   runApp(
     GetMaterialApp(
       initialRoute: "/",
@@ -52,24 +51,19 @@ void main() async {
       ),
       fallbackLocale: Locale(LanguageEnTypeMap.TYPE, LanguageEnTypeMap.COUNTRY),
       translations: Language(),
-      theme: ThemeData(
-        fontFamily: FontFamilyName,
-      ),
+      theme: ThemeData(fontFamily: FontFamilyName),
       builder: (context, child) {
-        return AnimatedFluentTheme(
-          data: FluentThemeData(
-            fontFamily: FontFamilyName,
-            // dialogTheme: ContentDialogThemeData(
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.all(Radius.circular(4)),
-            //   ),
-            // ),
-            brightness: meController.user.value.theme == ThemeModeMap.DARK
-                ? Brightness.dark
-                : Brightness.light,
-          ),
-          child: child!,
-        );
+        return Obx(() {
+          return AnimatedFluentTheme(
+            data: FluentThemeData(
+              fontFamily: FontFamilyName,
+              brightness: meController.user.value.theme == ThemeModeMap.DARK
+                  ? Brightness.dark
+                  : Brightness.light,
+            ),
+            child: child!,
+          );
+        });
       },
     ),
   );

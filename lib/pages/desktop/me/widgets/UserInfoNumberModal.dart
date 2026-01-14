@@ -1,4 +1,3 @@
-import 'package:fetion/common/light-theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';

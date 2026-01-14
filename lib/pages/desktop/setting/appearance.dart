@@ -1,11 +1,9 @@
 import 'package:fetion/common/const.dart';
-import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
-import 'package:fluent_ui/fluent_ui.dart';
 
 class AppearancePage extends StatefulWidget {
   const AppearancePage({super.key});

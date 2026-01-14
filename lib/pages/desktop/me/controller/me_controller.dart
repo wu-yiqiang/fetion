@@ -80,6 +80,7 @@ class MeController extends GetxController {
     final ownerInfos = _userRepository.getOwner();
     user.value = ownerInfos!;
     user.refresh();
+    update();
   }
 
   String getLocalMaskCode() {
