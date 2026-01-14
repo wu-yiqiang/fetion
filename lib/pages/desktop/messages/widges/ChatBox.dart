@@ -1,4 +1,4 @@
-import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +17,7 @@ class ChatBox extends StatefulWidget {
 }
 
 class _ChatBox extends State<ChatBox> {
-  late MeController meController = Get.put(MeController());
+  late SettingController settingController = Get.put(SettingController());
   @override
   Widget build(BuildContext context) {
     String text = widget.text ?? "";
@@ -39,7 +39,7 @@ class _ChatBox extends State<ChatBox> {
               softWrap: true,
               style: TextStyle(
                 color: widget.fontColor,
-                fontSize: meController.user.value.fontSize.toDouble(),
+                fontSize: settingController.setting.value.fontSize.toDouble(),
                 fontWeight: FontWeight.w400,
                 height: 1.5,
                 decoration: TextDecoration.none,

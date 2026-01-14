@@ -10,9 +10,6 @@ void userInfoNumberModal(
   title = 'Edit',
 }) async {
   final MeController meController = Get.put(MeController());
-  // final TextEditingController textController = TextEditingController(
-  //   text: text,
-  // );
   int? _valueChanged = value;
   final result = await showDialog<String>(
     context: context,

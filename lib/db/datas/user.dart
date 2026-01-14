@@ -16,17 +16,6 @@ class UserRepository {
     final user = User(
       usrId ?? ObjectId().toString(),
       usr.nickName,
-      usr.deviceName,
-      usr.gateway,
-      usr.ipv4Addr,
-      usr.ipv6Addr,
-      usr.macAddr,
-      usr.maskCode,
-      usr.language,
-      usr.langType,
-      usr.langCountry,
-      usr.theme,
-      usr.fontSize,
       usr.isDeleted,
       fullName: usr?.fullName ?? '',
       avatar: usr?.avatar ?? '',
@@ -92,11 +81,6 @@ class UserRepository {
         if (key == 'slogan') user.slogan = value;
         if (key == 'department') user.department = value;
         if (key == 'position') user.position = value;
-        if (key == 'language') user.language = value;
-        if (key == 'theme') user.theme = value;
-        if (key == 'langType') user.langType = value;
-        if (key == 'langCountry') user.langCountry = value;
-        if (key == 'fontSize') user.fontSize = value;
         if (key == 'age') user.age = value;
       }
     });

@@ -1,4 +1,5 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
@@ -12,7 +13,7 @@ class AppearancePage extends StatefulWidget {
 }
 
 class _AppearancePage extends State<AppearancePage> {
-  final MeController meController = Get.put(MeController());
+  final SettingController settingController = Get.put(SettingController());
 
   void onReady() {}
 
@@ -23,9 +24,7 @@ class _AppearancePage extends State<AppearancePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 6,
         children: [
-          Container(
-            child: Text('appearance'.tr),
-          ),
+          Container(child: Text('appearance'.tr)),
           Column(
             spacing: 6,
             children: [
@@ -39,16 +38,13 @@ class _AppearancePage extends State<AppearancePage> {
                         spacing: 6,
                         children: [
                           WindowsIcon(WindowsIcons.locale_language, size: 16),
-                          Texts(
-                            text: 'language'.tr,
-                            fontSize: 13,
-                          ),
+                          Texts(text: 'language'.tr, fontSize: 13),
                         ],
                       ),
                       Container(
                         width: 100,
                         child: ComboBox<String>(
-                          value: meController.user.value.language,
+                          value: settingController.setting.value.language,
                           items: Languages.map<ComboBoxItem<String>>((e) {
                             return ComboBoxItem<String>(
                               child: Text(
@@ -68,18 +64,24 @@ class _AppearancePage extends State<AppearancePage> {
                               final langType = langItem
                                   ?.map((list) => list['type'])
                                   .join();
-                              meController.updateMeUser('langType', langType);
+                              settingController.updateSetting(
+                                'langType',
+                                langType,
+                              );
                               final langCountry = langItem
                                   ?.map((list) => list['country'])
                                   .join();
-                              meController.updateMeUser(
+                              settingController.updateSetting(
                                 'langCountry',
                                 langCountry,
                               );
                               final language = langItem
                                   ?.map((list) => list['value'])
                                   .join();
-                              meController.updateMeUser('language', language);
+                              settingController.updateSetting(
+                                'language',
+                                language,
+                              );
                               final locale = Locale(langType!, langCountry);
                               Get.updateLocale(locale);
                             });
@@ -107,7 +109,7 @@ class _AppearancePage extends State<AppearancePage> {
                         return Container(
                           width: 100,
                           child: ComboBox<String>(
-                            value: meController.user.value.theme,
+                            value: settingController.setting.value.theme,
                             items: ThemeModes.map<ComboBoxItem<String>>((e) {
                               return ComboBoxItem<String>(
                                 child: Text(
@@ -120,7 +122,7 @@ class _AppearancePage extends State<AppearancePage> {
                               );
                             }).toList(),
                             onChanged: (value) {
-                              meController.updateMeUser('theme', value);
+                              settingController.updateSetting('theme', value);
                             },
                           ),
                         );
@@ -139,20 +141,17 @@ class _AppearancePage extends State<AppearancePage> {
                         spacing: 6,
                         children: [
                           WindowsIcon(WindowsIcons.font, size: 16),
-                          Texts(
-                            text: 'fontSize'.tr,
-                            fontSize: 13,
-                          ),
+                          Texts(text: 'fontSize'.tr, fontSize: 13),
                         ],
                       ),
                       Obx(() {
                         return Slider(
                           min: FontSizeMin,
                           max: FontSizeMax,
-                          label: '${meController.user.value.fontSize}',
-                          value: meController.user.value.fontSize.toDouble(),
+                          label: '${settingController.setting.value.fontSize}',
+                          value: settingController.setting.value.fontSize.toDouble(),
                           onChanged: (v) {
-                            meController.updateMeUser('fontSize', v.toInt());
+                            settingController.updateSetting('fontSize', v.toInt());
                           },
                         );
                       }),

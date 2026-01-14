@@ -1,6 +1,7 @@
 import 'package:fetion/common/const.dart';
 import 'package:realm/realm.dart';
 import './models/user.model.dart';
+import './models/setting.model.dart';
 
 /// 数据库管理器类
 /// 负责管理 Realm 数据库的初始化、配置和生命周期
@@ -15,7 +16,7 @@ class RealmInstance {
   RealmInstance._() {
     final config = Configuration.local(
       /// 定义数据库中的模型架构
-      [User.schema],
+      [User.schema, Setting.schema],
       
       /// 设置数据库版本号，用于数据库升级
       schemaVersion: DataBaseVersion,

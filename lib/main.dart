@@ -1,6 +1,7 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/init/init.dart';
 import 'package:fetion/navigate/router_table.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -36,7 +37,7 @@ void main() async {
   await localNotification();
   ShowGlobalMessages();
   Navigates();
-  late MeController meController = Get.put(MeController());
+  late SettingController settingController = Get.put(SettingController());
   runApp(
     Obx(() {
       return GetMaterialApp(
@@ -45,8 +46,8 @@ void main() async {
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [FluentLocalizations.delegate],
         locale: Locale(
-          meController.user.value.langType,
-          meController.user.value.langCountry,
+          settingController.setting.value.langType,
+          settingController.setting.value.langCountry,
         ),
         fallbackLocale: Locale(
           LanguageEnTypeMap.TYPE,
@@ -55,13 +56,15 @@ void main() async {
         translations: Language(),
         theme: ThemeData(
           appBarTheme: AppBarTheme(
-            backgroundColor: meController.user.value.theme == ThemeModeMap.DARK
+            backgroundColor:
+                settingController.setting.value.theme == ThemeModeMap.DARK
                 ? Colors.white
                 : Colors.black,
           ),
           fontFamily: FontFamilyName,
           textSelectionTheme: TextSelectionThemeData(
-            cursorColor: meController.user.value.theme == ThemeModeMap.DARK
+            cursorColor:
+                settingController.setting.value.theme == ThemeModeMap.DARK
                 ? Colors.white
                 : Colors.black,
           ),
@@ -70,7 +73,8 @@ void main() async {
           return AnimatedFluentTheme(
             data: FluentThemeData(
               fontFamily: FontFamilyName,
-              brightness: meController.user.value.theme == ThemeModeMap.DARK
+              brightness:
+                  settingController.setting.value.theme == ThemeModeMap.DARK
                   ? Brightness.dark
                   : Brightness.light,
             ),

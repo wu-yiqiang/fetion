@@ -13,17 +13,6 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   User(
     String id,
     String nickName,
-    String deviceName,
-    String gateway,
-    String ipv4Addr,
-    String ipv6Addr,
-    String macAddr,
-    String maskCode,
-    String language,
-    String langType,
-    String langCountry,
-    String theme,
-    int fontSize,
     bool isDeleted, {
     String? fullName,
     String? avatar,
@@ -40,17 +29,6 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   }) {
     RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'nickName', nickName);
-    RealmObjectBase.set(this, 'deviceName', deviceName);
-    RealmObjectBase.set(this, 'gateway', gateway);
-    RealmObjectBase.set(this, 'ipv4Addr', ipv4Addr);
-    RealmObjectBase.set(this, 'ipv6Addr', ipv6Addr);
-    RealmObjectBase.set(this, 'macAddr', macAddr);
-    RealmObjectBase.set(this, 'maskCode', maskCode);
-    RealmObjectBase.set(this, 'language', language);
-    RealmObjectBase.set(this, 'langType', langType);
-    RealmObjectBase.set(this, 'langCountry', langCountry);
-    RealmObjectBase.set(this, 'theme', theme);
-    RealmObjectBase.set(this, 'fontSize', fontSize);
     RealmObjectBase.set(this, 'isDeleted', isDeleted);
     RealmObjectBase.set(this, 'fullName', fullName);
     RealmObjectBase.set(this, 'avatar', avatar);
@@ -78,70 +56,6 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       RealmObjectBase.get<String>(this, 'nickName') as String;
   @override
   set nickName(String value) => RealmObjectBase.set(this, 'nickName', value);
-
-  @override
-  String get deviceName =>
-      RealmObjectBase.get<String>(this, 'deviceName') as String;
-  @override
-  set deviceName(String value) =>
-      RealmObjectBase.set(this, 'deviceName', value);
-
-  @override
-  String get gateway => RealmObjectBase.get<String>(this, 'gateway') as String;
-  @override
-  set gateway(String value) => RealmObjectBase.set(this, 'gateway', value);
-
-  @override
-  String get ipv4Addr =>
-      RealmObjectBase.get<String>(this, 'ipv4Addr') as String;
-  @override
-  set ipv4Addr(String value) => RealmObjectBase.set(this, 'ipv4Addr', value);
-
-  @override
-  String get ipv6Addr =>
-      RealmObjectBase.get<String>(this, 'ipv6Addr') as String;
-  @override
-  set ipv6Addr(String value) => RealmObjectBase.set(this, 'ipv6Addr', value);
-
-  @override
-  String get macAddr => RealmObjectBase.get<String>(this, 'macAddr') as String;
-  @override
-  set macAddr(String value) => RealmObjectBase.set(this, 'macAddr', value);
-
-  @override
-  String get maskCode =>
-      RealmObjectBase.get<String>(this, 'maskCode') as String;
-  @override
-  set maskCode(String value) => RealmObjectBase.set(this, 'maskCode', value);
-
-  @override
-  String get language =>
-      RealmObjectBase.get<String>(this, 'language') as String;
-  @override
-  set language(String value) => RealmObjectBase.set(this, 'language', value);
-
-  @override
-  String get langType =>
-      RealmObjectBase.get<String>(this, 'langType') as String;
-  @override
-  set langType(String value) => RealmObjectBase.set(this, 'langType', value);
-
-  @override
-  String get langCountry =>
-      RealmObjectBase.get<String>(this, 'langCountry') as String;
-  @override
-  set langCountry(String value) =>
-      RealmObjectBase.set(this, 'langCountry', value);
-
-  @override
-  String get theme => RealmObjectBase.get<String>(this, 'theme') as String;
-  @override
-  set theme(String value) => RealmObjectBase.set(this, 'theme', value);
-
-  @override
-  int get fontSize => RealmObjectBase.get<int>(this, 'fontSize') as int;
-  @override
-  set fontSize(int value) => RealmObjectBase.set(this, 'fontSize', value);
 
   @override
   bool get isDeleted => RealmObjectBase.get<bool>(this, 'isDeleted') as bool;
@@ -230,17 +144,6 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     return <String, dynamic>{
       'id': id.toEJson(),
       'nickName': nickName.toEJson(),
-      'deviceName': deviceName.toEJson(),
-      'gateway': gateway.toEJson(),
-      'ipv4Addr': ipv4Addr.toEJson(),
-      'ipv6Addr': ipv6Addr.toEJson(),
-      'macAddr': macAddr.toEJson(),
-      'maskCode': maskCode.toEJson(),
-      'language': language.toEJson(),
-      'langType': langType.toEJson(),
-      'langCountry': langCountry.toEJson(),
-      'theme': theme.toEJson(),
-      'fontSize': fontSize.toEJson(),
       'isDeleted': isDeleted.toEJson(),
       'fullName': fullName.toEJson(),
       'avatar': avatar.toEJson(),
@@ -264,33 +167,11 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       {
         'id': EJsonValue id,
         'nickName': EJsonValue nickName,
-        'deviceName': EJsonValue deviceName,
-        'gateway': EJsonValue gateway,
-        'ipv4Addr': EJsonValue ipv4Addr,
-        'ipv6Addr': EJsonValue ipv6Addr,
-        'macAddr': EJsonValue macAddr,
-        'maskCode': EJsonValue maskCode,
-        'language': EJsonValue language,
-        'langType': EJsonValue langType,
-        'langCountry': EJsonValue langCountry,
-        'theme': EJsonValue theme,
-        'fontSize': EJsonValue fontSize,
         'isDeleted': EJsonValue isDeleted,
       } =>
         User(
           fromEJson(id),
           fromEJson(nickName),
-          fromEJson(deviceName),
-          fromEJson(gateway),
-          fromEJson(ipv4Addr),
-          fromEJson(ipv6Addr),
-          fromEJson(macAddr),
-          fromEJson(maskCode),
-          fromEJson(language),
-          fromEJson(langType),
-          fromEJson(langCountry),
-          fromEJson(theme),
-          fromEJson(fontSize),
           fromEJson(isDeleted),
           fullName: fromEJson(ejson['fullName']),
           avatar: fromEJson(ejson['avatar']),
@@ -315,17 +196,6 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     return const SchemaObject(ObjectType.realmObject, User, 'User', [
       SchemaProperty('id', RealmPropertyType.string, primaryKey: true),
       SchemaProperty('nickName', RealmPropertyType.string),
-      SchemaProperty('deviceName', RealmPropertyType.string),
-      SchemaProperty('gateway', RealmPropertyType.string),
-      SchemaProperty('ipv4Addr', RealmPropertyType.string),
-      SchemaProperty('ipv6Addr', RealmPropertyType.string),
-      SchemaProperty('macAddr', RealmPropertyType.string),
-      SchemaProperty('maskCode', RealmPropertyType.string),
-      SchemaProperty('language', RealmPropertyType.string),
-      SchemaProperty('langType', RealmPropertyType.string),
-      SchemaProperty('langCountry', RealmPropertyType.string),
-      SchemaProperty('theme', RealmPropertyType.string),
-      SchemaProperty('fontSize', RealmPropertyType.int),
       SchemaProperty('isDeleted', RealmPropertyType.bool),
       SchemaProperty('fullName', RealmPropertyType.string, optional: true),
       SchemaProperty('avatar', RealmPropertyType.string, optional: true),

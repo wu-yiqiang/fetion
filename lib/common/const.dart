@@ -1,10 +1,11 @@
 const ApplicationName = 'Fetion';
 const ApplicationVersion = '1.0.0';
 const UserId = "95t37897vjco6jnn9379345tptevyd";
+const SettingId = '22sad1df2rsdf1asda23';
 const NickNamePrefix = ApplicationName + " " + "User";
 const DefaultHostName = "Unknown";
 const DataBaseName = 'Fetion';
-const DataBaseVersion = 9;
+const DataBaseVersion = 11;
 const FontFamilyName = 'Noto Sans';
 const double SecondBarWidth = 240;
 const int DefaultFontSize = 13;
