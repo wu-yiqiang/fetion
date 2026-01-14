@@ -23,5 +23,6 @@ final Map<String, String> en_US = {
   'about': "About",
   'linkAddress': "Link Address",
   'openSource': "Open Source",
-  'feedback': "Feedback"
+  'feedback': "Feedback",
+  'passwordError': "Password Error"
 };

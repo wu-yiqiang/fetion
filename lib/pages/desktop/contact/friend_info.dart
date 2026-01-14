@@ -77,7 +77,7 @@ class _FriendInfo extends State<FriendInfo> {
                     icon: WindowsIcons.video,
                     size: 30,
                     onTap: () {
-                      return Toast(InfoBarSeverity.error, 'sdsds');
+                      // return Toast(InfoBarSeverity.error, 'sdsds');
                     },
                   ),
                   Texts(text: "Video"),

@@ -23,5 +23,6 @@ final Map<String, String> zh_CN = {
   'about': "关于",
   'linkAddress': "链接地址",
   'openSource': "开源",
-  'feedback': "反馈"
+  'feedback': "反馈",
+  'passwordError': "密码错误"
 };

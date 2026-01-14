@@ -41,7 +41,7 @@ void main() async {
   runApp(
     Obx(() {
       return GetMaterialApp(
-        initialRoute: "/",
+        initialRoute: settingController.setting.value.locked ? '/login' : "/",
         getPages: pages,
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [FluentLocalizations.delegate],
