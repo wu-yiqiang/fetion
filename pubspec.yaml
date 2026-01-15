@@ -67,21 +67,21 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Noto Sans
+    - family: AlibabaPuHuiTi
       fonts:
-        - asset: assets/fonts/NotoSansCJKsc-Thin.otf
+        - asset: assets/fonts/AlibabaPuHuiTi-Thin.otf
           weight: 100
-        - asset: assets/fonts/NotoSansCJKsc-Light.otf
+        - asset: assets/fonts/AlibabaPuHuiTi-Light.otf
           weight: 200
-        - asset: assets/fonts/NotoSansCJKsc-DemiLight.otf
+        - asset: assets/fonts/AlibabaPuHuiTi-Regular.otf
           weight: 300
-        - asset: assets/fonts/NotoSansCJKsc-Regular.otf
+        - asset: assets/fonts/AlibabaPuHuiTi-RegularL3.otf
           weight: 400
-        - asset: assets/fonts/NotoSansCJKsc-Medium.otf
+        - asset: assets/fonts/AlibabaPuHuiTi-Medium.otf
           weight: 500
-        - asset: assets/fonts/NotoSansCJKsc-Bold.otf
+        - asset: assets/fonts/AlibabaPuHuiTi-Bold.otf
           weight: 600
-        - asset: assets/fonts/NotoSansCJKsc-Black.otf
+        - asset: assets/fonts/AlibabaPuHuiTi-Black.otf
           weight: 700
         # - asset: fonts/Inter-ExtraBold.otf
         #   weight: 800
