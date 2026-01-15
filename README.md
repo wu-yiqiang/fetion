@@ -19,3 +19,13 @@ https://juejin.cn/post/7527240045448347702
 
 更新模型
 flutter pub run realm generate
+
+
+mac 平台打包
+flutter build macos --release
+https://juejin.cn/post/7221347166820024377
+
+windows 平台打包
+dart run msix:create
+
+

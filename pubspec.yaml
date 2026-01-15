@@ -50,6 +50,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  msix: ^3.16.12
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -87,3 +88,7 @@ flutter:
         # - asset: fonts/Inter-Black.otf
         #   weight: 900
 
+msix_config:
+  display_name: Fetion
+  msix_version: 1.0.0.0
+  logo_path: ./assets/images/logo.png
