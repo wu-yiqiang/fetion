@@ -24,5 +24,7 @@ final Map<String, String> en_US = {
   'linkAddress': "Link Address",
   'openSource': "Open Source",
   'feedback': "Feedback",
+  'hostName': "HostName",
+  'hardwareAddress': 'Hardware Address',
   'passwordError': "Password Error"
 };

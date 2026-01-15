@@ -24,5 +24,7 @@ final Map<String, String> zh_CN = {
   'linkAddress': "链接地址",
   'openSource': "开源",
   'feedback': "反馈",
+  'hostName': "主机名",
+  'hardwareAddress': '硬件地址',
   'passwordError': "密码错误"
 };

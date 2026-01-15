@@ -1,4 +1,6 @@
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
+import 'package:fetion/widgets/FormItem.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
@@ -10,6 +12,7 @@ class NetworkPage extends StatefulWidget {
 }
 
 class _NetworkPage extends State<NetworkPage> {
+  final SettingController settingController = Get.put(SettingController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,30 +35,45 @@ class _NetworkPage extends State<NetworkPage> {
                   ],
                 ),
                 content: Container(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Flex(
+                    direction: Axis.vertical,
                     spacing: 10,
                     children: [
-                      HyperlinkButton(
-                        child: Text(
-                          'openSource'.tr,
-                          style: TextStyle(
-                            fontSize: 12,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                        onPressed: () {},
+                      FormItem(
+                        'hostName'.tr,
+                        settingController.setting.value.deviceName,
                       ),
-                      HyperlinkButton(
-                        child: Text(
-                          'feedback'.tr,
-                          style: TextStyle(
-                            fontSize: 12,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                        onPressed: () {},
+                      FormItem(
+                        'gateway'.tr,
+                        settingController.setting.value.gateway,
                       ),
+
+                      FormItem('IPV4', settingController.setting.value.ipv4),
+                      FormItem('IPV6', settingController.setting.value.ipv6),
+                      FormItem(
+                        'hardwareAddress'.tr,
+                        settingController.setting.value.macAddr,
+                      ),
+                      // HyperlinkButton(
+                      //   child: Text(
+                      //     'openSource'.tr,
+                      //     style: TextStyle(
+                      //       fontSize: 12,
+                      //       decoration: TextDecoration.none,
+                      //     ),
+                      //   ),
+                      //   onPressed: () {},
+                      // ),
+                      // HyperlinkButton(
+                      //   child: Text(
+                      //     'feedback'.tr,
+                      //     style: TextStyle(
+                      //       fontSize: 12,
+                      //       decoration: TextDecoration.none,
+                      //     ),
+                      //   ),
+                      //   onPressed: () {},
+                      // ),
                     ],
                   ),
                 ),
