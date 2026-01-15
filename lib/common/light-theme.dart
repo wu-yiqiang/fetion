@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-const primaryColor = Colors.blue;
-
 const white = Color.fromARGB(255, 255, 255, 255);
 const white110 = Color.fromARGB(240, 255, 255, 255);
 const white20 = Color.fromARGB(240, 200, 200, 200);
@@ -11,4 +9,4 @@ const black6 = Color.fromARGB(153, 0, 0, 0);
 const black33 = Color.fromARGB(255, 33, 33, 33);
 const black90 = Color.fromARGB(230, 0, 0, 0);
 
-const blue1 = Color.fromARGB(255, 98, 161, 221);
+const primaryColor = Color.fromARGB(255, 76, 160, 244);

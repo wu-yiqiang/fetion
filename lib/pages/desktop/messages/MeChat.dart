@@ -14,7 +14,6 @@ class MeChat extends StatefulWidget {
 class _MeChat extends State<MeChat> {
   @override
   Widget build(BuildContext context) {
-    final theme = FluentTheme.of(context); 
     return Flex(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +30,7 @@ class _MeChat extends State<MeChat> {
               ChatBox(
                 text: widget.item['text'],
                 fontColor: white,
-                backgroundColor: theme.accentColor,
+                backgroundColor: primaryColor,
               ),
             ],
           ),

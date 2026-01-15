@@ -107,7 +107,10 @@ class _AnimatedInfoBarOverlayState extends State<_AnimatedInfoBarOverlay>
                 opacity: _opacity,
                 child: InfoBar(
                   severity: widget.severity,
-                  title: Text(widget.message),
+                  title: Text(
+                    widget.message,
+                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+                  ),
                   // actions: [
                   //   IconButton(
                   //     icon: Icon(FluentIcons.dismiss),

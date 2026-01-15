@@ -15,7 +15,6 @@ class AiChat extends StatefulWidget {
 class _AiChat extends State<AiChat> {
   @override
   Widget build(BuildContext context) {
-    final theme = FluentTheme.of(context); 
     return Flex(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +31,7 @@ class _AiChat extends State<AiChat> {
               ChatBox(
                 text: widget.item['text'],
                 fontColor: white,
-                backgroundColor: theme.accentColor,
+                backgroundColor: primaryColor,
               ),
             ],
           ),
