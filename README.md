@@ -9,10 +9,16 @@ design https://www.figma.com/design/5fmTHYSBy5zeJDijHjPIsg/Windows-11-Chat-UI-Ki
 飞传 项目名
 
 构建windows平台应用
+dart run msix:create
+
 
 构建mac平台应用
+flutter build macos --release
+https://juejin.cn/post/7221347166820024377
+
 
 构建linux平台应用
+
 
 Realm
 https://juejin.cn/post/7527240045448347702
@@ -21,11 +27,7 @@ https://juejin.cn/post/7527240045448347702
 flutter pub run realm generate
 
 
-mac 平台打包
-flutter build macos --release
-https://juejin.cn/post/7221347166820024377
 
-windows 平台打包
-dart run msix:create
+
 
 
