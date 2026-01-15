@@ -28,7 +28,7 @@ void updatePasswordModal(BuildContext context) async {
                 oldPassword = value;
               },
             ),
-            Text('oldPassword'.tr),
+            Text('newPassword'.tr),
             PasswordBox(
               onChanged: (value) {
                 newPassword = value;
