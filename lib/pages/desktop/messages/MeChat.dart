@@ -2,6 +2,7 @@ import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/pages/desktop/messages/widges/ChatBox.dart';
 import 'package:fetion/pages/desktop/messages/widges/TimeStamps.dart';
 import 'package:fetion/widgets/Avatar.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 
 class MeChat extends StatefulWidget {
@@ -13,6 +14,7 @@ class MeChat extends StatefulWidget {
 class _MeChat extends State<MeChat> {
   @override
   Widget build(BuildContext context) {
+    final theme = FluentTheme.of(context); 
     return Flex(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +31,7 @@ class _MeChat extends State<MeChat> {
               ChatBox(
                 text: widget.item['text'],
                 fontColor: white,
-                backgroundColor: blue1,
+                backgroundColor: theme.accentColor,
               ),
             ],
           ),

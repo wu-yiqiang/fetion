@@ -3,6 +3,7 @@ import 'package:fetion/pages/desktop/messages/widges/ChatBox.dart' show ChatBox;
 import 'package:fetion/pages/desktop/messages/widges/TimeStamps.dart'
     show TimeStamps;
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 
 class AiChat extends StatefulWidget {
@@ -14,6 +15,7 @@ class AiChat extends StatefulWidget {
 class _AiChat extends State<AiChat> {
   @override
   Widget build(BuildContext context) {
+    final theme = FluentTheme.of(context); 
     return Flex(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +32,7 @@ class _AiChat extends State<AiChat> {
               ChatBox(
                 text: widget.item['text'],
                 fontColor: white,
-                backgroundColor: blue1,
+                backgroundColor: theme.accentColor,
               ),
             ],
           ),
