@@ -55,6 +55,7 @@ void main() async {
         ),
         translations: Language(),
         theme: ThemeData(
+          brightness: Brightness.light,
           appBarTheme: AppBarTheme(
             backgroundColor:
                 settingController.setting.value.theme == ThemeModeMap.DARK
@@ -69,6 +70,10 @@ void main() async {
                 : Colors.black,
           ),
         ),
+        darkTheme: ThemeData(brightness: Brightness.dark),
+        themeMode: settingController.setting.value.theme == ThemeModeMap.DARK
+            ? ThemeMode.dark
+            : ThemeMode.light,
         builder: (context, child) {
           return AnimatedFluentTheme(
             data: FluentThemeData(
