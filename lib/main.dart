@@ -56,12 +56,6 @@ void main() async {
         translations: Language(),
         theme: ThemeData(
           brightness: Brightness.light,
-          // appBarTheme: AppBarTheme(
-          //   backgroundColor:
-          //       settingController.setting.value.theme == ThemeModeMap.DARK
-          //       ? Colors.white
-          //       : Colors.black,
-          // ),
           fontFamily: FontFamilyName,
           textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.black),
         ),
