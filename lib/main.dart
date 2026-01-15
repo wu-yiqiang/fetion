@@ -56,21 +56,20 @@ void main() async {
         translations: Language(),
         theme: ThemeData(
           brightness: Brightness.light,
-          appBarTheme: AppBarTheme(
-            backgroundColor:
-                settingController.setting.value.theme == ThemeModeMap.DARK
-                ? Colors.white
-                : Colors.black,
-          ),
+          // appBarTheme: AppBarTheme(
+          //   backgroundColor:
+          //       settingController.setting.value.theme == ThemeModeMap.DARK
+          //       ? Colors.white
+          //       : Colors.black,
+          // ),
           fontFamily: FontFamilyName,
-          textSelectionTheme: TextSelectionThemeData(
-            cursorColor:
-                settingController.setting.value.theme == ThemeModeMap.DARK
-                ? Colors.white
-                : Colors.black,
-          ),
+          textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.black),
         ),
-        darkTheme: ThemeData(brightness: Brightness.dark),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          textSelectionTheme: TextSelectionThemeData(
+            cursorColor: Colors.white),
+        ),
         themeMode: settingController.setting.value.theme == ThemeModeMap.DARK
             ? ThemeMode.dark
             : ThemeMode.light,
