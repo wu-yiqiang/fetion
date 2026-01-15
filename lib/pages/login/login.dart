@@ -59,12 +59,16 @@ class _LoginPage extends State<LoginPage> {
                 onPressed: () {
                   String password = settingController.setting.value.password;
                   if (password != enterPassword) {
-                    InfoBarService().showInfo('passwordError'.tr, '');
-                    return;
+                    OverlayMessage.show(
+                      context: context,
+                      message: 'passwordError'.tr,
+                      severity: InfoBarSeverity.error,
+                    );
+                  } else {
+                    settingController.updateSetting('locked', false);
+                    eventBus.emit(Events.NAVIGATE.name, RouterMap.HOME);
                   }
                   ;
-                  settingController.updateSetting('locked', false);
-                  eventBus.emit(Events.NAVIGATE.name, RouterMap.HOME);
                 },
               ),
             ],

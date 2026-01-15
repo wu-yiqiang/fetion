@@ -1,94 +1,131 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart' as material;
 
-class InfoBarService {
-  static final InfoBarService _instance = InfoBarService._internal();
-  factory InfoBarService() => _instance;
-  InfoBarService._internal();
-
-  OverlayEntry? _overlayEntry;
-  BuildContext? _context;
-
-  void init(BuildContext context) {
-    _context = context;
-  }
-
-  // 显示 InfoBar
-  void show({
-    required String title,
-    required String content,
+class OverlayMessage {
+  static void show({
+    required BuildContext context,
+    required String message,
     InfoBarSeverity severity = InfoBarSeverity.info,
-    Duration duration = const Duration(seconds: 4),
-    Widget? action,
+    Duration duration = const Duration(seconds: 2),
   }) {
-    if (_context == null) return;
+    final overlay = Overlay.of(context)!;
+    late OverlayEntry entry;
 
-    // 移除之前的 InfoBar
-    dismiss();
-
-    _overlayEntry = OverlayEntry(
-      builder: (context) => Positioned(
-        top: material.MediaQuery.of(context).padding.top + 10,
-        left: 10,
-        right: 10,
-        child: InfoBar(
-          title: Text(title),
-          content: Text(content),
+    entry = OverlayEntry(
+      builder: (context) {
+        return _AnimatedInfoBarOverlay(
+          message: message,
           severity: severity,
-          action: action,
-          onClose: dismiss,
-        ),
-      ),
+          duration: duration,
+          onRemove: () {
+            if (entry.mounted) entry.remove();
+          },
+        );
+      },
     );
 
-    Overlay.of(_context!).insert(_overlayEntry!);
+    overlay.insert(entry);
+  }
+}
 
-    // 自动关闭
-    if (duration != Duration.zero) {
-      Future.delayed(duration, dismiss);
+// 封装整个 Overlay 条目（推荐做法）
+class _AnimatedInfoBarOverlay extends StatefulWidget {
+  final String message;
+  final InfoBarSeverity severity;
+  final Duration duration;
+  final VoidCallback onRemove;
+
+  const _AnimatedInfoBarOverlay({
+    required this.message,
+    required this.severity,
+    required this.duration,
+    required this.onRemove,
+  });
+
+  @override
+  State<_AnimatedInfoBarOverlay> createState() =>
+      _AnimatedInfoBarOverlayState();
+}
+
+class _AnimatedInfoBarOverlayState extends State<_AnimatedInfoBarOverlay>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacity;
+  late Animation<Offset> _offset;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // 初始化动画
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 250),
+      reverseDuration: const Duration(milliseconds: 200),
+      vsync: this,
+    );
+
+    _opacity = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
+
+    _offset = Tween<Offset>(
+      begin: const Offset(0, -0.3),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
+
+    // 播放进入动画
+    _controller.forward();
+
+    // 启动自动消失计时器
+    Future.delayed(widget.duration, _startExit);
+  }
+
+  void _startExit() {
+    if (!_controller.isAnimating && _controller.value > 0) {
+      _controller.reverse().then((_) {
+        if (mounted) widget.onRemove(); // 确保在动画结束后移除
+      });
     }
   }
 
-  // 快速显示方法
-  void showInfo(String title, String content, {Duration? duration}) {
-    show(
-      title: title,
-      content: content,
-      severity: InfoBarSeverity.info,
-      duration: duration ?? const Duration(seconds: 3),
+  void _handleDismiss() {
+    _startExit();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 500),
+          child: IntrinsicWidth(
+            child: SlideTransition(
+              position: _offset,
+              child: FadeTransition(
+                opacity: _opacity,
+                child: InfoBar(
+                  severity: widget.severity,
+                  title: Text(widget.message),
+                  // actions: [
+                  //   IconButton(
+                  //     icon: Icon(FluentIcons.dismiss),
+                  //     onPressed: _handleDismiss,
+                  //   ),
+                  // ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
-  void showSuccess(String title, String content, {Duration? duration}) {
-    show(
-      title: title,
-      content: content,
-      severity: InfoBarSeverity.success,
-      duration: duration ?? const Duration(seconds: 3),
-    );
-  }
-
-  void showWarning(String title, String content, {Duration? duration}) {
-    show(
-      title: title,
-      content: content,
-      severity: InfoBarSeverity.warning,
-      duration: duration ?? const Duration(seconds: 4),
-    );
-  }
-
-  void showError(String title, String content, {Duration? duration}) {
-    show(
-      title: title,
-      content: content,
-      severity: InfoBarSeverity.error,
-      duration: duration ?? const Duration(seconds: 5),
-    );
-  }
-
-  // 隐藏 InfoBar
-  void dismiss() {
-    _overlayEntry?.remove();
-    _overlayEntry = null;
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
