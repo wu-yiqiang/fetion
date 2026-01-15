@@ -26,5 +26,11 @@ final Map<String, String> zh_CN = {
   'feedback': "反馈",
   'hostName': "主机名",
   'hardwareAddress': '硬件地址',
-  'passwordError': "密码错误"
+  'passwordError': "密码错误",
+  'updatePassword': "更新密码",
+  'cancel': "取消",
+  'save': "保存",
+  'oldPassword': "旧密码",
+  'newPassword': "新密码",
+  'oldPasswordError': "旧密码错误",
 };

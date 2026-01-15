@@ -53,6 +53,7 @@ class SettingRepository {
         if (key == 'langCountry') setting.langCountry = value;
         if (key == 'fontSize') setting.fontSize = value;
         if (key == 'locked') setting.locked = value;
+        if (key == 'password') setting.password = value;
       }
     });
   }

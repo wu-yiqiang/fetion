@@ -120,15 +120,19 @@ class _HomePageState extends State<HomePage> {
                       return Text(
                         meController.user.value.nickName,
                         style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,  
                         ),
                       );
                     }),
                     Obx(() {
                       return Text(
                         meController.user.value.slogan ?? '',
-                        style: TextStyle(fontSize: 12, color: gray),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: gray,
+                          fontWeight: FontWeight.w400,
+                        ),
                       );
                     }),
                   ],

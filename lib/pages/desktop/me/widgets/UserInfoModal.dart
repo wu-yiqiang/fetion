@@ -31,13 +31,13 @@ void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'
       ),
       actions: [
         Button(
-          child: Texts(text: 'Cancel', fontSize: 14),
+          child: Texts(text: 'cancel'.tr, fontSize: 14),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         FilledButton(
-          child: Texts(text: 'Save', fontSize: 14),
+          child: Texts(text: 'save'.tr, fontSize: 14),
           onPressed: () {
             meController.updateMeUser(key, textController.text);
             Navigator.pop(context);

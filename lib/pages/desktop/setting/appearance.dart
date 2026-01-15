@@ -1,6 +1,7 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
+import 'package:fetion/pages/desktop/setting/widgets/UpdatePassword.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -149,12 +150,42 @@ class _AppearancePage extends State<AppearancePage> {
                           min: FontSizeMin,
                           max: FontSizeMax,
                           label: '${settingController.setting.value.fontSize}',
-                          value: settingController.setting.value.fontSize.toDouble(),
+                          value: settingController.setting.value.fontSize
+                              .toDouble(),
                           onChanged: (v) {
-                            settingController.updateSetting('fontSize', v.toInt());
+                            settingController.updateSetting(
+                              'fontSize',
+                              v.toInt(),
+                            );
                           },
                         );
                       }),
+                    ],
+                  ),
+                ),
+              ),
+              RowItem(
+                child: Container(
+                  child: Flex(
+                    direction: Axis.horizontal,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        spacing: 6,
+                        children: [
+                          WindowsIcon(WindowsIcons.lock, size: 16),
+                          Texts(text: 'updatePassword'.tr, fontSize: 13),
+                        ],
+                      ),
+                      IconButton(
+                        icon: const WindowsIcon(
+                          WindowsIcons.update_restore,
+                          size: 18.0,
+                        ),
+                        onPressed: () {
+                          updatePasswordModal(context);
+                        },
+                      ),
                     ],
                   ),
                 ),

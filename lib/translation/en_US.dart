@@ -26,5 +26,11 @@ final Map<String, String> en_US = {
   'feedback': "Feedback",
   'hostName': "HostName",
   'hardwareAddress': 'Hardware Address',
-  'passwordError': "Password Error"
+  'passwordError': "Password Error",
+  'updatePassword': "Update Password",
+  'cancel': "Cancel",
+  'save': "Save",
+  'oldPassword': "Old Password",
+  'newPassword': "New Password",
+  'oldPasswordError': "Old Password Error",
 };

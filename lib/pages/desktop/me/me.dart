@@ -147,29 +147,7 @@ class _MePage extends State<MePage> {
                         },
                       hasBorder: false,
                       );
-                    }),
-                  // Obx(() {
-                  //   return InfoItem(
-                  //     'gateway'.tr,
-                  //     meController.user.value.gateway,
-                  //     () {},
-                  //   );
-                  // }),
-                  // Obx(() {
-                  //   return InfoItem(
-                  //     'IPV4',
-                  //     meController.user.value.ipv4Addr,
-                  //     () {},
-                  //   );
-                  // }),
-                  // Obx(() {
-                  //   return InfoItem(
-                  //     'IPV6',
-                  //     meController.user.value.ipv6Addr,
-                  //     () {},
-                  //   );
-                  // }),
-                  // ReadonlyInfoItem('MAC', meController.user.value.macAddr),
+                  }),
                   ],
                 ),
               ),
