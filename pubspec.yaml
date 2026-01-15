@@ -90,5 +90,5 @@ flutter:
 
 msix_config:
   display_name: Fetion
-  msix_version: 1.0.0.0
+  msix_version: 1.0.0.1
   logo_path: ./assets/images/logo.png
