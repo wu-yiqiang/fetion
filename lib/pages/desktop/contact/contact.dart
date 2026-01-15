@@ -3,7 +3,6 @@ import 'package:fetion/pages/desktop/contact/friend_info.dart';
 import 'package:fetion/pages/desktop/contact/friends.dart';
 import 'package:fetion/pages/desktop/contact/friends_box.dart' show FriendsBox;
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart';
 
 class ContactBar extends StatefulWidget {
   const ContactBar({super.key});

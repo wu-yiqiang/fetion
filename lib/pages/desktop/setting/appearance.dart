@@ -180,7 +180,7 @@ class _AppearancePage extends State<AppearancePage> {
                       IconButton(
                         icon: const WindowsIcon(
                           WindowsIcons.update_restore,
-                          size: 18.0,
+                          size: 16.0,
                         ),
                         onPressed: () {
                           updatePasswordModal(context);

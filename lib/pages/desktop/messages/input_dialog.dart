@@ -11,10 +11,12 @@ class InputDialog extends StatefulWidget {
 class _InputDialog extends State<InputDialog> {
   @override
   Widget build(BuildContext context) {
+    final theme = FluentTheme.of(context); 
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         border: Border(top: BorderSide(width: 1, color: black4)),
+        color: theme.cardColor
       ),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 4, vertical: 0),

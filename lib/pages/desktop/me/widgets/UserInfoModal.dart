@@ -11,15 +11,6 @@ void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'
   final result = await showDialog<String>(
     context: context,
     builder: (context) => ContentDialog(
-      style: ContentDialogThemeData(
-        // decoration: Decoration(),
-        // decoration: BoxDecoration(
-        //   borderRadius: BorderRadius.all(Radius.circular(2)),
-        // ),
-        // bodyStyle: TextStyle(
-        //   decoration: TextDecoration(),
-        // )
-      ),
       title: Texts(
         text: title,
         fontSize: 20,
