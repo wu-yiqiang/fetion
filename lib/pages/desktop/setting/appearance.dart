@@ -66,14 +66,14 @@ class _AppearancePage extends State<AppearancePage> {
                                   ?.map((list) => list['type'])
                                   .join();
                               settingController.updateSetting(
-                                'langType',
+                                'languageType',
                                 langType,
                               );
                               final langCountry = langItem
                                   ?.map((list) => list['country'])
                                   .join();
                               settingController.updateSetting(
-                                'langCountry',
+                                'languageCountry',
                                 langCountry,
                               );
                               final language = langItem

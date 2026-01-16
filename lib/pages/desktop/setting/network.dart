@@ -52,28 +52,8 @@ class _NetworkPage extends State<NetworkPage> {
                       FormItem('IPV6', settingController.setting.value.ipv6),
                       FormItem(
                         'hardwareAddress'.tr,
-                        settingController.setting.value.macAddr,
+                        settingController.setting.value.hardwareCode,
                       ),
-                      // HyperlinkButton(
-                      //   child: Text(
-                      //     'openSource'.tr,
-                      //     style: TextStyle(
-                      //       fontSize: 12,
-                      //       decoration: TextDecoration.none,
-                      //     ),
-                      //   ),
-                      //   onPressed: () {},
-                      // ),
-                      // HyperlinkButton(
-                      //   child: Text(
-                      //     'feedback'.tr,
-                      //     style: TextStyle(
-                      //       fontSize: 12,
-                      //       decoration: TextDecoration.none,
-                      //     ),
-                      //   ),
-                      //   onPressed: () {},
-                      // ),
                     ],
                   ),
                 ),

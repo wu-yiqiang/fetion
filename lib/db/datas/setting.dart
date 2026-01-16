@@ -13,15 +13,16 @@ class SettingRepository {
     final settingId = setting?.id;
     final settings = Setting(
       settingId!,
+      setting.userId,
       setting.deviceName,
       setting.gateway,
       setting.ipv4,
       setting.ipv6,
-      setting.macAddr,
+      setting.hardwareCode,
       setting.maskCode,
       setting.language,
-      setting.langType,
-      setting.langCountry,
+      setting.languageType,
+      setting.languageCountry,
       setting.theme,
       setting.fontSize,
       setting.locked,
@@ -49,8 +50,8 @@ class SettingRepository {
       if (setting != null) {
         if (key == 'language') setting.language = value;
         if (key == 'theme') setting.theme = value;
-        if (key == 'langType') setting.langType = value;
-        if (key == 'langCountry') setting.langCountry = value;
+        if (key == 'languageType') setting.languageType = value;
+        if (key == 'languageCountry') setting.languageCountry = value;
         if (key == 'fontSize') setting.fontSize = value;
         if (key == 'locked') setting.locked = value;
         if (key == 'password') setting.password = value;

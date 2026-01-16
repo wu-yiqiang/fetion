@@ -45,8 +45,8 @@ void main() async {
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [FluentLocalizations.delegate],
         locale: Locale(
-          settingController.setting.value.langType,
-          settingController.setting.value.langCountry,
+          settingController.setting.value.languageType,
+          settingController.setting.value.languageCountry,
         ),
         fallbackLocale: Locale(
           LanguageEnTypeMap.TYPE,

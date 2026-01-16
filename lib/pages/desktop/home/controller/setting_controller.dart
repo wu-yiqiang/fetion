@@ -3,13 +3,15 @@ import 'package:fetion/common/const.dart';
 import 'package:fetion/db/datas/setting.dart';
 import 'package:fetion/db/models/setting.model.dart';
 import 'package:fetion/utils/network.dart';
+import 'package:fetion/utils/utils.dart';
 import 'package:get/get.dart';
 import 'package:fetion/db/realmInstance.dart';
 
 class SettingController extends GetxController {
-  late SettingRepository  _settingRepository;
+  late SettingRepository _settingRepository;
   late Rx<Setting> setting = Setting(
     SettingId,
+    '',
     '',
     '',
     '',
@@ -22,7 +24,7 @@ class SettingController extends GetxController {
     ThemeModeMap.LIGHT,
     DefaultFontSize,
     false,
-    DefaultPassword
+    DefaultPassword,
   ).obs;
 
   initDb() async {
@@ -45,8 +47,10 @@ class SettingController extends GetxController {
     String ipv6 = await getLocalIpv6Addr();
     String getway = await getLocalGatewayAddr();
     String macAddr = getLocalMacAddr();
+    String userId = generateRandomString(30);
     final setting = Setting(
       SettingId,
+      userId,
       hoatName,
       getway,
       ipv4,
@@ -59,7 +63,7 @@ class SettingController extends GetxController {
       ThemeModeMap.LIGHT,
       DefaultFontSize,
       false,
-      DefaultPassword
+      DefaultPassword,
     );
     initSettings(setting);
   }
@@ -80,7 +84,6 @@ class SettingController extends GetxController {
     setting.refresh();
     update();
   }
-
 
   @override
   void onClose() {
