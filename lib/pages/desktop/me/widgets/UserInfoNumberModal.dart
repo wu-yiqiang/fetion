@@ -14,6 +14,17 @@ void userInfoNumberModal(
   final result = await showDialog<String>(
     context: context,
     builder: (context) => ContentDialog(
+      style: ContentDialogThemeData(
+        decoration: BoxDecoration(
+          color: FluentTheme.of(context).menuColor,
+          borderRadius: BorderRadius.circular(6),
+          boxShadow: kElevationToShadow[6],
+        ),
+        actionsDecoration: BoxDecoration(
+          color: FluentTheme.of(context).micaBackgroundColor,
+          borderRadius: const BorderRadius.vertical(bottom: Radius.circular(6)),
+        ),
+      ),
       title: Texts(
         text: title,
         fontSize: 24,
