@@ -14,7 +14,7 @@ final Map<String, String> en_US = {
   'department': "Department",
   'position': "Postion",
   'gateway': "Gateway",
-  'appearance': "Apprearance",
+  'appearance': "Appearance",
   'language': "Language",
   'theme': "Theme",
   'fontSize': "Font Size",

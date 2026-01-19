@@ -1,13 +1,13 @@
-import 'package:fetion/common/const.dart';
 import 'package:fetion/db/models/user.model.dart';
+import 'package:get/get.dart';
 import 'package:realm/realm.dart';
 import '../realmInstance.dart';
-import '../models/user.model.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 
 class UserRepository {
   late final RealmInstance _realmInstance;
   late final Realm _realm;
-
+  final SettingController settingController = Get.put(SettingController());
   UserRepository(this._realmInstance) {
     _realm = _realmInstance.realm;
   }
@@ -56,7 +56,8 @@ class UserRepository {
   }
 
   User? getOwner() {
-    return _realm.find<User>(UserId);
+    final userId = settingController.setting.value.userId;
+    return _realm.find<User>(userId);
   }
 
   List<User> findUserByName(String name) {

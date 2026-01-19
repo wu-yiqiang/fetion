@@ -1,6 +1,5 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
-import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/pages/desktop/setting/widgets/UpdatePassword.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';

@@ -4,11 +4,12 @@ import 'package:fetion/db/datas/user.dart';
 import 'package:fetion/db/models/user.model.dart';
 import 'package:get/get.dart';
 import 'package:fetion/db/realmInstance.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 
 class MeController extends GetxController {
   late UserRepository _userRepository;
   late Rx<User> user = User('', '', false, avatar: DefaultAvatar).obs;
-
+  final SettingController settingController = Get.put(SettingController());
   initDb() async {
     final realmInstance = await RealmInstance.getInstance();
     _userRepository = UserRepository(realmInstance);
@@ -24,8 +25,9 @@ class MeController extends GetxController {
   void initUser() async {
     final random = Random();
     late String NumberStr = random.nextInt(100000000).toString();
+    final userId = settingController.setting.value.userId;
     final usr = User(
-      UserId,
+      userId,
       NickNamePrefix + NumberStr,
       false,
       avatar: DefaultAvatar,
@@ -39,7 +41,8 @@ class MeController extends GetxController {
   }
 
   void updateMeUser(String key, dynamic value) {
-    _userRepository.updateUserItem(UserId, key, value);
+    final userId = settingController.setting.value.userId;
+    _userRepository.updateUserItem(userId, key, value);
     getOwnerInfo();
   }
 
