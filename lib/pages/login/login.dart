@@ -1,7 +1,9 @@
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
+import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/utils/EventBus.dart';
+import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/Toast.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
@@ -14,6 +16,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPage extends State<LoginPage> {
   final SettingController settingController = Get.put(SettingController());
+  final MeController meController = Get.put(MeController());
   var showPassword = false;
   String enterPassword = '';
   @override
@@ -27,9 +30,9 @@ class _LoginPage extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                child: Image(
-                  image: AssetImage("assets/images/logo.png"),
-                  width: 120,
+                child: Avatar(
+                  size: 120,
+                  image: meController.user.value.avatar!,
                 ),
               ),
               Container(

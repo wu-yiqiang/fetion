@@ -109,7 +109,11 @@ class _HomePageState extends State<HomePage> {
         header: Row(
           spacing: 6,
           children: [
-            Flexible(child: StatusAvatar(image: DefaultAvatar)),
+            Flexible(
+              child: Obx(() {
+                return StatusAvatar(image: meController.user.value.avatar!);
+              }),
+            ),
             Expanded(
               flex: 1,
               child: Container(
@@ -121,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                         meController.user.value.nickName,
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: FontWeight.w500,  
+                          fontWeight: FontWeight.w500,
                         ),
                       );
                     }),

@@ -1,3 +1,4 @@
+import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ StatusAvatar({double size = 40, required String image}) {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(7),
             child: Container(
-              color: Colors.white38,
+              color: White30,
               padding: EdgeInsets.all(2),
               child: Icon(Icons.circle, color: Colors.green, size: size / 4),
             ),

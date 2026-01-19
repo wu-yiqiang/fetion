@@ -1,8 +1,7 @@
-import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/desktop/me/widgets/InfoItem.dart';
+import 'package:fetion/pages/desktop/me/widgets/UpdateAvatar.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoModal.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoNumberModal.dart';
-import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -28,7 +27,7 @@ class _MePage extends State<MePage> {
     return Column(
       spacing: 10,
       children: [
-        Avatar(size: 70, image: DefaultAvatar),
+        UpdateAvatar(),
         RowItem(
             child: ScrollViews(
               child: SingleChildScrollView(

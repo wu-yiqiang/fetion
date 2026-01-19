@@ -83,6 +83,7 @@ class UserRepository {
         if (key == 'department') user.department = value;
         if (key == 'position') user.position = value;
         if (key == 'age') user.age = value;
+        if (key == 'avatar') user.avatar = value;
       }
     });
   }

@@ -9,8 +9,16 @@ Avatar({
     child: SizedBox(
       height: size,
       width: size,
-      child: ClipOval(
-        child: Image.memory(base64Decode(image), fit: BoxFit.cover)
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: ClipOval(
+          child: Image.memory(
+            base64Decode(image),
+            width: size,
+            height: size,
+            fit: BoxFit.fill,
+          ),
+        ),
       ),
     ),
   );

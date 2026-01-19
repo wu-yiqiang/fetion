@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const white = Color.fromARGB(255, 255, 255, 255);
+const White30 = Colors.white30;
 const white110 = Color.fromARGB(240, 255, 255, 255);
 const white20 = Color.fromARGB(240, 200, 200, 200);
 const gray = Color.fromARGB(235, 186, 186, 186);
