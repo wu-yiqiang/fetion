@@ -127,6 +127,8 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
                         ),
+                        overflow: TextOverflow.ellipsis,
+
                       );
                     }),
                     Obx(() {
@@ -137,6 +139,8 @@ class _HomePageState extends State<HomePage> {
                           color: gray,
                           fontWeight: FontWeight.w400,
                         ),
+                        overflow: TextOverflow.ellipsis,
+
                       );
                     }),
                   ],
