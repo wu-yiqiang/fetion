@@ -1,7 +1,7 @@
 import 'package:fetion/common/const.dart';
-import 'package:fetion/pages/desktop/contact/user_info.dart';
-import 'package:fetion/pages/desktop/contact/users.dart';
-import 'package:fetion/pages/desktop/contact/user_box.dart' show FriendsBox;
+import 'package:fetion/pages/desktop/contact/person_info.dart';
+import 'package:fetion/pages/desktop/contact/persons.dart';
+import 'package:fetion/pages/desktop/contact/person_box.dart' show PersonBox;
 import 'package:fluent_ui/fluent_ui.dart';
 
 class ContactBar extends StatefulWidget {
@@ -21,12 +21,12 @@ class _ContactBar extends State<ContactBar> {
           color: theme.scaffoldBackgroundColor,
           child: Column(
             children: [
-              Row(children: [Expanded(child: FriendsBox())]),
-              Expanded(child: Friends()),
+              Row(children: [Expanded(child: PersonBox())]),
+              Expanded(child: Persons()),
             ],
           ),
         ),
-        Expanded(child: FriendInfo()),
+        Expanded(child: PersonInfo()),
       ],
     );
   }

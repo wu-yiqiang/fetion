@@ -1,23 +1,18 @@
 import 'package:fetion/common/const.dart';
-import 'package:fetion/common/light-theme.dart';
-import 'package:fetion/pages/desktop/me/widgets/InfoItem.dart';
 import 'package:fetion/pages/desktop/me/widgets/ReadonlyInfoItem.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
-import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
-import 'package:fetion/widgets/Toast.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:get/get.dart';
 
-class FriendInfo extends StatefulWidget {
-  const FriendInfo({super.key});
+class PersonInfo extends StatefulWidget {
+  const PersonInfo({super.key});
   @override
-  State<FriendInfo> createState() => _FriendInfo();
+  State<PersonInfo> createState() => _PersonInfo();
 }
 
-class _FriendInfo extends State<FriendInfo> {
+class _PersonInfo extends State<PersonInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(

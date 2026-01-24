@@ -5,16 +5,16 @@ import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
-class Friend extends StatefulWidget {
+class Person extends StatefulWidget {
   final User item;
 
-  const Friend(this.item, {super.key});
+  const Person(this.item, {super.key});
 
   @override
-  State<Friend> createState() => _Friend();
+  State<Person> createState() => _Person();
 }
 
-class _Friend extends State<Friend> {
+class _Person extends State<Person> {
   final menuController = FlyoutController();
 
   @override

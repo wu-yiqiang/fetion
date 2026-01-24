@@ -1,13 +1,13 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:fetion/pages/desktop/messages/search_bar.dart';
 
-class FriendsBox extends StatefulWidget {
-  const FriendsBox({super.key});
+class PersonBox extends StatefulWidget {
+  const PersonBox({super.key});
   @override
-  State<FriendsBox> createState() => _FriendsBox();
+  State<PersonBox> createState() => _PersonBox();
 }
 
-class _FriendsBox extends State<FriendsBox> {
+class _PersonBox extends State<PersonBox> {
 
   @override
   Widget build(BuildContext context) {

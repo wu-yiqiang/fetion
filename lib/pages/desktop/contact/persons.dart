@@ -1,16 +1,16 @@
 import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
-import 'package:fetion/pages/desktop/contact/user.dart' show Friend;
+import 'package:fetion/pages/desktop/contact/person.dart' show Person;
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Friends extends StatefulWidget {
-  const Friends({super.key});
+class Persons extends StatefulWidget {
+  const Persons({super.key});
   @override
-  State<Friends> createState() => _Friends();
+  State<Persons> createState() => _Persons();
 }
 
-class _Friends extends State<Friends> {
+class _Persons extends State<Persons> {
   late UserController userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class _Friends extends State<Friends> {
         child: Obx(() {
           return Column(
             children: userController.users.map((item) {
-              return Friend(item);
+              return Person(item);
             }).toList(),
           );
         }),
