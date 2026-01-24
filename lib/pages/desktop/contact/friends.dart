@@ -1,6 +1,8 @@
+import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/contact/friend.dart' show Friend;
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Friends extends StatefulWidget {
   const Friends({super.key});
@@ -9,31 +11,19 @@ class Friends extends StatefulWidget {
 }
 
 class _Friends extends State<Friends> {
+  late UserController userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
-    final contacts = [
-      {'name': 'Sutter'},
-      {'name': 'Jack'},
-      {'name': 'Joy'},
-      {'name': 'Victor'},
-      {'name': 'Mick'},
-      {'name': 'Jhon'},
-      {'name': 'Joe'},
-      {'name': 'Pick'},
-      {'name': 'Ada'},
-      {'name': 'Atlas'},
-      {'name': 'Alice'},
-      {'name': 'Lodash'},
-      {'name': 'Rolldown'},
-      {'name': 'Rollup'},
-    ];
+    print(userController.users);
     return ScrollViews(
       child: SingleChildScrollView(
-        child: Column(
-          children: contacts.map((item) {
-            return Friend(item['name']!);
-          }).toList(),
-        ),
+        child: Obx(() {
+          return Column(
+            children: userController.users.map((item) {
+              return Friend(item);
+            }).toList(),
+          );
+        }),
       ),
     );
   }

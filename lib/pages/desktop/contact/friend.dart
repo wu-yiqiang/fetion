@@ -1,13 +1,14 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/db/models/user.model.dart';
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
 class Friend extends StatefulWidget {
-  final String name;
+  final User item;
 
-  const Friend(this.name, {super.key});
+  const Friend(this.item, {super.key});
 
   @override
   State<Friend> createState() => _Friend();
@@ -32,7 +33,7 @@ class _Friend extends State<Friend> {
               spacing: 10,
               children: [
                 Avatar(size: 30, image: DefaultAvatar),
-                Expanded(child: Texts(text: widget.name)),
+                Expanded(child: Texts(text: widget.item.nickName)),
               ],
             ),
           ),
@@ -80,23 +81,5 @@ class _Friend extends State<Friend> {
         },
       ),
     );
-    // return MouseRegion(
-    //   cursor: SystemMouseCursors.click,
-    //   child: Container(
-    //     padding: EdgeInsets.all(8),
-    //     decoration: BoxDecoration(
-    //       border: Border(bottom: BorderSide(width: 1, color: white110)),
-    //     ),
-    //     child: Row(
-    //       spacing: 10,
-    //       children: [
-    //         Avatar(size: 30, image: DefaultAvatar),
-    //         Expanded(
-    //           child: Texts(text: "Sutter"),
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }

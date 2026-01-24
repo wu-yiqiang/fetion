@@ -52,6 +52,7 @@ class UserRepository {
   }
 
   List<User> getAllUsers() {
+    print(_realm);
     return _realm.all<User>().toList();
   }
 
@@ -74,7 +75,7 @@ class UserRepository {
     _realm.write(() {
       final user = findUser(id);
       if (user != null) {
-        if (key == 'nickName')  user.nickName = value;
+        if (key == 'nickName') user.nickName = value;
         if (key == 'fullName') user.fullName = value;
         if (key == 'age') user.age = value;
         if (key == 'email') user.email = value;
