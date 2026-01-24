@@ -1,5 +1,5 @@
 import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
-import 'package:fetion/pages/desktop/contact/friend.dart' show Friend;
+import 'package:fetion/pages/desktop/contact/user.dart' show Friend;
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

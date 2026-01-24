@@ -1,7 +1,7 @@
 import 'package:fetion/common/const.dart';
-import 'package:fetion/pages/desktop/contact/friend_info.dart';
-import 'package:fetion/pages/desktop/contact/friends.dart';
-import 'package:fetion/pages/desktop/contact/friends_box.dart' show FriendsBox;
+import 'package:fetion/pages/desktop/contact/user_info.dart';
+import 'package:fetion/pages/desktop/contact/users.dart';
+import 'package:fetion/pages/desktop/contact/user_box.dart' show FriendsBox;
 import 'package:fluent_ui/fluent_ui.dart';
 
 class ContactBar extends StatefulWidget {
