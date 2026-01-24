@@ -1,8 +1,11 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/contact/person_info.dart';
 import 'package:fetion/pages/desktop/contact/persons.dart';
 import 'package:fetion/pages/desktop/contact/person_box.dart' show PersonBox;
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 class ContactBar extends StatefulWidget {
   const ContactBar({super.key});
@@ -13,7 +16,8 @@ class ContactBar extends StatefulWidget {
 class _ContactBar extends State<ContactBar> {
   @override
   Widget build(BuildContext context) {
-    final theme = FluentTheme.of(context); 
+    late UserController userController = Get.put(UserController());
+    final theme = FluentTheme.of(context);
     return Row(
       children: [
         Container(
@@ -26,7 +30,14 @@ class _ContactBar extends State<ContactBar> {
             ],
           ),
         ),
-        Expanded(child: PersonInfo()),
+        Obx(() {
+          final userId = userController.userId.value;
+          if (userId.isNotEmpty) {
+            return Expanded(child: PersonInfo(userId));
+          } else {
+            return Expanded(child: Text("kong"));
+          }
+        }),
       ],
     );
   }

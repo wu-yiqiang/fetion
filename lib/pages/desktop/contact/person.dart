@@ -1,9 +1,11 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/db/models/user.model.dart';
+import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:get/get.dart';
 
 class Person extends StatefulWidget {
   final User item;
@@ -16,12 +18,15 @@ class Person extends StatefulWidget {
 
 class _Person extends State<Person> {
   final menuController = FlyoutController();
-
+  late UserController userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
     return FlyoutTarget(
       controller: menuController,
       child: GestureDetector(
+        onTap: () {
+          userController.userId.value = widget.item.id;
+        },
         child: MouseRegion(
           cursor: SystemMouseCursors.click,
           child: Container(

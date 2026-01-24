@@ -1,20 +1,25 @@
 import 'package:fetion/common/const.dart';
+import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/me/widgets/ReadonlyInfoItem.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fetion/widgets/RowItem.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:get/get.dart';
 
 class PersonInfo extends StatefulWidget {
-  const PersonInfo({super.key});
+  final String userId;
+  const PersonInfo(this.userId, {super.key});
   @override
   State<PersonInfo> createState() => _PersonInfo();
 }
 
 class _PersonInfo extends State<PersonInfo> {
+  late UserController userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
+    userController.getUserInfo(widget.userId);
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(
@@ -28,14 +33,39 @@ class _PersonInfo extends State<PersonInfo> {
             child: Flex(
               direction: Axis.vertical,
               children: [
-                ReadonlyInfoItem('FullName', 'Sutter'),
-                ReadonlyInfoItem('NickName', '看哥梭哈'),
-                ReadonlyInfoItem('Age', '20'),
-                ReadonlyInfoItem('Email', 'sutter.wu@itforce-tech.com'),
-                ReadonlyInfoItem('Phone', '13234567894'),
-                ReadonlyInfoItem('Slogan', '今天天气真好'),
-                ReadonlyInfoItem('Department', '开发部'),
-                ReadonlyInfoItem('Position', '开发', hasBorder: false),
+                ReadonlyInfoItem(
+                  'FullName',
+                  userController.user.value?.fullName ?? '',
+                ),
+                ReadonlyInfoItem(
+                  'NickName',
+                  userController.user.value?.nickName ?? '',
+                ),
+                ReadonlyInfoItem(
+                  'Age',
+                  userController.user.value?.age.toString() ?? '',
+                ),
+                ReadonlyInfoItem(
+                  'Email',
+                  userController.user.value?.email ?? '',
+                ),
+                ReadonlyInfoItem(
+                  'Phone',
+                  userController.user.value?.phone ?? '',
+                ),
+                ReadonlyInfoItem(
+                  'Slogan',
+                  userController.user.value?.slogan ?? '',
+                ),
+                ReadonlyInfoItem(
+                  'Department',
+                  userController.user.value?.department ?? '',
+                ),
+                ReadonlyInfoItem(
+                  'Position',
+                  userController.user.value?.position ?? '',
+                  hasBorder: false,
+                ),
               ],
             ),
           ),
@@ -57,11 +87,7 @@ class _PersonInfo extends State<PersonInfo> {
               Column(
                 spacing: 8,
                 children: [
-                  FluentIcon(
-                    icon: WindowsIcons.phone,
-                    size: 30,
-                    onTap: () {},
-                  ),
+                  FluentIcon(icon: WindowsIcons.phone, size: 30, onTap: () {}),
                   Texts(text: "Call"),
                 ],
               ),
