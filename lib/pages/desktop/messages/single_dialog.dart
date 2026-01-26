@@ -20,9 +20,9 @@ class _SingleDialog extends State<SingleDialog> {
       children: [
         SingleTopbar(),
         Expanded(
-          child: MainDialog(),
+          child: MainDialog(widget.userId),
         ),
-        InputDialog(),
+        InputDialog(widget.userId),
       ],
     );
   }

@@ -25,6 +25,10 @@ class MessageRepository {
       }
     });
   }
+  Message createMessage(Message message) {
+    _realm.write(() => _realm.add(message));
+    return message;
+  }
 
   Message? findMessage(String id) {
     return _realm.find<Message>(id);

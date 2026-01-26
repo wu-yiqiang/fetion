@@ -1,3 +1,4 @@
+import 'package:fetion/db/models/user.model.dart';
 import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/messages/OtherChat.dart';
@@ -8,7 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MainDialog extends StatefulWidget {
-  const MainDialog({super.key});
+  final String userId;
+  const MainDialog(this.userId, {super.key});
   @override
   State<MainDialog> createState() => _MainDialog();
 }
@@ -17,16 +19,18 @@ class _MainDialog extends State<MainDialog> {
   late UserController userController = Get.put(UserController());
   late SettingController settingController = Get.put(SettingController());
   late MessageController messageController;
+
   @override
   void initState() {
     super.initState();
     messageController = Get.put(MessageController());
-    messageController.userId.value = userController.sessionId.value;
-    messageController.getMessagePage();
+    // messageController.userId.value = userController.sessionId.value;
+    // messageController.getMessagePage(userController.sessionId.value);
   }
 
   @override
   Widget build(BuildContext context) {
+    messageController.getMessagePage(widget.userId);
     return Container(
       padding: EdgeInsets.all(10),
       child: ScrollViews(
