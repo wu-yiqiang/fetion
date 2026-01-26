@@ -17,14 +17,22 @@ class MessageController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    await initDb();
-    getMessagePage();
+    // await initDb();
+    // print(userId.value);
+    // getMessagePage();
   }
 
-  getMessagePage() {
-    if (_messageRepository == null) return [];
+  void onReady() async {
+    await initDb();
+    print("ssss");
+    print(userId.value);
+  }
+
+  getMessagePage() async {
+    print(userId.value);
+    if (_messageRepository == null || userId.value.isEmpty) return [];
     messages.value =
-        _messageRepository?.getMessagesListPage(
+        await _messageRepository?.getMessagesListPage(
           pageSize.value,
           pageNo.value,
           userId.value,

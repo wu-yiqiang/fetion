@@ -23,7 +23,6 @@ class UserController extends GetxController {
   }
 
   getUserLists() {
-    print(_userRepository);
     if (_userRepository == null) return [];
     users.value = _userRepository?.getAllActivedUsers() ?? [];
   }

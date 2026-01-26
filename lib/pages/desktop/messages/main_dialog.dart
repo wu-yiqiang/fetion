@@ -16,12 +16,13 @@ class MainDialog extends StatefulWidget {
 class _MainDialog extends State<MainDialog> {
   late UserController userController = Get.put(UserController());
   late SettingController settingController = Get.put(SettingController());
-  late MessageController messageController = Get.put(MessageController());
-
+  late MessageController messageController;
   @override
   void initState() {
     super.initState();
+    messageController = Get.put(MessageController());
     messageController.userId.value = userController.sessionId.value;
+    messageController.getMessagePage();
   }
 
   @override

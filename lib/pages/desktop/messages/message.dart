@@ -21,7 +21,6 @@ class _Message extends State<Message> {
       onExit: (_) => setState(() => _hover = false),
       child: GestureDetector(
         onTap: () {
-          print("ss萨达萨达");
         },
         child: Container(
           padding: EdgeInsets.all(4),

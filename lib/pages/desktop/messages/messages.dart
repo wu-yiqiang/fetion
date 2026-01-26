@@ -17,7 +17,6 @@ class _Messages extends State<Messages> {
         padding: EdgeInsets.all(4),
         child: GestureDetector(
           onTap: () {
-            print('Parent tapped');
           },
           child: Column(
             children: [

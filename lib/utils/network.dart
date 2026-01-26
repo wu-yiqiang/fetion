@@ -43,6 +43,6 @@ Future<String> getLocalIpv6Addr() async {
       }
     }
   }
-  print(ipv6Addresses);
+  // print(ipv6Addresses);
   return '';
 }
