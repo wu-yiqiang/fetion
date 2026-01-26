@@ -46,23 +46,12 @@ class UserRepository {
     return user;
   }
 
-  User? createOwner(User user) {
-    deleteUser(user.id);
-    return createUser(user);
-  }
-
   List<User> getAllUsers() {
-    print(_realm);
     return _realm.all<User>().toList();
   }
 
-  User? getOwner() {
-    final userId = settingController.setting.value.userId;
-    return _realm.find<User>(userId);
-  }
-
-  List<User> findUserByName(String name) {
-    return _realm.query<User>(r'fullName == "$0"', [name]).toList();
+  List<User> getAllActivedUsers() {
+    return _realm.all<User>().where((u) => u.status == true).toList();
   }
 
   void updateUser(User user) {
@@ -86,6 +75,7 @@ class UserRepository {
         if (key == 'age') user.age = value;
         if (key == 'avatar') user.avatar = value;
         if (key == 'remarks') user.remarks = value;
+        if (key == 'status') user.status = value;
       }
     });
   }
@@ -94,6 +84,11 @@ class UserRepository {
     return _realm.find<User>(id);
   }
 
+  void softDeleteUser(String id) {
+    User? user = findUser(id);
+    if (user == null) return;
+    updateUserItem(id, 'status', false);
+  }
   void deleteUser(String id) {
     User? user = findUser(id);
     if (user == null) return;

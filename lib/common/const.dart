@@ -46,6 +46,17 @@ const Languages = [
   },
 ];
 
+class MsgType {
+  static const TEXT = 0;
+  static const IMAGE = 1;
+  static const FILE = 2;
+}
+class MsgStatus {
+  static const SENDING = 0;
+  static const SENDED = 1;
+  static const READED = 2;
+  static const WITHDRAW = 3;
+}
 class ThemeModeMap {
   // static const SYSTEM = 'System';
   static const DARK = 'Dark';

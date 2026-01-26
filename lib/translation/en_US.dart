@@ -35,4 +35,8 @@ final Map<String, String> en_US = {
   'oldPassword': "Old Password",
   'newPassword': "New Password",
   'oldPasswordError': "Old Password Error",
+  'rename': "Rename",
+  'delete': 'Delete',
+  'confirm': 'Confirm',
+  'confirmDeleteTheContact': "Confirm Delete the Contact?",
 };

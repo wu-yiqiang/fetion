@@ -1,6 +1,8 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/db/models/user.model.dart';
 import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/contact/widgets/DeleteDialog.dart';
+import 'package:fetion/pages/desktop/contact/widgets/RenameDialog.dart';
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -8,9 +10,7 @@ import 'package:get/get.dart';
 
 class Person extends StatefulWidget {
   final User item;
-
   const Person(this.item, {super.key});
-
   @override
   State<Person> createState() => _Person();
 }
@@ -20,7 +20,7 @@ class _Person extends State<Person> {
   late UserController userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
-    final theme = FluentTheme.of(context); 
+    final theme = FluentTheme.of(context);
     return FlyoutTarget(
       controller: menuController,
       child: Obx(() {
@@ -65,30 +65,31 @@ class _Person extends State<Person> {
                 builder: (context) {
                   return MenuFlyout(
                     items: [
-                      // MenuFlyoutItem(
-                      //   leading: const WindowsIcon(WindowsIcons.share),
-                      //   text: const Text('Share'),
-                      //   onPressed: Flyout.of(context).close,
-                      // ),
-                      // MenuFlyoutItem(
-                      //   leading: const WindowsIcon(WindowsIcons.copy),
-                      //   text: const Text('Copy'),
-                      //   onPressed: Flyout.of(context).close,
-                      // ),
                       MenuFlyoutItem(
-                        leading: const WindowsIcon(WindowsIcons.delete),
-                        text: const Text('Delete'),
-                        onPressed: Flyout.of(context).close,
+                        leading: WindowsIcon(WindowsIcons.rename),
+                        text: Text('rename'.tr),
+                        onPressed: () {
+                          RenameDialog(
+                            context,
+                            widget.item.remarks,
+                            widget.item.id,
+                            menuController,
+                          );
+                        },
+                      ),
+                      MenuFlyoutItem(
+                        leading: WindowsIcon(WindowsIcons.delete),
+                        text: Text('delete'.tr),
+                        onPressed: () {
+                          DeleteDialog(context, widget.item.id, menuController);
+                        },
                       ),
                       const MenuFlyoutSeparator(),
                       MenuFlyoutItem(
-                        text: const Text('Rename'),
+                        leading: WindowsIcon(WindowsIcons.group_list),
+                        text: Text('Sort'),
                         onPressed: Flyout.of(context).close,
                       ),
-                      // MenuFlyoutItem(
-                      //   text: const Text('Select'),
-                      //   onPressed: Flyout.of(context).close,
-                      // ),
                     ],
                   );
                 },

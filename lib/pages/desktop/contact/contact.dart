@@ -36,7 +36,7 @@ class _ContactBar extends State<ContactBar> {
           } else {
             return Expanded(
               child: Center(
-                child: const WindowsIcon(FluentIcons.database_block, size: 60),
+                child: const WindowsIcon(WindowsIcons.unknown, size: 60),
               ),
             );
           }

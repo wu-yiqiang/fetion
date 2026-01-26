@@ -14,7 +14,6 @@ class _Persons extends State<Persons> {
   late UserController userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
-    print(userController.users);
     return ScrollViews(
       child: SingleChildScrollView(
         child: Obx(() {

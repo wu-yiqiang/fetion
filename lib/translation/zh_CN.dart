@@ -35,4 +35,8 @@ final Map<String, String> zh_CN = {
   'oldPassword': "旧密码",
   'newPassword': "新密码",
   'oldPasswordError': "旧密码错误",
+  'rename': "重命名",
+  'delete': '删除',
+  'confirm': '确认',
+  'confirmDeleteTheContact': "确认删除该联系人吗?",
 };
