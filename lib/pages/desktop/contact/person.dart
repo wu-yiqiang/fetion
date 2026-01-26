@@ -65,16 +65,16 @@ class _Person extends State<Person> {
                 builder: (context) {
                   return MenuFlyout(
                     items: [
-                      MenuFlyoutItem(
-                        leading: const WindowsIcon(WindowsIcons.share),
-                        text: const Text('Share'),
-                        onPressed: Flyout.of(context).close,
-                      ),
-                      MenuFlyoutItem(
-                        leading: const WindowsIcon(WindowsIcons.copy),
-                        text: const Text('Copy'),
-                        onPressed: Flyout.of(context).close,
-                      ),
+                      // MenuFlyoutItem(
+                      //   leading: const WindowsIcon(WindowsIcons.share),
+                      //   text: const Text('Share'),
+                      //   onPressed: Flyout.of(context).close,
+                      // ),
+                      // MenuFlyoutItem(
+                      //   leading: const WindowsIcon(WindowsIcons.copy),
+                      //   text: const Text('Copy'),
+                      //   onPressed: Flyout.of(context).close,
+                      // ),
                       MenuFlyoutItem(
                         leading: const WindowsIcon(WindowsIcons.delete),
                         text: const Text('Delete'),
@@ -85,10 +85,10 @@ class _Person extends State<Person> {
                         text: const Text('Rename'),
                         onPressed: Flyout.of(context).close,
                       ),
-                      MenuFlyoutItem(
-                        text: const Text('Select'),
-                        onPressed: Flyout.of(context).close,
-                      ),
+                      // MenuFlyoutItem(
+                      //   text: const Text('Select'),
+                      //   onPressed: Flyout.of(context).close,
+                      // ),
                     ],
                   );
                 },

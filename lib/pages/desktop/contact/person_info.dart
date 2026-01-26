@@ -53,7 +53,6 @@ class _PersonInfo extends State<PersonInfo> {
                 ReadonlyInfoItem(
                   'Gender',
                   userController.user.value?.gender ?? '',
-                  hasBorder: false,
                 ),
                 ReadonlyInfoItem(
                   'Age',
@@ -66,7 +65,6 @@ class _PersonInfo extends State<PersonInfo> {
                 ReadonlyInfoItem(
                   'Address',
                   userController.user.value?.address ?? '',
-                  hasBorder: false,
                 ),
                 ReadonlyInfoItem(
                   'Slogan',
