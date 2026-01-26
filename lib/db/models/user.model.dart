@@ -19,4 +19,5 @@ class _User {
   bool? status;
   String? slogan;
   String? employeeId;
+  String? remarks;
 }

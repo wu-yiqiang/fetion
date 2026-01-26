@@ -19,4 +19,18 @@ class _Setting {
   late int fontSize;
   late bool locked;
   late String password;
+  late String nickName;
+  late bool isDeleted;
+  String? fullName;
+  String? avatar;
+  int? age;
+  String? gender;
+  String? phone;
+  String? email;
+  String? address;
+  String? department;
+  String? position;
+  bool? status;
+  String? slogan;
+  String? employeeId;
 }

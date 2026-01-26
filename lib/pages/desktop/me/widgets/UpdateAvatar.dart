@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:fetion/common/light-theme.dart';
-import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/utils/utils.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
@@ -15,7 +15,7 @@ class UpdateAvatar extends StatefulWidget {
 }
 
 class _UpdateAvatar extends State<UpdateAvatar> {
-  final MeController meController = Get.put(MeController());
+  final SettingController settingController = Get.put(SettingController());
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,10 @@ class _UpdateAvatar extends State<UpdateAvatar> {
       child: Stack(
         children: [
           Obx(() {
-            return Avatar(size: 100, image: meController.user.value.avatar!);
+            return Avatar(
+              size: 100,
+              image: settingController.setting.value.avatar!,
+            );
           }),
           Positioned(
             child: MouseRegions(
@@ -42,7 +45,7 @@ class _UpdateAvatar extends State<UpdateAvatar> {
                   File file = File(result.files.single.path!);
                   String path = file.path;
                   String base64Data = await fileToBase64(path);
-                  meController.updateMeUser('avatar', base64Data);
+                  settingController.updateSetting('avatar', base64Data);
                 }
               },
             ),

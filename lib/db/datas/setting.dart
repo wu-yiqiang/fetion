@@ -26,7 +26,21 @@ class SettingRepository {
       setting.theme,
       setting.fontSize,
       setting.locked,
-      setting.password
+      setting.password,
+      setting.nickName,
+      setting.isDeleted,
+      fullName: setting?.fullName ?? '',
+      avatar: setting?.avatar ?? '',
+      age: setting?.age ?? 0,
+      gender: setting?.gender ?? '',
+      phone: setting?.phone ?? '',
+      email: setting?.email ?? '',
+      address: setting?.address ?? '',
+      department: setting?.department ?? '',
+      position: setting?.position ?? '',
+      status: setting?.status ?? true,
+      slogan: setting?.slogan ?? '',
+      employeeId: setting?.employeeId ?? '',
     );
     return settings;
   }
@@ -55,6 +69,16 @@ class SettingRepository {
         if (key == 'fontSize') setting.fontSize = value;
         if (key == 'locked') setting.locked = value;
         if (key == 'password') setting.password = value;
+        if (key == 'nickName') setting.nickName = value;
+        if (key == 'fullName') setting.fullName = value;
+        if (key == 'age') setting.age = value;
+        if (key == 'email') setting.email = value;
+        if (key == 'phone') setting.phone = value;
+        if (key == 'slogan') setting.slogan = value;
+        if (key == 'department') setting.department = value;
+        if (key == 'position') setting.position = value;
+        if (key == 'age') setting.age = value;
+        if (key == 'avatar') setting.avatar = value;
       }
     });
   }

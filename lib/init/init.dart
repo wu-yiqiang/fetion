@@ -1,6 +1,5 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/init/setting.dart';
-import 'package:fetion/init/user.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -24,6 +23,5 @@ windowInit() async {
 
 initStart() async {
   await initSetting();
-  await initUser();
   await windowInit();
 }

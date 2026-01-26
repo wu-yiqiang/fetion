@@ -1,10 +1,10 @@
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:fetion/widgets/Texts.dart';
-import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:get/get.dart';
 
 void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'}) async {
-  final MeController meController = Get.put(MeController());
+  final SettingController settingController = Get.put(SettingController());
   final TextEditingController textController = TextEditingController(
     text: text,
   );
@@ -43,7 +43,7 @@ void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'
         FilledButton(
           child: Texts(text: 'save'.tr, fontSize: 14),
           onPressed: () {
-            meController.updateMeUser(key, textController.text);
+            settingController.updateSetting(key, textController.text);
             Navigator.pop(context);
           },
         ),

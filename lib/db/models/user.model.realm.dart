@@ -26,6 +26,7 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     bool? status,
     String? slogan,
     String? employeeId,
+    String? remarks,
   }) {
     RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'nickName', nickName);
@@ -42,6 +43,7 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     RealmObjectBase.set(this, 'status', status);
     RealmObjectBase.set(this, 'slogan', slogan);
     RealmObjectBase.set(this, 'employeeId', employeeId);
+    RealmObjectBase.set(this, 'remarks', remarks);
   }
 
   User._();
@@ -130,6 +132,12 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       RealmObjectBase.set(this, 'employeeId', value);
 
   @override
+  String? get remarks =>
+      RealmObjectBase.get<String>(this, 'remarks') as String?;
+  @override
+  set remarks(String? value) => RealmObjectBase.set(this, 'remarks', value);
+
+  @override
   Stream<RealmObjectChanges<User>> get changes =>
       RealmObjectBase.getChanges<User>(this);
 
@@ -157,6 +165,7 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       'status': status.toEJson(),
       'slogan': slogan.toEJson(),
       'employeeId': employeeId.toEJson(),
+      'remarks': remarks.toEJson(),
     };
   }
 
@@ -185,6 +194,7 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
           status: fromEJson(ejson['status']),
           slogan: fromEJson(ejson['slogan']),
           employeeId: fromEJson(ejson['employeeId']),
+          remarks: fromEJson(ejson['remarks']),
         ),
       _ => raiseInvalidEJson(ejson),
     };
@@ -209,6 +219,7 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       SchemaProperty('status', RealmPropertyType.bool, optional: true),
       SchemaProperty('slogan', RealmPropertyType.string, optional: true),
       SchemaProperty('employeeId', RealmPropertyType.string, optional: true),
+      SchemaProperty('remarks', RealmPropertyType.string, optional: true),
     ]);
   }();
 

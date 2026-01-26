@@ -85,6 +85,7 @@ class UserRepository {
         if (key == 'position') user.position = value;
         if (key == 'age') user.age = value;
         if (key == 'avatar') user.avatar = value;
+        if (key == 'remarks') user.remarks = value;
       }
     });
   }

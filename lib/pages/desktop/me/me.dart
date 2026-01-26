@@ -1,3 +1,4 @@
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/me/widgets/InfoItem.dart';
 import 'package:fetion/pages/desktop/me/widgets/UpdateAvatar.dart';
 import 'package:fetion/pages/desktop/me/widgets/UserInfoModal.dart';
@@ -7,7 +8,6 @@ import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 
 class MePage extends StatefulWidget {
   const MePage({super.key});
@@ -16,7 +16,7 @@ class MePage extends StatefulWidget {
 }
 
 class _MePage extends State<MePage> {
-  late MeController meController = Get.put(MeController());
+  late SettingController settingController = Get.put(SettingController());
   @override
   void initState() {
     super.initState();
@@ -37,12 +37,12 @@ class _MePage extends State<MePage> {
                     Obx(() {
                       return InfoItem(
                         'fullName'.tr,
-                        meController.user.value.fullName,
+                        settingController.setting.value.fullName,
                         () {
                           userInfoModal(
                             context,
                             'fullName',
-                            meController.user.value.fullName ?? '',
+                            settingController.setting.value.fullName ?? '',
                             title: 'fullName'.tr,
                           );
                         },
@@ -51,12 +51,12 @@ class _MePage extends State<MePage> {
                     Obx(() {
                       return InfoItem(
                         'nickName'.tr,
-                        meController.user.value.nickName,
+                        settingController.setting.value.nickName,
                         () {
                           userInfoModal(
                             context,
                             'nickName',
-                            meController.user.value.nickName ?? '',
+                            settingController.setting.value.nickName ?? '',
                             title: 'nickName'.tr,
                           );
                         },
@@ -65,12 +65,12 @@ class _MePage extends State<MePage> {
                     Obx(() {
                       return InfoItem(
                         'age'.tr,
-                        meController.user.value.age.toString(),
+                        settingController.setting.value.age.toString(),
                         () {
                           userInfoNumberModal(
                             context,
                             'age',
-                            meController.user.value.age ?? 0,
+                            settingController.setting.value.age ?? 0,
                             title: 'age'.tr,
                           );
                         },
@@ -79,12 +79,12 @@ class _MePage extends State<MePage> {
                     Obx(() {
                       return InfoItem(
                         'email'.tr,
-                        meController.user.value.email,
+                        settingController.setting.value.email,
                         () {
                           userInfoModal(
                             context,
                             'email',
-                            meController.user.value.email ?? '',
+                            settingController.setting.value.email ?? '',
                             title: 'email'.tr,
                           );
                         },
@@ -93,12 +93,12 @@ class _MePage extends State<MePage> {
                     Obx(() {
                       return InfoItem(
                         'phone'.tr,
-                        meController.user.value.phone,
+                        settingController.setting.value.phone,
                         () {
                           userInfoModal(
                             context,
                             'phone',
-                            meController.user.value.phone ?? '',
+                            settingController.setting.value.phone ?? '',
                             title: 'phone'.tr,
                           );
                         },
@@ -107,12 +107,12 @@ class _MePage extends State<MePage> {
                     Obx(() {
                       return InfoItem(
                         'slogan'.tr,
-                        meController.user.value.slogan,
+                        settingController.setting.value.slogan,
                         () {
                           userInfoModal(
                             context,
                             'slogan',
-                            meController.user.value.slogan ?? '',
+                            settingController.setting.value.slogan ?? '',
                             title: 'slogan'.tr,
                           );
                         },
@@ -121,12 +121,12 @@ class _MePage extends State<MePage> {
                     Obx(() {
                       return InfoItem(
                         'department'.tr,
-                        meController.user.value.department,
+                        settingController.setting.value.department,
                         () {
                           userInfoModal(
                             context,
                             'department',
-                            meController.user.value.department ?? '',
+                            settingController.setting.value.department ?? '',
                             title: 'department'.tr,
                           );
                         },
@@ -135,12 +135,12 @@ class _MePage extends State<MePage> {
                     Obx(() {
                       return InfoItem(
                         'position'.tr,
-                        meController.user.value.position,
+                        settingController.setting.value.position,
                         () {
                           userInfoModal(
                             context,
                             'position',
-                            meController.user.value.position ?? '',
+                            settingController.setting.value.position ?? '',
                             title: 'position'.tr,
                           );
                         },

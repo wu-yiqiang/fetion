@@ -9,6 +9,7 @@ import 'package:fetion/db/realmInstance.dart';
 
 class SettingController extends GetxController {
   late SettingRepository _settingRepository;
+  final random = Random();
   late Rx<Setting> setting = Setting(
     SettingId,
     '',
@@ -25,6 +26,9 @@ class SettingController extends GetxController {
     DefaultFontSize,
     false,
     DefaultPassword,
+    '',
+    false,
+    avatar: DefaultAvatar,
   ).obs;
 
   initDb() async {
@@ -56,7 +60,7 @@ class SettingController extends GetxController {
       ipv4,
       ipv6,
       macAddr,
-      '255.255.255.250',
+      DefaultMaskCode,
       LanguageMap.ENGLISH,
       LanguageEnTypeMap.TYPE,
       LanguageEnTypeMap.COUNTRY,
@@ -64,6 +68,9 @@ class SettingController extends GetxController {
       DefaultFontSize,
       false,
       DefaultPassword,
+      NickNamePrefix + NumberStr,
+      false,
+      avatar: DefaultAvatar,
     );
     initSettings(setting);
   }

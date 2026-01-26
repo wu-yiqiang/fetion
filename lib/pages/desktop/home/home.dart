@@ -3,7 +3,6 @@ import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/contact/contact.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
-import 'package:fetion/pages/desktop/me/controller/me_controller.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
 import 'package:fetion/pages/desktop/setting/setting.dart';
@@ -20,7 +19,7 @@ class NavigationBodyItem extends StatelessWidget {
   @override
   Widget build(context) {
     return ScaffoldPage.withPadding(
-      header: PageHeader(title: Texts(text: header ?? 'Header', fontSize: 24)),
+      header: PageHeader(title: Texts(text: header ?? '', fontSize: 24)),
       content: content,
     );
   }
@@ -28,13 +27,11 @@ class NavigationBodyItem extends StatelessWidget {
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final MeController meController = Get.put(MeController());
   final SettingController settingController = Get.put(SettingController());
   int topIndex = 0;
 
@@ -111,7 +108,9 @@ class _HomePageState extends State<HomePage> {
           children: [
             Flexible(
               child: Obx(() {
-                return StatusAvatar(image: meController.user.value.avatar!);
+                return StatusAvatar(
+                  image: settingController.setting.value.avatar ?? '',
+                );
               }),
             ),
             Expanded(
@@ -122,25 +121,23 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Obx(() {
                       return Text(
-                        meController.user.value.nickName,
+                        settingController.setting.value.nickName,
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
                         ),
                         overflow: TextOverflow.ellipsis,
-
                       );
                     }),
                     Obx(() {
                       return Text(
-                        meController.user.value.slogan ?? '',
+                        settingController.setting.value?.slogan ?? '',
                         style: TextStyle(
                           fontSize: 12,
                           color: gray,
                           fontWeight: FontWeight.w400,
                         ),
                         overflow: TextOverflow.ellipsis,
-
                       );
                     }),
                   ],
