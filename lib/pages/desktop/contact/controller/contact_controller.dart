@@ -9,6 +9,7 @@ class UserController extends GetxController {
   RxString userId = "".obs;
   RxString sessionId = "".obs;
   late Rx<User?> user = User('', '', false).obs;
+  late Rx<User?> session = User('', '', false).obs;
   initDb() async {
     final realmInstance = await RealmInstance.getInstance();
     _userRepository = UserRepository(realmInstance);
@@ -29,6 +30,9 @@ class UserController extends GetxController {
 
   getUserInfo(String id) {
     user.value = _userRepository.findUser(id);
+  }
+  getSessionInfo(String id) {
+    session.value = _userRepository.findUser(id);
   }
   renameUser(String userId, String value) {
     _userRepository.updateUserItem(userId, 'remarks', value);

@@ -18,6 +18,11 @@ const String OpenSourceAddr = 'https://github.com/wu-yiqiang/fetion';
 const String IssuesAddr = 'https://github.com/wu-yiqiang/fetion/issues';
 const String DefaultPassword = '1234@Abcd';
 
+class ChatType {
+  static const ME = 'me';
+  static const OTHER = 'other';
+}
+
 class LanguageMap {
   static const ENGLISH = 'English';
   static const SIMPLECHINESE = '简体中文';

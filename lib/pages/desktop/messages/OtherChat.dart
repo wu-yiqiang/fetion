@@ -6,13 +6,13 @@ import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 
-class AiChat extends StatefulWidget {
-  AiChat({super.key, required this.item});
+class OtherChat extends StatefulWidget {
+  OtherChat({super.key, required this.item});
   final Map item;
-  State<AiChat> createState() => _AiChat();
+  State<OtherChat> createState() => _OtherChat();
 }
 
-class _AiChat extends State<AiChat> {
+class _OtherChat extends State<OtherChat> {
   @override
   Widget build(BuildContext context) {
     return Flex(

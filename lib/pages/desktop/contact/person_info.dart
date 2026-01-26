@@ -93,8 +93,9 @@ class _PersonInfo extends State<PersonInfo> {
                     icon: WindowsIcons.message,
                     size: 30,
                     onTap: () {
-                      userController.sessionId.value =
-                          userController.user.value?.id ?? '';
+                      final userId = userController.user.value?.id ?? '';
+                      userController.sessionId.value = userId;
+                      userController.getSessionInfo(userId);
                     },
                   ),
                   Texts(text: "Message"),
