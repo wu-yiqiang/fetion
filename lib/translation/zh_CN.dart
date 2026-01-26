@@ -11,6 +11,7 @@ final Map<String, String> zh_CN = {
   'email': "邮箱",
   'phone': "电话",
   'address': "地址",
+  'gender': "性别",
   'slogan': "签名",
   'department': "部门",
   'position': "岗位",

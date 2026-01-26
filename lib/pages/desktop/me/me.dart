@@ -62,50 +62,80 @@ class _MePage extends State<MePage> {
                         },
                       );
                     }),
-                    Obx(() {
-                      return InfoItem(
-                        'age'.tr,
-                        settingController.setting.value.age.toString(),
-                        () {
-                          userInfoNumberModal(
-                            context,
-                            'age',
-                            settingController.setting.value.age ?? 0,
-                            title: 'age'.tr,
-                          );
-                        },
-                      );
-                    }),
-                    Obx(() {
-                      return InfoItem(
-                        'email'.tr,
-                        settingController.setting.value.email,
-                        () {
-                          userInfoModal(
-                            context,
-                            'email',
-                            settingController.setting.value.email ?? '',
-                            title: 'email'.tr,
-                          );
-                        },
-                      );
-                    }),
-                    Obx(() {
-                      return InfoItem(
-                        'phone'.tr,
-                        settingController.setting.value.phone,
-                        () {
-                          userInfoModal(
-                            context,
-                            'phone',
-                            settingController.setting.value.phone ?? '',
-                            title: 'phone'.tr,
-                          );
-                        },
-                      );
-                    }),
-                    Obx(() {
-                      return InfoItem(
+                  Obx(() {
+                    return InfoItem(
+                      'email'.tr,
+                      settingController.setting.value.email,
+                      () {
+                        userInfoModal(
+                          context,
+                          'email',
+                          settingController.setting.value.email ?? '',
+                          title: 'email'.tr,
+                        );
+                      },
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'gender'.tr,
+                      settingController.setting.value.gender,
+                      () {
+                        userInfoModal(
+                          context,
+                          'gender',
+                          settingController.setting.value.gender ?? '',
+                          title: 'gender'.tr,
+                        );
+                      },
+                    );
+                  }),
+              
+                  
+                  Obx(() {
+                    return InfoItem(
+                      'age'.tr,
+                      settingController.setting.value.age.toString(),
+                      () {
+                        userInfoNumberModal(
+                          context,
+                          'age',
+                          settingController.setting.value.age ?? 0,
+                          title: 'age'.tr,
+                        );
+                      },
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'phone'.tr,
+                      settingController.setting.value.phone,
+                      () {
+                        userInfoModal(
+                          context,
+                          'phone',
+                          settingController.setting.value.phone ?? '',
+                          title: 'phone'.tr,
+                        );
+                      },
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
+                      'address'.tr,
+                      settingController.setting.value.address,
+                      () {
+                        userInfoModal(
+                          context,
+                          'address',
+                          settingController.setting.value.address ?? '',
+                          title: 'address'.tr,
+                        );
+                      },
+                    );
+                  }),
+                  Obx(() {
+                    return InfoItem(
                         'slogan'.tr,
                         settingController.setting.value.slogan,
                         () {

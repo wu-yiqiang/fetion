@@ -2,7 +2,6 @@ import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/widgets/MouseRegions.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class InfoItem extends StatefulWidget {
   const InfoItem(

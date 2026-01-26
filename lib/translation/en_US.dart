@@ -11,6 +11,7 @@ final Map<String, String> en_US = {
   'email': "Email",
   'phone': "Phone",
   'address': "Address",
+  'gender': "Gender",
   'slogan': "Slogan",
   'department': "Department",
   'position': "Postion",

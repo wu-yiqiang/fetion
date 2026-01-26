@@ -79,6 +79,8 @@ class SettingRepository {
         if (key == 'position') setting.position = value;
         if (key == 'age') setting.age = value;
         if (key == 'avatar') setting.avatar = value;
+        if (key == 'address') setting.address = value;
+        if (key == 'gender') setting.gender = value;
       }
     });
   }
