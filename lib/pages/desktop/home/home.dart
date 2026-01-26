@@ -99,7 +99,9 @@ class _HomePageState extends State<HomePage> {
     return NavigationView(
       pane: NavigationPane(
         selected: topIndex,
-        onChanged: (index) => setState(() => topIndex = index),
+        onChanged: (index) {
+          setState(() => topIndex = index);
+        },
         displayMode: PaneDisplayMode.compact,
         items: items,
         size: NavigationPaneSize(openWidth: 250),

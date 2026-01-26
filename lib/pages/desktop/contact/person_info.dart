@@ -27,7 +27,12 @@ class _PersonInfo extends State<PersonInfo> {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Avatar(size: 80, image: DefaultAvatar)],
+            children: [
+              Avatar(
+                size: 80,
+                image: userController.user.value?.avatar ?? DefaultAvatar,
+              ),
+            ],
           ),
           RowItem(
             child: Flex(
