@@ -42,16 +42,21 @@ class _PersonInfo extends State<PersonInfo> {
                   userController.user.value?.nickName ?? '',
                 ),
                 ReadonlyInfoItem(
-                  'Age',
-                  userController.user.value?.age.toString() ?? '',
-                ),
-                ReadonlyInfoItem(
                   'Email',
                   userController.user.value?.email ?? '',
                 ),
                 ReadonlyInfoItem(
+                  'Age',
+                  userController.user.value?.age.toString() ?? '',
+                ),
+                ReadonlyInfoItem(
                   'Phone',
                   userController.user.value?.phone ?? '',
+                ),
+                ReadonlyInfoItem(
+                  'Address',
+                  userController.user.value?.address ?? '',
+                  hasBorder: false,
                 ),
                 ReadonlyInfoItem(
                   'Slogan',

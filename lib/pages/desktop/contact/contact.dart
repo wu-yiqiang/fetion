@@ -5,7 +5,6 @@ import 'package:fetion/pages/desktop/contact/persons.dart';
 import 'package:fetion/pages/desktop/contact/person_box.dart' show PersonBox;
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class ContactBar extends StatefulWidget {
   const ContactBar({super.key});
@@ -35,7 +34,11 @@ class _ContactBar extends State<ContactBar> {
           if (userId.isNotEmpty) {
             return Expanded(child: PersonInfo(userId));
           } else {
-            return Expanded(child: Text("kong"));
+            return Expanded(
+              child: Center(
+                child: const WindowsIcon(FluentIcons.database_block, size: 60),
+              ),
+            );
           }
         }),
       ],

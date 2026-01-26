@@ -10,6 +10,7 @@ final Map<String, String> en_US = {
   'age': "Age",
   'email': "Email",
   'phone': "Phone",
+  'address': "Address",
   'slogan': "Slogan",
   'department': "Department",
   'position': "Postion",
