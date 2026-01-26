@@ -32,6 +32,7 @@ class _Person extends State<Person> {
           child: GestureDetector(
             onTap: () {
               userController.userId.value = widget.item.id;
+              userController.sessionId.value = '';
             },
             child: MouseRegion(
               cursor: SystemMouseCursors.click,

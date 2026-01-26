@@ -1,4 +1,5 @@
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/db/models/message.model.dart';
 import 'package:fetion/pages/desktop/messages/widges/ChatBox.dart' show ChatBox;
 import 'package:fetion/pages/desktop/messages/widges/TimeStamps.dart'
     show TimeStamps;
@@ -8,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class OtherChat extends StatefulWidget {
   OtherChat({super.key, required this.item});
-  final Map item;
+  final Message item;
   State<OtherChat> createState() => _OtherChat();
 }
 
@@ -21,15 +22,15 @@ class _OtherChat extends State<OtherChat> {
       direction: Axis.horizontal,
       spacing: 10,
       children: [
-        Avatar(image: widget.item['avatar'], size: 30),
+        // Avatar(image: widget.item, size: 30),
         Expanded(
           flex: 8,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TimeStamps(timeStamp: widget.item['time']),
+              TimeStamps(timeStamp: widget.item.createTime),
               ChatBox(
-                text: widget.item['text'],
+                text: widget.item.content,
                 fontColor: white,
                 backgroundColor: primaryColor,
               ),

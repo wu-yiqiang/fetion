@@ -1,4 +1,5 @@
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/db/models/message.model.dart';
 import 'package:fetion/pages/desktop/messages/widges/ChatBox.dart';
 import 'package:fetion/pages/desktop/messages/widges/TimeStamps.dart';
 import 'package:fetion/widgets/Avatar.dart';
@@ -7,7 +8,7 @@ import 'package:flutter/material.dart';
 
 class MeChat extends StatefulWidget {
   MeChat({super.key, required this.item});
-  final Map item;
+  final Message item;
   State<MeChat> createState() => _MeChat();
 }
 
@@ -26,16 +27,16 @@ class _MeChat extends State<MeChat> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              TimeStamps(timeStamp: widget.item['time']),
+              TimeStamps(timeStamp: widget.item.createTime),
               ChatBox(
-                text: widget.item['text'],
+                text: widget.item.content,
                 fontColor: white,
                 backgroundColor: primaryColor,
               ),
             ],
           ),
         ),
-        Avatar(image: widget.item['avatar'], size: 30),
+        // Avatar(image: widget.item['avatar'], size: 30),
       ],
     );
   }

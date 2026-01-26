@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 class SingleDialog extends StatefulWidget {
   final String userId;
-
   const SingleDialog(this.userId, {super.key});
   @override
   State<SingleDialog> createState() => _SingleDialog();

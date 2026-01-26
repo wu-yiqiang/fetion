@@ -41,7 +41,7 @@ class _ContactBar extends State<ContactBar> {
           if (sessionId.isNotEmpty &&
               userId.isNotEmpty &&
               userId == sessionId) {
-            return Expanded(child: SingleDialog(userId));
+            return Expanded(child: SingleDialog(userId, key: Key(userId)));
           } else if (userId.isNotEmpty) {
             return Expanded(child: PersonInfo(userId));
           } else {

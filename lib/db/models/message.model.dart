@@ -5,7 +5,8 @@ part 'message.model.realm.dart';
 class _Message {
   @PrimaryKey()
   late String id;
-  late String userId;
+  late String fromUserId;
+  late String toUserId;
   late bool isDeleted;
   late String content;
   late int msgType; // 0: 文本消息 1: 图片 2:文件

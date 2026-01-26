@@ -12,7 +12,8 @@ part of 'message.model.dart';
 class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
   Message(
     String id,
-    String userId,
+    String fromUserId,
+    String toUserId,
     bool isDeleted,
     String content,
     int msgType,
@@ -20,7 +21,8 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
     String createTime,
   ) {
     RealmObjectBase.set(this, 'id', id);
-    RealmObjectBase.set(this, 'userId', userId);
+    RealmObjectBase.set(this, 'fromUserId', fromUserId);
+    RealmObjectBase.set(this, 'toUserId', toUserId);
     RealmObjectBase.set(this, 'isDeleted', isDeleted);
     RealmObjectBase.set(this, 'content', content);
     RealmObjectBase.set(this, 'msgType', msgType);
@@ -36,9 +38,17 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
   set id(String value) => RealmObjectBase.set(this, 'id', value);
 
   @override
-  String get userId => RealmObjectBase.get<String>(this, 'userId') as String;
+  String get fromUserId =>
+      RealmObjectBase.get<String>(this, 'fromUserId') as String;
   @override
-  set userId(String value) => RealmObjectBase.set(this, 'userId', value);
+  set fromUserId(String value) =>
+      RealmObjectBase.set(this, 'fromUserId', value);
+
+  @override
+  String get toUserId =>
+      RealmObjectBase.get<String>(this, 'toUserId') as String;
+  @override
+  set toUserId(String value) => RealmObjectBase.set(this, 'toUserId', value);
 
   @override
   bool get isDeleted => RealmObjectBase.get<bool>(this, 'isDeleted') as bool;
@@ -81,7 +91,8 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
   EJsonValue toEJson() {
     return <String, dynamic>{
       'id': id.toEJson(),
-      'userId': userId.toEJson(),
+      'fromUserId': fromUserId.toEJson(),
+      'toUserId': toUserId.toEJson(),
       'isDeleted': isDeleted.toEJson(),
       'content': content.toEJson(),
       'msgType': msgType.toEJson(),
@@ -96,7 +107,8 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
     return switch (ejson) {
       {
         'id': EJsonValue id,
-        'userId': EJsonValue userId,
+        'fromUserId': EJsonValue fromUserId,
+        'toUserId': EJsonValue toUserId,
         'isDeleted': EJsonValue isDeleted,
         'content': EJsonValue content,
         'msgType': EJsonValue msgType,
@@ -105,7 +117,8 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
       } =>
         Message(
           fromEJson(id),
-          fromEJson(userId),
+          fromEJson(fromUserId),
+          fromEJson(toUserId),
           fromEJson(isDeleted),
           fromEJson(content),
           fromEJson(msgType),
@@ -121,7 +134,8 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
     register(_toEJson, _fromEJson);
     return const SchemaObject(ObjectType.realmObject, Message, 'Message', [
       SchemaProperty('id', RealmPropertyType.string, primaryKey: true),
-      SchemaProperty('userId', RealmPropertyType.string),
+      SchemaProperty('fromUserId', RealmPropertyType.string),
+      SchemaProperty('toUserId', RealmPropertyType.string),
       SchemaProperty('isDeleted', RealmPropertyType.bool),
       SchemaProperty('content', RealmPropertyType.string),
       SchemaProperty('msgType', RealmPropertyType.int),
