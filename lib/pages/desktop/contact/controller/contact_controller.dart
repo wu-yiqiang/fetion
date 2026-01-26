@@ -7,6 +7,7 @@ class UserController extends GetxController {
   late UserRepository _userRepository;
   late RxList<dynamic> users = [].obs;
   RxString userId = "".obs;
+  RxString sessionId = "".obs;
   late Rx<User?> user = User('', '', false).obs;
   initDb() async {
     final realmInstance = await RealmInstance.getInstance();

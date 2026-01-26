@@ -4,7 +4,9 @@ import 'package:fetion/pages/desktop/messages/single_topbar.dart';
 import 'package:flutter/material.dart';
 
 class SingleDialog extends StatefulWidget {
-  const SingleDialog({super.key});
+  final String userId;
+
+  const SingleDialog(this.userId, {super.key});
   @override
   State<SingleDialog> createState() => _SingleDialog();
 }

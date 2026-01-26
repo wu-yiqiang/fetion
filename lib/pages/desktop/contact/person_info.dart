@@ -92,7 +92,10 @@ class _PersonInfo extends State<PersonInfo> {
                   FluentIcon(
                     icon: WindowsIcons.message,
                     size: 30,
-                    onTap: () {},
+                    onTap: () {
+                      userController.sessionId.value =
+                          userController.user.value?.id ?? '';
+                    },
                   ),
                   Texts(text: "Message"),
                 ],
@@ -107,13 +110,7 @@ class _PersonInfo extends State<PersonInfo> {
               Column(
                 spacing: 8,
                 children: [
-                  FluentIcon(
-                    icon: WindowsIcons.video,
-                    size: 30,
-                    onTap: () {
-                      // return Toast(InfoBarSeverity.error, 'sdsds');
-                    },
-                  ),
+                  FluentIcon(icon: WindowsIcons.video, size: 30, onTap: () {}),
                   Texts(text: "Video"),
                 ],
               ),

@@ -3,6 +3,7 @@ import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart'
 import 'package:fetion/pages/desktop/contact/person_info.dart';
 import 'package:fetion/pages/desktop/contact/persons.dart';
 import 'package:fetion/pages/desktop/contact/person_box.dart' show PersonBox;
+import 'package:fetion/pages/desktop/messages/single_dialog.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
 
@@ -13,9 +14,14 @@ class ContactBar extends StatefulWidget {
 }
 
 class _ContactBar extends State<ContactBar> {
+  late UserController userController = Get.put(UserController());
+  void dispose() {
+    super.dispose();
+    userController.sessionId.value = '';
+  }
+
   @override
   Widget build(BuildContext context) {
-    late UserController userController = Get.put(UserController());
     final theme = FluentTheme.of(context);
     return Row(
       children: [
@@ -31,7 +37,12 @@ class _ContactBar extends State<ContactBar> {
         ),
         Obx(() {
           final userId = userController.userId.value;
-          if (userId.isNotEmpty) {
+          final sessionId = userController.sessionId.value;
+          if (sessionId.isNotEmpty &&
+              userId.isNotEmpty &&
+              userId == sessionId) {
+            return Expanded(child: SingleDialog(userId));
+          } else if (userId.isNotEmpty) {
             return Expanded(child: PersonInfo(userId));
           } else {
             return Expanded(
