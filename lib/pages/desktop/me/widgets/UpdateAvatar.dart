@@ -33,7 +33,7 @@ class _UpdateAvatar extends State<UpdateAvatar> {
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 3),
                 child: WindowsIcon(WindowsIcons.camera, size: 18),
-                color: White30,
+                color: white200,
               ),
               onPress: () async {
                 FilePickerResult? result = await FilePicker.platform.pickFiles(
