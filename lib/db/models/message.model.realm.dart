@@ -18,7 +18,7 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
     String content,
     int msgType,
     int status,
-    String createTime,
+    int createTime,
   ) {
     RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'fromUserId', fromUserId);
@@ -71,11 +71,9 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
   set status(int value) => RealmObjectBase.set(this, 'status', value);
 
   @override
-  String get createTime =>
-      RealmObjectBase.get<String>(this, 'createTime') as String;
+  int get createTime => RealmObjectBase.get<int>(this, 'createTime') as int;
   @override
-  set createTime(String value) =>
-      RealmObjectBase.set(this, 'createTime', value);
+  set createTime(int value) => RealmObjectBase.set(this, 'createTime', value);
 
   @override
   Stream<RealmObjectChanges<Message>> get changes =>
@@ -140,7 +138,7 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
       SchemaProperty('content', RealmPropertyType.string),
       SchemaProperty('msgType', RealmPropertyType.int),
       SchemaProperty('status', RealmPropertyType.int),
-      SchemaProperty('createTime', RealmPropertyType.string),
+      SchemaProperty('createTime', RealmPropertyType.int),
     ]);
   }();
 

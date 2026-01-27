@@ -1,8 +1,12 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/db/models/message.model.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
+import 'package:fetion/pages/desktop/messages/controller/message_controller.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:get/get.dart';
+import 'package:realm/realm.dart';
 
 class InputDialog extends StatefulWidget {
   final String userId;
@@ -13,7 +17,10 @@ class InputDialog extends StatefulWidget {
 }
 
 class _InputDialog extends State<InputDialog> {
-  Message message;
+  MessageController messageController = Get.put(MessageController());
+  SettingController settingController = Get.put(SettingController());
+  final TextEditingController _controller = TextEditingController();
+  late Message message;
   @override
   Widget build(BuildContext context) {
     final theme = FluentTheme.of(context);
@@ -34,8 +41,12 @@ class _InputDialog extends State<InputDialog> {
             FluentIcon(icon: WindowsIcons.attach, onTap: () {}),
             Expanded(
               child: TextBox(
+                controller: _controller,
                 unfocusedColor: Colors.transparent,
                 highlightColor: Colors.transparent,
+                onSubmitted: (value) {
+                  handleSubmit(widget.userId);
+                },
                 decoration: WidgetStatePropertyAll<BoxDecoration>(
                   BoxDecoration(
                     color: Colors.transparent,
@@ -49,19 +60,11 @@ class _InputDialog extends State<InputDialog> {
               spacing: 8,
               children: [
                 FluentIcon(icon: WindowsIcons.emoji2, onTap: () {}),
+                FluentIcon(icon: WindowsIcons.microphone, onTap: () {}),
                 FluentIcon(
-                  icon: WindowsIcons.microphone,
+                  icon: WindowsIcons.send,
                   onTap: () {
-                    message = Message(
-                      '',
-                      '2323',
-                      'we3',
-                      false,
-                      "q2121",
-                      MsgType.TEXT,
-                      MsgStatus.SENDED,
-                      DateTime.now().millisecondsSinceEpoch
-                    );
+                    handleSubmit(widget.userId);
                   },
                 ),
               ],
@@ -70,5 +73,21 @@ class _InputDialog extends State<InputDialog> {
         ),
       ),
     );
+  }
+
+  handleSubmit(String userId) {
+    message = Message(
+      ObjectId().toString(),
+      settingController.setting.value.userId,
+      userId,
+      false,
+      _controller.text,
+      MsgType.TEXT,
+      MsgStatus.SENDED,
+      DateTime.now().millisecondsSinceEpoch,
+    );
+    messageController.addMessage(message);
+    _controller.text = "";
+    messageController.getMessagePage(userId);
   }
 }

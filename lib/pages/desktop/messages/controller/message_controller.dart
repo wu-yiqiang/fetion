@@ -1,8 +1,7 @@
 import 'package:fetion/db/datas/message.dart';
 import 'package:get/get.dart';
 import 'package:fetion/db/realmInstance.dart';
-
-import '../../../../db/models/message.model.dart';
+import 'package:fetion/db/models/message.model.dart';
 
 class MessageController extends GetxController {
   MessageRepository? _messageRepository;
