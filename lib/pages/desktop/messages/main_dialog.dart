@@ -1,9 +1,9 @@
-import 'package:fetion/db/models/user.model.dart';
 import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/messages/OtherChat.dart';
 import 'package:fetion/pages/desktop/messages/MeChat.dart';
 import 'package:fetion/pages/desktop/messages/controller/message_controller.dart';
+import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,13 +19,28 @@ class _MainDialog extends State<MainDialog> {
   late UserController userController = Get.put(UserController());
   late SettingController settingController = Get.put(SettingController());
   late MessageController messageController;
+  final controller = ScrollController();
+  void scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (controller.hasClients) {
+        controller.jumpTo(controller.position.maxScrollExtent);
+      }
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     messageController = Get.put(MessageController());
-    // messageController.userId.value = userController.sessionId.value;
-    // messageController.getMessagePage(userController.sessionId.value);
+    eventBus.on(Events.SCROLLBOTTOM.name, (value) {
+      scrollToBottom();
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
   }
 
   @override
@@ -35,6 +50,7 @@ class _MainDialog extends State<MainDialog> {
       padding: EdgeInsets.all(10),
       child: ScrollViews(
         child: SingleChildScrollView(
+          controller: controller,
           child: Obx(() {
             return Column(
               spacing: 10,

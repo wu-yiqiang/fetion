@@ -28,7 +28,7 @@ class _OtherChat extends State<OtherChat> {
       direction: Axis.horizontal,
       spacing: 10,
       children: [
-        Avatar(image: user?.avatar, size: 30),
+        Avatar(image: user?.avatar, size: 34),
         Expanded(
           flex: 8,
           child: Column(

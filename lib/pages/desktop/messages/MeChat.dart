@@ -1,7 +1,6 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/db/models/message.model.dart';
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/messages/widges/ChatBox.dart';
 import 'package:fetion/pages/desktop/messages/widges/TimeStamps.dart';
@@ -43,7 +42,7 @@ class _MeChat extends State<MeChat> {
         ),
         Avatar(
           image: settingController.setting.value?.avatar ?? DefaultAvatar,
-          size: 30,
+          size: 34,
         ),
       ],
     );
