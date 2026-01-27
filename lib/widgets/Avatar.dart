@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 Avatar({
   double size = 40,
-  required String image,
+  String? image,
 }) {
   return Container(
     child: SizedBox(
@@ -12,12 +12,12 @@ Avatar({
       child: Align(
         alignment: Alignment.topCenter,
         child: ClipOval(
-          child: Image.memory(
-            base64Decode(image),
+          child: image != null && image!.isNotEmpty ? Image.memory(
+            base64Decode(image!),
             width: size,
             height: size,
             fit: BoxFit.fill,
-          ),
+          ) : null,
         ),
       ),
     ),

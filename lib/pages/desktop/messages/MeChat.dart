@@ -1,10 +1,14 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/db/models/message.model.dart';
+import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/messages/widges/ChatBox.dart';
 import 'package:fetion/pages/desktop/messages/widges/TimeStamps.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MeChat extends StatefulWidget {
   MeChat({super.key, required this.item});
@@ -13,6 +17,7 @@ class MeChat extends StatefulWidget {
 }
 
 class _MeChat extends State<MeChat> {
+  late SettingController settingController = Get.put(SettingController());
   @override
   Widget build(BuildContext context) {
     return Flex(
@@ -36,7 +41,10 @@ class _MeChat extends State<MeChat> {
             ],
           ),
         ),
-        // Avatar(image: widget.item['avatar'], size: 30),
+        Avatar(
+          image: settingController.setting.value?.avatar ?? DefaultAvatar,
+          size: 30,
+        ),
       ],
     );
   }

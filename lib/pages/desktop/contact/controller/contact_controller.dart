@@ -30,6 +30,9 @@ class UserController extends GetxController {
   getUserInfo(String id) {
     user.value = _userRepository.findUser(id);
   }
+  getUser(String id) {
+    return _userRepository.findUser(id);
+  }
   getSessionInfo(String id) {
     session.value = _userRepository.findUser(id);
   }
