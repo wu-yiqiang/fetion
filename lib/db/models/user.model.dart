@@ -6,6 +6,7 @@ class _User {
   @PrimaryKey()
   late String id;
   late String nickName;
+  @Indexed()
   late bool isDeleted;
   String? fullName;
   String? avatar;

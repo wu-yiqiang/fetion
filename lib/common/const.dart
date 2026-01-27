@@ -5,7 +5,7 @@ const SettingId = '22sad1df2rsdf1asda23';
 const NickNamePrefix = ApplicationName + " " + "User";
 const DefaultHostName = "Unknown";
 const DataBaseName = 'Fetion';
-const DataBaseVersion = 17;
+const DataBaseVersion = 18;
 const FontFamilyName = 'AlibabaPuHuiTi';
 const double SecondBarWidth = 240;
 const int DefaultFontSize = 13;
@@ -17,6 +17,8 @@ const String DefaultMaskCode = '255.255.255.250';
 const String OpenSourceAddr = 'https://github.com/wu-yiqiang/fetion';
 const String IssuesAddr = 'https://github.com/wu-yiqiang/fetion/issues';
 const String DefaultPassword = '1234@Abcd';
+const int DefaultPageSize = 20;
+const int DefaultPageNo = 1;
 
 class ChatType {
   static const ME = 'me';
@@ -56,12 +58,14 @@ class MsgType {
   static const IMAGE = 1;
   static const FILE = 2;
 }
+
 class MsgStatus {
   static const SENDING = 0;
   static const SENDED = 1;
   static const READED = 2;
   static const WITHDRAW = 3;
 }
+
 class ThemeModeMap {
   // static const SYSTEM = 'System';
   static const DARK = 'Dark';

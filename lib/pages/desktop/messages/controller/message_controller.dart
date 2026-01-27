@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/db/datas/message.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:get/get.dart';
@@ -7,8 +8,8 @@ import 'package:fetion/db/models/message.model.dart';
 class MessageController extends GetxController {
   MessageRepository? _messageRepository;
   late RxList<dynamic> messages = [].obs;
-  late RxInt pageSize = 20.obs;
-  late RxInt pageNo = 1.obs;
+  late RxInt pageSize = DefaultPageSize.obs;
+  late RxInt pageNo = DefaultPageNo.obs;
 
   initDb() async {
     final realmInstance = await RealmInstance.getInstance();

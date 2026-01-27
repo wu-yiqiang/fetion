@@ -51,7 +51,7 @@ class UserRepository {
   }
 
   List<User> getAllActivedUsers() {
-    return _realm.all<User>().where((u) => u.status == true).toList();
+    return _realm.all<User>().where((u) => u.isDeleted == false).toList();
   }
 
   void updateUser(User user) {
@@ -75,7 +75,7 @@ class UserRepository {
         if (key == 'age') user.age = value;
         if (key == 'avatar') user.avatar = value;
         if (key == 'remarks') user.remarks = value;
-        if (key == 'status') user.status = value;
+        if (key == 'isDeleted') user.isDeleted = value;
       }
     });
   }
@@ -87,7 +87,7 @@ class UserRepository {
   void softDeleteUser(String id) {
     User? user = findUser(id);
     if (user == null) return;
-    updateUserItem(id, 'status', false);
+    updateUserItem(id, 'isDeleted', true);
   }
   void deleteUser(String id) {
     User? user = findUser(id);

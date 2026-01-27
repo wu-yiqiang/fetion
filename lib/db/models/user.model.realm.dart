@@ -206,7 +206,11 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     return const SchemaObject(ObjectType.realmObject, User, 'User', [
       SchemaProperty('id', RealmPropertyType.string, primaryKey: true),
       SchemaProperty('nickName', RealmPropertyType.string),
-      SchemaProperty('isDeleted', RealmPropertyType.bool),
+      SchemaProperty(
+        'isDeleted',
+        RealmPropertyType.bool,
+        indexType: RealmIndexType.regular,
+      ),
       SchemaProperty('fullName', RealmPropertyType.string, optional: true),
       SchemaProperty('avatar', RealmPropertyType.string, optional: true),
       SchemaProperty('age', RealmPropertyType.int, optional: true),

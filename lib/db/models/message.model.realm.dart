@@ -132,13 +132,29 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
     register(_toEJson, _fromEJson);
     return const SchemaObject(ObjectType.realmObject, Message, 'Message', [
       SchemaProperty('id', RealmPropertyType.string, primaryKey: true),
-      SchemaProperty('fromUserId', RealmPropertyType.string),
-      SchemaProperty('toUserId', RealmPropertyType.string),
-      SchemaProperty('isDeleted', RealmPropertyType.bool),
+      SchemaProperty(
+        'fromUserId',
+        RealmPropertyType.string,
+        indexType: RealmIndexType.regular,
+      ),
+      SchemaProperty(
+        'toUserId',
+        RealmPropertyType.string,
+        indexType: RealmIndexType.regular,
+      ),
+      SchemaProperty(
+        'isDeleted',
+        RealmPropertyType.bool,
+        indexType: RealmIndexType.regular,
+      ),
       SchemaProperty('content', RealmPropertyType.string),
       SchemaProperty('msgType', RealmPropertyType.int),
       SchemaProperty('status', RealmPropertyType.int),
-      SchemaProperty('createTime', RealmPropertyType.int),
+      SchemaProperty(
+        'createTime',
+        RealmPropertyType.int,
+        indexType: RealmIndexType.regular,
+      ),
     ]);
   }();
 

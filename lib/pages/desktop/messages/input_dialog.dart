@@ -3,7 +3,6 @@ import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/db/models/message.model.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/messages/controller/message_controller.dart';
-import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
