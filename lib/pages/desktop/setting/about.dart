@@ -31,7 +31,7 @@ class _AboutPage extends State<AboutPage> {
                   spacing: 6,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(child: WindowsIcon(FluentIcons.info, size: 16)),
+                    Container(child: Icon(FluentIcons.info, size: 18)),
                     Flex(
                       direction: Axis.horizontal,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,7 +70,7 @@ class _AboutPage extends State<AboutPage> {
                 header: Row(
                   spacing: 6,
                   children: [
-                    WindowsIcon(FluentIcons.o_d_link, size: 16),
+                    Icon(FluentIcons.o_d_link, size: 18),
                     Texts(text: 'linkAddress'.tr, fontSize: 13),
                   ],
                 ),

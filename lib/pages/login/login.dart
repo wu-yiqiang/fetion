@@ -51,7 +51,7 @@ class _LoginPage extends State<LoginPage> {
               FilledButton(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 14, vertical: 2),
-                  child: WindowsIcon(
+                  child: Icon(
                     FluentIcons.unlock,
                     size: 20,
                     color: white,

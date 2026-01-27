@@ -37,7 +37,7 @@ class _AppearancePage extends State<AppearancePage> {
                       Row(
                         spacing: 6,
                         children: [
-                          WindowsIcon(WindowsIcons.locale_language, size: 16),
+                          Icon(WindowsIcons.locale_language, size: 18),
                           Texts(text: 'language'.tr, fontSize: 13),
                         ],
                       ),
@@ -101,7 +101,7 @@ class _AppearancePage extends State<AppearancePage> {
                       Row(
                         spacing: 6,
                         children: [
-                          WindowsIcon(WindowsIcons.color, size: 16),
+                          Icon(WindowsIcons.color, size: 18),
                           Texts(text: 'theme'.tr, fontSize: 13),
                         ],
                       ),
@@ -140,7 +140,7 @@ class _AppearancePage extends State<AppearancePage> {
                       Row(
                         spacing: 6,
                         children: [
-                          WindowsIcon(WindowsIcons.font, size: 16),
+                          Icon(WindowsIcons.font, size: 18),
                           Texts(text: 'fontSize'.tr, fontSize: 13),
                         ],
                       ),
@@ -172,14 +172,14 @@ class _AppearancePage extends State<AppearancePage> {
                       Row(
                         spacing: 6,
                         children: [
-                          WindowsIcon(WindowsIcons.lock, size: 16),
+                          Icon(WindowsIcons.lock, size: 18),
                           Texts(text: 'updatePassword'.tr, fontSize: 13),
                         ],
                       ),
                       IconButton(
-                        icon: const WindowsIcon(
+                        icon: Icon(
                           WindowsIcons.update_restore,
-                          size: 16.0,
+                          size: 18,
                         ),
                         onPressed: () {
                           updatePasswordModal(context);

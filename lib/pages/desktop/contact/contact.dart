@@ -47,7 +47,7 @@ class _ContactBar extends State<ContactBar> {
           } else {
             return Expanded(
               child: Center(
-                child: const WindowsIcon(WindowsIcons.unknown, size: 60),
+                child: Icon(WindowsIcons.unknown, size: 60),
               ),
             );
           }

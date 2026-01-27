@@ -67,7 +67,7 @@ class _Person extends State<Person> {
                   return MenuFlyout(
                     items: [
                       MenuFlyoutItem(
-                        leading: WindowsIcon(WindowsIcons.rename),
+                        leading: Icon(WindowsIcons.rename),
                         text: Text('rename'.tr),
                         onPressed: () {
                           RenameDialog(
@@ -79,7 +79,7 @@ class _Person extends State<Person> {
                         },
                       ),
                       MenuFlyoutItem(
-                        leading: WindowsIcon(WindowsIcons.delete),
+                        leading: Icon(WindowsIcons.delete),
                         text: Text('delete'.tr),
                         onPressed: () {
                           DeleteDialog(context, widget.item.id, menuController);
@@ -87,7 +87,7 @@ class _Person extends State<Person> {
                       ),
                       const MenuFlyoutSeparator(),
                       MenuFlyoutItem(
-                        leading: WindowsIcon(WindowsIcons.group_list),
+                        leading: Icon(WindowsIcons.group_list),
                         text: Text('Sort'),
                         onPressed: Flyout.of(context).close,
                       ),

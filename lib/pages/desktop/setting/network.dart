@@ -30,7 +30,7 @@ class _NetworkPage extends State<NetworkPage> {
                 header: Row(
                   spacing: 6,
                   children: [
-                    WindowsIcon(WindowsIcons.my_network, size: 16),
+                    Icon(WindowsIcons.my_network, size: 18),
                     Texts(text: 'connection'.tr, fontSize: 13),
                   ],
                 ),

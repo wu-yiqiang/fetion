@@ -32,7 +32,7 @@ class _UpdateAvatar extends State<UpdateAvatar> {
             child: MouseRegions(
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 3),
-                child: WindowsIcon(WindowsIcons.camera, size: 18),
+                child: Icon(WindowsIcons.camera, size: 18),
                 color: white200,
               ),
               onPress: () async {
