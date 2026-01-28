@@ -4,10 +4,11 @@ import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/material.dart' hide Colors;
+import 'package:flutter/material.dart' hide Colors, Typography;
 import 'package:get/get.dart';
 import 'package:local_notifier/local_notifier.dart';
 import 'package:fetion/translation/translation.dart';
+import 'dart:io' show Platform;
 
 localNotification() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +31,20 @@ Navigates() {
     Get.toNamed(ROUTERKEY);
   });
 }
-
+TextStyle _getSystemDefaultTextStyle() {
+  return TextStyle(
+    fontFamilyFallback: [
+      if (Platform.isWindows) 'Segoe UI',
+      'Inter',
+      'SF Pro',
+      if (Platform.isWindows) 'Microsoft YaHei',
+      if (Platform.isMacOS) 'PingFang SC',
+      if (Platform.isLinux) 'Noto Sans CJK SC',
+      if (Platform.isLinux) 'WenQuanYi Micro Hei',
+      'sans-serif',
+    ],
+  );
+}
 void main() async {
   await initStart();
   await localNotification();
@@ -55,8 +69,18 @@ void main() async {
         translations: Language(),
         theme: ThemeData(
           brightness: Brightness.light,
-          fontFamily: FontFamilyName,
+          // fontFamily: FontFamilyName,
           textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.black),
+          textTheme: TextTheme(
+            bodyMedium: TextStyle(
+              fontFamilyFallback: [
+                'Segoe UI',
+                'Microsoft YaHei',
+                'PingFang SC',
+                'sans-serif',
+              ],
+            ),
+          ),
         ),
         darkTheme: ThemeData(
           brightness: Brightness.dark,
@@ -69,7 +93,16 @@ void main() async {
         builder: (context, child) {
           return AnimatedFluentTheme(
             data: FluentThemeData(
-              fontFamily: FontFamilyName,
+              // fontFamily: FontFamilyName,
+              typography: Typography.raw(
+                title: _getSystemDefaultTextStyle(),
+                subtitle: _getSystemDefaultTextStyle(),
+                caption: _getSystemDefaultTextStyle(),
+                body: _getSystemDefaultTextStyle(),
+                bodyLarge: _getSystemDefaultTextStyle(),
+                bodyStrong: _getSystemDefaultTextStyle(),
+                display: _getSystemDefaultTextStyle(),
+              ),
               brightness:
                   settingController.setting.value.theme == ThemeModeMap.DARK
                   ? Brightness.dark

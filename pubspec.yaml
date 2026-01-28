@@ -67,29 +67,29 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: AlibabaPuHuiTi
-      fonts:
-        - asset: assets/fonts/AlibabaPuHuiTi-Thin.otf
-          weight: 100
-        - asset: assets/fonts/AlibabaPuHuiTi-Light.otf
-          weight: 200
-        - asset: assets/fonts/AlibabaPuHuiTi-Regular.otf
-          weight: 300
-        - asset: assets/fonts/AlibabaPuHuiTi-RegularL3.otf
-          weight: 400
-        - asset: assets/fonts/AlibabaPuHuiTi-Medium.otf
-          weight: 500
-        - asset: assets/fonts/AlibabaPuHuiTi-Bold.otf
-          weight: 600
-        - asset: assets/fonts/AlibabaPuHuiTi-Black.otf
-          weight: 700
-        # - asset: fonts/Inter-ExtraBold.otf
-        #   weight: 800
-        # - asset: fonts/Inter-Black.otf
-        #   weight: 900
+  # fonts:
+  #   - family: AlibabaPuHuiTi
+  #     fonts:
+  #       - asset: assets/fonts/AlibabaPuHuiTi-Thin.otf
+  #         weight: 100
+  #       - asset: assets/fonts/AlibabaPuHuiTi-Light.otf
+  #         weight: 200
+  #       - asset: assets/fonts/AlibabaPuHuiTi-Regular.otf
+  #         weight: 300
+  #       - asset: assets/fonts/AlibabaPuHuiTi-RegularL3.otf
+  #         weight: 400
+  #       - asset: assets/fonts/AlibabaPuHuiTi-Medium.otf
+  #         weight: 500
+  #       - asset: assets/fonts/AlibabaPuHuiTi-Bold.otf
+  #         weight: 600
+  #       - asset: assets/fonts/AlibabaPuHuiTi-Black.otf
+  #         weight: 700
+  #       # - asset: fonts/Inter-ExtraBold.otf
+  #       #   weight: 800
+  #       # - asset: fonts/Inter-Black.otf
+  #       #   weight: 900
 
 msix_config:
   display_name: Fetion
-  msix_version: 1.0.0.1
+  msix_version: 1.0.0.2
   logo_path: ./assets/images/logo.png

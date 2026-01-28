@@ -32,6 +32,5 @@ class Texts extends StatelessWidget {
         decoration: TextDecoration.none,
       ),
     );
-    ;
   }
 }
