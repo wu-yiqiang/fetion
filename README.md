@@ -9,6 +9,8 @@ design https://www.figma.com/design/5fmTHYSBy5zeJDijHjPIsg/Windows-11-Chat-UI-Ki
 飞传 项目名
 
 构建windows平台应用
+先构建树摇优化代码混淆再打包
+flutter build windows --release --obfuscate --split-debug-info=build/symbols
 dart run msix:create
 
 
