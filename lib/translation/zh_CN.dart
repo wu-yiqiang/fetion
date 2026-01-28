@@ -39,4 +39,5 @@ final Map<String, String> zh_CN = {
   'delete': '删除',
   'confirm': '确认',
   'confirmDeleteTheContact': "确认删除该联系人吗?",
+  'notices': "通知"
 };

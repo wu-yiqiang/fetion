@@ -5,6 +5,7 @@ import 'package:fetion/pages/desktop/contact/contact.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
+import 'package:fetion/pages/desktop/notice/notice.dart';
 import 'package:fetion/pages/desktop/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/StatusAvatar.dart';
@@ -157,6 +158,14 @@ class _HomePageState extends State<HomePage> {
               settingController.updateSetting('locked', true);
               eventBus.emit(Events.NAVIGATE.name, RouterMap.LOGIN);
             },
+          ),
+          PaneItem(
+            icon: Icon(WindowsIcons.mob_notification_bell, size: 16),
+            title: Text('notices'.tr, style: TextStyle(fontSize: 14)),
+            body: NavigationBodyItem(
+              content: NoticePage(),
+              header: 'notices'.tr,
+            ),
           ),
           PaneItem(
             icon: Icon(FluentIcons.settings, size: 16),
