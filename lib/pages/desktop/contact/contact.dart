@@ -4,6 +4,7 @@ import 'package:fetion/pages/desktop/contact/person_info.dart';
 import 'package:fetion/pages/desktop/contact/persons.dart';
 import 'package:fetion/pages/desktop/contact/person_box.dart' show PersonBox;
 import 'package:fetion/pages/desktop/messages/single_dialog.dart';
+import 'package:fetion/widgets/Empty.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
 
@@ -45,11 +46,7 @@ class _ContactBar extends State<ContactBar> {
           } else if (userId.isNotEmpty) {
             return Expanded(child: PersonInfo(userId));
           } else {
-            return Expanded(
-              child: Center(
-                child: Icon(WindowsIcons.unknown, size: 60),
-              ),
-            );
+            return Empty();
           }
         }),
       ],

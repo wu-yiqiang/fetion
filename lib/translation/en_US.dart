@@ -39,5 +39,8 @@ final Map<String, String> en_US = {
   'delete': 'Delete',
   'confirm': 'Confirm',
   'confirmDeleteTheContact': "Confirm Delete the Contact?",
-  'notices': "Notices"
+  'notices': "Notices",
+  'reject': "Reject",
+  'agree': "Agree",
+  'contactRequest': "@contact sent a friend request",
 };

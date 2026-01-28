@@ -4,6 +4,7 @@ import 'package:fetion/navigate/router_table.dart';
 import 'package:fetion/pages/desktop/contact/contact.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
+import 'package:fetion/pages/desktop/messages/controller/message_controller.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
 import 'package:fetion/pages/desktop/notice/notice.dart';
 import 'package:fetion/pages/desktop/setting/setting.dart';
@@ -34,26 +35,27 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final SettingController settingController = Get.put(SettingController());
+  final MessageController messageController = Get.put(MessageController());
   int topIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final messagesNumber = 899;
     List<NavigationPaneItem> items = [
       PaneItemSeparator(),
       PaneItem(
         icon: Icon(WindowsIcons.message, size: 16),
         title: Text('messages'.tr, style: TextStyle(fontSize: 14)),
-        infoBadge: messagesNumber == DisplayMinMessages
+        infoBadge: messageController.unReadCount.value == DisplayMinMessages
             ? null
             : InfoBadge(
                 source: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 4),
                   child: Row(
-                    children: messagesNumber < DisplayMaxMessages
+                    children:
+                        messageController.unReadCount.value < DisplayMaxMessages
                         ? [
                             Text(
-                              messagesNumber.toString(),
+                              messageController.unReadCount.value.toString(),
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,
@@ -161,6 +163,7 @@ class _HomePageState extends State<HomePage> {
           ),
           PaneItem(
             icon: Icon(WindowsIcons.mob_notification_bell, size: 16),
+            infoBadge: InfoBadge(),
             title: Text('notices'.tr, style: TextStyle(fontSize: 14)),
             body: NavigationBodyItem(
               content: NoticePage(),

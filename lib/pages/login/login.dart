@@ -44,6 +44,9 @@ class _LoginPage extends State<LoginPage> {
                           enterPassword = value;
                         });
                       },
+                      onSubmitted: (String value) {
+                        handleLogin();
+                      },
                     ),
                   ],
                 ),
@@ -51,25 +54,10 @@ class _LoginPage extends State<LoginPage> {
               FilledButton(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 14, vertical: 2),
-                  child: Icon(
-                    FluentIcons.unlock,
-                    size: 20,
-                    color: white,
-                  ),
+                  child: Icon(FluentIcons.unlock, size: 20, color: white),
                 ),
                 onPressed: () {
-                  String password = settingController.setting.value.password;
-                  if (password != enterPassword) {
-                    OverlayMessage.show(
-                      context: context,
-                      message: 'passwordError'.tr,
-                      severity: InfoBarSeverity.error,
-                    );
-                  } else {
-                    settingController.updateSetting('locked', false);
-                    eventBus.emit(Events.NAVIGATE.name, RouterMap.HOME);
-                  }
-                  ;
+                  handleLogin();
                 },
               ),
             ],
@@ -77,5 +65,20 @@ class _LoginPage extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void handleLogin() {
+    String password = settingController.setting.value.password;
+    if (password != enterPassword) {
+      OverlayMessage.show(
+        context: context,
+        message: 'passwordError'.tr,
+        severity: InfoBarSeverity.error,
+      );
+    } else {
+      settingController.updateSetting('locked', false);
+      eventBus.emit(Events.NAVIGATE.name, RouterMap.HOME);
+    }
+    ;
   }
 }

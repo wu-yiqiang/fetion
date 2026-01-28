@@ -8,6 +8,7 @@ import 'package:fetion/db/models/message.model.dart';
 class MessageController extends GetxController {
   MessageRepository? _messageRepository;
   late RxList<dynamic> messages = [].obs;
+  late RxInt unReadCount = 12.obs;
   late RxInt pageSize = DefaultPageSize.obs;
   late RxInt pageNo = DefaultPageNo.obs;
 

@@ -1,6 +1,10 @@
+import 'package:fetion/pages/desktop/notice/controller/notice_controller.dart';
+import 'package:fetion/widgets/Empty.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:fetion/pages/desktop/notice/widgets/add_contact.dart';
+import 'package:get/get.dart';
 
 class NoticePage extends StatefulWidget {
   const NoticePage({super.key});
@@ -9,6 +13,7 @@ class NoticePage extends StatefulWidget {
 }
 
 class _NoticePage extends State<NoticePage> {
+  late NoticeController noticeController = Get.put(NoticeController());
   @override
   void initState() {
     super.initState();
@@ -16,10 +21,28 @@ class _NoticePage extends State<NoticePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ScrollViews(
-      child: SingleChildScrollView(
-        child: Flex(direction: Axis.vertical, children: [Text('Notices')]),
-      ),
-    );
+    return Obx(() {
+      return noticeController.Notices.length > 0
+          ? ScrollViews(
+              child: SingleChildScrollView(
+                child: Flex(
+                  direction: Axis.vertical,
+                  spacing: 10,
+                  children: [
+                    AddContact(),
+                    AddContact(),
+                    AddContact(),
+                    AddContact(),
+                    AddContact(),
+                    AddContact(),
+                    AddContact(),
+                    AddContact(),
+                    AddContact(),
+                  ],
+                ),
+              ),
+            )
+          : Column(children: [Empty()]);
+    });
   }
 }

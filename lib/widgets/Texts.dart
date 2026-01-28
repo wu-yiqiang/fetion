@@ -5,11 +5,11 @@ class Texts extends StatelessWidget {
 
   final int maxLines;
 
-  final dynamic overflow;
+  final TextOverflow overflow;
 
   final double fontSize;
 
-  final dynamic fontWeight;
+  final FontWeight fontWeight;
 
   const Texts({
     super.key,
