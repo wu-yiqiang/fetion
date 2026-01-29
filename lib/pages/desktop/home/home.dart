@@ -37,6 +37,10 @@ class _HomePageState extends State<HomePage> {
   final SettingController settingController = Get.put(SettingController());
   final MessageController messageController = Get.put(MessageController());
   int topIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

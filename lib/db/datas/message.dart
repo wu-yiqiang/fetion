@@ -1,3 +1,4 @@
+import 'package:fetion/common/const.dart';
 import 'package:fetion/db/models/message.model.dart';
 import 'package:realm/realm.dart';
 import '../realmInstance.dart';
@@ -28,6 +29,10 @@ class MessageRepository {
   Message createMessage(Message message) {
     _realm.write(() => _realm.add(message));
     return message;
+  }
+
+  int queryUnreadMessageCount() {
+    return _realm.all<Message>().where((u) => u.status == MsgStatus.UNREAD)?.length ?? 0;
   }
 
   Message? findMessage(String id) {

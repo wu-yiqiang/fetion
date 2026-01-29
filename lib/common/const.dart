@@ -64,8 +64,9 @@ class MsgType {
 class MsgStatus {
   static const SENDING = 0;
   static const SENDED = 1;
-  static const READED = 2;
-  static const WITHDRAW = 3;
+  static const UNREAD = 2;
+  static const READED = 3;
+  static const WITHDRAW = 4;
 }
 
 class ThemeModeMap {

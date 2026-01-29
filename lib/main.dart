@@ -32,19 +32,19 @@ Navigates() {
   });
 }
 TextStyle _getSystemDefaultTextStyle(mode) {
-  final color = mode == Brightness.light
+  final color = mode == ThemeModeMap.LIGHT
       ? const Color(0xdd000000)
       : const Color(0xffffffff);
   return TextStyle(
     color: color,
     fontFamilyFallback: [
-      if (Platform.isWindows) 'Segoe UI',
+      'Segoe UI',
       'Inter',
       'SF Pro',
-      if (Platform.isWindows) 'Microsoft YaHei',
-      if (Platform.isMacOS) 'PingFang SC',
-      if (Platform.isLinux) 'Noto Sans CJK SC',
-      if (Platform.isLinux) 'WenQuanYi Micro Hei',
+      'Microsoft YaHei',
+      'PingFang SC',
+      'Noto Sans CJK SC',
+      'WenQuanYi Micro Hei',
       'sans-serif',
     ],
   );
@@ -73,7 +73,6 @@ void main() async {
         translations: Language(),
         theme: ThemeData(
           brightness: Brightness.light,
-          // fontFamily: FontFamilyName,
           textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.black),
         ),
         darkTheme: ThemeData(
@@ -87,42 +86,27 @@ void main() async {
         builder: (context, child) {
           return AnimatedFluentTheme(
             data: FluentThemeData(
-              // fontFamily: FontFamilyName,
               typography: Typography.raw(
                 title: _getSystemDefaultTextStyle(
-                  settingController.setting.value.theme == ThemeModeMap.DARK
-                      ? Brightness.dark
-                      : Brightness.light,
+                  settingController.setting.value.theme,
                 ),
                 subtitle: _getSystemDefaultTextStyle(
-                  settingController.setting.value.theme == ThemeModeMap.DARK
-                      ? Brightness.dark
-                      : Brightness.light,
+                  settingController.setting.value.theme,
                 ),
                 caption: _getSystemDefaultTextStyle(
-                  settingController.setting.value.theme == ThemeModeMap.DARK
-                      ? Brightness.dark
-                      : Brightness.light,
+                  settingController.setting.value.theme,
                 ),
                 body: _getSystemDefaultTextStyle(
-                  settingController.setting.value.theme == ThemeModeMap.DARK
-                      ? Brightness.dark
-                      : Brightness.light,
+                  settingController.setting.value.theme,
                 ),
                 bodyLarge: _getSystemDefaultTextStyle(
-                  settingController.setting.value.theme == ThemeModeMap.DARK
-                      ? Brightness.dark
-                      : Brightness.light,
+                  settingController.setting.value.theme,
                 ),
                 bodyStrong: _getSystemDefaultTextStyle(
-                  settingController.setting.value.theme == ThemeModeMap.DARK
-                      ? Brightness.dark
-                      : Brightness.light,
+                  settingController.setting.value.theme,
                 ),
                 display: _getSystemDefaultTextStyle(
-                  settingController.setting.value.theme == ThemeModeMap.DARK
-                      ? Brightness.dark
-                      : Brightness.light,
+                  settingController.setting.value.theme,
                 ),
               ),
               brightness:

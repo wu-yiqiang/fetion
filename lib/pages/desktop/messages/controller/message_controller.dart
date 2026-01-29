@@ -8,10 +8,9 @@ import 'package:fetion/db/models/message.model.dart';
 class MessageController extends GetxController {
   MessageRepository? _messageRepository;
   late RxList<dynamic> messages = [].obs;
-  late RxInt unReadCount = 12.obs;
+  late RxInt unReadCount = 0.obs;
   late RxInt pageSize = DefaultPageSize.obs;
   late RxInt pageNo = DefaultPageNo.obs;
-
   initDb() async {
     final realmInstance = await RealmInstance.getInstance();
     _messageRepository = MessageRepository(realmInstance);
@@ -37,6 +36,12 @@ class MessageController extends GetxController {
 
   addMessage(Message message) {
     _messageRepository?.createMessage(message);
+  }
+
+  queryUnreadCount() async {
+    unReadCount.value =
+        await _messageRepository?.queryUnreadMessageCount() ?? 0;
+    print(unReadCount.value);
   }
 
   @override
