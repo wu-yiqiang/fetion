@@ -54,11 +54,11 @@ class _AboutPage extends State<AboutPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 10,
                     children: [
-                      Texts(text: '特别鸣谢', fontSize: 16),
+                      Texts(text: 'specialThanks'.tr, fontSize: 16),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Texts(
-                          text: '感谢Ada同学提供的UI帮助',
+                          text: 'thanksToAda'.tr,
                           fontSize: 13,
                         ),
                       ),

@@ -94,15 +94,15 @@ void main() async {
           return AnimatedFluentTheme(
             data: FluentThemeData(
               // fontFamily: FontFamilyName,
-              // typography: Typography.raw(
-              //   title: _getSystemDefaultTextStyle(),
-              //   subtitle: _getSystemDefaultTextStyle(),
-              //   caption: _getSystemDefaultTextStyle(),
-              //   body: _getSystemDefaultTextStyle(),
-              //   bodyLarge: _getSystemDefaultTextStyle(),
-              //   bodyStrong: _getSystemDefaultTextStyle(),
-              //   display: _getSystemDefaultTextStyle(),
-              // ),
+              typography: Typography.raw(
+                title: _getSystemDefaultTextStyle(),
+                subtitle: _getSystemDefaultTextStyle(),
+                caption: _getSystemDefaultTextStyle(),
+                body: _getSystemDefaultTextStyle(),
+                bodyLarge: _getSystemDefaultTextStyle(),
+                bodyStrong: _getSystemDefaultTextStyle(),
+                display: _getSystemDefaultTextStyle(),
+              ),
               brightness:
                   settingController.setting.value.theme == ThemeModeMap.DARK
                   ? Brightness.dark

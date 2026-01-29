@@ -43,4 +43,6 @@ final Map<String, String> en_US = {
   'reject': "Reject",
   'agree': "Agree",
   'contactRequest': "@contact sent a friend request",
+  'specialThanks': 'Special Thanks',
+  'thanksToAda': 'Thanks to classmate Ada for the UI help',
 };
