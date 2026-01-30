@@ -1,3 +1,4 @@
+import 'package:fetion/db/models/common_fields_minin.dart';
 import 'package:realm/realm.dart';
 part 'user.model.realm.dart';
 
@@ -7,7 +8,9 @@ class _User {
   late String id;
   late String nickName;
   @Indexed()
-  late bool isDeleted;
+  late bool isDeleted = false;
+  late DateTime createdAt;
+  late DateTime updatedAt;
   String? fullName;
   String? avatar;
   int? age;
@@ -21,4 +24,5 @@ class _User {
   String? slogan;
   String? employeeId;
   String? remarks;
+  String? description = '';
 }
