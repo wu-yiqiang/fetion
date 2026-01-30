@@ -45,4 +45,6 @@ final Map<String, String> en_US = {
   'contactRequest': "@contact sent a friend request",
   'specialThanks': 'Special Thanks',
   'thanksToAda': 'Thanks to classmate Ada for the UI help',
+  'add': "Add",
+  'addContact': "Add Contact"
 };

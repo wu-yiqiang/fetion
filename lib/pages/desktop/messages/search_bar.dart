@@ -1,4 +1,5 @@
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/pages/desktop/contact/widgets/AddContact.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
@@ -19,19 +20,21 @@ class _SearchsBar extends State<SearchsBar> {
       child: Flex(
         direction: Axis.horizontal,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        spacing: 10,
+        spacing: 4,
         children: [
           Expanded(
             child: TextBox(
               prefix: Container(
                 padding: EdgeInsets.only(left: 8),
-                child: FluentIcon(icon: WindowsIcons.search, onTap: () {}),
+                child: Icon(WindowsIcons.search),
               ),
             ),
           ),
           IconButton(
             icon: Icon(WindowsIcons.add_friend, size: 18),
-            onPressed: () {},
+            onPressed: () {
+              AddDialog(context);
+            },
           ),
         ],
       ),

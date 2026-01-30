@@ -21,32 +21,31 @@ void updatePasswordModal(BuildContext context) async {
           color: FluentTheme.of(context).micaBackgroundColor,
           borderRadius: const BorderRadius.vertical(bottom: Radius.circular(6)),
         ),
-      ),  
+      ),
       title: Texts(
         text: 'updatePassword'.tr,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
-      content: Container(
-        child: Flex(
-          direction: Axis.vertical,
-          spacing: 20,
-          children: [
-            Text('oldPassword'.tr),
-            PasswordBox(
-              onChanged: (value) {
-                oldPassword = value;
-              },
-            ),
-            Text('newPassword'.tr),
-            PasswordBox(
-              onChanged: (value) {
-                newPassword = value;
-              },
-            ),
-          ],
-        ),
-        height: 180,
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 6,
+        children: [
+          Text('oldPassword'.tr),
+          PasswordBox(
+            onChanged: (value) {
+              oldPassword = value;
+            },
+          ),
+          Container(height: 10),
+          Text('newPassword'.tr),
+          PasswordBox(
+            onChanged: (value) {
+              newPassword = value;
+            },
+          ),
+        ],
       ),
       actions: [
         Button(

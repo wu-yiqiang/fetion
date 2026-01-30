@@ -45,4 +45,6 @@ final Map<String, String> zh_CN = {
   'contactRequest': "@contact 请求添加联系人",
   'specialThanks': '特别鸣谢',
   'thanksToAda': '感谢Ada同学提供的UI帮助',
+  'add': "添加",
+  'addContact': "添加联系人"
 };
