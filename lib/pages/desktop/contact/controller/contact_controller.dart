@@ -30,15 +30,19 @@ class UserController extends GetxController {
   getUserInfo(String id) {
     user.value = _userRepository.findUser(id);
   }
+
   getUser(String id) {
     return _userRepository.findUser(id);
   }
+
   getSessionInfo(String id) {
     session.value = _userRepository.findUser(id);
   }
+
   renameUser(String userId, String value) {
     _userRepository.updateUserItem(userId, 'remarks', value);
   }
+
   deleteUser(String id) {
     _userRepository.softDeleteUser(id);
   }

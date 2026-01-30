@@ -18,7 +18,7 @@ class _SingleDialog extends State<SingleDialog> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SingleTopbar(),
+        // SingleTopbar(),
         Expanded(
           child: MainDialog(widget.userId),
         ),

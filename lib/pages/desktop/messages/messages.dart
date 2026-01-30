@@ -11,7 +11,6 @@ class Messages extends StatefulWidget {
 class _Messages extends State<Messages> {
   @override
   Widget build(BuildContext context) {
-    const currentUserId = '9864';
     return ScrollViews(
       child: SingleChildScrollView(
         padding: EdgeInsets.all(4),

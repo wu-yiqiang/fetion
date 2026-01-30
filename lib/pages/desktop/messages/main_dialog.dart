@@ -16,7 +16,6 @@ class MainDialog extends StatefulWidget {
 }
 
 class _MainDialog extends State<MainDialog> {
-  late UserController userController = Get.put(UserController());
   late SettingController settingController = Get.put(SettingController());
   late MessageController messageController;
   final controller = ScrollController();

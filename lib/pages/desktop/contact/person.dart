@@ -17,7 +17,19 @@ class Person extends StatefulWidget {
 
 class _Person extends State<Person> {
   final menuController = FlyoutController();
-  late UserController userController = Get.put(UserController());
+  late UserController userController;
+
+  @override
+  void initState() {
+    super.initState();
+    userController = Get.put(UserController());
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = FluentTheme.of(context);

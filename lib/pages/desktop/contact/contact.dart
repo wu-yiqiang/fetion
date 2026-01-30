@@ -15,10 +15,17 @@ class ContactBar extends StatefulWidget {
 }
 
 class _ContactBar extends State<ContactBar> {
-  late UserController userController = Get.put(UserController());
+  late UserController userController;
+
+  @override
+  void initState() {
+    super.initState();
+    userController = Get.put(UserController());
+  }
+
   void dispose() {
     super.dispose();
-    userController.sessionId.value = '';
+    // userController.dispose();
   }
 
   @override

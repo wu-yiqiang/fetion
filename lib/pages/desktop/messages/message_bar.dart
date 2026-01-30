@@ -26,7 +26,7 @@ class _MessageBar extends State<MessageBar> {
             ],
           ),
         ),
-        Expanded(child: SingleDialog("121")),
+        // Expanded(child: SingleDialog("121")),
       ],
     );
   }
