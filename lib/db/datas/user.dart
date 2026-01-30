@@ -16,7 +16,8 @@ class UserRepository {
     final user = User(
       usrId ?? ObjectId().toString(),
       usr.nickName,
-      usr.isDeleted,
+      DateTime.now().millisecondsSinceEpoch,
+      DateTime.now().millisecondsSinceEpoch,
       fullName: usr?.fullName ?? '',
       avatar: usr?.avatar ?? '',
       age: usr?.age ?? 0,

@@ -34,7 +34,7 @@ class _OtherChat extends State<OtherChat> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TimeStamps(timeStamp: widget.item.createTime),
+              TimeStamps(timeStamp: widget.item.createdAt),
               ChatBox(
                 text: widget.item.content,
                 fontColor: white,

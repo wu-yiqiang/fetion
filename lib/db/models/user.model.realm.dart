@@ -10,10 +10,14 @@ part of 'user.model.dart';
 // coverage:ignore-file
 // ignore_for_file: type=lint
 class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
+  static var _defaultsSet = false;
+
   User(
     String id,
     String nickName,
-    bool isDeleted, {
+    int createdAt,
+    int updatedAt, {
+    bool isDeleted = false,
     String? fullName,
     String? avatar,
     int? age,
@@ -27,10 +31,19 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     String? slogan,
     String? employeeId,
     String? remarks,
+    String? description = '',
   }) {
+    if (!_defaultsSet) {
+      _defaultsSet = RealmObjectBase.setDefaults<User>({
+        'isDeleted': false,
+        'description': '',
+      });
+    }
     RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'nickName', nickName);
     RealmObjectBase.set(this, 'isDeleted', isDeleted);
+    RealmObjectBase.set(this, 'createdAt', createdAt);
+    RealmObjectBase.set(this, 'updatedAt', updatedAt);
     RealmObjectBase.set(this, 'fullName', fullName);
     RealmObjectBase.set(this, 'avatar', avatar);
     RealmObjectBase.set(this, 'age', age);
@@ -44,6 +57,7 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
     RealmObjectBase.set(this, 'slogan', slogan);
     RealmObjectBase.set(this, 'employeeId', employeeId);
     RealmObjectBase.set(this, 'remarks', remarks);
+    RealmObjectBase.set(this, 'description', description);
   }
 
   User._();
@@ -63,6 +77,16 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   bool get isDeleted => RealmObjectBase.get<bool>(this, 'isDeleted') as bool;
   @override
   set isDeleted(bool value) => RealmObjectBase.set(this, 'isDeleted', value);
+
+  @override
+  int get createdAt => RealmObjectBase.get<int>(this, 'createdAt') as int;
+  @override
+  set createdAt(int value) => RealmObjectBase.set(this, 'createdAt', value);
+
+  @override
+  int get updatedAt => RealmObjectBase.get<int>(this, 'updatedAt') as int;
+  @override
+  set updatedAt(int value) => RealmObjectBase.set(this, 'updatedAt', value);
 
   @override
   String? get fullName =>
@@ -138,6 +162,13 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   set remarks(String? value) => RealmObjectBase.set(this, 'remarks', value);
 
   @override
+  String? get description =>
+      RealmObjectBase.get<String>(this, 'description') as String?;
+  @override
+  set description(String? value) =>
+      RealmObjectBase.set(this, 'description', value);
+
+  @override
   Stream<RealmObjectChanges<User>> get changes =>
       RealmObjectBase.getChanges<User>(this);
 
@@ -153,6 +184,8 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       'id': id.toEJson(),
       'nickName': nickName.toEJson(),
       'isDeleted': isDeleted.toEJson(),
+      'createdAt': createdAt.toEJson(),
+      'updatedAt': updatedAt.toEJson(),
       'fullName': fullName.toEJson(),
       'avatar': avatar.toEJson(),
       'age': age.toEJson(),
@@ -166,6 +199,7 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       'slogan': slogan.toEJson(),
       'employeeId': employeeId.toEJson(),
       'remarks': remarks.toEJson(),
+      'description': description.toEJson(),
     };
   }
 
@@ -176,12 +210,15 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       {
         'id': EJsonValue id,
         'nickName': EJsonValue nickName,
-        'isDeleted': EJsonValue isDeleted,
+        'createdAt': EJsonValue createdAt,
+        'updatedAt': EJsonValue updatedAt,
       } =>
         User(
           fromEJson(id),
           fromEJson(nickName),
-          fromEJson(isDeleted),
+          fromEJson(createdAt),
+          fromEJson(updatedAt),
+          isDeleted: fromEJson(ejson['isDeleted'], defaultValue: false),
           fullName: fromEJson(ejson['fullName']),
           avatar: fromEJson(ejson['avatar']),
           age: fromEJson(ejson['age']),
@@ -195,6 +232,7 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
           slogan: fromEJson(ejson['slogan']),
           employeeId: fromEJson(ejson['employeeId']),
           remarks: fromEJson(ejson['remarks']),
+          description: fromEJson(ejson['description'], defaultValue: ''),
         ),
       _ => raiseInvalidEJson(ejson),
     };
@@ -211,6 +249,8 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
         RealmPropertyType.bool,
         indexType: RealmIndexType.regular,
       ),
+      SchemaProperty('createdAt', RealmPropertyType.int),
+      SchemaProperty('updatedAt', RealmPropertyType.int),
       SchemaProperty('fullName', RealmPropertyType.string, optional: true),
       SchemaProperty('avatar', RealmPropertyType.string, optional: true),
       SchemaProperty('age', RealmPropertyType.int, optional: true),
@@ -224,6 +264,7 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
       SchemaProperty('slogan', RealmPropertyType.string, optional: true),
       SchemaProperty('employeeId', RealmPropertyType.string, optional: true),
       SchemaProperty('remarks', RealmPropertyType.string, optional: true),
+      SchemaProperty('description', RealmPropertyType.string, optional: true),
     ]);
   }();
 

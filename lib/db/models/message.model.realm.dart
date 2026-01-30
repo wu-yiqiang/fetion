@@ -10,24 +10,31 @@ part of 'message.model.dart';
 // coverage:ignore-file
 // ignore_for_file: type=lint
 class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
+  static var _defaultsSet = false;
+
   Message(
     String id,
     String fromUserId,
     String toUserId,
-    bool isDeleted,
     String content,
     int msgType,
     int status,
-    int createTime,
-  ) {
+    int createdAt,
+    int updatedAt, {
+    bool isDeleted = false,
+  }) {
+    if (!_defaultsSet) {
+      _defaultsSet = RealmObjectBase.setDefaults<Message>({'isDeleted': false});
+    }
     RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'fromUserId', fromUserId);
     RealmObjectBase.set(this, 'toUserId', toUserId);
-    RealmObjectBase.set(this, 'isDeleted', isDeleted);
     RealmObjectBase.set(this, 'content', content);
     RealmObjectBase.set(this, 'msgType', msgType);
     RealmObjectBase.set(this, 'status', status);
-    RealmObjectBase.set(this, 'createTime', createTime);
+    RealmObjectBase.set(this, 'isDeleted', isDeleted);
+    RealmObjectBase.set(this, 'createdAt', createdAt);
+    RealmObjectBase.set(this, 'updatedAt', updatedAt);
   }
 
   Message._();
@@ -51,11 +58,6 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
   set toUserId(String value) => RealmObjectBase.set(this, 'toUserId', value);
 
   @override
-  bool get isDeleted => RealmObjectBase.get<bool>(this, 'isDeleted') as bool;
-  @override
-  set isDeleted(bool value) => RealmObjectBase.set(this, 'isDeleted', value);
-
-  @override
   String get content => RealmObjectBase.get<String>(this, 'content') as String;
   @override
   set content(String value) => RealmObjectBase.set(this, 'content', value);
@@ -71,9 +73,19 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
   set status(int value) => RealmObjectBase.set(this, 'status', value);
 
   @override
-  int get createTime => RealmObjectBase.get<int>(this, 'createTime') as int;
+  bool get isDeleted => RealmObjectBase.get<bool>(this, 'isDeleted') as bool;
   @override
-  set createTime(int value) => RealmObjectBase.set(this, 'createTime', value);
+  set isDeleted(bool value) => RealmObjectBase.set(this, 'isDeleted', value);
+
+  @override
+  int get createdAt => RealmObjectBase.get<int>(this, 'createdAt') as int;
+  @override
+  set createdAt(int value) => RealmObjectBase.set(this, 'createdAt', value);
+
+  @override
+  int get updatedAt => RealmObjectBase.get<int>(this, 'updatedAt') as int;
+  @override
+  set updatedAt(int value) => RealmObjectBase.set(this, 'updatedAt', value);
 
   @override
   Stream<RealmObjectChanges<Message>> get changes =>
@@ -91,11 +103,12 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
       'id': id.toEJson(),
       'fromUserId': fromUserId.toEJson(),
       'toUserId': toUserId.toEJson(),
-      'isDeleted': isDeleted.toEJson(),
       'content': content.toEJson(),
       'msgType': msgType.toEJson(),
       'status': status.toEJson(),
-      'createTime': createTime.toEJson(),
+      'isDeleted': isDeleted.toEJson(),
+      'createdAt': createdAt.toEJson(),
+      'updatedAt': updatedAt.toEJson(),
     };
   }
 
@@ -107,21 +120,22 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
         'id': EJsonValue id,
         'fromUserId': EJsonValue fromUserId,
         'toUserId': EJsonValue toUserId,
-        'isDeleted': EJsonValue isDeleted,
         'content': EJsonValue content,
         'msgType': EJsonValue msgType,
         'status': EJsonValue status,
-        'createTime': EJsonValue createTime,
+        'createdAt': EJsonValue createdAt,
+        'updatedAt': EJsonValue updatedAt,
       } =>
         Message(
           fromEJson(id),
           fromEJson(fromUserId),
           fromEJson(toUserId),
-          fromEJson(isDeleted),
           fromEJson(content),
           fromEJson(msgType),
           fromEJson(status),
-          fromEJson(createTime),
+          fromEJson(createdAt),
+          fromEJson(updatedAt),
+          isDeleted: fromEJson(ejson['isDeleted'], defaultValue: false),
         ),
       _ => raiseInvalidEJson(ejson),
     };
@@ -142,19 +156,16 @@ class Message extends _Message with RealmEntity, RealmObjectBase, RealmObject {
         RealmPropertyType.string,
         indexType: RealmIndexType.regular,
       ),
+      SchemaProperty('content', RealmPropertyType.string),
+      SchemaProperty('msgType', RealmPropertyType.int),
+      SchemaProperty('status', RealmPropertyType.int),
       SchemaProperty(
         'isDeleted',
         RealmPropertyType.bool,
         indexType: RealmIndexType.regular,
       ),
-      SchemaProperty('content', RealmPropertyType.string),
-      SchemaProperty('msgType', RealmPropertyType.int),
-      SchemaProperty('status', RealmPropertyType.int),
-      SchemaProperty(
-        'createTime',
-        RealmPropertyType.int,
-        indexType: RealmIndexType.regular,
-      ),
+      SchemaProperty('createdAt', RealmPropertyType.int),
+      SchemaProperty('updatedAt', RealmPropertyType.int),
     ]);
   }();
 

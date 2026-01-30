@@ -31,7 +31,7 @@ class _MeChat extends State<MeChat> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              TimeStamps(timeStamp: widget.item.createTime),
+              TimeStamps(timeStamp: widget.item.createdAt),
               ChatBox(
                 text: widget.item.content,
                 fontColor: white,

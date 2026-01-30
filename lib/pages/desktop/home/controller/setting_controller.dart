@@ -27,8 +27,9 @@ class SettingController extends GetxController {
     false,
     DefaultPassword,
     '',
-    false,
     avatar: DefaultAvatar,
+    DateTime.now().millisecondsSinceEpoch,
+    DateTime.now().millisecondsSinceEpoch,
   ).obs;
 
   initDb() async {
@@ -69,8 +70,9 @@ class SettingController extends GetxController {
       false,
       DefaultPassword,
       NickNamePrefix + NumberStr,
-      false,
       avatar: DefaultAvatar,
+      DateTime.now().millisecondsSinceEpoch,
+      DateTime.now().millisecondsSinceEpoch,
     );
     initSettings(setting);
   }

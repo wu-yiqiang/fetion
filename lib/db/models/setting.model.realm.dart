@@ -10,6 +10,8 @@ part of 'setting.model.dart';
 // coverage:ignore-file
 // ignore_for_file: type=lint
 class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
+  static var _defaultsSet = false;
+
   Setting(
     String id,
     String userId,
@@ -27,7 +29,9 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
     bool locked,
     String password,
     String nickName,
-    bool isDeleted, {
+    int createdAt,
+    int updatedAt, {
+    bool isDeleted = false,
     String? fullName,
     String? avatar,
     int? age,
@@ -41,6 +45,9 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
     String? slogan,
     String? employeeId,
   }) {
+    if (!_defaultsSet) {
+      _defaultsSet = RealmObjectBase.setDefaults<Setting>({'isDeleted': false});
+    }
     RealmObjectBase.set(this, 'id', id);
     RealmObjectBase.set(this, 'userId', userId);
     RealmObjectBase.set(this, 'deviceName', deviceName);
@@ -58,6 +65,8 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
     RealmObjectBase.set(this, 'password', password);
     RealmObjectBase.set(this, 'nickName', nickName);
     RealmObjectBase.set(this, 'isDeleted', isDeleted);
+    RealmObjectBase.set(this, 'createdAt', createdAt);
+    RealmObjectBase.set(this, 'updatedAt', updatedAt);
     RealmObjectBase.set(this, 'fullName', fullName);
     RealmObjectBase.set(this, 'avatar', avatar);
     RealmObjectBase.set(this, 'age', age);
@@ -172,6 +181,16 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
   set isDeleted(bool value) => RealmObjectBase.set(this, 'isDeleted', value);
 
   @override
+  int get createdAt => RealmObjectBase.get<int>(this, 'createdAt') as int;
+  @override
+  set createdAt(int value) => RealmObjectBase.set(this, 'createdAt', value);
+
+  @override
+  int get updatedAt => RealmObjectBase.get<int>(this, 'updatedAt') as int;
+  @override
+  set updatedAt(int value) => RealmObjectBase.set(this, 'updatedAt', value);
+
+  @override
   String? get fullName =>
       RealmObjectBase.get<String>(this, 'fullName') as String?;
   @override
@@ -268,6 +287,8 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
       'password': password.toEJson(),
       'nickName': nickName.toEJson(),
       'isDeleted': isDeleted.toEJson(),
+      'createdAt': createdAt.toEJson(),
+      'updatedAt': updatedAt.toEJson(),
       'fullName': fullName.toEJson(),
       'avatar': avatar.toEJson(),
       'age': age.toEJson(),
@@ -304,7 +325,8 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
         'locked': EJsonValue locked,
         'password': EJsonValue password,
         'nickName': EJsonValue nickName,
-        'isDeleted': EJsonValue isDeleted,
+        'createdAt': EJsonValue createdAt,
+        'updatedAt': EJsonValue updatedAt,
       } =>
         Setting(
           fromEJson(id),
@@ -323,7 +345,9 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
           fromEJson(locked),
           fromEJson(password),
           fromEJson(nickName),
-          fromEJson(isDeleted),
+          fromEJson(createdAt),
+          fromEJson(updatedAt),
+          isDeleted: fromEJson(ejson['isDeleted'], defaultValue: false),
           fullName: fromEJson(ejson['fullName']),
           avatar: fromEJson(ejson['avatar']),
           age: fromEJson(ejson['age']),
@@ -361,7 +385,13 @@ class Setting extends _Setting with RealmEntity, RealmObjectBase, RealmObject {
       SchemaProperty('locked', RealmPropertyType.bool),
       SchemaProperty('password', RealmPropertyType.string),
       SchemaProperty('nickName', RealmPropertyType.string),
-      SchemaProperty('isDeleted', RealmPropertyType.bool),
+      SchemaProperty(
+        'isDeleted',
+        RealmPropertyType.bool,
+        indexType: RealmIndexType.regular,
+      ),
+      SchemaProperty('createdAt', RealmPropertyType.int),
+      SchemaProperty('updatedAt', RealmPropertyType.int),
       SchemaProperty('fullName', RealmPropertyType.string, optional: true),
       SchemaProperty('avatar', RealmPropertyType.string, optional: true),
       SchemaProperty('age', RealmPropertyType.int, optional: true),

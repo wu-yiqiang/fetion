@@ -20,7 +20,10 @@ class _Setting {
   late bool locked;
   late String password;
   late String nickName;
-  late bool isDeleted;
+  @Indexed()
+  late bool isDeleted = false;
+  late int createdAt;
+  late int updatedAt;
   String? fullName;
   String? avatar;
   int? age;
