@@ -29,6 +29,10 @@ class _SearchsBar extends State<SearchsBar> {
               ),
             ),
           ),
+          IconButton(
+            icon: Icon(WindowsIcons.add_friend, size: 18),
+            onPressed: () {},
+          ),
         ],
       ),
     );
