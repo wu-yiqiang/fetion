@@ -19,21 +19,11 @@ class _MainDialog extends State<MainDialog> {
   late SettingController settingController = Get.put(SettingController());
   late MessageController messageController;
   final controller = ScrollController();
-  void scrollToBottom() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if (controller.hasClients) {
-        controller.jumpTo(controller.position.maxScrollExtent);
-      }
-    });
-  }
 
   @override
   void initState() {
     super.initState();
     messageController = Get.put(MessageController());
-    eventBus.on(Events.SCROLLBOTTOM.name, (value) {
-      scrollToBottom();
-    });
   }
 
   @override
@@ -49,7 +39,11 @@ class _MainDialog extends State<MainDialog> {
       padding: EdgeInsets.all(10),
       child: ScrollViews(
         child: SingleChildScrollView(
+          reverse: true,
           controller: controller,
+          physics: BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics(),
+          ),
           child: Obx(() {
             return Column(
               spacing: 10,

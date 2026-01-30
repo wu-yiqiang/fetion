@@ -75,7 +75,7 @@ class _InputDialog extends State<InputDialog> {
     );
   }
 
-  handleSubmit(String userId) {
+  handleSubmit(String userId) async {
     message = Message(
       ObjectId().toString(),
       settingController.setting.value.userId,
@@ -88,6 +88,6 @@ class _InputDialog extends State<InputDialog> {
     );
     messageController.addMessage(message);
     _controller.text = "";
-    messageController.getMessagePage(userId);
+    await messageController.getMessagePage(userId);
   }
 }

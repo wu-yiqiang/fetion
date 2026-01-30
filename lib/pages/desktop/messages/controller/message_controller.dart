@@ -1,6 +1,5 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/db/datas/message.dart';
-import 'package:fetion/utils/EventBus.dart';
 import 'package:get/get.dart';
 import 'package:fetion/db/realmInstance.dart';
 import 'package:fetion/db/models/message.model.dart';
@@ -31,7 +30,6 @@ class MessageController extends GetxController {
           userId,
         ) ??
         [];
-    eventBus.emit(Events.SCROLLBOTTOM.name);
   }
 
   addMessage(Message message) {
@@ -41,7 +39,6 @@ class MessageController extends GetxController {
   queryUnreadCount() async {
     unReadCount.value =
         await _messageRepository?.queryUnreadMessageCount() ?? 0;
-    print(unReadCount.value);
   }
 
   @override
