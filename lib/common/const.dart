@@ -5,7 +5,7 @@ const SettingId = '22sad1df2rsdf1asda23';
 const NickNamePrefix = ApplicationName + " " + "User";
 const DefaultHostName = "Unknown";
 const DataBaseName = 'Fetion';
-const DataBaseVersion = 27;
+const DataBaseVersion = 28;
 // const FontFamilyName = 'AlibabaPuHuiTi';
 const double SecondBarWidth = 240;
 const int DefaultFontSize = 13;
@@ -79,6 +79,11 @@ const ThemeModes = [ThemeModeMap.LIGHT, ThemeModeMap.DARK];
 
 class NoticeType {
   static const ADDCONTACT = 'add_contact';
-  static const CONTACTONLINE = 'contact_online';
   static const JOINGROUP = 'join_group';
+}
+
+class NoticeStatus {
+  static const UNREAD = 0;
+  static const READED = 1;
+  static const CLEARED = 2;
 }

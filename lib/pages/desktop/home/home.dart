@@ -6,6 +6,7 @@ import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/controller/message_controller.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
+import 'package:fetion/pages/desktop/notice/controller/notice_controller.dart';
 import 'package:fetion/pages/desktop/notice/notice.dart';
 import 'package:fetion/pages/desktop/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
@@ -36,6 +37,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final SettingController settingController = Get.put(SettingController());
   final MessageController messageController = Get.put(MessageController());
+  final NoticeController noticeController = Get.put(NoticeController());
   int topIndex = 0;
   @override
   void initState() {
@@ -44,14 +46,22 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    List<NavigationPaneItem> items = [
-      PaneItemSeparator(),
-      PaneItem(
-        icon: Icon(WindowsIcons.message, size: 16),
-        title: Text('messages'.tr, style: TextStyle(fontSize: 14)),
-        infoBadge: messageController.unReadCount.value == DisplayMinMessages
-            ? null
-            : InfoBadge(
+    return NavigationView(
+      pane: NavigationPane(
+        selected: topIndex,
+        onChanged: (index) {
+          setState(() => topIndex = index);
+        },
+        displayMode: PaneDisplayMode.compact,
+        items: [
+          PaneItemSeparator(),
+          PaneItem(
+            icon: Icon(WindowsIcons.message, size: 16),
+            title: Text('messages'.tr, style: TextStyle(fontSize: 14)),
+            infoBadge: Obx(() {
+              if (messageController.unReadCount.value == DisplayMinMessages)
+                return SizedBox.shrink();
+              return InfoBadge(
                 source: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 4),
                   child: Row(
@@ -84,33 +94,26 @@ class _HomePageState extends State<HomePage> {
                           ],
                   ),
                 ),
-              ),
-        body: MessageBar(),
-      ),
-      PaneItem(
-        icon: Icon(WindowsIcons.contact_info, size: 16),
-        title: Text('contacts'.tr, style: TextStyle(fontSize: 14)),
-        body: ContactBar(),
-      ),
-      PaneItem(
-        icon: Icon(FluentIcons.contact_list, size: 16),
-        title: Text('groups'.tr, style: TextStyle(fontSize: 14)),
-        body: const NavigationBodyItem(content: Text("ssss")),
-      ),
-      PaneItem(
-        icon: Icon(WindowsIcons.contact, size: 16),
-        title: Text('profiles'.tr, style: TextStyle(fontSize: 14)),
-        body: NavigationBodyItem(content: MePage(), header: 'profiles'.tr),
-      ),
-    ];
-    return NavigationView(
-      pane: NavigationPane(
-        selected: topIndex,
-        onChanged: (index) {
-          setState(() => topIndex = index);
-        },
-        displayMode: PaneDisplayMode.compact,
-        items: items,
+              );
+            }),
+            body: MessageBar(),
+          ),
+          PaneItem(
+            icon: Icon(WindowsIcons.contact_info, size: 16),
+            title: Text('contacts'.tr, style: TextStyle(fontSize: 14)),
+            body: ContactBar(),
+          ),
+          PaneItem(
+            icon: Icon(FluentIcons.contact_list, size: 16),
+            title: Text('groups'.tr, style: TextStyle(fontSize: 14)),
+            body: const NavigationBodyItem(content: Text("ssss")),
+          ),
+          PaneItem(
+            icon: Icon(WindowsIcons.contact, size: 16),
+            title: Text('profiles'.tr, style: TextStyle(fontSize: 14)),
+            body: NavigationBodyItem(content: MePage(), header: 'profiles'.tr),
+          ),
+        ],
         size: NavigationPaneSize(openWidth: 250),
         header: Row(
           spacing: 6,
@@ -167,7 +170,11 @@ class _HomePageState extends State<HomePage> {
           ),
           PaneItem(
             icon: Icon(WindowsIcons.mob_notification_bell, size: 16),
-            infoBadge: InfoBadge(),
+            infoBadge: Obx(() {
+              if (noticeController.unReadNoticeCount.value > 0)
+                return InfoBadge();
+              return SizedBox.shrink();
+            }),
             title: Text('notices'.tr, style: TextStyle(fontSize: 14)),
             body: NavigationBodyItem(
               content: NoticePage(),

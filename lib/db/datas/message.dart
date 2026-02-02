@@ -31,8 +31,8 @@ class MessageRepository {
     return message;
   }
 
-  int queryUnreadMessageCount() {
-    return _realm.all<Message>().where((u) => u.status == MsgStatus.UNREAD)?.length ?? 0;
+  queryUnreadMessageCount() {
+    return _realm.query<Message>('status == ${MsgStatus.UNREAD}');
   }
 
   Message? findMessage(String id) {

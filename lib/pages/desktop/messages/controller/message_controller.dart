@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fetion/common/const.dart';
 import 'package:fetion/db/datas/message.dart';
 import 'package:get/get.dart';
@@ -10,6 +12,7 @@ class MessageController extends GetxController {
   late RxInt unReadCount = 0.obs;
   late RxInt pageSize = DefaultPageSize.obs;
   late RxInt pageNo = DefaultPageNo.obs;
+  StreamSubscription? _changesSubscription;
   initDb() async {
     final realmInstance = await RealmInstance.getInstance();
     _messageRepository = MessageRepository(realmInstance);
@@ -19,12 +22,20 @@ class MessageController extends GetxController {
   void onInit() async {
     super.onInit();
     await initDb();
+    unReadStatic();
+  }
+
+  unReadStatic() {
+    final unreadResults = _messageRepository?.queryUnreadMessageCount();
+    _changesSubscription = unreadResults.changes.listen((result) {
+      unReadCount.value = unreadResults.length;
+    });
   }
 
   getMessagePage(String userId) async {
     if (_messageRepository == null && userId.isNotEmpty) return [];
     messages.value =
-        await _messageRepository?.getMessagesListPage(
+        _messageRepository?.getMessagesListPage(
           pageSize.value,
           pageNo.value,
           userId,
@@ -37,8 +48,7 @@ class MessageController extends GetxController {
   }
 
   queryUnreadCount() async {
-    unReadCount.value =
-        await _messageRepository?.queryUnreadMessageCount() ?? 0;
+    unReadCount.value = _messageRepository?.queryUnreadMessageCount() ?? 0;
   }
 
   @override
