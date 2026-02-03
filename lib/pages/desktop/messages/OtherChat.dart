@@ -38,7 +38,6 @@ class _OtherChat extends State<OtherChat> {
               ChatBox(
                 text: widget.item.content,
                 fontColor: white,
-                backgroundColor: primaryColor,
               ),
             ],
           ),

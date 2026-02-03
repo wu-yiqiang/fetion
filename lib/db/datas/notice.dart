@@ -11,7 +11,11 @@ class NoticeRepository {
     _realm = _realmInstance.realm;
   }
 
-  queryUnreadNoticeCount() {
+  queryUnreadNotice() {
     return _realm.query<Notice>('status == ${NoticeStatus.UNREAD}');
+  }
+
+  queryUnreadNotices() {
+    return queryUnreadNotice().toList();
   }
 }

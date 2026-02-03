@@ -1,5 +1,5 @@
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
 
 class ChatBox extends StatefulWidget {
@@ -7,11 +7,9 @@ class ChatBox extends StatefulWidget {
     super.key,
     required this.text,
     required this.fontColor,
-    required this.backgroundColor,
   });
   final String text;
   final Color fontColor;
-  final Color backgroundColor;
   @override
   State<ChatBox> createState() => _ChatBox();
 }
@@ -22,11 +20,11 @@ class _ChatBox extends State<ChatBox> {
   Widget build(BuildContext context) {
     String text = widget.text ?? "";
     String newtext = Characters(text).join('\u{200B}');
+    final theme = FluentTheme.of(context);
     return Container(
-      // constraints: BoxConstraints(minWidth: 80),
       decoration: BoxDecoration(
-        color: widget.backgroundColor,
-        borderRadius: BorderRadius.circular(4),
+        color: theme.accentColor,
+        borderRadius: BorderRadius.circular(3),
       ),
       padding: EdgeInsets.all(6),
       child: Flex(
@@ -41,7 +39,7 @@ class _ChatBox extends State<ChatBox> {
                 color: widget.fontColor,
                 fontSize: settingController.setting.value.fontSize.toDouble(),
                 fontWeight: FontWeight.w400,
-                height: 1.5,
+                height: 1.2,
                 decoration: TextDecoration.none,
               ),
             );

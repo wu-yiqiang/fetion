@@ -35,7 +35,6 @@ class _MeChat extends State<MeChat> {
               ChatBox(
                 text: widget.item.content,
                 fontColor: white,
-                backgroundColor: primaryColor,
               ),
             ],
           ),

@@ -5,7 +5,7 @@ import 'package:fetion/db/realmInstance.dart';
 
 class NoticeController extends GetxController {
   NoticeRepository? _noticeRepository;
-  late RxList<dynamic> Notices = [].obs;
+  late RxList notices = [].obs;
   late RxInt unReadNoticeCount = 0.obs;
   StreamSubscription? _changesSubscription;
   initDb() async {
@@ -21,10 +21,16 @@ class NoticeController extends GetxController {
   }
 
   unReadStatic() {
-    final unreadResults = _noticeRepository?.queryUnreadNoticeCount();
+    final unreadResults = _noticeRepository?.queryUnreadNotice();
     _changesSubscription = unreadResults.changes.listen((result) {
       unReadNoticeCount.value = unreadResults?.length ?? 0;
+      getNotices();
     });
+  }
+
+  getNotices() {
+    if (_noticeRepository == null) return notices.value = [];
+    notices.value = _noticeRepository?.queryUnreadNotices() ?? [];
   }
 
   @override

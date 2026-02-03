@@ -22,21 +22,13 @@ class _NoticePage extends State<NoticePage> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return noticeController.Notices.length > 0
+      return noticeController.notices.length > 0
           ? ScrollViews(
               child: SingleChildScrollView(
                 child: Flex(
                   direction: Axis.vertical,
                   spacing: 10,
                   children: [
-                    AddContact(),
-                    AddContact(),
-                    AddContact(),
-                    AddContact(),
-                    AddContact(),
-                    AddContact(),
-                    AddContact(),
-                    AddContact(),
                     AddContact(),
                   ],
                 ),
