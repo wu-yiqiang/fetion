@@ -28,9 +28,9 @@ class _NoticePage extends State<NoticePage> {
                 child: Flex(
                   direction: Axis.vertical,
                   spacing: 10,
-                  children: [
-                    AddContact(),
-                  ],
+                  children: noticeController.notices.value.map((item) {
+                    return AddContact(item);
+                  }).toList(),
                 ),
               ),
             )

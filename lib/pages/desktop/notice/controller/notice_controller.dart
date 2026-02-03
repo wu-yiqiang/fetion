@@ -33,6 +33,10 @@ class NoticeController extends GetxController {
     notices.value = _noticeRepository?.queryUnreadNotices() ?? [];
   }
 
+  deleteNotice(String noticeId) {
+    _noticeRepository?.deleteNotice(noticeId);
+  }
+
   @override
   void onClose() {
     super.onClose();

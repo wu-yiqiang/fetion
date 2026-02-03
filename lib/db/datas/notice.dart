@@ -18,4 +18,15 @@ class NoticeRepository {
   queryUnreadNotices() {
     return queryUnreadNotice().toList();
   }
+  Notice? findNotice(String noticeId) {
+    return _realm.find<Notice>(noticeId);
+  }
+
+  deleteNotice(String noticeId) {
+    Notice? notice = findNotice(noticeId);
+    if (notice == null) return;
+    _realm.write(() {
+      _realm.delete(notice!);
+    });
+  }
 }
