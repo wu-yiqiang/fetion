@@ -21,7 +21,7 @@ class RealmInstance {
       [User.schema, Setting.schema, Message.schema, Notice.schema],
 
       /// 设置数据库版本号，用于数据库升级
-      schemaVersion: DataBaseVersion,
+      schemaVersion: databaseVersion,
 
       /// 数据库版本迁移回调函数
       migrationCallback: (migration, oldSchemaVersion) {

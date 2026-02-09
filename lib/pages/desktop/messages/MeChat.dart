@@ -40,7 +40,7 @@ class _MeChat extends State<MeChat> {
           ),
         ),
         Avatar(
-          image: settingController.setting.value?.avatar ?? DefaultAvatar,
+          image: settingController.setting.value?.avatar ?? defaultAvatar,
           size: 34,
         ),
       ],

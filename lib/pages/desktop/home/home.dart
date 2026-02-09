@@ -59,14 +59,14 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(WindowsIcons.message, size: 16),
             title: Text('messages'.tr, style: TextStyle(fontSize: 14)),
             infoBadge: Obx(() {
-              if (messageController.unReadCount.value == DisplayMinMessages)
+              if (messageController.unReadCount.value == displayMinMessages)
                 return SizedBox.shrink();
               return InfoBadge(
                 source: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 4),
                   child: Row(
                     children:
-                        messageController.unReadCount.value < DisplayMaxMessages
+                        messageController.unReadCount.value < displayMaxMessages
                         ? [
                             Text(
                               messageController.unReadCount.value.toString(),
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                           ]
                         : [
                             Text(
-                              DisplayMaxMessages.toString(),
+                              displayMaxMessages.toString(),
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,

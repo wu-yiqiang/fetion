@@ -11,7 +11,7 @@ windowInit() async {
     size: Size(900, 600), // 设置默认窗口大小
     minimumSize: Size(800, 600), // 设置最小窗口大小
     center: true, // 设置窗口居中
-    title: ApplicationName, // 设置窗口标题
+    title: applicationName, // 设置窗口标题
     // backgroundColor: Colors.white,
     // titleBarStyle: TitleBarStyle.hidden, // 隐藏原生标题栏
   );

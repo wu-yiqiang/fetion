@@ -34,7 +34,7 @@ class _SingleTopbar extends State<SingleTopbar> {
             children: [
                 StatusAvatar(
                   size: 34,
-                  image: userController.session.value?.avatar ?? DefaultAvatar,
+                  image: userController.session.value?.avatar ?? defaultAvatar,
                 ),
                 Texts(
                   text:

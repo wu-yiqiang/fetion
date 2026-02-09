@@ -38,11 +38,11 @@ class _AboutPage extends State<AboutPage> {
                       spacing: 6,
                       children: [
                         Texts(
-                          text: ApplicationName,
+                          text: applicationName,
                           fontSize: 14,
                         ),
                         Text(
-                          '$ApplicationVersion',
+                          '$applicationVersion',
                           style: TextStyle(fontSize: 12, color: gray)
                         ),
                       ],
@@ -80,7 +80,7 @@ class _AboutPage extends State<AboutPage> {
                     spacing: 10,
                     children: [
                       Link(
-                        uri: Uri.parse(OpenSourceAddr),
+                        uri: Uri.parse(openSourceAddr),
                         builder: (Context, open) {
                           return HyperlinkButton(
                             child: Text(
@@ -95,7 +95,7 @@ class _AboutPage extends State<AboutPage> {
                         },
                       ),
                       Link(
-                        uri: Uri.parse(IssuesAddr),
+                        uri: Uri.parse(issuesAddr),
                         builder: (Context, open) {
                           return HyperlinkButton(
                             child: Text(

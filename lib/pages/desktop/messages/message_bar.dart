@@ -17,7 +17,7 @@ class _MessageBar extends State<MessageBar> {
     return Row(
       children: [
         Container(
-          width: SecondBarWidth,
+          width: secondBarWidth,
           color: theme.scaffoldBackgroundColor,
           child: Column(
             children: [

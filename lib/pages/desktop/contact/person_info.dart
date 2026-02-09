@@ -30,7 +30,7 @@ class _PersonInfo extends State<PersonInfo> {
             children: [
               Avatar(
                 size: 80,
-                image: userController.user.value?.avatar ?? DefaultAvatar,
+                image: userController.user.value?.avatar ?? defaultAvatar,
               ),
             ],
           ),

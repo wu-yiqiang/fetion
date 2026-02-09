@@ -11,7 +11,7 @@ class SettingController extends GetxController {
   late SettingRepository _settingRepository;
   final random = Random();
   late Rx<Setting> setting = Setting(
-    SettingId,
+    settingId,
     '',
     '',
     '',
@@ -23,11 +23,11 @@ class SettingController extends GetxController {
     LanguageEnTypeMap.TYPE,
     LanguageEnTypeMap.COUNTRY,
     ThemeModeMap.LIGHT,
-    DefaultFontSize,
+    defaultFontSize,
     false,
-    DefaultPassword,
+    defaultPassword,
     '',
-    avatar: DefaultAvatar,
+    avatar: defaultAvatar,
     DateTime.now().millisecondsSinceEpoch,
     DateTime.now().millisecondsSinceEpoch,
   ).obs;
@@ -54,23 +54,23 @@ class SettingController extends GetxController {
     String macAddr = getLocalMacAddr();
     String userId = generateRandomString(30);
     final setting = Setting(
-      SettingId,
+      settingId,
       userId,
       hoatName,
       getway,
       ipv4,
       ipv6,
       macAddr,
-      DefaultMaskCode,
+      defaultMaskCode,
       LanguageMap.ENGLISH,
       LanguageEnTypeMap.TYPE,
       LanguageEnTypeMap.COUNTRY,
       ThemeModeMap.LIGHT,
-      DefaultFontSize,
+      defaultFontSize,
       false,
-      DefaultPassword,
-      NickNamePrefix + NumberStr,
-      avatar: DefaultAvatar,
+      defaultPassword,
+      nickNamePrefix + NumberStr,
+      avatar: defaultAvatar,
       DateTime.now().millisecondsSinceEpoch,
       DateTime.now().millisecondsSinceEpoch,
     );
@@ -83,12 +83,12 @@ class SettingController extends GetxController {
   }
 
   void updateSetting(String key, dynamic value) {
-    _settingRepository.updateSettingItem(SettingId, key, value);
+    _settingRepository.updateSettingItem(settingId, key, value);
     getSettingInfo();
   }
 
   void getSettingInfo() {
-    final ownerInfos = _settingRepository.findSetting(SettingId);
+    final ownerInfos = _settingRepository.findSetting(settingId);
     setting.value = ownerInfos!;
     setting.refresh();
     update();

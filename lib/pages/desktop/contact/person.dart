@@ -55,7 +55,7 @@ class _Person extends State<Person> {
                   children: [
                     Avatar(
                       size: 30,
-                      image: widget.item?.avatar ?? DefaultAvatar,
+                      image: widget.item?.avatar ?? defaultAvatar,
                     ),
                     Expanded(
                       child: Texts(

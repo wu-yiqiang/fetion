@@ -45,7 +45,7 @@ class _AppearancePage extends State<AppearancePage> {
                         width: 100,
                         child: ComboBox<String>(
                           value: settingController.setting.value.language,
-                          items: Languages.map<ComboBoxItem<String>>((e) {
+                          items: languages.map<ComboBoxItem<String>>((e) {
                             return ComboBoxItem<String>(
                               child: Text(
                                 e['value']!,
@@ -58,7 +58,7 @@ class _AppearancePage extends State<AppearancePage> {
                           }).toList(),
                           onChanged: (value) {
                             setState(() {
-                              final langItem = Languages?.where(
+                              final langItem = languages?.where(
                                 (u) => u['value'] == value,
                               ).toList();
                               final langType = langItem
@@ -110,7 +110,7 @@ class _AppearancePage extends State<AppearancePage> {
                           width: 100,
                           child: ComboBox<String>(
                             value: settingController.setting.value.theme,
-                            items: ThemeModes.map<ComboBoxItem<String>>((e) {
+                            items: themeModes.map<ComboBoxItem<String>>((e) {
                               return ComboBoxItem<String>(
                                 child: Text(
                                   e,
@@ -146,8 +146,8 @@ class _AppearancePage extends State<AppearancePage> {
                       ),
                       Obx(() {
                         return Slider(
-                          min: FontSizeMin,
-                          max: FontSizeMax,
+                          min: fontSizeMin,
+                          max: fontSizeMax,
                           label: '${settingController.setting.value.fontSize}',
                           value: settingController.setting.value.fontSize
                               .toDouble(),

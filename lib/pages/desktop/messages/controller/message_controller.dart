@@ -10,8 +10,8 @@ class MessageController extends GetxController {
   MessageRepository? _messageRepository;
   late RxList<dynamic> messages = [].obs;
   late RxInt unReadCount = 0.obs;
-  late RxInt pageSize = DefaultPageSize.obs;
-  late RxInt pageNo = DefaultPageNo.obs;
+  late RxInt pageSize = defaultPageSize.obs;
+  late RxInt pageNo = defaultPageNo.obs;
   StreamSubscription? _changesSubscription;
   initDb() async {
     final realmInstance = await RealmInstance.getInstance();

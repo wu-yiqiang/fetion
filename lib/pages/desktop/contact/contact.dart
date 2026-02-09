@@ -34,7 +34,7 @@ class _ContactBar extends State<ContactBar> {
     return Row(
       children: [
         Container(
-          width: SecondBarWidth,
+          width: secondBarWidth,
           color: theme.scaffoldBackgroundColor,
           child: Column(
             children: [

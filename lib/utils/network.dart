@@ -12,7 +12,7 @@ String getLocalMacAddr() {
 }
 
 String getLocalHostName() {
-  final hostName = Platform?.localHostname ?? DefaultHostName;
+  final hostName = Platform.localHostname.isNotEmpty ? Platform.localHostname : defaultHostName;
   return hostName;
 }
 
@@ -20,7 +20,7 @@ Future<String> getLocalIpv4Addr() async {
   final interfaces = await getInterfaces();
   for (var interface in interfaces) {
     for (var addr in interface.addresses) {
-      if (addr.type == InternetAddressType.IPv4) {
+      if (addr.type == InternetAddressType.IPv4 && !addr.isLoopback) {
         return addr.address;
       }
     }
@@ -34,15 +34,13 @@ Future<String> getLocalGatewayAddr() async {
 }
 
 Future<String> getLocalIpv6Addr() async {
-  final ipv6Addresses = <String>[];
   final interfaces = await getInterfaces();
   for (final interface in interfaces) {
-    for (final address in interface?.addresses) {
-      if (address?.type == InternetAddressType.IPv6) {
-        return address?.address;
+    for (final address in interface.addresses) {
+      if (address.type == InternetAddressType.IPv6 && !address.isLoopback) {
+        return address.address;
       }
     }
   }
-  // print(ipv6Addresses);
   return '';
 }
