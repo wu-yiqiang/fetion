@@ -17,11 +17,10 @@ Avatar({double size = 40, String? image}) {
               fit: BoxFit.cover,
             )
           : Container(
-              color: Colors.grey[200],
               alignment: Alignment.center,
               child: WindowsIcon(
                 FluentIcons.contact,
-                size: size * 0.5,
+                size: size * 0.8,
                 color: Colors.grey[500],
               ),
             ),
