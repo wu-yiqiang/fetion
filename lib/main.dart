@@ -32,7 +32,7 @@ Navigates() {
   });
 }
 TextStyle _getSystemDefaultTextStyle(mode) {
-  final color = mode == ThemeModeMap.LIGHT
+  final color = mode == ThemeModeMap.light
       ? const Color(0xdd000000)
       : const Color(0xffffffff);
   return TextStyle(
@@ -67,8 +67,8 @@ void main() async {
           settingController.setting.value.languageCountry,
         ),
         fallbackLocale: Locale(
-          LanguageEnTypeMap.TYPE,
-          LanguageEnTypeMap.COUNTRY,
+          LanguageEnTypeMap.type,
+          LanguageEnTypeMap.country,
         ),
         translations: Language(),
         theme: ThemeData(
@@ -80,7 +80,7 @@ void main() async {
           textSelectionTheme: TextSelectionThemeData(
             cursorColor: Colors.white),
         ),
-        themeMode: settingController.setting.value.theme == ThemeModeMap.DARK
+        themeMode: settingController.setting.value.theme == ThemeModeMap.dark
             ? ThemeMode.dark
             : ThemeMode.light,
         builder: (context, child) {
@@ -110,7 +110,7 @@ void main() async {
                 ),
               ),
               brightness:
-                  settingController.setting.value.theme == ThemeModeMap.DARK
+                  settingController.setting.value.theme == ThemeModeMap.dark
                   ? Brightness.dark
                   : Brightness.light,
             ),

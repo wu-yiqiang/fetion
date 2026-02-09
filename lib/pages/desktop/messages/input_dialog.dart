@@ -81,8 +81,8 @@ class _InputDialog extends State<InputDialog> {
       settingController.setting.value.userId,
       userId,
       _controller.text,
-      MsgType.TEXT,
-      MsgStatus.SENDED,
+      MsgType.text,
+      MsgStatus.sended,
       DateTime.now().millisecondsSinceEpoch,
       DateTime.now().millisecondsSinceEpoch,
     );
