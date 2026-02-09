@@ -11,7 +11,7 @@ class AddContact extends StatefulWidget {
 }
 
 class _AddContact extends State<AddContact> {
-  late NoticeController noticeController = Get.put(NoticeController());
+  late NoticeController noticeController = Get.find<NoticeController>();
   @override
   void initState() {
     super.initState();

@@ -16,14 +16,14 @@ class MainDialog extends StatefulWidget {
 }
 
 class _MainDialog extends State<MainDialog> {
-  late SettingController settingController = Get.put(SettingController());
+  late SettingController settingController = Get.find<SettingController>();
   late MessageController messageController;
   final controller = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    messageController = Get.put(MessageController());
+    messageController = Get.find<MessageController>();
   }
 
   @override

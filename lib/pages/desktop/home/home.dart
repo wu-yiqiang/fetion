@@ -7,6 +7,7 @@ import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/controller/message_controller.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
 import 'package:fetion/pages/desktop/notice/controller/notice_controller.dart';
+import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/notice/notice.dart';
 import 'package:fetion/pages/desktop/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
@@ -38,6 +39,7 @@ class _HomePageState extends State<HomePage> {
   final SettingController settingController = Get.put(SettingController());
   final MessageController messageController = Get.put(MessageController());
   final NoticeController noticeController = Get.put(NoticeController());
+  final UserController userController = Get.put(UserController());
   int topIndex = 0;
   @override
   void initState() {

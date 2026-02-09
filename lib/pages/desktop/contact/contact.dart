@@ -20,7 +20,7 @@ class _ContactBar extends State<ContactBar> {
   @override
   void initState() {
     super.initState();
-    userController = Get.put(UserController());
+    userController = Get.find<UserController>();
   }
 
   void dispose() {

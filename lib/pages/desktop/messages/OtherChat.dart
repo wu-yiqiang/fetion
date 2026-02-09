@@ -17,7 +17,7 @@ class OtherChat extends StatefulWidget {
 }
 
 class _OtherChat extends State<OtherChat> {
-  late UserController userController = Get.put(UserController());
+  late UserController userController = Get.find<UserController>();
   User? user;
   @override
   Widget build(BuildContext context) {

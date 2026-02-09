@@ -12,7 +12,7 @@ class NetworkPage extends StatefulWidget {
 }
 
 class _NetworkPage extends State<NetworkPage> {
-  final SettingController settingController = Get.put(SettingController());
+  final SettingController settingController = Get.find<SettingController>();
   @override
   Widget build(BuildContext context) {
     return Container(

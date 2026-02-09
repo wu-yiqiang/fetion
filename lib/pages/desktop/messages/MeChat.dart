@@ -16,7 +16,7 @@ class MeChat extends StatefulWidget {
 }
 
 class _MeChat extends State<MeChat> {
-  late SettingController settingController = Get.put(SettingController());
+  late SettingController settingController = Get.find<SettingController>();
   @override
   Widget build(BuildContext context) {
     return Flex(
@@ -40,7 +40,7 @@ class _MeChat extends State<MeChat> {
           ),
         ),
         Avatar(
-          image: settingController.setting.value?.avatar ?? defaultAvatar,
+          image: settingController.setting.value?.avatar ?? '',
           size: 34,
         ),
       ],

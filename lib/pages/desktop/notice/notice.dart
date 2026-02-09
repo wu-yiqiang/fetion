@@ -13,7 +13,7 @@ class NoticePage extends StatefulWidget {
 }
 
 class _NoticePage extends State<NoticePage> {
-  late NoticeController noticeController = Get.put(NoticeController());
+  late NoticeController noticeController = Get.find<NoticeController>();
   @override
   void initState() {
     super.initState();

@@ -12,7 +12,9 @@ class NoticeRepository {
   }
 
   queryUnreadNotice() {
-    return _realm.query<Notice>('status == ${NoticeStatus.unread}');
+    return _realm.query<Notice>('status == \$0 AND isDeleted == false', [
+      NoticeStatus.unread,
+    ]);
   }
 
   queryUnreadNotices() {

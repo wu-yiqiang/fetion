@@ -14,7 +14,7 @@ class SingleTopbar extends StatefulWidget {
 }
 
 class _SingleTopbar extends State<SingleTopbar> {
-  late UserController userController = Get.put(UserController());
+  late UserController userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +34,7 @@ class _SingleTopbar extends State<SingleTopbar> {
             children: [
                 StatusAvatar(
                   size: 34,
-                  image: userController.session.value?.avatar ?? defaultAvatar,
+                  image: userController.session.value?.avatar ?? '',
                 ),
                 Texts(
                   text:

@@ -12,10 +12,12 @@ class MessageRepository {
   }
 
   List<Message> getMessagesListPage(int pageSize, int pageNo, String userId) {
-    return _realm
-        .all<Message>()
-        .where((u) => u.toUserId == userId || u.fromUserId == userId)
-        .toList();
+    final results = _realm.query<Message>(
+      'toUserId == \$0 OR fromUserId == \$0 SORT(createdAt DESC)',
+      [userId],
+    );
+    final start = (pageNo - 1) * pageSize;
+    return results.skip(start).take(pageSize).toList();
   }
 
   void updateMessageItem(String id, String key, dynamic value) {
@@ -32,7 +34,9 @@ class MessageRepository {
   }
 
   queryUnreadMessageCount() {
-    return _realm.query<Message>('status == ${MsgStatus.unread}');
+    return _realm.query<Message>('status == \$0 AND isDeleted == false', [
+      MsgStatus.unread,
+    ]);
   }
 
   Message? findMessage(String id) {

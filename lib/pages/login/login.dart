@@ -14,7 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPage extends State<LoginPage> {
-  final SettingController settingController = Get.put(SettingController());
+  final SettingController settingController = Get.find<SettingController>();
   var showPassword = false;
   String enterPassword = '';
   @override

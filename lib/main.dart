@@ -11,12 +11,13 @@ import 'package:fetion/translation/translation.dart';
 import 'dart:io' show Platform;
 
 localNotification() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await localNotifier.setup(
-    appName: 'Fetion系统通知',
-    // 仅 Windows
-    shortcutPolicy: ShortcutPolicy.requireCreate,
-  );
+  if (Platform.isWindows) {
+    WidgetsFlutterBinding.ensureInitialized();
+    await localNotifier.setup(
+      appName: 'Fetion系统通知',
+      shortcutPolicy: ShortcutPolicy.requireCreate,
+    );
+  }
 }
 
 ShowGlobalMessages() {

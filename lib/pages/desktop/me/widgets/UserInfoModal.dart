@@ -4,7 +4,7 @@ import 'package:fetion/widgets/Texts.dart';
 import 'package:get/get.dart';
 
 void userInfoModal(BuildContext context,String key, String text, {title = 'Edit'}) async {
-  final SettingController settingController = Get.put(SettingController());
+  final SettingController settingController = Get.find<SettingController>();
   final TextEditingController textController = TextEditingController(
     text: text,
   );

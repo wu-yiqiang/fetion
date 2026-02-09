@@ -16,7 +16,7 @@ class MePage extends StatefulWidget {
 }
 
 class _MePage extends State<MePage> {
-  late SettingController settingController = Get.put(SettingController());
+  late SettingController settingController = Get.find<SettingController>();
   @override
   void initState() {
     super.initState();

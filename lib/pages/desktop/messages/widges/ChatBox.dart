@@ -15,7 +15,7 @@ class ChatBox extends StatefulWidget {
 }
 
 class _ChatBox extends State<ChatBox> {
-  late SettingController settingController = Get.put(SettingController());
+  late SettingController settingController = Get.find<SettingController>();
   @override
   Widget build(BuildContext context) {
     String text = widget.text ?? "";

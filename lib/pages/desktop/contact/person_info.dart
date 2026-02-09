@@ -1,4 +1,3 @@
-import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/me/widgets/ReadonlyInfoItem.dart';
 import 'package:fetion/widgets/Avatar.dart';
@@ -16,7 +15,7 @@ class PersonInfo extends StatefulWidget {
 }
 
 class _PersonInfo extends State<PersonInfo> {
-  late UserController userController = Get.put(UserController());
+  late UserController userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     userController.getUserInfo(widget.userId);
@@ -30,7 +29,7 @@ class _PersonInfo extends State<PersonInfo> {
             children: [
               Avatar(
                 size: 80,
-                image: userController.user.value?.avatar ?? defaultAvatar,
+                image: userController.user.value?.avatar ?? '',
               ),
             ],
           ),

@@ -17,8 +17,8 @@ class InputDialog extends StatefulWidget {
 }
 
 class _InputDialog extends State<InputDialog> {
-  MessageController messageController = Get.put(MessageController());
-  SettingController settingController = Get.put(SettingController());
+  MessageController messageController = Get.find<MessageController>();
+  SettingController settingController = Get.find<SettingController>();
   final TextEditingController _controller = TextEditingController();
   late Message message;
   @override

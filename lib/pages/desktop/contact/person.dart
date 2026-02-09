@@ -22,7 +22,7 @@ class _Person extends State<Person> {
   @override
   void initState() {
     super.initState();
-    userController = Get.put(UserController());
+    userController = Get.find<UserController>();
   }
 
   @override
@@ -55,7 +55,7 @@ class _Person extends State<Person> {
                   children: [
                     Avatar(
                       size: 30,
-                      image: widget.item?.avatar ?? defaultAvatar,
+                      image: widget.item?.avatar ?? '',
                     ),
                     Expanded(
                       child: Texts(

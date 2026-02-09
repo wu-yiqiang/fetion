@@ -39,6 +39,8 @@ class NoticeController extends GetxController {
 
   @override
   void onClose() {
+    _changesSubscription?.cancel();
+    _changesSubscription = null;
     super.onClose();
   }
 }

@@ -7,7 +7,7 @@ import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 class UserRepository {
   late final RealmInstance _realmInstance;
   late final Realm _realm;
-  final SettingController settingController = Get.put(SettingController());
+  final SettingController settingController = Get.find<SettingController>();
   UserRepository(this._realmInstance) {
     _realm = _realmInstance.realm;
   }

@@ -11,7 +11,7 @@ class Persons extends StatefulWidget {
 }
 
 class _Persons extends State<Persons> {
-  late UserController userController = Get.put(UserController());
+  late UserController userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     return ScrollViews(

@@ -8,7 +8,7 @@ void DeleteDialog(
   String userId,
   FlyoutController flyoutController,
 ) async {
-  final UserController userController = Get.put(UserController());
+  final UserController userController = Get.find<UserController>();
   final result = await showDialog<String>(
     context: context,
     builder: (context) => ContentDialog(

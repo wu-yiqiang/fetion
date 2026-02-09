@@ -15,7 +15,7 @@ class UpdateAvatar extends StatefulWidget {
 }
 
 class _UpdateAvatar extends State<UpdateAvatar> {
-  final SettingController settingController = Get.put(SettingController());
+  final SettingController settingController = Get.find<SettingController>();
 
   @override
   Widget build(BuildContext context) {

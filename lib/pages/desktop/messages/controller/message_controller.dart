@@ -33,7 +33,7 @@ class MessageController extends GetxController {
   }
 
   getMessagePage(String userId) async {
-    if (_messageRepository == null && userId.isNotEmpty) return [];
+    if (_messageRepository == null || userId.isEmpty) return [];
     messages.value =
         _messageRepository?.getMessagesListPage(
           pageSize.value,
@@ -53,6 +53,8 @@ class MessageController extends GetxController {
 
   @override
   void onClose() {
+    _changesSubscription?.cancel();
+    _changesSubscription = null;
     super.onClose();
   }
 }

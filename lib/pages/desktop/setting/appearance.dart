@@ -13,7 +13,7 @@ class AppearancePage extends StatefulWidget {
 }
 
 class _AppearancePage extends State<AppearancePage> {
-  final SettingController settingController = Get.put(SettingController());
+  final SettingController settingController = Get.find<SettingController>();
 
   void onReady() {}
 

@@ -9,7 +9,7 @@ void RenameDialog(
   String userId,
   FlyoutController flyoutController,
 ) async {
-  final UserController userController = Get.put(UserController());
+  final UserController userController = Get.find<UserController>();
   final TextEditingController textController = TextEditingController(
     text: text,
   );

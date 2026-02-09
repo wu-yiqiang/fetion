@@ -27,7 +27,7 @@ class SettingController extends GetxController {
     false,
     defaultPassword,
     '',
-    avatar: defaultAvatar,
+    avatar: '',
     DateTime.now().millisecondsSinceEpoch,
     DateTime.now().millisecondsSinceEpoch,
   ).obs;
@@ -70,7 +70,7 @@ class SettingController extends GetxController {
       false,
       defaultPassword,
       nickNamePrefix + NumberStr,
-      avatar: defaultAvatar,
+      avatar: '',
       DateTime.now().millisecondsSinceEpoch,
       DateTime.now().millisecondsSinceEpoch,
     );

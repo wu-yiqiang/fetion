@@ -32,7 +32,7 @@ class _Message extends State<Message> {
           child: Row(
             spacing: 10,
             children: [
-              Avatar(size: 30, image: defaultAvatar),
+              Avatar(size: 30, image: ''),
               Expanded(
                 child: Column(
                   children: [

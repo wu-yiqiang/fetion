@@ -5,7 +5,7 @@ import 'package:fetion/widgets/Texts.dart';
 import 'package:get/get.dart';
 
 void updatePasswordModal(BuildContext context) async {
-  final SettingController settingController = Get.put(SettingController());
+  final SettingController settingController = Get.find<SettingController>();
   String oldPassword = '';
   String newPassword = '';
   final result = await showDialog<String>(

@@ -9,7 +9,7 @@ void userInfoNumberModal(
   int? value, {
   title = 'Edit',
 }) async {
-  final SettingController settingController = Get.put(SettingController());
+  final SettingController settingController = Get.find<SettingController>();
   int? _valueChanged = value;
   final result = await showDialog<String>(
     context: context,
