@@ -76,6 +76,8 @@ class _InputDialog extends State<InputDialog> {
   }
 
   handleSubmit(String userId) async {
+    if (_controller.text.isEmpty)
+      return
     message = Message(
       ObjectId().toString(),
       settingController.setting.value.userId,
