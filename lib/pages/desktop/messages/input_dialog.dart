@@ -20,7 +20,6 @@ class _InputDialog extends State<InputDialog> {
   MessageController messageController = Get.find<MessageController>();
   SettingController settingController = Get.find<SettingController>();
   final TextEditingController _controller = TextEditingController();
-  late Message message;
   @override
   Widget build(BuildContext context) {
     final theme = FluentTheme.of(context);
@@ -76,9 +75,10 @@ class _InputDialog extends State<InputDialog> {
   }
 
   handleSubmit(String userId) async {
-    if (_controller.text.isEmpty)
-      return
-    message = Message(
+    if (_controller.text.isEmpty) {
+      return;
+    }
+    final Message message = Message(
       ObjectId().toString(),
       settingController.setting.value.userId,
       userId,

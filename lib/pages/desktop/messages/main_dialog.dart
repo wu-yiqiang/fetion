@@ -1,9 +1,7 @@
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/messages/OtherChat.dart';
 import 'package:fetion/pages/desktop/messages/MeChat.dart';
 import 'package:fetion/pages/desktop/messages/controller/message_controller.dart';
-import 'package:fetion/utils/EventBus.dart';
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

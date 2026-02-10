@@ -1,6 +1,5 @@
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/pages/desktop/contact/widgets/AddContact.dart';
-import 'package:fetion/widgets/FluentIcon.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
 class SearchsBar extends StatefulWidget {

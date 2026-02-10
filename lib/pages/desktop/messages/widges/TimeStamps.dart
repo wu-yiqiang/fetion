@@ -14,7 +14,9 @@ class _TimeStamps extends State<TimeStamps> {
     return Container(
       margin: EdgeInsets.only(bottom: 4),
       child: Texts(
-        text: DateTime.fromMillisecondsSinceEpoch(widget.timeStamp).toString(),
+        text: DateTime.fromMillisecondsSinceEpoch(
+          widget.timeStamp,
+        ).toString().split('.').first,
         fontSize: 11,
       ),
     );

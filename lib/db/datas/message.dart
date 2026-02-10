@@ -13,7 +13,7 @@ class MessageRepository {
 
   List<Message> getMessagesListPage(int pageSize, int pageNo, String userId) {
     final results = _realm.query<Message>(
-      'toUserId == \$0 OR fromUserId == \$0 SORT(createdAt DESC)',
+      'toUserId == \$0 OR fromUserId == \$0 SORT(createdAt ASC)',
       [userId],
     );
     final start = (pageNo - 1) * pageSize;

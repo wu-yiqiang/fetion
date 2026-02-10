@@ -23,7 +23,7 @@ class _ChatBox extends State<ChatBox> {
     final theme = FluentTheme.of(context);
     return Container(
       decoration: BoxDecoration(
-        color: theme.accentColor,
+        color: Colors.blue.dark,
         borderRadius: BorderRadius.circular(3),
       ),
       padding: EdgeInsets.all(6),
