@@ -19,6 +19,7 @@ class InputDialog extends StatefulWidget {
 class _InputDialog extends State<InputDialog> {
   MessageController messageController = Get.find<MessageController>();
   SettingController settingController = Get.find<SettingController>();
+  final emoController = FlyoutController();
   final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,66 @@ class _InputDialog extends State<InputDialog> {
             Row(
               spacing: 8,
               children: [
-                FluentIcon(icon: WindowsIcons.emoji2, onTap: () {}),
+                FlyoutTarget(
+                  controller: emoController,
+                  child: FluentIcon(
+                    icon: WindowsIcons.emoji2,
+                    onTap: () {
+                      emoController.showFlyout<void>(
+                        autoModeConfiguration: FlyoutAutoConfiguration(
+                          preferredMode: FlyoutPlacementMode.topCenter,
+                        ),
+                        barrierDismissible: true,
+                        dismissOnPointerMoveAway: false,
+                        dismissWithEsc: true,
+                        // navigatorKey: rootNavigatorKey.currentState,
+                        builder: (context) {
+                          return FlyoutContent(
+                            child: Container(
+                              width: 260,
+                              height: 260,
+                              child: GridView.builder(
+                                padding: EdgeInsets.all(10),
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 5,
+                                      crossAxisSpacing: 4,
+                                      mainAxisSpacing: 4,
+                                    ),
+                                itemCount: defaultEmojis.length,
+                                itemBuilder: (context, index) {
+                                  final emoji = defaultEmojis[index];
+                                  return MouseRegion(
+                                    cursor: SystemMouseCursors.click,
+                                    child: GestureDetector(
+                                      onTap: () => {_controller.text += emoji},
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                            width: 1,
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          emoji,
+                                          style: TextStyle(fontSize: 22),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ),
                 FluentIcon(icon: WindowsIcons.microphone, onTap: () {}),
                 FluentIcon(
                   icon: WindowsIcons.send,

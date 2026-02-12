@@ -9,7 +9,6 @@ class Persons extends StatefulWidget {
   @override
   State<Persons> createState() => _Persons();
 }
-
 class _Persons extends State<Persons> {
   late UserController userController = Get.find<UserController>();
   @override
