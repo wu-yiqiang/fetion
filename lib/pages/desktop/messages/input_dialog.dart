@@ -78,10 +78,10 @@ class _InputDialog extends State<InputDialog> {
                               width: 260,
                               height: 260,
                               child: GridView.builder(
-                                padding: EdgeInsets.all(10),
+                                padding: EdgeInsets.all(4),
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 5,
+                                      crossAxisCount: 6,
                                       crossAxisSpacing: 4,
                                       mainAxisSpacing: 4,
                                     ),
