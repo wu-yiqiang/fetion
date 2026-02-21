@@ -113,7 +113,7 @@ class _AppearancePage extends State<AppearancePage> {
                             items: themeModes.map<ComboBoxItem<String>>((e) {
                               return ComboBoxItem<String>(
                                 child: Text(
-                                  e,
+                                  e.tr,
                                   style: TextStyle(
                                     decoration: TextDecoration.none,
                                   ),

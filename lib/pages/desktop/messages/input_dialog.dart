@@ -44,6 +44,7 @@ class _InputDialog extends State<InputDialog> {
                 controller: _controller,
                 unfocusedColor: Colors.transparent,
                 highlightColor: Colors.transparent,
+                style: TextStyle(fontSize: 16),
                 onSubmitted: (value) {
                   handleSubmit(widget.userId);
                 },
@@ -77,7 +78,11 @@ class _InputDialog extends State<InputDialog> {
                             child: Container(
                               width: 260,
                               height: 260,
-                              child: GridView.builder(
+                              child: ScrollConfiguration(
+                                behavior: ScrollConfiguration.of(
+                                  context,
+                                ).copyWith(scrollbars: false),
+                                child: GridView.builder(
                                 padding: EdgeInsets.all(4),
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
@@ -93,11 +98,7 @@ class _InputDialog extends State<InputDialog> {
                                     child: GestureDetector(
                                       onTap: () => {_controller.text += emoji},
                                       child: Container(
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: Colors.grey,
-                                            width: 1,
-                                          ),
+                                          decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(
                                             8,
                                           ),
@@ -112,6 +113,7 @@ class _InputDialog extends State<InputDialog> {
                                   );
                                 },
                               ),
+                            ),
                             ),
                           );
                         },

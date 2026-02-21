@@ -179,8 +179,8 @@ class MsgStatus {
 }
 
 class ThemeModeMap {
-  static const dark = 'Dark';
-  static const light = 'Light';
+  static const dark = 'dark';
+  static const light = 'light';
 }
 
 const themeModes = [ThemeModeMap.light, ThemeModeMap.dark];

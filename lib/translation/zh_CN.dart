@@ -46,5 +46,7 @@ final Map<String, String> zh_CN = {
   'specialThanks': '特别鸣谢',
   'thanksToAda': '感谢Ada同学提供的UI帮助',
   'add': "添加",
-  'addContact': "添加联系人"
+  'addContact': "添加联系人",
+  'dark': "暗色",
+  'light': "亮色"
 };

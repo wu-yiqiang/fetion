@@ -46,5 +46,7 @@ final Map<String, String> en_US = {
   'specialThanks': 'Special Thanks',
   'thanksToAda': 'Thanks to classmate Ada for the UI help',
   'add': "Add",
-  'addContact': "Add Contact"
+  'addContact': "Add Contact",
+  'dark': "Dark",
+  'light': "Light"
 };
