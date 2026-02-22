@@ -4,6 +4,7 @@ import 'package:fetion/db/models/message.model.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/messages/controller/message_controller.dart';
 import 'package:fetion/widgets/FluentIcon.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:get/get.dart';
 import 'package:realm/realm.dart';
@@ -38,7 +39,19 @@ class _InputDialog extends State<InputDialog> {
         ),
         child: Row(
           children: [
-            FluentIcon(icon: WindowsIcons.attach, onTap: () {}),
+            FluentIcon(
+              icon: WindowsIcons.attach,
+              onTap: () async {
+                FilePickerResult? result = await FilePicker.platform
+                    .pickFiles();
+                if (result != null) {
+                  final path = result?.paths[0] ?? '';
+                  if (path.isNotEmpty) {
+                    handleSubmit(path, userId, MsgType.file);
+                  }
+                }
+              },
+            ),
             Expanded(
               child: TextBox(
                 controller: _controller,
@@ -46,7 +59,8 @@ class _InputDialog extends State<InputDialog> {
                 highlightColor: Colors.transparent,
                 style: TextStyle(fontSize: 16),
                 onSubmitted: (value) {
-                  handleSubmit(widget.userId);
+                  handleSubmit(_controller.text, widget.userId, MsgType.text);
+                  _controller.text = "";
                 },
                 decoration: WidgetStatePropertyAll<BoxDecoration>(
                   BoxDecoration(
@@ -83,37 +97,39 @@ class _InputDialog extends State<InputDialog> {
                                   context,
                                 ).copyWith(scrollbars: false),
                                 child: GridView.builder(
-                                padding: EdgeInsets.all(4),
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 6,
-                                      crossAxisSpacing: 4,
-                                      mainAxisSpacing: 4,
-                                    ),
-                                itemCount: defaultEmojis.length,
-                                itemBuilder: (context, index) {
-                                  final emoji = defaultEmojis[index];
-                                  return MouseRegion(
-                                    cursor: SystemMouseCursors.click,
-                                    child: GestureDetector(
-                                      onTap: () => {_controller.text += emoji},
-                                      child: Container(
+                                  padding: EdgeInsets.all(4),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 6,
+                                        crossAxisSpacing: 4,
+                                        mainAxisSpacing: 4,
+                                      ),
+                                  itemCount: defaultEmojis.length,
+                                  itemBuilder: (context, index) {
+                                    final emoji = defaultEmojis[index];
+                                    return MouseRegion(
+                                      cursor: SystemMouseCursors.click,
+                                      child: GestureDetector(
+                                        onTap: () => {
+                                          _controller.text += emoji,
+                                        },
+                                        child: Container(
                                           decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            8,
+                                            borderRadius: BorderRadius.circular(
+                                              8,
+                                            ),
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            emoji,
+                                            style: TextStyle(fontSize: 22),
                                           ),
                                         ),
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          emoji,
-                                          style: TextStyle(fontSize: 22),
-                                        ),
                                       ),
-                                    ),
-                                  );
-                                },
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
                             ),
                           );
                         },
@@ -125,7 +141,8 @@ class _InputDialog extends State<InputDialog> {
                 FluentIcon(
                   icon: WindowsIcons.send,
                   onTap: () {
-                    handleSubmit(widget.userId);
+                    handleSubmit(_controller.text, widget.userId, MsgType.text);
+                        _controller.text = "";
                   },
                 ),
               ],
@@ -136,22 +153,21 @@ class _InputDialog extends State<InputDialog> {
     );
   }
 
-  handleSubmit(String userId) async {
-    if (_controller.text.isEmpty) {
+  handleSubmit(String content, String userId, int fileType) async {
+    if (content.isEmpty) {
       return;
     }
     final Message message = Message(
       ObjectId().toString(),
       settingController.setting.value.userId,
       userId,
-      _controller.text,
-      MsgType.text,
+      content,
+      fileType,
       MsgStatus.sended,
       DateTime.now().millisecondsSinceEpoch,
       DateTime.now().millisecondsSinceEpoch,
     );
     messageController.addMessage(message);
-    _controller.text = "";
     await messageController.getMessagePage(userId);
   }
 }

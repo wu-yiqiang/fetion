@@ -17,7 +17,7 @@ const String defaultMaskCode = '255.255.255.250';
 const String openSourceAddr = 'https://github.com/wu-yiqiang/fetion';
 const String issuesAddr = 'https://github.com/wu-yiqiang/fetion/issues';
 const String defaultPassword = '1234@Abcd';
-const int defaultPageSize = 21;
+const int defaultPageSize = 330;
 const int defaultPageNo = 1;
 const List<String> defaultEmojis = [
   '😊',
