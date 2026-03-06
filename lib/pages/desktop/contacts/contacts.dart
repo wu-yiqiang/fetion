@@ -2,7 +2,7 @@ import 'package:fetion/common/const.dart';
 import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/contacts/person_info.dart';
 import 'package:fetion/pages/desktop/contacts/persons.dart';
-import 'package:fetion/pages/desktop/contacts/person_box.dart' show PersonBox;
+import 'package:fetion/pages/desktop/contacts/operation_bar.dart';
 import 'package:fetion/pages/desktop/messages/single_dialog.dart';
 import 'package:fetion/widgets/Empty.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -41,7 +41,7 @@ class _ContactBar extends State<ContactBar> {
           color: theme.scaffoldBackgroundColor,
           child: Column(
             children: [
-              Row(children: [Expanded(child: PersonBox())]),
+              Row(children: [Expanded(child: OperationBar())]),
               Expanded(child: Persons()),
             ],
           ),

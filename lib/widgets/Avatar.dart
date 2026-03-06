@@ -14,6 +14,7 @@ Avatar({double size = 40, String? image}) {
               width: size,
               height: size,
               fit: BoxFit.cover,
+              alignment: Alignment.topCenter,
             )
           : Container(
               alignment: Alignment.center,
