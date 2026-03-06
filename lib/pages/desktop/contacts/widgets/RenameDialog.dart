@@ -1,14 +1,18 @@
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:get/get.dart';
 
-void DeleteDialog(
+void RenameDialog(
   BuildContext context,
+  String? text,
   String userId,
   FlyoutController flyoutController,
 ) async {
   final UserController userController = Get.find<UserController>();
+  final TextEditingController textController = TextEditingController(
+    text: text,
+  );
   final result = await showDialog<String>(
     context: context,
     builder: (context) => ContentDialog(
@@ -24,11 +28,14 @@ void DeleteDialog(
         ),
       ),
       title: Texts(
-        text: 'delete'.tr,
+        text: 'rename'.tr,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
-      content: Text('confirmDeleteTheContact'.tr),
+      content: Container(
+        child: TextBox(controller: textController, maxLength: 50),
+        height: 34,
+      ),
       actions: [
         Button(
           child: Texts(text: 'cancel'.tr, fontSize: 14),
@@ -39,11 +46,8 @@ void DeleteDialog(
         FilledButton(
           child: Texts(text: 'confirm'.tr, fontSize: 14),
           onPressed: () {
-            userController.deleteUser(userId);
+            userController.renameUser(userId, textController.text);
             userController.getUserLists();
-            if (userId == userController.userId.value) {
-              userController.userId.value = '';
-            }
             Navigator.pop(context);
             flyoutController.close();
           },

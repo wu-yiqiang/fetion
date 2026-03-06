@@ -1,7 +1,7 @@
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/db/models/message.model.dart';
 import 'package:fetion/db/models/user.model.dart';
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/messages/widges/ChatBox.dart' show ChatBox;
 import 'package:fetion/pages/desktop/messages/widges/TimeStamps.dart'
     show TimeStamps;

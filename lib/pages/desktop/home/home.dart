@@ -1,13 +1,13 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/common/light-theme.dart';
 import 'package:fetion/navigate/router_table.dart';
-import 'package:fetion/pages/desktop/contact/contact.dart';
+import 'package:fetion/pages/desktop/contacts/contacts.dart';
 import 'package:fetion/pages/desktop/home/controller/setting_controller.dart';
 import 'package:fetion/pages/desktop/me/me.dart';
 import 'package:fetion/pages/desktop/messages/controller/message_controller.dart';
 import 'package:fetion/pages/desktop/messages/message_bar.dart';
 import 'package:fetion/pages/desktop/notice/controller/notice_controller.dart';
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/notice/notice.dart';
 import 'package:fetion/pages/desktop/setting/setting.dart';
 import 'package:fetion/utils/EventBus.dart';
@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
           PaneItem(
             icon: Icon(FluentIcons.contact_list, size: 16),
             title: Text('groups'.tr, style: TextStyle(fontSize: 14)),
-            body: const NavigationBodyItem(content: Text("ssss")),
+            body: const NavigationBodyItem(content: Text("群聊功能")),
           ),
           PaneItem(
             icon: Icon(WindowsIcons.contact, size: 16),

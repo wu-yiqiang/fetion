@@ -1,9 +1,14 @@
+import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:fetion/widgets/Texts.dart';
 import 'package:get/get.dart';
 
-void AddDialog(BuildContext context) async {
-  final TextEditingController textController = TextEditingController(text: '');
+void DeleteDialog(
+  BuildContext context,
+  String userId,
+  FlyoutController flyoutController,
+) async {
+  final UserController userController = Get.find<UserController>();
   final result = await showDialog<String>(
     context: context,
     builder: (context) => ContentDialog(
@@ -19,29 +24,11 @@ void AddDialog(BuildContext context) async {
         ),
       ),
       title: Texts(
-        text: 'addContact'.tr,
+        text: 'delete'.tr,
         fontSize: 20,
         fontWeight: FontWeight.w500,
       ),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 10,
-        children: [
-          TextBox(
-            prefix: Container(
-              padding: EdgeInsets.only(left: 8),
-              child: Icon(WindowsIcons.search),
-            ),
-          ),
-          TextBox(
-            prefix: Container(
-              padding: EdgeInsets.only(left: 8),
-              child: Icon(WindowsIcons.search),
-            ),
-          ),
-        ],
-      ),
+      content: Text('confirmDeleteTheContact'.tr),
       actions: [
         Button(
           child: Texts(text: 'cancel'.tr, fontSize: 14),
@@ -50,8 +37,16 @@ void AddDialog(BuildContext context) async {
           },
         ),
         FilledButton(
-          child: Texts(text: 'add'.tr, fontSize: 14),
-          onPressed: () {},
+          child: Texts(text: 'confirm'.tr, fontSize: 14),
+          onPressed: () {
+            userController.deleteUser(userId);
+            userController.getUserLists();
+            if (userId == userController.userId.value) {
+              userController.userId.value = '';
+            }
+            Navigator.pop(context);
+            flyoutController.close();
+          },
         ),
       ],
     ),

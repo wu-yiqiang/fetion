@@ -1,4 +1,4 @@
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/me/widgets/ReadonlyInfoItem.dart';
 import 'package:fetion/widgets/Avatar.dart';
 import 'package:fetion/widgets/FluentIcon.dart';

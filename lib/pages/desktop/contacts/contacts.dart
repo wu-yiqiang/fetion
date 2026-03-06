@@ -1,8 +1,8 @@
 import 'package:fetion/common/const.dart';
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
-import 'package:fetion/pages/desktop/contact/person_info.dart';
-import 'package:fetion/pages/desktop/contact/persons.dart';
-import 'package:fetion/pages/desktop/contact/person_box.dart' show PersonBox;
+import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/contacts/person_info.dart';
+import 'package:fetion/pages/desktop/contacts/persons.dart';
+import 'package:fetion/pages/desktop/contacts/person_box.dart' show PersonBox;
 import 'package:fetion/pages/desktop/messages/single_dialog.dart';
 import 'package:fetion/widgets/Empty.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -21,11 +21,14 @@ class _ContactBar extends State<ContactBar> {
   void initState() {
     super.initState();
     userController = Get.find<UserController>();
+    userController.getUserLists();
   }
 
   void dispose() {
     super.dispose();
-    // userController.dispose();
+    userController.sessionId.value = "";
+    userController.userId.value = "";
+    userController.clearUserLists();
   }
 
   @override

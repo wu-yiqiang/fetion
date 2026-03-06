@@ -1,5 +1,5 @@
 import 'package:fetion/common/light-theme.dart';
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/messages/topbar_tools.dart';
 import 'package:fetion/widgets/StatusAvatar.dart';
 import 'package:fetion/widgets/Texts.dart';

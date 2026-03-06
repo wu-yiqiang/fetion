@@ -1,5 +1,5 @@
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
-import 'package:fetion/pages/desktop/contact/person.dart' show Person;
+import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/contacts/person.dart' show Person;
 import 'package:fetion/widgets/ScrollViews.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,8 +9,11 @@ class Persons extends StatefulWidget {
   @override
   State<Persons> createState() => _Persons();
 }
+
 class _Persons extends State<Persons> {
   late UserController userController = Get.find<UserController>();
+
+
   @override
   Widget build(BuildContext context) {
     return ScrollViews(

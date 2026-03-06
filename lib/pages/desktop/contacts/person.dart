@@ -1,8 +1,8 @@
 import 'package:fetion/common/const.dart';
 import 'package:fetion/db/models/user.model.dart';
-import 'package:fetion/pages/desktop/contact/controller/contact_controller.dart';
-import 'package:fetion/pages/desktop/contact/widgets/DeleteDialog.dart';
-import 'package:fetion/pages/desktop/contact/widgets/RenameDialog.dart';
+import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
+import 'package:fetion/pages/desktop/contacts/widgets/DeleteDialog.dart';
+import 'package:fetion/pages/desktop/contacts/widgets/RenameDialog.dart';
 import 'package:fetion/widgets/Avatar.dart' show Avatar;
 import 'package:fetion/widgets/Texts.dart';
 import 'package:fluent_ui/fluent_ui.dart';
