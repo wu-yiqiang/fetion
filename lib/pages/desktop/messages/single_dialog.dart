@@ -1,5 +1,6 @@
 import 'package:fetion/pages/desktop/messages/input_dialog.dart';
 import 'package:fetion/pages/desktop/messages/main_dialog.dart';
+import 'package:fetion/pages/desktop/messages/single_topbar.dart';
 import 'package:flutter/material.dart';
 
 class SingleDialog extends StatefulWidget {
@@ -17,7 +18,7 @@ class _SingleDialog extends State<SingleDialog> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // SingleTopbar(),
+        SingleTopbar(),
         Expanded(
           child: MainDialog(widget.userId),
         ),

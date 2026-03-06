@@ -51,5 +51,7 @@ final Map<String, String> zh_CN = {
   'light': "亮色",
   'voiceCall': "语音电话",
   'videoCall': "视频电话",
-  'message': "消息"
+  'message': "消息",
+  'createGroup': "创建群组",
+  'create': "创建"
 };

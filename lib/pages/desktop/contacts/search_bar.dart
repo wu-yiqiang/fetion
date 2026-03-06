@@ -1,4 +1,6 @@
 import 'package:fetion/common/light-theme.dart';
+import 'package:fetion/pages/desktop/contacts/widgets/AddContact.dart';
+import 'package:fetion/pages/desktop/contacts/widgets/CreateGroup.dart';
 import 'package:fetion/utils/EventBus.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
@@ -28,9 +30,21 @@ class _SearchsBar extends State<SearchsBar> {
                 child: Icon(WindowsIcons.search),
               ),
               onChanged: (value) {
-                eventBus.emit(Events.SEARCHMESSAGE.name, value);
+                eventBus.emit(Events.SEARCHCONTACT.name, value);
               },
             ),
+          ),
+          IconButton(
+            icon: Icon(WindowsIcons.add_friend, size: 16),
+            onPressed: () {
+              AddDialog(context);
+            },
+          ),
+          IconButton(
+            icon: Icon(FluentIcons.add_group, size: 16),
+            onPressed: () {
+              CreateGroup(context);
+            },
           ),
         ],
       ),

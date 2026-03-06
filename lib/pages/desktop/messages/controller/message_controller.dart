@@ -9,6 +9,7 @@ import 'package:fetion/db/models/message.model.dart';
 class MessageController extends GetxController {
   MessageRepository? _messageRepository;
   late RxList<dynamic> messages = [].obs;
+  late RxList<dynamic> userMessages = [].obs;
   late RxInt unReadCount = 0.obs;
   late RxInt pageSize = defaultPageSize.obs;
   late RxInt pageNo = defaultPageNo.obs;
@@ -30,6 +31,10 @@ class MessageController extends GetxController {
     _changesSubscription = unreadResults.changes.listen((result) {
       unReadCount.value = unreadResults.length;
     });
+  }
+
+  getUserMessage() {
+    userMessages.value = [];
   }
 
   getMessagePage(String userId) async {

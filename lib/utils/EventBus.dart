@@ -1,6 +1,6 @@
 typedef void EventCallback(arg);
 
-enum Events { NAVIGATE, LOADINGERROR, SCROLLBOTTOM, GLOBALMESSAGES }
+enum Events { NAVIGATE, LOADINGERROR, SCROLLBOTTOM, GLOBALMESSAGES, SEARCHCONTACT,SEARCHMESSAGE }
 
 class EventBus {
   EventBus._internal();

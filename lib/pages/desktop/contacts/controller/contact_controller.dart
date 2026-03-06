@@ -31,8 +31,8 @@ class UserController extends GetxController {
     await initDb();
   }
 
-  getUserLists() {
-    users.value = _userRepository?.getAllActivedUsers() ?? [];
+  getUserLists({String username = ''}) {
+    users.value = _userRepository?.getAllActivedUsers(username) ?? [];
   }
   clearUserLists() {
     users.value = [];

@@ -51,5 +51,7 @@ final Map<String, String> en_US = {
   'light': "Light",
   'voiceCall': "Voice Call",
   'videoCall': "Video Call",
-  'message': "Message"
+  'message': "Message",
+  'createGroup': "Create Group",
+  'create': "Create"
 };

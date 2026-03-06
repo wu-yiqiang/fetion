@@ -51,8 +51,14 @@ class UserRepository {
     return _realm.all<User>().toList();
   }
 
-  List<User> getAllActivedUsers() {
-    return _realm.all<User>().where((u) => u.isDeleted == false).toList();
+  List<User> getAllActivedUsers(String username) {
+    print(username);
+    if (username.isEmpty)
+      return _realm.all<User>().where((u) => u.isDeleted == false).toList();
+    return _realm.query<User>(
+      'fullName CONTAINS[c] \$0 OR nickName CONTAINS[c] \$0 OR remarks CONTAINS[c] \$0 AND isDeleted == false',
+      [username],
+    ).toList();
   }
 
   void updateUser(User user) {
@@ -90,6 +96,7 @@ class UserRepository {
     if (user == null) return;
     updateUserItem(id, 'isDeleted', true);
   }
+
   void deleteUser(String id) {
     User? user = findUser(id);
     if (user == null) return;
