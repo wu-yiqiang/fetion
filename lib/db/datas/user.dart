@@ -56,7 +56,7 @@ class UserRepository {
     if (username.isEmpty)
       return _realm.all<User>().where((u) => u.isDeleted == false).toList();
     return _realm.query<User>(
-      'fullName CONTAINS[c] \$0 OR nickName CONTAINS[c] \$0 OR remarks CONTAINS[c] \$0 AND isDeleted == false',
+      'nickName CONTAINS[c] \$0 OR remarks CONTAINS[c] \$0 AND isDeleted == false',
       [username],
     ).toList();
   }
