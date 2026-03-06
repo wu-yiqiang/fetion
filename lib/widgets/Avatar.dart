@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:fluent_ui/fluent_ui.dart' hide Colors;
 import 'package:flutter/material.dart';
 
+
 class Avatar extends StatelessWidget {
   final double size;
   final String image;
@@ -22,6 +23,7 @@ class Avatar extends StatelessWidget {
                 height: this.size,
                 fit: BoxFit.cover,
                 alignment: Alignment.topCenter,
+                gaplessPlayback: true,
               )
             : Container(
                 alignment: Alignment.center,

@@ -35,75 +35,82 @@ class _Person extends State<Person> {
     return FlyoutTarget(
       controller: menuController,
       child: Obx(() {
-        return Container(
+        return AnimatedContainer(
+          duration: Duration(microseconds: 500),
           color: userController.userId.value == widget.item.id
               ? theme.inactiveBackgroundColor
               : null,
-          padding: EdgeInsets.all(4),
-          child: GestureDetector(
-            onTap: () {
-              userController.userId.value = widget.item.id;
-              userController.sessionId.value = '';
-            },
-            child: MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: Container(
-                padding: EdgeInsets.all(8),
-                child: Row(
-                  spacing: 10,
-                  children: [
-                    Avatar(size: 30, image: widget.item?.avatar ?? ''),
-                    Expanded(
-                      child: Texts(
-                        text: widget.item.remarks ?? widget.item.nickName,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            onSecondaryTap: () {
-              menuController.showFlyout<void>(
-                autoModeConfiguration: FlyoutAutoConfiguration(
-                  preferredMode: FlyoutPlacementMode.topCenter,
-                ),
-                barrierDismissible: true,
-                dismissOnPointerMoveAway: false,
-                dismissWithEsc: true,
-                // navigatorKey: rootNavigatorKey.currentState,
-                builder: (context) {
-                  return MenuFlyout(
-                    items: [
-                      MenuFlyoutItem(
-                        leading: Icon(WindowsIcons.rename),
-                        text: Text('rename'.tr),
-                        onPressed: () {
-                          RenameDialog(
-                            context,
-                            widget.item.remarks,
-                            widget.item.id,
-                            menuController,
-                          );
-                        },
-                      ),
-                      MenuFlyoutItem(
-                        leading: Icon(WindowsIcons.delete),
-                        text: Text('delete'.tr),
-                        onPressed: () {
-                          DeleteDialog(context, widget.item.id, menuController);
-                        },
-                      ),
-                      const MenuFlyoutSeparator(),
-                      MenuFlyoutItem(
-                        leading: Icon(WindowsIcons.group_list),
-                        text: Text('Sort'),
-                        onPressed: Flyout.of(context).close,
+          child: Container(
+            padding: EdgeInsets.all(4),
+            child: GestureDetector(
+              onTap: () {
+                userController.userId.value = widget.item.id;
+                userController.sessionId.value = '';
+              },
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: Container(
+                  padding: EdgeInsets.all(8),
+                  child: Row(
+                    spacing: 10,
+                    children: [
+                      Avatar(size: 30, image: widget.item.avatar ?? ''),
+                      Expanded(
+                        child: Texts(
+                          text: widget.item.remarks ?? widget.item.nickName,
+                        ),
                       ),
                     ],
-                  );
-                },
-              );
-            },
+                  ),
+                ),
+              ),
+              onSecondaryTap: () {
+                menuController.showFlyout<void>(
+                  autoModeConfiguration: FlyoutAutoConfiguration(
+                    preferredMode: FlyoutPlacementMode.topCenter,
+                  ),
+                  barrierDismissible: true,
+                  dismissOnPointerMoveAway: false,
+                  dismissWithEsc: true,
+                  // navigatorKey: rootNavigatorKey.currentState,
+                  builder: (context) {
+                    return MenuFlyout(
+                      items: [
+                        MenuFlyoutItem(
+                          leading: Icon(WindowsIcons.rename),
+                          text: Text('rename'.tr),
+                          onPressed: () {
+                            RenameDialog(
+                              context,
+                              widget.item.remarks,
+                              widget.item.id,
+                              menuController,
+                            );
+                          },
+                        ),
+                        MenuFlyoutItem(
+                          leading: Icon(WindowsIcons.delete),
+                          text: Text('delete'.tr),
+                          onPressed: () {
+                            DeleteDialog(
+                              context,
+                              widget.item.id,
+                              menuController,
+                            );
+                          },
+                        ),
+                        const MenuFlyoutSeparator(),
+                        MenuFlyoutItem(
+                          leading: Icon(WindowsIcons.group_list),
+                          text: Text('Sort'),
+                          onPressed: Flyout.of(context).close,
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
           ),
         );
       }),
