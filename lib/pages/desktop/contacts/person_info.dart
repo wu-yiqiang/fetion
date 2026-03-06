@@ -97,21 +97,21 @@ class _PersonInfo extends State<PersonInfo> {
                       userController.getSessionInfo(userId);
                     },
                   ),
-                  Texts(text: "Message"),
+                  Texts(text: 'message'.tr),
                 ],
               ),
               Column(
                 spacing: 8,
                 children: [
                   FluentIcon(icon: WindowsIcons.phone, size: 30, onTap: () {}),
-                  Texts(text: "Call"),
+                  Texts(text: 'voiceCall'.tr),
                 ],
               ),
               Column(
                 spacing: 8,
                 children: [
                   FluentIcon(icon: WindowsIcons.video, size: 30, onTap: () {}),
-                  Texts(text: "Video"),
+                  Texts(text: 'videoCall'.tr),
                 ],
               ),
             ],

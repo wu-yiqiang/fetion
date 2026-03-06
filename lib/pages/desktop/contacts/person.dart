@@ -1,4 +1,3 @@
-import 'package:fetion/common/const.dart';
 import 'package:fetion/db/models/user.model.dart';
 import 'package:fetion/pages/desktop/contacts/controller/contact_controller.dart';
 import 'package:fetion/pages/desktop/contacts/widgets/DeleteDialog.dart';
@@ -53,10 +52,7 @@ class _Person extends State<Person> {
                 child: Row(
                   spacing: 10,
                   children: [
-                    Avatar(
-                      size: 30,
-                      image: widget.item?.avatar ?? '',
-                    ),
+                    Avatar(size: 30, image: widget.item?.avatar ?? ''),
                     Expanded(
                       child: Texts(
                         text: widget.item.remarks ?? widget.item.nickName,

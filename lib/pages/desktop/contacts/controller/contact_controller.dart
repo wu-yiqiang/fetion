@@ -32,7 +32,6 @@ class UserController extends GetxController {
   }
 
   getUserLists() {
-    if (_userRepository == null) return [];
     users.value = _userRepository?.getAllActivedUsers() ?? [];
   }
   clearUserLists() {

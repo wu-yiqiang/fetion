@@ -48,5 +48,8 @@ final Map<String, String> en_US = {
   'add': "Add",
   'addContact': "Add Contact",
   'dark': "Dark",
-  'light': "Light"
+  'light': "Light",
+  'voiceCall': "Voice Call",
+  'videoCall': "Video Call",
+  'message': "Message"
 };

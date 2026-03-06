@@ -15,8 +15,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPage extends State<LoginPage> {
   final SettingController settingController = Get.find<SettingController>();
+  final TextEditingController _passwordController = TextEditingController();
   var showPassword = false;
-  String enterPassword = '';
   @override
   Widget build(BuildContext context) {
     return NavigationView(
@@ -39,11 +39,7 @@ class _LoginPage extends State<LoginPage> {
                   spacing: 14,
                   children: [
                     PasswordBox(
-                      onChanged: (String value) {
-                        setState(() {
-                          enterPassword = value;
-                        });
-                      },
+                      controller: _passwordController,
                       onSubmitted: (String value) {
                         handleLogin();
                       },
@@ -69,6 +65,7 @@ class _LoginPage extends State<LoginPage> {
 
   void handleLogin() {
     String password = settingController.setting.value.password;
+    String enterPassword = _passwordController.text;
     if (password != enterPassword) {
       OverlayMessage.show(
         context: context,

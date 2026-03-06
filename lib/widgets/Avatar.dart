@@ -2,28 +2,36 @@ import 'dart:convert';
 import 'package:fluent_ui/fluent_ui.dart' hide Colors;
 import 'package:flutter/material.dart';
 
-Avatar({double size = 40, String? image}) {
-  final hasImage = image != null && image!.isNotEmpty;
-  return SizedBox(
-    height: size,
-    width: size,
-    child: ClipOval(
-      child: hasImage
-          ? Image.memory(
-              base64Decode(image!),
-              width: size,
-              height: size,
-              fit: BoxFit.cover,
-              alignment: Alignment.topCenter,
-            )
-          : Container(
-              alignment: Alignment.center,
-              child: WindowsIcon(
-                FluentIcons.contact,
-                size: size * 0.8,
-                color: Colors.grey[500],
+class Avatar extends StatelessWidget {
+  final double size;
+  final String image;
+  const Avatar({super.key, required this.size, required this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    final hasImage = this.image != null && this.image.isNotEmpty;
+    print("ssdasda");
+    return SizedBox(
+      height: this.size,
+      width: this.size,
+      child: ClipOval(
+        child: hasImage
+            ? Image.memory(
+                base64Decode(this.image!),
+                width: this.size,
+                height: this.size,
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
+              )
+            : Container(
+                alignment: Alignment.center,
+                child: WindowsIcon(
+                  FluentIcons.contact,
+                  size: this.size * 0.8,
+                  color: Colors.grey[500],
+                ),
               ),
-            ),
-    ),
-  );
+      ),
+    );
+  }
 }
