@@ -11,7 +11,6 @@ class Avatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hasImage = this.image != null && this.image.isNotEmpty;
-    print("ssdasda");
     return SizedBox(
       height: this.size,
       width: this.size,
